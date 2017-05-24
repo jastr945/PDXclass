@@ -32,7 +32,7 @@ while running:
 
     if query == 1:
         pass
-    if query == 2:
+    elif query == 2:
         print(phonebook.keys())
         name = (str(input('Which contact do you want to retrieve? '))).capitalize()
         if name == 'Katie':
@@ -45,6 +45,7 @@ while running:
             print(phonebook['James'])
         else:
             print('There is no such name. Please try again.')
-
-
-
+    elif query == 3:
+        pass
+    elif query == 4:
+        pass
