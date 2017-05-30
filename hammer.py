@@ -12,10 +12,14 @@
 
 
 
-am_or_pm = str(input('AM or PM? ')).capitalize()
+am_or_pm = str(input('AM or PM? ')).upper()
+while am_or_pm not in ['AM', 'PM']:
+    print('Invalid input.Try again.')
+    am_or_pm = str(input('AM or PM?')).upper()
 hour_of_day = int(input('Enter an hour (from 1 to 12): '))
 
 def meal(ampm,hour):
+
     if ampm == 'AM':
         if hour in range(7,10):
             return "It's breakfast"
@@ -23,7 +27,6 @@ def meal(ampm,hour):
             return 'Hammer'
         else:
             return 'It\'s not the time to eat!'
-
     else:
         if hour in range(1,2) or hour == 12:
             return 'It\'s lunch!'
