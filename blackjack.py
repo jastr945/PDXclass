@@ -28,8 +28,7 @@ In the game module, implement top-level functions that:
 
 
 
-# from random import randin
-# from random import shuffle
+import random
 
 
 suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
@@ -71,7 +70,18 @@ class Deck:
         return '{}'.format(self.rank, self.suit)
 
 
+    def cut_and_shuffle(self):
+        """
+        Cuts the deck in a random manner and shuffles it.
+        """
+        cutting_point = random.randrange(len(self.cards))
+        bottom = self.cards[cutting_point:]
+        top = self.cards[:cutting_point]
+        cutdeck = bottom + top
+        random.shuffle(cutdeck)
+        return cutdeck
+
+
 d = Deck()
 print(d.cards)
-
-
+print(d.cut_and_shuffle())
