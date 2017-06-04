@@ -108,8 +108,13 @@ def ms_clean(raw_data: str):
     This function leaves every first and last letter of the word ad replaces the middle with a number.
     '''
 
-    cleaned = re.sub('[ount]{4}','4',(re.sub('[eadabilit]{9}','9',raw_data)))
-    return cleaned
+    mylist = re.findall(r'\w+|[^\w\s]', raw_data)
+    for word in mylist:
+        length = str(len(word) - 2)
+        extract = word[1:-1]
+        cleaned = re.sub(extract, length, word)
+
+        print(cleaned, end = ' ')
 
 
 print(ms_clean('Readability counts'))
@@ -140,7 +145,7 @@ def extracto(raw_data: str):
 
     nums = [int(x) for x in cleaned]
 
-    return(sum(nums))
+    return sum(nums)
 
 
 print(extracto("1S2pe3cia4l ca5ses ar6en't sp7ecial en8ough to b9reak the r0ules."))
