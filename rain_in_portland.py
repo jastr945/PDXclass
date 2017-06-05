@@ -28,20 +28,45 @@ Advanced
 
 '''
 
-with open('/home/polina/projects/class/sample.rain','r') as text:
-    rains = text.readlines()[11:15]
-    # from ipdb import set_trace; set_trace()
-    # print(rains)
+with open('/home/polina/projects/class/sample.rain', 'r') as text:
+    rains = text.readlines()[11:]
+
+    maxrain = ('1-JAN-2015', 0)
+    newdict = {}
+
+
     for rain in rains:
-        print(rain[:-1].split(' '))
-            # date_str = line[0]
-            # print(date_str)
-    #     print(split_str[1:])
-    #     w = 0
-    #     for i in split_str[1:]:
-    #         if i == '':
-    #             continue
-    #         else:
-    #             w += int(i)
-    #     print(w)
+        newlist = rain[11:-1].split(' ')
+
+        sumnumbers = (sum(int(i) for i in newlist if i != '' and i != '-'))
+
+        datestr = rain[:11]
+
+        if sumnumbers > maxrain[1]:
+            maxrain = (datestr, sumnumbers)
+
+
+        if datestr[-4:] not in newdict:
+            newdict[datestr[-4:]] = 0
+        newdict[datestr[-4:]] += sumnumbers
+
+
+    print('The largest amount of rain per day: {} inches; date: {}.'.format(maxrain[1], maxrain[0]))
+    maxyear = sorted(newdict.items(), key=lambda x: x[1])[-1]
+    print('The largest amount of rain per year: {} inches; year: {}'.format(maxyear[1], maxyear[0]))
+
+
+
+
+
+
+
+        # t = (datestr, sumnumbers)
+        # print(t)
+
+
+
+
+
+
 
