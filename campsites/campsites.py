@@ -21,6 +21,23 @@ The profile will contain the list of facilities / amenities:
 * for RV: water and sewer hook-ups.
 * for tents: picnic areas
 
+
+Example Output:
+
+Campground: Woodburn RV Park
+Type: RV Park
+Location: Woodburn, OR
+Capacity: 150
+Parking: Yes
+Internet: No Wi-Fi
+Toilet: Flush toilets
+Showers: Yes
+Pool: No
+Pet-friendly: Pets are allowed.
+Family-friendly: Playground is available.
+Water hook-up: Yes
+Sewer hook-up: Yes
+
 """
 
 
@@ -51,6 +68,9 @@ class Searchable:
 
 
 class RV(Campground, Searchable):
+    """
+    Adds whether there is a sewer and water hook-up for RV's.
+    """
     def __init__(self, name, water, sewer):
         super().__init__(name)
         self.water = water
@@ -58,6 +78,12 @@ class RV(Campground, Searchable):
 
 
 class Tentsite(Campground, Searchable):
+    """
+    Adds whether there is a picnic area on the campsite.
+    """
     def __init__(self, name, picnic_area):
         super().__init__(name)
         self.picnic_area = picnic_area
+
+
+
