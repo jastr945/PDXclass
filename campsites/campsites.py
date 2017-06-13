@@ -23,12 +23,41 @@ The profile will contain the list of facilities / amenities:
 
 """
 
-class Facilities:
-    def __init__(self):
-
 
 class Campground:
     def __init__(self, name, location, capacity):
         self.name = name
         self.location = location
         self.capacity = capacity
+
+
+class Facilities:
+    def __init__(self, has_parking, has_internet, toilet, has_showers, has_pool, pet_friendly, family_friendly):
+        self.has_parking = has_parking
+        self.has_internet = has_internet
+        self.toilet = toilet
+        self.has_showers = has_showers
+        self.has_pool = has_pool
+        self.pet_friendly = pet_friendly
+        self.family_friendly = family_friendly
+
+
+class Searchable:
+    """
+    Contains a function allowing to search for a keyword. All other classes will inherit it.
+    """
+    def get_str(self):
+        return '{}'.format(self.name)
+
+
+class RV(Campground, Searchable):
+    def __init__(self, name, water, sewer):
+        super().__init__(name)
+        self.water = water
+        self.sewer = sewer
+
+
+class Tentsite(Campground, Searchable):
+    def __init__(self, name, picnic_area):
+        super().__init__(name)
+        self.picnic_area = picnic_area
