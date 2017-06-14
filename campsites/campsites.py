@@ -43,15 +43,12 @@ Sewer hook-up: Yes
 import sqlite3
 
 
-class Data:
+class DatabaseManager:
     """
-    A connection object that represents the database.
+    A connection object that uses sqlite3 package to create and manipulate SQLite relational database.
     """
 
-
-    conn = sqlite3.connect('campgrounds.db')
-
-    print("Opened database successfully")
+    conn = sqlite3.connect('campgrounds.db') # opening the database
 
     conn.execute('''DROP TABLE IF EXISTS CAMPGROUNDS''')
 
@@ -73,62 +70,106 @@ class Data:
              PICNIC_AREA      TEXT    NOT NULL);''')
 
 
-    print("Table created successfully")
 
     conn.execute("INSERT INTO CAMPGROUNDS (ID,NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,TOILET,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
-          VALUES (1, 'Rocky Bend Campground', 'Campground', 'Upper Nestucca River Rd, Beaver, OR 97108', 6, 'Yes', 'No', 'Vault toilet', 'No', 'No', 'Yes', 'No playground', 'No', 'No', 'No')");
+          VALUES (1, 'Rocky Bend Campground', 'Tent sites', 'Upper Nestucca River Rd, Beaver, OR 97108', 6, 'Yes', 'No', 'Vault toilet', 'No', 'No', 'Yes', 'No playground', 'No', 'No', 'No')");
 
     conn.execute("INSERT INTO CAMPGROUNDS (ID,NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,TOILET,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
           VALUES (2, 'Deerwood RV Park', 'RV park', '35059 Seavey Loop Rd, Eugene, OR 97405', 50, 'Yes', 'Yes', 'Flush toilets', 'Yes', 'No', 'Yes', 'No playground', 'Yes', 'Yes', 'No')");
 
     conn.execute("INSERT INTO CAMPGROUNDS (ID,NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,TOILET,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
-          VALUES (3, 'Packard Creek Campground', 'Campground', 'NF-21, Westfir, OR 97492', 35, 'Yes', 'No', 'Vault toilet', 'No', 'No', 'Yes', 'No playground', 'No', 'No', 'Yes')");
+          VALUES (3, 'Packard Creek Campground', 'Tent sites', 'NF-21, Westfir, OR 97492', 35, 'Yes', 'No', 'Vault toilet', 'No', 'No', 'Yes', 'No playground', 'No', 'No', 'Yes')");
 
     conn.execute("INSERT INTO CAMPGROUNDS (ID,NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,TOILET,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
           VALUES (4, 'Mt Hood Village RV Resort', 'RV park', '65000 E. Hwy 26, Welches, OR 97067', 382, 'Yes', 'Yes', 'Flush toilets', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes')");
 
+    conn.execute("INSERT INTO CAMPGROUNDS (ID,NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,TOILET,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
+          VALUES (5, 'Portland Fairview RV Park', 'RV park', '21401 NE Sandy Blvd, Fairview, OR 97024', 407, 'Yes', 'No', 'Flush toilets', 'Yes', 'Yes', 'Yes', 'No playground', 'Yes', 'Yes', 'No')");
+
+    conn.execute("INSERT INTO CAMPGROUNDS (ID,NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,TOILET,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
+          VALUES (6, 'Barton Park', 'Tent sites', '19009 SE Barton Park Rd, Boring, OR 97009', 112, 'Yes', 'No', 'Vault toilets', 'No', 'No', 'Yes', 'No playground', 'No', 'No', 'Yes')");
+
+    conn.execute("INSERT INTO CAMPGROUNDS (ID,NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,TOILET,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
+          VALUES (7, 'Dougan Creek Campground', 'Tent sites', 'Washougal, WA 98671', 7, 'Yes', 'No', 'Flush toilets', 'No', 'No', 'Yes', 'No playground', 'No', 'No', 'Yes')");
+
+    conn.execute("INSERT INTO CAMPGROUNDS (ID,NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,TOILET,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
+          VALUES (8, 'Jantzen Beach RV Park', 'RV park', '1503 N Hayden Island Dr, Portland, OR 97217', 85, 'Yes', 'Yes, high-speed', 'Flush toilets', 'Yes', 'Yes', 'Yes', 'Playground, clubhouse, game room, basketball court', 'Yes', 'Yes', 'No')");
+
+    conn.execute("INSERT INTO CAMPGROUNDS (ID,NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,TOILET,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
+          VALUES (9, 'Lower Falls Campground', 'Tent sites', '42218 NE Yale Bridge Rd, Amboy, WA 98601', 43, 'Yes', 'No', 'Accessible vault toilets', 'No', 'No', 'Yes', 'No playground', 'No', 'No', 'Yes')");
+
+    conn.execute("INSERT INTO CAMPGROUNDS (ID,NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,TOILET,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
+          VALUES (10, 'Promontory Park Campground', 'Tent sites', '40600 OR-224, Estacada, OR 97023', 46, 'Yes', 'No', 'Accessible restrooms', 'Yes', 'No', 'Yes', 'A fishing lake just for kids', 'No', 'No', 'Yes')");
+
     conn.commit()
 
-    print("Records created successfully")
 
     cursor = conn.execute("SELECT * FROM CAMPGROUNDS")
     for row in cursor:
         print("ID:", row[0])
-        print("NAME:", row[1])
-        print("TYPE:", row[2])
-        print("LOCATION:", row[3])
-        print("CAPACITY:", row[4])
-        print("PARKING:", row[5])
-        print("INTERNET:", row[6])
-        print("TOILET:", row[7])
-        print("SHOWERS:", row[8])
-        print("POOL:", row[9])
-        print("PET_FRIENDLY:", row[10])
-        print("FAMILY_FRIENDLY:", row[11])
-        print("WATER_HOOK_UP:", row[12])
-        print("SEWER_HOOK_UP:", row[13])
-        print("PICNIC_AREA:", row[14], '\n')
+        print("Name:", row[1])
+        print("Type:", row[2])
+        print("Location:", row[3])
+        print("Capacity:", row[4])
+        print("Parking:", row[5])
+        print("Internet:", row[6])
+        print("Toilet:", row[7])
+        print("Showers:", row[8])
+        print("Pool:", row[9])
+        print("Pet friendly:", row[10])
+        print("Family / kids friendly:", row[11])
+        print("Water hook-up:", row[12])
+        print("Sewer hook-up:", row[13])
+        print("Picnic area:", row[14], '\n')
 
     conn.close()
 
     id = None
 
-    def delete(self):  # usun mnie z bazy danych
+    def syncdb(self):
+        """
+        Creates a database and deletes it if it already exists.
+        """
         pass
 
+    def delete(id):
+        """
+        Deletes a row in the table according to its ID (primary key).
+        """
+        cursor.execute('''DELETE FROM CAMPGROUNDS WHERE ID=id''')
+        print('Record deleted successfully.')
+
     # @staticmethod
-    def get(id):  # pobierz z bazy danych
-        pass
+    def get(id):
+        """
+        Selects a row from the table according to ID (primary key) and displays it.
+        """
+        cursor = conn.execute('''SELECT * FROM CAMPGROUNDS WHERE ID=id''')
+        for row in cursor:
+            print("ID:", row[0])
+            print("NAME:", row[1])
+            print("TYPE:", row[2])
+            print("LOCATION:", row[3])
+            print("CAPACITY:", row[4])
+            print("PARKING:", row[5])
+            print("INTERNET:", row[6])
+            print("TOILET:", row[7])
+            print("SHOWERS:", row[8])
+            print("POOL:", row[9])
+            print("PET_FRIENDLY:", row[10])
+            print("FAMILY_FRIENDLY:", row[11])
+            print("WATER_HOOK_UP:", row[12])
+            print("SEWER_HOOK_UP:", row[13])
+            print("PICNIC_AREA:", row[14], '\n')
 
     # @staticmethod
     def search(search_str):  # wyszukaj w bazie
         pass
 
-    def save(self): # logika, ktora bedzie zapisywac do bazy danych wszystkie atrybuty
+    def update(self): # logika, ktora bedzie zapisywac do bazy danych wszystkie atrybuty
         pass
 
-    def syncdb(self): # tworzy baze danych i przygotowuje tabele jesli tabela nie istnieje
-        pass
+
 
 class Campground:
     def __init__(self, name, location, capacity):
@@ -156,9 +197,9 @@ class Facilities:
 #         return '{}'.format(self.name)
 
 
-class RV(Campground, Data):
+class RV(Campground, DatabaseManager):
     """
-    Adds whether there is a sewer and water hook-up for RV's.
+    Adds whether there is a sewer and water hook-up available in RV parks.
     """
     def __init__(self, name, water, sewer):
         super().__init__(name)
@@ -166,9 +207,9 @@ class RV(Campground, Data):
         self.sewer = sewer
 
 
-class Tentsite(Campground, Data):
+class Tentsite(Campground, DatabaseManager):
     """
-    Adds whether there is a picnic area on the campsite.
+    Adds whether there is a picnic area available on campsites.
     """
     def __init__(self, name, picnic_area):
         super().__init__(name)
