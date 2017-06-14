@@ -53,6 +53,8 @@ class Data:
 
     print("Opened database successfully")
 
+    conn.execute('''DROP TABLE IF EXISTS CAMPGROUNDS''')
+
     conn.execute('''CREATE TABLE CAMPGROUNDS
              (ID              INT PRIMARY KEY    NOT NULL,
              NAME             TEXT    NOT NULL,
@@ -69,6 +71,7 @@ class Data:
              WATER_HOOK_UP    TEXT    NOT NULL,
              SEWER_HOOK_UP    TEXT    NOT NULL,
              PICNIC_AREA      TEXT    NOT NULL);''')
+
 
     print("Table created successfully")
 
@@ -88,6 +91,25 @@ class Data:
 
     print("Records created successfully")
 
+    cursor = conn.execute("SELECT * FROM CAMPGROUNDS")
+    for row in cursor:
+        print("ID:", row[0])
+        print("NAME:", row[1])
+        print("TYPE:", row[2])
+        print("LOCATION:", row[3])
+        print("CAPACITY:", row[4])
+        print("PARKING:", row[5])
+        print("INTERNET:", row[6])
+        print("TOILET:", row[7])
+        print("SHOWERS:", row[8])
+        print("POOL:", row[9])
+        print("PET_FRIENDLY:", row[10])
+        print("FAMILY_FRIENDLY:", row[11])
+        print("WATER_HOOK_UP:", row[12])
+        print("SEWER_HOOK_UP:", row[13])
+        print("PICNIC_AREA:", row[14], '\n')
+
+    conn.close()
 
     id = None
 
