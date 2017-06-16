@@ -22,6 +22,7 @@ If a campground name is missing in the database, the user can create a new recor
 """
 
 import sqlite3
+import requests
 
 
 conn = sqlite3.connect('campgrounds.db')
@@ -140,6 +141,24 @@ class DatabaseManager(object):
         print('Record deleted successfully.')
 
 
+class Weather:
+    """
+    Imports the current weather data from OpenWeatherMap website.
+    """
+
+    def get_weather(self, location):
+        package = {
+            'APPID': '6b919e5d511686a6a70d2728794a6fe5',
+            'q': str(location)
+        }
+
+        r = requests.post('http://api.openweathermap.org/data/2.5/weather', params=package)
+        json_data = r.json()
+        return '{}\nTemperature: {:.2f} F\nPressure: {} hpa\nHumidity: {} %\nVisibility: {} miles\nWind speed: {} m/s'\
+            .format(json_data['weather'][0]['description'], json_data['main']['temp'] * 9/5 - 459.67, json_data['main']['pressure'], json_data['main']['humidity'], json_data['visibility'],json_data['wind']['speed'])
+
+
+
 class Campground(DatabaseManager):
     """
     Contains a prototype of every campground and inherits functionality of the DatabaseManager class.
@@ -218,4 +237,10 @@ def search():
     else:
         return Tentsite(id=row_list[0][0], name=row_list[0][1], camptype=row_list[0][2], location=row_list[0][3], capacity=row_list[0][4], parking=row_list[0][5], internet=row_list[0][6], restrooms=row_list[0][7], showers=row_list[0][8], pool=row_list[0][9], pets=row_list[0][10], family=row_list[0][11], picnic=row_list[0][14])
 
-print(search())
+# print(search())
+
+myweather = Weather()
+
+print(myweather.get_weather('Portland'))
+# print(json_data['main']['temp'])
+# print((json_data['weather'][0])['description'])

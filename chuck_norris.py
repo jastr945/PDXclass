@@ -20,7 +20,8 @@ r = requests.post('http://api.openweathermap.org/data/2.5/weather', params=packa
 
 json_data = r.json()
 
-print(r.url)
+# print(r.url)
+print(json_data)
 print(json_data['main']['temp'])
 print((json_data['weather'][0])['description'])
 
