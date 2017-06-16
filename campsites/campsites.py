@@ -1,31 +1,23 @@
 """
 'FIND A CAMPGROUND'
 
-This program will allow users to search for a limited number of the most famous campgrounds in Oregon by a keyword
-(for example, if a user enters "Woodburn", the program will display the profile of the Woodburn RV Park).
+This program will allow users to search for a limited number of campgrounds in Oregon by a keyword
+(for example, if a user enters "Rocky Bend", the program will display the profile of the Rocky Bend Campground).
 
-Each campsite profile will contain basic information, such as location, number of spaces (capacity), facilities available, ect.
+Each campsite profile will contain basic information, such as location, number of spaces (capacity), facilities, ect.
 
-The program downloads weather data and displays the current weather for the area where each campsite is located.
+Depending on the type of the campground, the user will get profiles with different categories.
 
-If a campground name is missing in the database, the user is able to create a new record and insert it into the database.
+If a campground name is missing in the database, the user can create a new record and insert it into the database.
 
-
-Example Output:
-
-Campground: Woodburn RV Park
-Type: RV Park
-Location: Woodburn,OR
-Capacity: 150
-Parking: Yes
-Internet: No Wi-Fi
-Toilet: Flush toilets
-Showers: Yes
-Pool: No
-Pet-friendly: Pets are allowed.
-Family-friendly: Playground is available.
-Water hook-up: Yes
-Sewer hook-up: Yes
+* THINGS I LEARNED AND PRACTICED WHILE WRITING THIS CODE:
+- working with Sqlite3, using SQL language in Python
+- creating and manipulating a database
+- creating classes and class inheritance
+- making classes inherit the database from the connection object
+- creating an auto-increment field (ID number)
+- using new built-in functions and methods (fetchall(), quit(), zip(), .description, commit(), execute())
+- accessing a list of tuples by index
 
 """
 
@@ -34,9 +26,10 @@ import sqlite3
 
 conn = sqlite3.connect('campgrounds.db')
 
+
 class DatabaseManager(object):
     """
-    A connection object that uses sqlite3 package to create and manipulate SQLite relational database.
+    A connection object that uses Sqlite3 package to create and manipulate SQLite database.
     """
     def syncdb(self):
         """
@@ -87,7 +80,7 @@ class DatabaseManager(object):
         conn.execute("INSERT INTO CAMPGROUNDS (NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,RESTROOMS,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
                       VALUES ('Jantzen Beach RV Park', 'RV park', '1503 N Hayden Island Dr, Portland, OR 97217', 85, 'Yes', 'Yes, high-speed', 'Flush toilets', 'Yes', 'Yes', 'Yes', 'Playground, clubhouse, game room, basketball court', 'Yes', 'Yes', 'No')");
 
-        conn.execute("I NSERT INTO CAMPGROUNDS (NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,RESTROOMS,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
+        conn.execute("INSERT INTO CAMPGROUNDS (NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,RESTROOMS,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
                       VALUES ('Lower Falls Campground', 'Tent sites', '42218 NE Yale Bridge Rd, Amboy, WA 98601', 43, 'Yes', 'No', 'Accessible vault toilets', 'No', 'No', 'Yes', 'No playground', 'No', 'No', 'Yes')");
 
         conn.execute("INSERT INTO CAMPGROUNDS (NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,RESTROOMS,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
@@ -130,10 +123,10 @@ class DatabaseManager(object):
         new_sewer_hook_up = str(input("Is there a sewer hook-up(Yes / No)? ")).capitalize()
         new_picnic_area = str(input("Is there a picnic area available(Yes / No) ?")).capitalize()
 
-        new_data = (new_name,new_type,new_location,new_capacity,new_parking,new_internet,new_restrooms,new_showers,new_pool,new_pet_friendly,new_family_friendly,new_water_hook_up,new_sewer_hook_up,new_picnic_area)
+        new_data = (new_name, new_type, new_location, new_capacity, new_parking, new_internet, new_restrooms, new_showers, new_pool, new_pet_friendly, new_family_friendly, new_water_hook_up, new_sewer_hook_up, new_picnic_area)
 
         conn.execute("INSERT INTO CAMPGROUNDS (NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,RESTROOMS,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
-                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (new_data,));
+                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", new_data,);
 
         conn.commit()
 
@@ -201,6 +194,7 @@ class Tentsite(Campground):
 mydb = DatabaseManager()
 print('Welcome to the Oregon Campgrounds Database!')
 
+
 def search():
     """
     Looks for the name enter by the user and returns the row containing the name.
@@ -213,14 +207,15 @@ def search():
         mystr = str(input('There is no such campground in our database. Would you like to add a new record?(Y/N) ')).upper()
         if mystr == 'Y':
             print(mydb.create())
+            quit()
         else:
-            pass
+            print('The program will now close.')
+            quit()
 
     type_column = row_list[0][2]
     if type_column == 'RV park':
-        return RV(id=row_list[0][0],name=row_list[0][1],camptype=row_list[0][2],location=row_list[0][3],capacity=row_list[0][4],parking=row_list[0][5],internet=row_list[0][6],restrooms=row_list[0][7],showers=row_list[0][8],pool=row_list[0][9],pets=row_list[0][10],family=row_list[0][11],water=row_list[0][12],sewer=row_list[0][13])
+        return RV(id=row_list[0][0], name=row_list[0][1], camptype=row_list[0][2], location=row_list[0][3], capacity=row_list[0][4], parking=row_list[0][5], internet=row_list[0][6], restrooms=row_list[0][7], showers=row_list[0][8], pool=row_list[0][9], pets=row_list[0][10], family=row_list[0][11], water=row_list[0][12], sewer=row_list[0][13])
     else:
-        return Tentsite(id=row_list[0][0],name=row_list[0][1],camptype=row_list[0][2],location=row_list[0][3],capacity=row_list[0][4],parking=row_list[0][5],internet=row_list[0][6],restrooms=row_list[0][7],showers=row_list[0][8],pool=row_list[0][9],pets=row_list[0][10],family=row_list[0][11],picnic=row_list[0][14])
+        return Tentsite(id=row_list[0][0], name=row_list[0][1], camptype=row_list[0][2], location=row_list[0][3], capacity=row_list[0][4], parking=row_list[0][5], internet=row_list[0][6], restrooms=row_list[0][7], showers=row_list[0][8], pool=row_list[0][9], pets=row_list[0][10], family=row_list[0][11], picnic=row_list[0][14])
 
 print(search())
-
