@@ -13,16 +13,20 @@ If a campground name is missing in the database, the user can create a new recor
 * THINGS I LEARNED AND PRACTICED WHILE WRITING THIS CODE:
 - working with Sqlite3, using SQL language in Python
 - creating and manipulating a database
+- requests package and API
 - creating classes and class inheritance
 - making classes inherit the database from the connection object
 - creating an auto-increment field (ID number)
 - using new built-in functions and methods (fetchall(), quit(), zip(), .description, commit(), execute())
 - accessing a list of tuples by index
+- using RegEx to extract the name of the city from the address string
 
 """
 
+
 import sqlite3
 import requests
+import re
 
 
 conn = sqlite3.connect('campgrounds.db')
@@ -105,6 +109,18 @@ class DatabaseManager(object):
         columns = [i[0] for i in cursor.description]            # .description method returns the names of all columns
         return [dict(zip(columns, i)) for i in cursor.fetchall()]  # .fetchall method fetches all rows of a query result set and returns a list of tuples. Zip function matches the two tuples into one. Dict makes a dictionary of of it.
 
+    def get_location(self, id):
+        """
+        Returns the name of the city or village where the campround is located. Will be used in Weather class to download weather for specific location.
+        """
+        cursor = conn.execute("SELECT * FROM CAMPGROUNDS WHERE ID={}".format(id))
+        columns = [i[0] for i in cursor.description]
+        my_loc = [dict(zip(columns, i)) for i in cursor.fetchall()]
+        address = [i['LOCATION'] for i in my_loc]
+        city = re.split('[\s:/,.:]', str(address))
+        return city[-4]
+
+
     def create(self):
         """
         Inserts a new row into the table using the data entered by the user.
@@ -141,15 +157,20 @@ class DatabaseManager(object):
         print('Record deleted successfully.')
 
 
-class Weather:
+class Weather(DatabaseManager):
     """
     Imports the current weather data from OpenWeatherMap website.
     """
+    def __init__(self):
+        super().__init__()
 
-    def get_weather(self, location):
+    
+
+    def get_weather(self, id):
+        city = DatabaseManager.get_location(id)
         package = {
             'APPID': '6b919e5d511686a6a70d2728794a6fe5',
-            'q': str(location)
+            'q': str(city)
         }
 
         r = requests.post('http://api.openweathermap.org/data/2.5/weather', params=package)
@@ -239,8 +260,4 @@ def search():
 
 # print(search())
 
-myweather = Weather()
-
-print(myweather.get_weather('Portland'))
-# print(json_data['main']['temp'])
-# print((json_data['weather'][0])['description'])
+print(Weather.get_location(4))
