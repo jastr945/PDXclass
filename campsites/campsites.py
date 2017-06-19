@@ -199,8 +199,8 @@ class Campground(DatabaseManager, Weather):
     def __repr__(self):
         return ('ID: {}\nCampground: {}\nType: {}\nLocation: {}\nCapacity: {}\nParking: {}\nInternet: {}\nToilet: {}\n '
                  'Showers: {}\nPool: {}\nPet-friendly: {}\nFamily-friendly: {}').format(
-            self.id, self.name,self.camptype,self.location,self.capacity,self.parking,self.internet,self.restrooms,
-            self.showers,self.pool,self.pets,self.family)
+            self.id, self.name,self.camptype, self.location, self.capacity, self.parking, self.internet, self.restrooms,
+            self.showers, self.pool, self.pets, self.family)
 
 
 class RV(Campground):
@@ -214,7 +214,7 @@ class RV(Campground):
 
     def __repr__(self):
         return 'Campground: {}\nType: {}\nLocation: {}\nCapacity: {}\nParking: {}\nInternet: {}\nToilet: {}\nShowers: ' \
-                   '{}\nPool: {}\nPet-friendly: {}\nFamily-friendly: {}\nWater hook-up: {}\nSewer hook-up: {}\nWeather: {}'.format(self.name,self.camptype,self.location,self.capacity,self.parking,self.internet,self.restrooms,self.showers,self.pool,self.pets,self.family,self.water,self.sewer,self.get_weather())
+                   '{}\nPool: {}\nPet-friendly: {}\nFamily-friendly: {}\nWater hook-up: {}\nSewer hook-up: {}\nWeather: {}'.format(self.name, self.camptype, self.location, self.capacity, self.parking, self.internet, self.restrooms, self.showers, self.pool, self.pets, self.family, self.water, self.sewer, self.get_weather())
 
 
 class Tentsite(Campground):
@@ -226,8 +226,8 @@ class Tentsite(Campground):
         self.picnic = picnic
 
     def __repr__(self):
-        return 'Campground: {}\nType: {}\nLocation: {}\nCapacity: {}\nParking: {}\nInternet: {}\nToilet: {}\nShowers: ' \
-                   '{}\nPool: {}\nPet-friendly: {}\nFamily-friendly: {}\nPicnic area: {}\nWeather: {}'.format(self.name,self.camptype,self.location,self.capacity,self.parking,self.internet,self.restrooms,self.showers,self.pool,self.pets,self.family,self.picnic, self.get_weather())
+        return 'Campground: {}\nType: {}\nLocation: {}\nCapacity: {}\nParking: {}\nInternet: {}\nToilet: {}\nShowers: '\
+                   '{}\nPool: {}\nPet-friendly: {}\nFamily-friendly: {}\nPicnic area: {}\nWeather: {}'.format(self.name, self.camptype, self.location, self.capacity, self.parking, self.internet, self.restrooms, self.showers, self.pool, self.pets, self.family, self.picnic, self.get_weather())
 
 
 mydb = DatabaseManager()
