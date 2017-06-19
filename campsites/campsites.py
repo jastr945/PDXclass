@@ -20,6 +20,7 @@ If a campground name is missing in the database, the user can create a new recor
 - using new built-in functions and methods (fetchall(), quit(), zip(), .description, commit(), execute())
 - accessing a list of tuples by index
 - using RegEx to extract the name of the city from the address string
+- using Python decorators (@staticmethod)
 
 """
 
@@ -27,7 +28,6 @@ If a campground name is missing in the database, the user can create a new recor
 import sqlite3
 import requests
 import re
-from pprint import pprint
 
 
 conn = sqlite3.connect('campgrounds.db')
