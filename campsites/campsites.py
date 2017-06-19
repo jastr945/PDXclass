@@ -27,6 +27,7 @@ If a campground name is missing in the database, the user can create a new recor
 import sqlite3
 import requests
 import re
+from pprint import pprint
 
 
 conn = sqlite3.connect('campgrounds.db')
@@ -80,7 +81,7 @@ class DatabaseManager(object):
                       VALUES ('Barton Park', 'Tent sites', '19009 SE Barton Park Rd, Boring, OR 97009', 112, 'Yes', 'No', 'Vault toilets', 'No', 'No', 'Yes', 'No playground', 'No', 'No', 'Yes')");
 
         conn.execute("INSERT INTO CAMPGROUNDS (NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,RESTROOMS,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
-                      VALUES ('Dougan Creek Campground', 'Tent sites', 'Washougal, WA 98671', 7, 'Yes', 'No', 'Flush toilets', 'No', 'No', 'Yes', 'No playground', 'No', 'No', 'Yes')");
+                      VALUES ('Dougan Creek Campground', 'Tent sites', 'Park Rd, Washougal, WA 98671', 7, 'Yes', 'No', 'Flush toilets', 'No', 'No', 'Yes', 'No playground', 'No', 'No', 'Yes')");
 
         conn.execute("INSERT INTO CAMPGROUNDS (NAME,TYPE,LOCATION,CAPACITY,PARKING,INTERNET,RESTROOMS,SHOWERS,POOL,PET_FRIENDLY,FAMILY_FRIENDLY,WATER_HOOK_UP, SEWER_HOOK_UP,PICNIC_AREA) \
                       VALUES ('Jantzen Beach RV Park', 'RV park', '1503 N Hayden Island Dr, Portland, OR 97217', 85, 'Yes', 'Yes, high-speed', 'Flush toilets', 'Yes', 'Yes', 'Yes', 'Playground, clubhouse, game room, basketball court', 'Yes', 'Yes', 'No')");
@@ -109,7 +110,8 @@ class DatabaseManager(object):
         columns = [i[0] for i in cursor.description]            # .description method returns the names of all columns
         return [dict(zip(columns, i)) for i in cursor.fetchall()]  # .fetchall method fetches all rows of a query result set and returns a list of tuples. Zip function matches the two tuples into one. Dict makes a dictionary of of it.
 
-    def get_location(self, id):
+    @staticmethod
+    def get_location(id):
         """
         Returns the name of the city or village where the campround is located. Will be used in Weather class to download weather for specific location.
         """
@@ -119,7 +121,6 @@ class DatabaseManager(object):
         address = [i['LOCATION'] for i in my_loc]
         city = re.split('[\s:/,.:]', str(address))
         return city[-4]
-
 
     def create(self):
         """
@@ -157,30 +158,26 @@ class DatabaseManager(object):
         print('Record deleted successfully.')
 
 
-class Weather(DatabaseManager):
+class Weather(object):
     """
     Imports the current weather data from OpenWeatherMap website.
     """
-    def __init__(self):
-        super().__init__()
+    def __init__(self, id):
+        self.id = id
 
-    
-
-    def get_weather(self, id):
-        city = DatabaseManager.get_location(id)
+    def get_weather(self):
         package = {
             'APPID': '6b919e5d511686a6a70d2728794a6fe5',
-            'q': str(city)
+            'q': str(self.city)
         }
 
         r = requests.post('http://api.openweathermap.org/data/2.5/weather', params=package)
         json_data = r.json()
-        return '{}\nTemperature: {:.2f} F\nPressure: {} hpa\nHumidity: {} %\nVisibility: {} miles\nWind speed: {} m/s'\
-            .format(json_data['weather'][0]['description'], json_data['main']['temp'] * 9/5 - 459.67, json_data['main']['pressure'], json_data['main']['humidity'], json_data['visibility'],json_data['wind']['speed'])
+        return '{}\nTemperature: {:.2f} F\nPressure: {} hpa\nHumidity: {} %\nWind speed: {} m/s'\
+            .format(json_data['weather'][0]['description'], json_data['main']['temp'] * 9/5 - 459.67, json_data['main']['pressure'], json_data['main']['humidity'],json_data['wind']['speed'])
 
 
-
-class Campground(DatabaseManager):
+class Campground(DatabaseManager, Weather):
     """
     Contains a prototype of every campground and inherits functionality of the DatabaseManager class.
     """
@@ -197,11 +194,13 @@ class Campground(DatabaseManager):
         self.pool = pool
         self.pets = pets
         self.family = family
-
+        self.city = DatabaseManager.get_location(self.id)
 
     def __repr__(self):
-        return 'ID: {}\nCampground: {}\nType: {}\nLocation: {}\nCapacity: {}\nParking: {}\nInternet: {}\nToilet: {}\nShowers: ' \
-               '{}\nPool: {}\nPet-friendly: {}\nFamily-friendly: {}'.format(self.id,self.name,self.camptype,self.location,self.capacity,self.parking,self.internet,self.restrooms,self.showers,self.pool,self.pets,self.family)
+        return ('ID: {}\nCampground: {}\nType: {}\nLocation: {}\nCapacity: {}\nParking: {}\nInternet: {}\nToilet: {}\n '
+                 'Showers: {}\nPool: {}\nPet-friendly: {}\nFamily-friendly: {}').format(
+            self.id, self.name,self.camptype,self.location,self.capacity,self.parking,self.internet,self.restrooms,
+            self.showers,self.pool,self.pets,self.family)
 
 
 class RV(Campground):
@@ -215,7 +214,7 @@ class RV(Campground):
 
     def __repr__(self):
         return 'Campground: {}\nType: {}\nLocation: {}\nCapacity: {}\nParking: {}\nInternet: {}\nToilet: {}\nShowers: ' \
-                   '{}\nPool: {}\nPet-friendly: {}\nFamily-friendly: {}\nWater hook-up: {}\nSewer hook-up: {}'.format(self.name,self.camptype,self.location,self.capacity,self.parking,self.internet,self.restrooms,self.showers,self.pool,self.pets,self.family,self.water,self.sewer)
+                   '{}\nPool: {}\nPet-friendly: {}\nFamily-friendly: {}\nWater hook-up: {}\nSewer hook-up: {}\nWeather: {}'.format(self.name,self.camptype,self.location,self.capacity,self.parking,self.internet,self.restrooms,self.showers,self.pool,self.pets,self.family,self.water,self.sewer,self.get_weather())
 
 
 class Tentsite(Campground):
@@ -228,7 +227,7 @@ class Tentsite(Campground):
 
     def __repr__(self):
         return 'Campground: {}\nType: {}\nLocation: {}\nCapacity: {}\nParking: {}\nInternet: {}\nToilet: {}\nShowers: ' \
-                   '{}\nPool: {}\nPet-friendly: {}\nFamily-friendly: {}\nPicnic area: {}'.format(self.name,self.camptype,self.location,self.capacity,self.parking,self.internet,self.restrooms,self.showers,self.pool,self.pets,self.family,self.picnic)
+                   '{}\nPool: {}\nPet-friendly: {}\nFamily-friendly: {}\nPicnic area: {}\nWeather: {}'.format(self.name,self.camptype,self.location,self.capacity,self.parking,self.internet,self.restrooms,self.showers,self.pool,self.pets,self.family,self.picnic, self.get_weather())
 
 
 mydb = DatabaseManager()
@@ -258,6 +257,7 @@ def search():
     else:
         return Tentsite(id=row_list[0][0], name=row_list[0][1], camptype=row_list[0][2], location=row_list[0][3], capacity=row_list[0][4], parking=row_list[0][5], internet=row_list[0][6], restrooms=row_list[0][7], showers=row_list[0][8], pool=row_list[0][9], pets=row_list[0][10], family=row_list[0][11], picnic=row_list[0][14])
 
-# print(search())
 
-print(Weather.get_location(4))
+print(search())
+
+
