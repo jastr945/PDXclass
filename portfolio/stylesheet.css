@@ -3,8 +3,12 @@ body {
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: azure;
     font-family: "Tlwg Typist";
+    font-size: x-large;
     width: 70%;
     margin-left: auto;
     margin-right: auto;
@@ -21,9 +25,4 @@ body {
     border-radius: 50%;
 }
 
-article {
-    text-align: left;
-    font-size: larger;
-
-}
 
