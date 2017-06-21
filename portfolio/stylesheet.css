@@ -1,39 +1,46 @@
 body {
-    background-color: lightgrey;
+    background-color: lightblue;
 }
 
 main {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    background: azure;
+    background: darkseagreen;
     font-family: "Tlwg Typist";
     font-size: 1.5em;
     width: 75%;
     margin-left: auto;
     margin-right: auto;
-    margin-top:0px;
     padding: 30px;
-    border-left: solid;
-    border-right: solid;
     border: darkslategray;
 
 }
 
-header {
-	margin-top:20px;
+section {
+    display:flex;
+}
+
+.banner {
+    flex-direction: row;
+	margin-top:10px;
     text-align: center;
 }
 
-
-.bio div > .img-circle {
-    border-radius: 50%;
-    width:25%;
+.banner >div {
+    width: 63%;
 }
 
-.bio:nth-child(2) {
+.img-circle {
+    border-radius: 50%;
+    width:20%;
+    border:5px solid white;
+
+}
+
+.bio {
     text-align: justify;
-    width:75%;
+    width:65%;
 }
 
 h3 {
