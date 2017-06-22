@@ -28,13 +28,13 @@ body {
 
 @mixin grey-wrap() {
 	background:#efefef;
-  margin: 20px;
+    margin: 20px;
 	border-radius:10px;
 	padding:20px;
 }
 
 header {
-  height:100vh;
+  height:50vh;
   color:#fff;
   @include flex-center();
   @include gradient-bg(#2196f3, #9c27b0);
@@ -55,7 +55,7 @@ footer {
 		@include grey-wrap();
 	}
 	div{
-		@extend article;
+		@extend article
 	}
 }
 
@@ -73,22 +73,24 @@ li {
 }
 
 .project-list {
-  width: 75%;
-	margin:50px 0;
-  @include flex-center();
-  @include grey-wrap();
-  margin-top: 3em;
-  div {
-    margin: 0;
-    width: 100%;
-    @include flex-center();
-    @include grey-wrap();
-    ul {display:flex;
+	// height:50vh;
+	width:75%;
+	margin: auto;
+	@include flex-center();
+	margin-top:3em;
+	div {
+		@include flex-center();
+		@include grey-wrap();
+		margin:0;
+		width: 100%;
+		ul {
+			display:flex;
 			justify-content:space-around;
 			padding:0;
 			width: 100%;
 			li {
-				border:solid;}
-    }
-  }
+				border:solid;
+			}
+		}
+	}
 }

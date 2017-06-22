@@ -10,7 +10,7 @@ body {
   100% {
     background-position: 0% 50%; } }
 header {
-  height: 100vh;
+  height: 50vh;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -67,19 +67,13 @@ li {
 
 .project-list {
   width: 75%;
-  margin: 50px 0;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #efefef;
-  margin: 20px;
-  border-radius: 10px;
-  padding: 20px;
   margin-top: 3em; }
   .project-list div {
-    margin: 0;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,7 +81,9 @@ li {
     background: #efefef;
     margin: 20px;
     border-radius: 10px;
-    padding: 20px; }
+    padding: 20px;
+    margin: 0;
+    width: 100%; }
     .project-list div ul {
       display: flex;
       justify-content: space-around;
