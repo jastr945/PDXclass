@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  color: #333; }
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
+header {
+  height: 100vh;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(270deg, #2196f3, #9c27b0);
+  background-size: 400% 400%;
+  animation: AnimationName 10s infinite; }
+
+footer {
+  height: 70vh;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(270deg, #2196f3, #9c27b0);
+  background-size: 400% 400%;
+  animation: AnimationName 10s infinite; }
+
+.articles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px 0; }
+  .articles article, .articles div {
+    width: 75%;
+    background: #efefef;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 20px; }
+
+li {
+  list-style: none; }
+
+.project-list li:nth-child(1) {
+  background: url("https://visualhunt.com/photos/xl/7/flower-bouquet-bunch-daisys.jpg") center;
+  background-size: cover;
+  width: 10em;
+  height: 7em; }
+
+.project-list li:nth-child(2) {
+  background: url("https://visualhunt.com/photos/l/7/sky-silhouette-star.jpg") center;
+  background-size: cover;
+  width: 10em;
+  height: 7em; }
+
+.project-list li:nth-child(3) {
+  background: url("https://visualhunt.com/photos/l/7/animal-kitten-pet.jpg") center;
+  background-size: cover;
+  width: 10em;
+  height: 7em; }
+
+.project-list {
+  width: 75%;
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #efefef;
+  margin: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 3em; }
+  .project-list div {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #efefef;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 20px; }
+    .project-list div ul {
+      display: flex;
+      justify-content: space-around;
+      padding: 0;
+      width: 100%; }
+      .project-list div ul li {
+        border: solid; }
+
+/*# sourceMappingURL=mysass.css.map */
