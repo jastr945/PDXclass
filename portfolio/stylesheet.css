@@ -31,17 +31,59 @@ section {
     width: 63%;
 }
 
+.banner>div>h1 {
+    margin-top: 7%;
+    margin-bottom: 1%;
+    margin-right: 7%;
+    font-size:larger
+}
+
+.banner>div>h2 {
+    margin-top: 0%;
+    margin-bottom: 1%;
+    margin-right: 7%;
+}
+
+@keyframes dottedborder {
+    0% {
+        border:10px white dotted;
+    }
+    25% {
+        border:5px solid white;
+    }
+    50% {
+        border:10px white dotted;
+    }
+    100% {
+        border: 5px solid white;
+    }
+}
+
 .img-circle {
     border-radius: 50%;
     width:20%;
     border:5px solid white;
-
 }
 
-.bio {
-    text-align: justify;
-    width:65%;
+.img-circle:hover {
+    animation-name: dottedborder;
+    animation-duration: 0.7s;
 }
+
+.banner >div>h1:hover {
+    font-size:x-large;
+}
+
+.bio > div:nth-child(1) {
+    background-color: red;
+    width: 40%;
+}
+
+.bio > div:nth-child(2) {
+    background-color: blue;
+    width: 60%;
+}
+
 
 h3 {
     text-align: center;

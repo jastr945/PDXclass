@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Calligraffitti|Shadows+Into+Light');
+
+body {
+	background-image: url(file:///home/polina/Downloads/paper.png);
+	background-size:500px;
+	font-family: 'Calligraffitti', cursive;
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 1.5em;
+}
+
+header {
+	position: relative;
+	margin-top:220px;
+	text-align:center;
+}
+
+header:before {
+	content: " ";
+	position: absolute;
+	left: 50%;
+	top: -30%;
+	transform: translate(-50%, -50%);
+	/*     background: url(http://i.imgur.com/pq5T3nu.png) no-repeat; */
+	background:url(http://i.imgur.com/0MCCdUI.png) no-repeat;
+	background-size: contain;
+	background-position: center;
+	width: 100%;
+	height: 100%;
+}
+
+h2 {
+	margin-bottom: 0.2em;
+}
+
+h2 span, footer span {
+	position:relative;
+}
+
+h2 span:before, h2 span:after, footer span:before, footer span:after {
+  content: " ";
+  position: absolute;
+  height: 5px;
+  border-bottom: 2px solid black;
+  top: 50%;
+  width: 100px;
+}
+
+h2 span:before, footer span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+
+h2 span:after, footer span:after {
+  left: 100%;
+  margin-left: 15px;
+}
+
+.summary p:first-child, .requirements {
+	display:none;
+}
+
+.summary {
+	text-align:center;
+	margin-bottom:3.2em;
+}
+
+.summary p {
+	margin-top: 0.2em;
+}
+
+a {
+	text-decoration:none;
+	color: #b97c7e;
+	transition:0.3s
+}
+
+a:hover {
+	color: #d55b6a;
+}
+
+.preamble h3 {
+	background:url(https://s3.amazonaws.com/piktochartv2-dev/v2/uploads/0e5c8081-7147-417b-9b3c-0ac315f4c8cf/d754b36dd742d67daf4a4a76cb865122e2f79bac_original.png);
+	background-size: contain;
+	padding: 150px;
+	background-position: center;
+	text-align: center;
+	background-repeat: no-repeat;
+}
+
+.supporting, .intro {
+	margin-left:200px;
+}
+
+.supporting {
+	display:flex;
+	flex-wrap: wrap;
+	justify-content:space-around;
+}
+
+.benefits {
+	flex-grow:1;
+}
+
+.main div{
+	width:45%
+}
+
+.sidebar {
+	position: absolute;
+    top: 0;
+    width: 200px;
+    padding: 0 20px;
+}
+
+.main-wrapper {
+	width: 75%;
+    margin: auto;
+}
+
+footer {
+	margin:30px;
+	text-align:center;
+}
+
+footer a {
+	margin:0 10px;
+}
+
+
+
+https://visualhunt.com/photos/m/1/nature-farm-person.jpg
