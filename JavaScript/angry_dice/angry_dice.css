@@ -6,8 +6,10 @@ body {
 
 #game {
     display: flex;
+    text-align: center;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 #header {
@@ -36,12 +38,65 @@ body {
     justify-content: center;
     font-size: 50pt;
     margin-bottom: 200px;
+    cursor: pointer;
+}
+
+#round {
+    font-family: "Gloria Hallelujah";
+    font-size: 35pt;
+    text-shadow: 5px 5px red;
+    margin-top: 170px;
+}
+
+#dies {
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:100px;
+}
+
+@keyframes shaking {
+    0% {
+        transform: rotate(3deg);
+    }
+    25% {
+        transform: rotate(-6deg);
+    }
+    50% {
+        transform: rotate(6deg);
+    }
+    100% {
+        transform: rotate(-3deg);
+    }
 }
 
 #die1, #die2 {
-
-    margin: 10px;
-    border: 1px solid black;
-    padding: 5px;
+    float: left;
+    flex-direction: row;
+    margin: 100px;
     cursor: pointer;
+    animation: shaking 3s infinite alternate;
+}
+
+#message {
+    margin-top: -80px;
+    font-family: "Gloria Hallelujah";
+    font-size: 25pt;
+}
+
+#roll {
+    margin:100px;
+    height:100px;
+    width:300px;
+    font-family: "Gloria Hallelujah";
+    text-shadow: 2px 2px red;
+    font-size: 35pt;
+}
+
+#reset {
+    margin:100px;
+    height:100px;
+    width:300px;
+    font-family: "Gloria Hallelujah";
+    font-size: 35pt;
 }
