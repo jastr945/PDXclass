@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
+body {
+    background-color: #f78645;
+}
+
+#game {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#header {
+    position: relative;
+    display:flex;
+    justify-content: center;
+    font-family: "Gloria Hallelujah";
+    font-size: 50pt;
+    text-shadow: 5px 5px red;
+}
+
+#poster {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: 20px solid white;
+    height: 50vh;
+}
+
+#welcome {
+    color:red;
+    position: relative;
+    display:flex;
+    justify-content: center;
+    font-size: 50pt;
+    margin-bottom: 200px;
+}
+
+#die1, #die2 {
+
+    margin: 10px;
+    border: 1px solid black;
+    padding: 5px;
+    cursor: pointer;
+}
