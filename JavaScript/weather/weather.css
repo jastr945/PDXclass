@@ -2,14 +2,25 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    background-color: beige;
 }
 
 .content {
     position: absolute;
-    height: 200px;
-    width: 400px;
-    margin: -100px 0 0 -200px;
+    height: 300px;
+    width: 500px;
+    margin: -200px 0 0 -250px;
     top: 50%;
     left: 50%;
-    background-color: pink;
+    background-color: darkkhaki;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+#result {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: black;
+    background: rgb(230, 230, 250); opacity: 0.5;
 }
