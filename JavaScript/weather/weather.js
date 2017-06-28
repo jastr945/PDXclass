@@ -1,18 +1,24 @@
 function insertPic (someid) {
     if (someid >= 200 && someid < 300) {
-        $('.content').css({'background-image': 'url(thunderstorm.jpg)'});
+        $('#body').css({'background-image': 'url(thunderstorm.jpg)'});
+        $('#icon').append("<img src='4.png'/>");
     } else if (someid >= 300 && someid <= 531) {
-        $('.content').css({'background-image': 'url(rain.jpg)'});
+        $('#body').css({'background-image': 'url(rain.jpg)'});
+        $('#icon').append("<img src='3.png'/>");
     } else if (someid >= 600 && someid <= 622) {
-        $('.content').css({'background-image': 'url(snow.jpeg)'});
+        $('#body').css({'background-image': 'url(snow.jpeg)'});
+        $('#icon').append("<img src='5.png'/>");
     } else if (someid >= 701 && someid <= 781) {
-        $('.content').css({'background-image': 'url(fog.jpg)'});
+        $('#body').css({'background-image': 'url(fog.jpg)'});
+        $('#icon').append("<img src='6.png'/>");
     } else if (someid === '800') {
-        $('.content').css('background-image', 'url(sun.jpg)');
+        $('#body').css('background-image', 'url(sun.jpg)');
+        $('#icon').append("<img src='1.png'/>");
     } else if (someid >= 801 && someid <= 804) {
-        $('.content').css('background-image', 'url(clouds.jpg)');
+        $('#body').css('background-image', 'url(clouds.jpg)');
+        $('#icon').append("<img src='2.png'/>");
     } else if (someid >= 900 && someid <= 962) {
-        $('.content').css('background-image', 'url(warning.jpg)');
+        $('#body').css('background-image', 'url(warning.jpg)');
     }
 }
 
@@ -26,9 +32,10 @@ function getWeather () {
         dataType: "jsonp",
         type: "post",
         success: function (data) {
-            $('#result').append('Weather: ' + data['weather'][0]['description'] + '<br/>' + 'Temperature: ' + data['main']['temp'] + '<br/>' +
-                'Wind: ' + data['wind']['speed'] + '<br/>' + 'Humidity: ' + data['main']['humidity']
-            + '<br/>' + 'Pressure: ' + data['main']['pressure']);
+            $('#result').append('Weather: ' + data['weather'][0]['description'] + '<br/>' + 'Temperature: ' +
+                Math.round((data['main']['temp'] * 9/5 - 459.67)).toFixed(2) + 'F' + '<br/>' +
+                'Wind: ' + data['wind']['speed'] + 'm/s' + '<br/>' + 'Humidity: ' + data['main']['humidity']
+            + '%' + '<br/>' + 'Pressure: ' + data['main']['pressure'] + 'hpa');
             var weatherId = data['weather'][0]['id'].toString();
             insertPic(weatherId)
             }
