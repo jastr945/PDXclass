@@ -75,6 +75,7 @@ body {
     float: left;
     flex-direction: row;
     margin: 100px;
+    border: 5px solid transparent;
     cursor: pointer;
     animation: shaking 3s infinite alternate;
 }

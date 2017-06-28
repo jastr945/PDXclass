@@ -16,45 +16,48 @@ function Die(id) {
     //picks a random number between 1 and 6
     this.setVal = function () {
         if (!this.held) {
-            this.val = Math.floor(Math.random() * 6) + 1;
+            this.val = (Math.floor(Math.random() * 6) + 1);
             this.render();
         }
     };
 
     //inserts a picture of a die depending of the random number
     this.render = function () {
-        if (this.val === '1') {
-            $('#' + this.id).html("<img src='1.png'/>");
-        } else if (this.val === '2') {
-            $('#' + this.id).html("<img src='2.png'/>");
-        } else if (this.val === '3') {
-            $('#' + this.id).html("<img src='2.png'/>");
-        } else if (this.val === '4') {
-            $('#' + this.id).html("<img src='4.png'/>");
-        } else if (this.val === '5') {
-            $('#' + this.id).html("<img src='5.png'/>");
-        } else if (this.val === '6') {
-            $('#' + this.id).html("<img src='6.png'/>");
+        var numberSTR = this.val.toString();
+        if (numberSTR === '1') {
+            $('#' + this.id).html("<img src='1.png' height='184px' width='184px'/>");
+        } else if (numberSTR === '2') {
+            $('#' + this.id).html("<img src='2.png' height='184px' width='184px'/>");
+        } else if (numberSTR === '3') {
+            $('#' + this.id).html("<img src='2.png' height='184px' width='184px'/>");
+        } else if (numberSTR === '4') {
+            $('#' + this.id).html("<img src='4.png' height='184px' width='184px'/>");
+        } else if (numberSTRl === '5') {
+            $('#' + this.id).html("<img src='5.png' height='184px' width='184px'/>");
+        } else if (numberSTR === '6') {
+            $('#' + this.id).html("<img src='6.png' height='184px' width='184px'/>");
         }
-        // $('#' + this.id).html(this.val.toString());
     };
 
+    //changes the round number
     function changeRound() {
         $('#roundNumber').html(round.toString());
     }
 
+    //unlocks the dice
     function releaseHold() {
         die1.held = false;
         die2.held = false;
-        $('#die1').css('borderColor', 'black');
-        $('#die2').css('borderColor', 'black');
+        // $('#die1').css('borderColor', 'black');
+        // $('#die2').css('borderColor', 'black');
     }
 
+    //changes round number when the conditions are met
     function checkRound() {
         if (die1.val === 3 && die2.val === 3) {
             round = 1;
             changeRound();
-            $('#message').html('Angry Dice send you back to round 1.');
+            $('#message').html('Angry Dice sends you back to round 1.');
             releaseHold();
         } else if (round === 1 && die1.val + die2.val === 3) {
             round = 2;
@@ -65,7 +68,7 @@ function Die(id) {
             changeRound();
             releaseHold();
         } else if (round === 3 && die1.val + die2.val === 11) {
-            $('#message').html('You WIN!!!');
+            $('#message').html('You WIN!!! CONGRATULATIONS');
             changeRound();
             releaseHold();
         }
@@ -75,6 +78,7 @@ function Die(id) {
 var die1 = new Die('die1');
 var die2 = new Die('die2');
 
+//rolls the dice upon clicking on the button
 $('#roll').click(function (e) {
     e.preventDefault();
     die1.setVal();
@@ -82,26 +86,32 @@ $('#roll').click(function (e) {
     checkRound();
 });
 
+//changes the border around a die to red if it's locked
 $('.dieClick').click(function () {
     if ($(this).attr('id') === 'die1' && !die1.held) {
         die1.held = true;
         $(this).css({'border-color': 'red',
-                    'border-weight':'1px',
+                    'border-weight':'5px',
                     'border-style':'solid'});
     } else if ($(this).attr('id') === 'die1' && die1.held) {
         die1.held = false;
-        $(this).css({'border': 'transparent'});
+        $(this).css({'border-color': 'transparent',
+                    'border-weight':'5px',
+                    'border-style':'solid'});
     } else if ($(this).attr('id') === 'die2' && !die2.held) {
         die2.held = true;
         $(this).css({'border-color': 'red',
-                    'border-weight':'1px',
+                    'border-weight':'5px',
                     'border-style':'solid'});
     } else if ($(this).attr('id') === 'die2' && die2.held) {
         die2.held = false;
-        $(this).css({'border': 'transparent'});
+        $(this).css({'border-color': 'transparent',
+                    'border-weight':'5px',
+                    'border-style':'solid'});
     }
 });
 
+//makes the welcoming message blink constantly
 function blinker() {
     $('#welcome').fadeOut(500);
     $('#welcome').fadeIn(500);
@@ -109,6 +119,7 @@ function blinker() {
 
 setInterval(blinker, 1000);
 
+//scrolls page from the welcoming part to the gaming part
 $('#welcome').click(function () {
     $('html, body').animate({
         scrollTop: $('.dieClick').offset().top
