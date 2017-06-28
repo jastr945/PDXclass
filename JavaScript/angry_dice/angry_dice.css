@@ -46,6 +46,7 @@ body {
     font-size: 35pt;
     text-shadow: 5px 5px red;
     margin-top: 170px;
+    margin-bottom:-20px;
 }
 
 #dies {

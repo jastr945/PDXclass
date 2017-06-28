@@ -85,16 +85,20 @@ $('#roll').click(function (e) {
 $('.dieClick').click(function () {
     if ($(this).attr('id') === 'die1' && !die1.held) {
         die1.held = true;
-        $(this).css('borderColor', 'red');
+        $(this).css({'border-color': 'red',
+                    'border-weight':'1px',
+                    'border-style':'solid'});
     } else if ($(this).attr('id') === 'die1' && die1.held) {
         die1.held = false;
-        $(this).css('borderColor', 'black');
+        $(this).css({'border': 'transparent'});
     } else if ($(this).attr('id') === 'die2' && !die2.held) {
         die2.held = true;
-        $(this).css('borderColor', 'red');
+        $(this).css({'border-color': 'red',
+                    'border-weight':'1px',
+                    'border-style':'solid'});
     } else if ($(this).attr('id') === 'die2' && die2.held) {
         die2.held = false;
-        $(this).css('borderColor', 'black');
+        $(this).css({'border': 'transparent'});
     }
 });
 
