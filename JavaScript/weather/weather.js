@@ -1,3 +1,4 @@
+// Changes a background picture of a webpage and a weather icon depending on a weather code
 function insertPic (someid) {
     if (someid >= 200 && someid < 300) {
         $('#body').css({'background-image': 'url(thunderstorm.jpg)'});
@@ -22,6 +23,7 @@ function insertPic (someid) {
     }
 }
 
+//Gets weather info(API) and prints it out as a text upon clicking the 'submit' button
 function getWeather () {
     $.ajax({
         url: "http://api.openweathermap.org/data/2.5/weather",
@@ -39,7 +41,6 @@ function getWeather () {
             var weatherId = data['weather'][0]['id'].toString();
             insertPic(weatherId)
             }
-
         });
 }
 

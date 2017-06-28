@@ -15,31 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="weather.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/weather.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="weather.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/weather.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="weather.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="weather.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/weather.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+            <state relative-caret-position="526">
+              <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -52,8 +32,8 @@
       <list>
         <option value="$PROJECT_DIR$/../../../class/functions.py" />
         <option value="$PROJECT_DIR$/weather.html" />
-        <option value="$PROJECT_DIR$/weather.js" />
         <option value="$PROJECT_DIR$/weather.css" />
+        <option value="$PROJECT_DIR$/weather.js" />
       </list>
     </option>
   </component>
@@ -103,7 +83,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/weather.js" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -487,6 +467,14 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/weather.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/weather.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -497,16 +485,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/weather.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weather.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        <state relative-caret-position="526">
+          <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
           <folding />
         </state>
       </provider>
