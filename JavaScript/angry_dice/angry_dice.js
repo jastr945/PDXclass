@@ -23,55 +23,56 @@ function Die(id) {
 
     //inserts a picture of a die depending of the random number
     this.render = function () {
-        var numberSTR = this.val.toString();
-        if (numberSTR === '1') {
+        if (this.val.toString() === '1') {
             $('#' + this.id).html("<img src='1.png' height='184px' width='184px'/>");
-        } else if (numberSTR === '2') {
+        } else if (this.val.toString() === '2') {
             $('#' + this.id).html("<img src='2.png' height='184px' width='184px'/>");
-        } else if (numberSTR === '3') {
-            $('#' + this.id).html("<img src='2.png' height='184px' width='184px'/>");
-        } else if (numberSTR === '4') {
+        } else if (this.val.toString() === '3') {
+            $('#' + this.id).html("<img src='3.png' height='184px' width='184px'/>");
+        } else if (this.val.toString() === '4') {
             $('#' + this.id).html("<img src='4.png' height='184px' width='184px'/>");
-        } else if (numberSTRl === '5') {
+        } else if (this.val.toString() === '5') {
             $('#' + this.id).html("<img src='5.png' height='184px' width='184px'/>");
-        } else if (numberSTR === '6') {
+        } else if (this.val.toString() === '6') {
             $('#' + this.id).html("<img src='6.png' height='184px' width='184px'/>");
         }
-    };
-
-    //changes the round number
-    function changeRound() {
-        $('#roundNumber').html(round.toString());
     }
+}
 
-    //unlocks the dice
-    function releaseHold() {
-        die1.held = false;
-        die2.held = false;
-        // $('#die1').css('borderColor', 'black');
-        // $('#die2').css('borderColor', 'black');
-    }
+//changes the round number
+function changeRound() {
+    $('#roundNumber').html(round.toString());
+}
 
-    //changes round number when the conditions are met
-    function checkRound() {
-        if (die1.val === 3 && die2.val === 3) {
-            round = 1;
-            changeRound();
-            $('#message').html('Angry Dice sends you back to round 1.');
-            releaseHold();
-        } else if (round === 1 && die1.val + die2.val === 3) {
-            round = 2;
-            changeRound();
-            releaseHold();
-        } else if (round === 2 && (die1.val === 3 || die1.val === 4) && (die2.val === 3 || die2.val === 4) && die1.val + die2.val === 7) {
-            round = 3;
-            changeRound();
-            releaseHold();
-        } else if (round === 3 && die1.val + die2.val === 11) {
-            $('#message').html('You WIN!!! CONGRATULATIONS');
-            changeRound();
-            releaseHold();
-        }
+//unlocks the dice, removes red border
+function releaseHold() {
+    die1.held = false;
+    die2.held = false;
+    $('#die1').css({'border-color': 'transparent',
+                    'border-weight':'5px',
+                    'border-style':'solid'});
+    $('#die2').css({'border-color': 'transparent',
+                    'border-weight':'5px',
+                    'border-style':'solid'});
+}
+
+//changes round number when the conditions are met; if the value of both dice is 3, the page will reload and the game will start again.
+function checkRound() {
+    if (die1.val === 3 && die2.val === 3) {
+        $('#message').html('Angry Dice sends you back to round 1!').css('color', 'red');
+        window.setTimeout(function(){window.location.reload()}, 2000);
+    } else if (round === 1 && die1.val + die2.val === 3) {
+        round = 2;
+        changeRound();
+        releaseHold();
+    } else if (round === 2 && (die1.val === 3 || die1.val === 4) && (die2.val === 3 || die2.val === 4) && die1.val + die2.val === 7) {
+        round = 3;
+        changeRound();
+        releaseHold();
+    } else if (round === 3 && die1.val + die2.val === 11) {
+        $('#message').html('You WIN!!! CONGRATULATIONS!!!').css('color', 'red');
+        changeRound();
+        releaseHold();
     }
 }
 
@@ -119,10 +120,14 @@ function blinker() {
 
 setInterval(blinker, 1000);
 
-//scrolls page from the welcoming part to the gaming part
+//scrolls the webpage from the welcoming part to the gaming part upon clicking the button
 $('#welcome').click(function () {
     $('html, body').animate({
         scrollTop: $('.dieClick').offset().top
     }, 1000);
 });
 
+//resets the game upon clicking the 'new game' button
+$('#reset').click(function () {
+    location.reload();
+});

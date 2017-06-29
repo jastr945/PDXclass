@@ -93,6 +93,7 @@ body {
     font-family: "Gloria Hallelujah";
     text-shadow: 2px 2px red;
     font-size: 35pt;
+    cursor: pointer;
 }
 
 #reset {
@@ -101,4 +102,5 @@ body {
     width:300px;
     font-family: "Gloria Hallelujah";
     font-size: 35pt;
+    cursor: pointer;
 }
