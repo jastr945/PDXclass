@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Chewy');
+
+html {
+    background-image: url("grass.jpg");
+}
+
+body {
+    margin-top: 2%;
+    width: 75%;
+    height: 90%;
+    margin-right: 15%;
+    margin-left: 10%;
+    margin-bottom:-2%;
+    background-color: #008000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#container {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    margin-top: 10vh;
+    align-self:center;
+    font-family: 'Chewy';
+    font-size: 35pt;
+    color: #FFFF14;
+    text-shadow: 5px 5px black;
+}
+
+#timer {
+    align-self:center;
+}
+
+#buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/*#start {*/
+    /*align-self:center;*/
+/*}*/
+
+/*#stop {*/
+    /*align-self:center;*/
+/*}*/
+
+/*#reset {*/
+    /*align-self:center;*/
+}
+
+#field > div {
+    flex-wrap: wrap;
+    flex-direction: row;
+}

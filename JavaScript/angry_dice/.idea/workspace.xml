@@ -15,8 +15,8 @@
       <file leaf-file-name="angry_dice.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/angry_dice.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+            <state relative-caret-position="400">
+              <caret line="20" column="39" lean-forward="false" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -35,7 +35,7 @@
       <file leaf-file-name="angry_dice.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angry_dice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-654">
+            <state relative-caret-position="1120">
               <caret line="58" column="135" lean-forward="false" selection-start-line="58" selection-start-column="135" selection-end-line="58" selection-end-column="135" />
               <folding />
             </state>
@@ -65,7 +65,7 @@
     <option name="height" value="1053" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -78,28 +78,11 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angry_dice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angry_dice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../weather/weather.html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../whack_a_mole" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -164,6 +147,30 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/angry_dice.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angry_dice.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angry_dice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1160">
+          <caret line="58" column="135" lean-forward="false" selection-start-line="58" selection-start-column="135" selection-end-line="58" selection-end-column="135" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angry_dice.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="14" column="85" lean-forward="false" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="85" />
           <folding />
@@ -190,7 +197,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -258,7 +264,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -272,7 +277,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/angry_dice.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-654">
+        <state relative-caret-position="1120">
           <caret line="58" column="135" lean-forward="false" selection-start-line="58" selection-start-column="135" selection-end-line="58" selection-end-column="135" />
           <folding />
         </state>
@@ -280,8 +285,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/angry_dice.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        <state relative-caret-position="400">
+          <caret line="20" column="39" lean-forward="false" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
           <folding />
         </state>
       </provider>
