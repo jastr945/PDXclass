@@ -1,24 +1,9 @@
-var t = 0;
-var inter = 1000;
-var timer;
-$('#start').click(function () {
-    timer = setInterval(function () {
-    $('#timer').html(t);
-    t++;
-}, inter);
-});
+var score  = 0;
+$('#timer').html(score);
 
-$('#stop').click(function () {
-    clearInterval(timer);
-});
+var myInterval = setInterval(pickHole, 800);
 
-$('#reset').click(function () {
-    clearInterval(timer);
-    t=0;
-    $('#timer').html('-');
-});
-
-//picks a random number between 1 and 20
+//uses a random number to inject a picture of a mole
 function pickHole () {
     var holeNumber = (Math.floor(Math.random() * 20) + 1).toString();
     if (holeNumber === '1') {
@@ -63,11 +48,23 @@ function pickHole () {
         $('#20').html("<img src='mole.jpg'/>");
     }
 }
-pickHole();
 
-//inserts an image of a hole into the div
-// function makeHole() {
-//     $("#field").html("<img src='mole.jpg'/>");
-// }
-//
-// makeHole();
+$('#1').click(function () {
+    $('#1').html("<img src='hole.jpg'/>");
+    score++;
+    $('#timer').html(score)
+});
+
+$('#start').click(function () {
+    pickHole()
+});
+
+$('#stop').click(function () {
+    clearInterval(myInterval);
+});
+
+$('#reset').click(function () {
+    clearInterval(myInterval);
+    $('#timer').html('-');
+});
+
