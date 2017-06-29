@@ -5,28 +5,29 @@ html {
 }
 
 body {
-    margin-top: 2%;
-    width: 75%;
+    margin-top: 0%;
+    width: 80%;
     height: 90%;
-    margin-right: 15%;
+    margin-right: 10%;
     margin-left: 10%;
     margin-bottom:-2%;
-    background-color: #008000;
+    background-color: #339900;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
 }
 
-#container {
+#header {
 	display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction:column;
 }
 
 h1 {
-    margin-top: 10vh;
+    margin-top: 10px;
     align-self:center;
     font-family: 'Chewy';
     font-size: 35pt;
@@ -34,28 +35,72 @@ h1 {
     text-shadow: 5px 5px black;
 }
 
+#score {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    margin-top: -30px;
+    font-family: 'Chewy';
+    font-size: 20pt;
+}
+
 #timer {
     align-self:center;
+    font-family: 'Chewy';
+    font-size: 20pt;
+    margin-right:25px;
+    margin-left:25px;
 }
 
-#buttons {
+#buttons:nth-child(1), #buttons:nth-child(2), #buttons:nth-child(3) {
+    display:flex;
     flex-direction: row;
+    align-items: center;
+    justify-items: center;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
-/*#start {*/
-    /*align-self:center;*/
-/*}*/
-
-/*#stop {*/
-    /*align-self:center;*/
-/*}*/
-
-/*#reset {*/
-    /*align-self:center;*/
+#start {
+    margin-right: 10px;
+    margin-right: 10px;
+    height: 50px;
+    width:200px;
+    font-family: 'Chewy';
+    font-size: 20pt;
+    background-color: yellow;
 }
 
-#field > div {
-    flex-wrap: wrap;
-    flex-direction: row;
+#stop {
+    margin-right: 10px;
+    margin-right: 10px;
+    height: 50px;
+    width:100px;
+    font-family: 'Chewy';
+    font-size: 20pt;
+}
+
+#reset {
+    margin-right: 10px;
+    margin-right: 10px;
+    height: 50px;
+    width:100px;
+    font-family: 'Chewy';
+    font-size: 20pt;
+}
+
+#field {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-items: center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#field > div > div {
+    margin: 50px;
+    margin-top:50px;
+    margin-bottom: 50px;
 }

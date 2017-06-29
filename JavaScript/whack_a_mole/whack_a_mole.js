@@ -18,10 +18,6 @@ $('#reset').click(function () {
     $('#timer').html('-');
 });
 
-// function Hole(id) {
-//     this.id = id;
-//     this.val = 0;
-
 //picks a random number between 1 and 20
 function pickHole () {
     var holeNumber = (Math.floor(Math.random() * 20) + 1).toString();
