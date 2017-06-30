@@ -26,6 +26,13 @@ body {
     flex-direction:column;
 }
 
+@keyframes darker {
+    0% {color:#FFFF14;}
+    25% {color:#D7D700;}
+    50% {color:#FFFF14;}
+    100% {color:#C3C300;}
+}
+
 h1 {
     margin-top: 10px;
     align-self:center;
@@ -33,6 +40,7 @@ h1 {
     font-size: 35pt;
     color: #FFFF14;
     text-shadow: 5px 5px black;
+    animation: darker 2s infinite;
 }
 
 #score {
@@ -45,7 +53,15 @@ h1 {
     font-size: 20pt;
 }
 
-#timer {
+#scoreCounter {
+    align-self:center;
+    font-family: 'Chewy';
+    font-size: 20pt;
+    margin-right:25px;
+    margin-left:25px;
+}
+
+#timeCounter {
     align-self:center;
     font-family: 'Chewy';
     font-size: 20pt;
