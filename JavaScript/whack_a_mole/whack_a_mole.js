@@ -1,13 +1,41 @@
 var score = 0;
-var t = 0;
-var myTimer;
 var myInterval; //making this variable available for other functions
 
+// variable counting minutes and seconds with start, pause and resume count functions
+var Clock = {
+  totalSeconds: 0,
 
-//uses a random number to inject a picture of a mole into a div with a corresponding id number
+  start: function () {
+      var self = this;
+
+      this.interval = setInterval(function () {
+          self.totalSeconds += 1;
+
+          $("#min").text((Math.floor(self.totalSeconds / 60 % 60)).toString() + ':');
+          $("#sec").text((parseInt(self.totalSeconds % 60)).toString());
+      }, 1000);
+  },
+
+  pause: function () {
+    clearInterval(this.interval);
+    delete this.interval;
+  },
+
+  resume: function () {
+    if (!this.interval) this.start();
+  }
+
+};
+
+
+//picks a random number between 1 and 20 and injects a picture of a mole into a div with a corresponding id number
+//after 2 seconds, the picture of a mole turns back into a hole
 function pickHole () {
     var holeNumber = (Math.floor(Math.random() * 20) + 1);
     $('#' + holeNumber).html("<img src='mole.jpg'/>").addClass('active');
+    setTimeout(function () {
+        $('#' + holeNumber).html("<img src='hole.jpg'/>").removeClass('active');
+  }, 2000);
 
     //changes image back to a hole and adds score points ONLY when the image on a mole is on
     $('#' + holeNumber).click(function () {
@@ -19,14 +47,11 @@ function pickHole () {
     });
 }
 
-//makes moles appear every second and starts counting the time upon clicking the 'start game' button
+//makes moles appear every second and starts counting time upon clicking the 'start game' button
 $('#start').click(function () {
-    myTimer = setInterval(function () {
-        $('#timeCounter').html(t);
-        t++;},1000);
-
     myInterval = setInterval(pickHole, 1000);
     pickHole();
+    Clock.start();
 });
 
 //stops the counter upon clicking the button and resumes the counter upon clicking the button the second time
@@ -35,22 +60,17 @@ $('#stop').click(function () {
     if ($(this).attr('class') === 'active') {
         $(this).html('RESUME');
         clearInterval(myInterval);
+        Clock.pause();
             } else {
         $('#stop').html('STOP');
         myInterval = setInterval(pickHole, 1000);
         pickHole();
+        Clock.resume();
     }
 });
 
-// sets score to none, stops the counter and resets all images to holes
+// reloads the page
 $('#reset').click(function () {
-    clearInterval(myInterval);
-    clearInterval(myTimer);
-    $('#scoreCounter').html(0);
-    $( "#row1" ).find('*').html("<img src='hole.jpg'/>");
-    $( "#row2" ).find('*').html("<img src='hole.jpg'/>");
-    $( "#row3" ).find('*').html("<img src='hole.jpg'/>");
-    $( "#row4" ).find('*').html("<img src='hole.jpg'/>");
-    $('#stop').removeClass('active').html('STOP');
+    location.reload(true);
 });
 

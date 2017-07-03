@@ -35,6 +35,8 @@ body {
 
 h1 {
     margin-top: 10px;
+    margin-right:20px;
+    margin-left:-20px;
     align-self:center;
     font-family: 'Chewy';
     font-size: 35pt;
@@ -49,6 +51,8 @@ h1 {
     align-items: center;
     justify-items: center;
     margin-top: -30px;
+    margin-right:0;
+    margin-left:0;
     font-family: 'Chewy';
     font-size: 20pt;
 }
@@ -62,6 +66,8 @@ h1 {
 }
 
 #timeCounter {
+    display:flex;
+    flex-direction: row;
     align-self:center;
     font-family: 'Chewy';
     font-size: 20pt;
@@ -113,6 +119,7 @@ h1 {
     justify-items: center;
     margin-left:auto;
     margin-right:auto;
+    cursor: url("cursor.cur"), auto;
 }
 
 #field > div > div {
