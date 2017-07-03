@@ -1,4 +1,5 @@
 var score = 0;
+var stopTime;
 var myInterval; //making this variable available for other functions
 
 // variable counting minutes and seconds with start, pause and resume count functions
@@ -14,6 +15,20 @@ var Clock = {
           $("#min").text((Math.floor(self.totalSeconds / 60 % 60)).toString() + ':');
           $("#sec").text((parseInt(self.totalSeconds % 60)).toString());
       }, 1000);
+
+      setInterval(function (m) {
+
+          if (self.totalSeconds >= 60) {
+              clearInterval(myInterval);
+              m.pause();
+              $('#message').html('Game over!').css({
+                  'color': 'red',
+                  'font-size': '30pt'
+              });
+              $('#reset').css('background-color', '#FFFF14');
+              $('#stop').css('background-color', '#C3C300');
+          }
+      }, 1000, this)
   },
 
   pause: function () {
@@ -53,16 +68,6 @@ $('#start').click(function () {
     myInterval = setInterval(pickHole, 1000);
     Clock.start();
     pickHole();
-    setTimeout(function () {
-        clearInterval(myInterval);
-        Clock.pause();
-        $('#message').html('Game over!').css({
-            'color': 'red',
-            'font-size': '30pt'
-        });
-        $('#reset').css('background-color', '#FFFF14');
-        $('#stop').css('background-color', '#C3C300');
-    }, 60000)
 });
 
 //stops the counter upon clicking the button and resumes the counter upon clicking the button the second time
@@ -71,10 +76,10 @@ $('#stop').click(function () {
     if ($(this).attr('class') === 'active') {
         $(this).html('RESUME');
         clearInterval(myInterval);
-        Clock.pause();
-            } else {
+        Clock.pause();} else {
         $('#stop').html('STOP');
         myInterval = setInterval(pickHole, 1000);
+        clearInterval(stopInterval);
         pickHole();
         Clock.resume();
     }
