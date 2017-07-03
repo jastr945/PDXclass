@@ -24,7 +24,6 @@ var Clock = {
   resume: function () {
     if (!this.interval) this.start();
   }
-
 };
 
 
@@ -49,9 +48,21 @@ function pickHole () {
 
 //makes moles appear every second and starts counting time upon clicking the 'start game' button
 $('#start').click(function () {
+    $(this).css('background-color', '#C3C300');
+    $('#stop').css('background-color', '#FFFF14');
     myInterval = setInterval(pickHole, 1000);
-    pickHole();
     Clock.start();
+    pickHole();
+    setTimeout(function () {
+        clearInterval(myInterval);
+        Clock.pause();
+        $('#message').html('Game over!').css({
+            'color': 'red',
+            'font-size': '30pt'
+        });
+        $('#reset').css('background-color', '#FFFF14');
+        $('#stop').css('background-color', '#C3C300');
+    }, 60000)
 });
 
 //stops the counter upon clicking the button and resumes the counter upon clicking the button the second time
