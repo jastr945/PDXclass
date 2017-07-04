@@ -1,3 +1,5 @@
+//This is one of the first simple Javascript labs.
+
 var input = prompt('Enter a character');
 function myVowel (letter) {
     if (['a', 'e', 'o', 'u', 'i', 'A', 'E', 'O', 'U', 'I'].indexOf(letter) === 0) {
