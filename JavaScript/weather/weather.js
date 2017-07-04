@@ -23,7 +23,7 @@ function insertPic (someid) {
     }
 }
 
-//Gets weather info(API) and prints it out as a text upon clicking the 'submit' button
+//Gets weather info(API) and extracts necessary categories from the dictionary
 function getWeather () {
     $.ajax({
         url: "http://api.openweathermap.org/data/2.5/weather",
@@ -44,4 +44,5 @@ function getWeather () {
         });
 }
 
+//loads the data as a text upon clicking the button
 $('#checkWeather').click(getWeather);
