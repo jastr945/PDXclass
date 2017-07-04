@@ -79,7 +79,7 @@ function checkRound() {
 var die1 = new Die('die1');
 var die2 = new Die('die2');
 
-//rolls the dice upon clicking on the button
+//rolls the dice upon clicking the button
 $('#roll').click(function (e) {
     e.preventDefault();
     die1.setVal();
