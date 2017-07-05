@@ -19,8 +19,9 @@ function caesarEncrypt(plainStr, key) {
         } else {
             //goes though the alphabet array several times until the right index is found
             if ((parseInt(key) + alphabetRemainder) > alphabet.length) {
-                if ((parseInt(key) - alphabetRemainder) % alphabet.length === 0) {
-                    newLetter = alphabet[alphabet.length - 1];
+                if ((parseInt(key) - alphabetRemainder) % alphabet.length < 0) {
+                    newIndex = alphabet.length - (parseInt(key) - alphabetRemainder) - 1;
+                    newLetter = alphabet[newIndex];
                     result += newLetter;
                 } else {
                     newIndex = ((parseInt(key) - alphabetRemainder) % alphabet.length) - 1;
@@ -46,20 +47,47 @@ $('#encrypt').click(function (e) {
 });
 
 //an opposite process with a similar logic as above
-function caesarDecrypt(encStr, key) {
+function caesarDecrypt(plainStr, key) {
     var result = '';
-    for (var i = 0, len = encStr.length; i < len; i++) {
-        var indexInAlphabet = alphabet.indexOf(encStr[i]);
-        var newIndex = indexInAlphabet - parseInt(key);
-        var newLetter = alphabet[newIndex];
-        result += newLetter;
-    }
-    document.getElementById('decryptResult').innerHTML = result;
-}
+    for (var i = 0, len = plainStr.length; i < len; i++) {
+        var indexInAlphabet = alphabet.indexOf(plainStr[i]); // determining the index of a letter in the alphabet array
+        var alphabetRemainder = indexInAlphabet; // determining how many letters are left till the beginning of array
 
-document.getElementById('decrypt').addEventListener('click', function (e) {
+        if (parseInt(key) <= alphabetRemainder) {
+            newIndex = indexInAlphabet - parseInt(key); // determining a new index
+            newLetter = alphabet[newIndex]; // determining a new letter
+            result += newLetter;
+        } else {
+            //goes though the alphabet array several times until the right index is found
+            if ((parseInt(key) + alphabetRemainder) > alphabet.length) {
+                if ((parseInt(key) - (alphabet.length - alphabetRemainder)) === alphabet.length) {
+                newLetter = alphabet[alphabet.length - 2];
+                result += newLetter;
+                } else {
+                    newIndex = indexInAlphabet + (indexInAlphabet - ((parseInt(key) + alphabetRemainder) % alphabet.length));
+                    console.log(newIndex);
+                    if (newIndex < 0) {
+                        newLetter = alphabet[newIndex + alphabet.length];
+                        result += newLetter;
+                    } else {
+                        newLetter = alphabet[newIndex];
+                        result += newLetter;
+                    }
+                }
+            } else if ((parseInt(key) + alphabetRemainder) === alphabet.length) {
+                newLetter = alphabet[alphabet.length - alphabet.length];
+                result += newLetter;
+            } else {
+                newIndex = alphabet.length - parseInt(key) + alphabetRemainder;
+                newLetter = alphabet[newIndex];
+                result += newLetter;
+            }
+        }
+        $('#decryptResult').html(result);
+    }
+}
+// decrypts a string upon clicking the 'submit' button
+$('#decrypt').click(function (e) {
     e.preventDefault();
-    var DecryptStr = document.getElementById('decryptString').value;
-    var DecryptKey = document.getElementById('decryptKey').value;
-    caesarDecrypt(DecryptStr, DecryptKey);
+    caesarDecrypt($('#decryptString').val(), $('#decryptKey').val());
 });
