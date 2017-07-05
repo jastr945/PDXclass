@@ -40,7 +40,7 @@ function caesarEncrypt(plainStr, key) {
         $('#encryptResult').html(result);
     }
 }
-// encrypts upon clicking the 'submit' button
+// encrypts a string upon clicking the 'submit' button
 $('#encrypt').click(function (e) {
     e.preventDefault();
     caesarEncrypt($('#encryptString').val(), $('#encryptKey').val());
