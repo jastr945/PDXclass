@@ -1,3 +1,5 @@
+// The very first Javascript lab.
+
 function setColor(somecolor) {
     document.getElementById('mybackground').style.backgroundColor = somecolor; //sets the background to some color
 }
