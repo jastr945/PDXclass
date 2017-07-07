@@ -3,6 +3,8 @@
  */
 'use strict';
 
+var total = 6.00;
+
 // manages the radio buttons
 // replaces the first element of the ingredient list with the label attached to a radio button
 $('[type=radio][name=tortilla]').on('change', function () {
@@ -15,7 +17,30 @@ $('[type=checkbox][name=meat]').change(function() {
     if (this.checked) {
         $('.ui.relaxed.list').append('<li class="item">'+ ingredient + '</li>')
     } else {
-        console.log(ingredient);
         $('.ui.relaxed.list > li:contains('+ ingredient +')').remove()
+    }
+});
+
+// manages the checkbox buttons of the 'included-ingredients' section
+$('[type=checkbox][name=included-ingredients]').change(function() {
+    var ingredient = $(this).next().text();
+    if (this.checked) {
+        $('.ui.relaxed.list').append('<li class="item">'+ ingredient + '</li>')
+    } else {
+        $('.ui.relaxed.list > li:contains('+ ingredient +')').remove()
+    }
+});
+
+// manages the checkbox buttons of the 'extra-ingredients' section; adds or extracts extra cost from the total
+$('[type=checkbox][name=extra-ingredients]').change(function() {
+    var ingredient = $(this).next().text();
+    if (this.checked) {
+        $('.ui.relaxed.list').append('<li class="item">'+ ingredient + '</li>');
+        total = total + 1.50;
+        $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
+    } else {
+        $('.ui.relaxed.list > li:contains('+ ingredient +')').remove();
+        total = total - 1.50;
+        $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
     }
 });
