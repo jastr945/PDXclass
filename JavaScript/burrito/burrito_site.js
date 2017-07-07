@@ -44,3 +44,30 @@ $('[type=checkbox][name=extra-ingredients]').change(function() {
         $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
     }
 });
+
+// manages the checkbox buttons of the 'extra-ingredients' section; adds or extracts delivery cost from the total
+$('[type=checkbox][name=extra-ingredients]').change(function() {
+    var ingredient = $(this).next().text();
+    if (this.checked) {
+        $('.ui.relaxed.list').append('<li class="item">'+ ingredient + '</li>');
+        total = total + 1.50;
+        $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
+    } else {
+        $('.ui.relaxed.list > li:contains('+ ingredient +')').remove();
+        total = total - 1.50;
+        $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
+    }
+});
+
+// manages the radio buttons of the delivery section; adds or extracts delivery cost from the total
+$('[type=radio][value=delivery]').click(function() {
+    if (this.checked) {
+        total = total + 5.00;
+        $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
+    } else {
+        total = total - 5.00;
+        $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
+    }
+});
+
+//form validation
