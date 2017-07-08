@@ -36,38 +36,42 @@ $('[type=checkbox][name=extra-ingredients]').change(function() {
     var ingredient = $(this).next().text();
     if (this.checked) {
         $('.ui.relaxed.list').append('<li class="item">'+ ingredient + '</li>');
-        total = total + 1.50;
+        total = total + 0.50;
         $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
     } else {
         $('.ui.relaxed.list > li:contains('+ ingredient +')').remove();
-        total = total - 1.50;
+        total = total - 0.50;
         $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
     }
 });
 
-// manages the checkbox buttons of the 'extra-ingredients' section; adds or extracts delivery cost from the total
-$('[type=checkbox][name=extra-ingredients]').change(function() {
-    var ingredient = $(this).next().text();
-    if (this.checked) {
-        $('.ui.relaxed.list').append('<li class="item">'+ ingredient + '</li>');
-        total = total + 1.50;
-        $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
-    } else {
-        $('.ui.relaxed.list > li:contains('+ ingredient +')').remove();
-        total = total - 1.50;
-        $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
-    }
-});
 
-// manages the radio buttons of the delivery section; adds or extracts delivery cost from the total
-$('[type=radio][value=delivery]').click(function() {
-    if (this.checked) {
+// adds delivery cost to the total only when the radio button 'delivery' is selected;
+$('[type=radio][value=delivery]').on('change', function () {
+    if ($(this).hasClass('costAdded')) {
+            total = total + 0.00;
+            $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
+    } else {
         total = total + 5.00;
         $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
+        $(this).addClass('costAdded');
+        $('[type=radio][value=pick-up]').removeClass('costAdded');
+    }
+});
+
+// extracts delivery cost from the total only when the radio button 'pick-up' is selected;
+$('[type=radio][value=pick-up]').on('change', function () {
+    if ($(this).hasClass('costAdded')) {
+            total = total + 0.00;
+            $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
     } else {
         total = total - 5.00;
         $('#total_cost').html('<strong>' + 'Total: ' + '</strong>' + '$' + total.toFixed(2));
+        $(this).addClass('costAdded');
+        $('[type=radio][value=delivery]').removeClass('costAdded');
     }
 });
+
+
 
 //form validation
