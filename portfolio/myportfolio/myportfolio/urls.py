@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from portfoliopages import views as page_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 app_name = 'portfoliopages'
@@ -23,4 +25,4 @@ app_name = 'portfoliopages'
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', page_views.index, name='index'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'portfoliopages/sass/portfolio.css' %}">
+</head>
+
+<body>
+    <div id = "firstContainer">
+        <div id="titlePageTable">
+            <h1>Polina Jastrzebska</h1>
+            <div id="arrow">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+    </div>
+    <div id="mainContainer">
+        <div id="banner">
+            <div id="biotext">
+                <p>Kitty poochy soft kitty warm kitty little ball of furr scamper freak human out make funny noise mow
+                    mow mow mow mow mow success now attack human for poop in the plant pot. </p>
+            </div>
+            <div id="profilePic">
+                <img src="{% static "portfoliopages/img/pofi.jpg" %}" class="img-circle" width="20%"  alt="This is my profile picture">
+            </div>
+        </div>
+
+        <div id="contactBio" class="field">
+            <div id="iconsSkills">
+                <div id="social-icons">
+                    <div id="gitHub"><a href="https://github.com/jastr945" target="_blank"><span>Github</span></a></div>
+                    <div id="linkedIn"><a href="https://www.linkedin.com/in/polinajastrzebska/" target="_blank"><span>LinkedIn</span></a></div>
+                </div>
+                <div id="skillsList">
+                    <div>Python</div>
+                    <div>JavaScript</div>
+                    <div>HTML</div>
+                    <div>CSS</div>
+                    <div>SASS</div>
+                    <div>SQL</div>
+                    <div>Git</div>
+                    <div>Linux</div>
+                    <div>Django</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="projectSection">
+            <div>
+                <h1>Projects:</h1>
+            </div>
+            <div id="projects">
+
+                {% for p in projects %}
+                <div id="project">
+                    <div id="projectName"><b>{{ p.name }}</b></div>
+                    <div id="projectImg"><img src="{{ p.img }}"></div>
+                    <div id="projectDescription">{{ p.description }}</div>
+                    <div id="projectLink"><a href="{{ p.project_link }}" target="_blank"><b>See the code</b></a></div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'portfoliopages/js/site.js' %}"></script>
+</body>
+</html>
