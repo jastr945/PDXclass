@@ -21,39 +21,37 @@
                 <div></div>
             </div>
         </div>
-
     </div>
+
     <div id="mainContainer">
         <div id="banner">
-            <div id="biotext">
-                <p>Kitty poochy soft kitty warm kitty little ball of furr scamper freak human out make funny noise mow
-                    mow mow mow mow mow success now attack human for poop in the plant pot. </p>
-            </div>
-            <div id="profilePic">
-                <img src="{% static "portfoliopages/img/pofi.jpg" %}" class="img-circle" width="20%"  alt="This is my profile picture">
-            </div>
-        </div>
+            <div id="personalInfo">
+                <div id="bioText"><p>Kitty poochy soft kitty warm kitty little ball of furr scamper freak human out make funny noise mow
+                    mow mow mow mow mow success now attack human for poop in the plant pot. </p></div>
 
-        <div id="contactBio" class="field">
-            <div id="iconsSkills">
-                <div id="social-icons">
+                <div id="socialIcons">
                     <div id="gitHub"><a href="https://github.com/jastr945" target="_blank"><span>Github</span></a></div>
                     <div id="linkedIn"><a href="https://www.linkedin.com/in/polinajastrzebska/" target="_blank"><span>LinkedIn</span></a></div>
                 </div>
-                <div id="skillsList">
-                    <div>Python</div>
-                    <div>JavaScript</div>
-                    <div>HTML</div>
-                    <div>CSS</div>
-                    <div>SASS</div>
-                    <div>SQL</div>
-                    <div>Git</div>
-                    <div>Linux</div>
-                    <div>Django</div>
-                </div>
 
+                <div id="skillsSection" class="field">
+                    <div id="skillsList">
+                        <div>Python</div>
+                        <div>JavaScript</div>
+                        <div>HTML</div>
+                        <div>CSS</div>
+                        <div>SASS</div>
+                        <div>SQL</div>
+                        <div>Git</div>
+                        <div>Linux</div>
+                        <div>Django</div>
+                    </div>
+                </div>
             </div>
 
+            <div id="profilePic">
+                <img src="{% static "portfoliopages/img/pofi.jpg" %}" class="img-circle" width="20%"  alt="This is my profile picture">
+            </div>
         </div>
 
         <div id="projectSection">
@@ -74,6 +72,7 @@
             </div>
         </div>
     </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="{% static 'portfoliopages/js/site.js' %}"></script>
 </body>

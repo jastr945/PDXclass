@@ -25,3 +25,4 @@ class Project(models.Model):
     #         img.save(path)
     #     else:
     #         super().save(*args, **kwargs)
+
