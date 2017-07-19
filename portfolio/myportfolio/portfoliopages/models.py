@@ -26,3 +26,9 @@ class Project(models.Model):
     #     else:
     #         super().save(*args, **kwargs)
 
+
+class Skill(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return '{}'.format(self.name)

@@ -36,15 +36,9 @@
 
                 <div id="skillsSection" class="field">
                     <div id="skillsList">
-                        <div>Python</div>
-                        <div>JavaScript</div>
-                        <div>HTML</div>
-                        <div>CSS</div>
-                        <div>SASS</div>
-                        <div>SQL</div>
-                        <div>Git</div>
-                        <div>Linux</div>
-                        <div>Django</div>
+                        {% for s in skills %}
+                            <div>{{ s.name }}</div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
