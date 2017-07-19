@@ -38,7 +38,8 @@ body, html {
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  background-attachment: fixed; }
 
 #titlePageTable {
   display: flex;
@@ -107,6 +108,7 @@ body, html {
   align-self: center;
   width: 75%;
   height: auto;
+  min-height: 100%;
   margin: 0 12.5% 0 12.5%;
   padding: 0;
   background-color: rgba(87, 107, 116, 0.5);
@@ -118,7 +120,7 @@ body, html {
     justify-content: center;
     align-items: center;
     align-self: center;
-    margin: 0;
+    margin: 5% 0 0 0;
     padding: 2%; }
     #mainContainer #banner #profilePic {
       display: flex;
@@ -143,8 +145,7 @@ body, html {
       height: 100%;
       padding: 0; }
       #mainContainer #banner #personalInfo #bioText {
-        background-color: cornflowerblue;
-        width: 70%;
+        width: 100%;
         font-size: 1.2em;
         text-underline-color: #fff2b9;
         background-color: rgba(255, 242, 185, 0.2);
@@ -184,13 +185,22 @@ body, html {
         align-self: flex-end;
         margin: 1vh;
         padding: 0; }
+        #mainContainer #banner #personalInfo #socialIcons .gmail-circle {
+          width: 2.5em;
+          height: 2.5em;
+          border-radius: 50%; }
+        #mainContainer #banner #personalInfo #socialIcons #gMail {
+          margin: 1vh; }
+          #mainContainer #banner #personalInfo #socialIcons #gMail:hover {
+            animation-name: shaking;
+            animation-duration: 0.5s; }
         #mainContainer #banner #personalInfo #socialIcons #gitHub {
-          margin-right: 1vh; }
+          margin: 1vh; }
           #mainContainer #banner #personalInfo #socialIcons #gitHub:hover {
             animation-name: shaking;
             animation-duration: 0.5s; }
         #mainContainer #banner #personalInfo #socialIcons #linkedIn {
-          margin-left: 1vh; }
+          margin: 1vh; }
           #mainContainer #banner #personalInfo #socialIcons #linkedIn:hover {
             animation-name: shaking;
             animation-duration: 0.5s; }
@@ -199,7 +209,7 @@ body, html {
         flex-direction: row;
         flex-wrap: wrap;
         align-self: flex-end;
-        width: 55%;
+        width: 65%;
         font-size: 1em;
         margin: 1vh;
         padding: 0; }
@@ -211,7 +221,7 @@ body, html {
           font-size: 1.2em; }
           #mainContainer #banner #personalInfo #skillsSection #skillsList div {
             margin: 1vh;
-            padding: 1%;
+            padding: 0.5vh;
             align-self: center;
             background-color: rgba(255, 242, 185, 0.2); }
             #mainContainer #banner #personalInfo #skillsSection #skillsList div:hover {

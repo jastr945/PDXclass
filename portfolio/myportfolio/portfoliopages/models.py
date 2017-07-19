@@ -32,3 +32,14 @@ class Skill(models.Model):
 
     def __str__(self):
         return '{}'.format(self.name)
+
+
+class Bio(models.Model):
+    name = 'Bio'
+    text = models.CharField(max_length=255)
+
+    def __str__(self):
+        return '{}'.format(self.name)
+
+    class Meta:
+        verbose_name_plural = 'Bio'
