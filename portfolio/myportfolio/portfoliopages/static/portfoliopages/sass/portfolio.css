@@ -242,7 +242,10 @@ body, html {
         margin: 0.5em; }
       #mainContainer #projects #project #projectImg {
         align-self: center;
-        margin: 0.5em; }
+        padding: 0; }
+        #mainContainer #projects #project #projectImg .projectRoundPic {
+          border-radius: 50%;
+          border: 5px solid #fff2b9; }
       #mainContainer #projects #project #projectDescription {
         align-self: center;
         text-align: center;

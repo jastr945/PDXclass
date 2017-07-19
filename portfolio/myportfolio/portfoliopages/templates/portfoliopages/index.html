@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -64,7 +65,7 @@
                 {% for p in projects %}
                 <div id="project">
                     <div id="projectName"><b>{{ p.name }}</b></div>
-                    <div id="projectImg"><img src="{{ p.img }}"></div>
+                    <div id="projectImg"><img src="media/{{ p.img }}" alt="Project file" class="projectRoundPic" height="120px" width="120px"></div>
                     <div id="projectDescription">{{ p.description }}</div>
                     <div id="projectLink"><a href="{{ p.project_link }}" target="_blank"><b>See the code</b></a></div>
                 </div>

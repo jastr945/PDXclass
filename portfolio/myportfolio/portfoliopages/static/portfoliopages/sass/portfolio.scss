@@ -335,9 +335,13 @@ body,html {
                 margin: 0.5em;
             }
             & #projectImg {
-                align-self: center;
                 //background-color: yellow;
-                margin: 0.5em;
+                align-self: center;
+                padding:0;
+                & .projectRoundPic {
+                    border-radius: 50%;
+                    border: 5px solid $color2;
+                }
             }
             & #projectDescription {
                 //background-color: pink;
