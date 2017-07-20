@@ -313,7 +313,6 @@ body,html {
                 }
             }
         }
-
     }
 
     #projectSection {
@@ -357,6 +356,7 @@ body,html {
             width: 20em;
             height: auto;
             background-color: rgba(255, 242, 185, .2);
+            cursor: pointer;
             &:hover {
                 background-color: darken($color1, 10%);
             }
@@ -381,11 +381,55 @@ body,html {
                 margin: 0.5em;
                 font-size: 1.2em;
             }
-            & #projectLink {
+            & #projectButtons {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: center;
+                position: absolute;
+                margin:3em 0 0.1em 0;
+                z-index: 0;
                 align-self: center;
                 text-align: center;
-                margin: 0.5em;
-                font-size: 1.2em;
+                background-color: $color1;
+                height:auto;
+                width:18em;
+                a {
+                    display: inline-block;
+                    text-decoration: none;
+                    color: black;
+                    text-align: center;
+                }
+
+                & div:nth-child(1), div:nth-child(2), div:nth-child(3) {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    text-align: center;
+                    background-color: darken($color1, 10%);
+                    align-self: center;
+                    height:1.8em;
+                    width: 90%;
+                    margin: 0.2em 0.1em 0 0.1em;
+                    padding: 1%;
+                    &:hover {
+                        background-color: darken($color1, 20%);
+                    }
+                }
+
+                & div:nth-child(4) {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    align-self: center;
+                    height: 0;
+                    width: 0;
+                    border-left: 2em solid transparent;
+                    border-right: 2em solid transparent;
+                    border-bottom: 2em solid $color2;
+                    margin: 0.1em 0.1em 0.2em 0.1em;
+                    padding: 0;
+                }
             }
         }
     }

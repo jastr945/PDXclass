@@ -10,7 +10,8 @@ class Project(models.Model):
     name = models.CharField(max_length=255)
     img = models.ImageField(upload_to=profile_upload_handler)
     description = models.CharField(max_length=100)
-    project_link = models.CharField(max_length=500)
+    project_link = models.CharField(max_length=500, blank=True, null=True)
+    readme_link = models.CharField(max_length=500, blank=True, null=True)
 
     def __str__(self):
         return '{}'.format(self.name)
@@ -43,3 +44,11 @@ class Bio(models.Model):
 
     class Meta:
         verbose_name_plural = 'Bio'
+
+
+class ProfilePic(models.Model):
+    name = 'Profile picture'
+    img = models.ImageField(upload_to=profile_upload_handler)
+
+    def __str__(self):
+        return '{}'.format(self.name)

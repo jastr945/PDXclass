@@ -8,3 +8,27 @@ $('#arrow').click(function () {
         $("#mainContainer").appendTo('#firstContainer');
     });
 });
+
+// $('.project').on('click', function (e) {
+//     e.preventDefault();
+//     $('.projectButtons').show('slow');
+// });
+
+$('.project').each(function () {
+    $(this).click(function (e) {
+        e.preventDefault();
+     $(this).children('.projectButtons').show('slow')
+    })
+});
+
+$('.arrowClose').each(function () {
+    $(this).click(function (e) {
+        e.preventDefault();
+        $('.projectButtons').hide('slow');
+    })
+});
+
+$('.buttonLink').on('click', function(e) {
+    e.preventDefault();
+
+});

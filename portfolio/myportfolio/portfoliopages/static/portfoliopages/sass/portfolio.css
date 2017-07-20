@@ -258,7 +258,8 @@ body, html {
       margin-right: 1vh;
       width: 20em;
       height: auto;
-      background-color: rgba(255, 242, 185, 0.2); }
+      background-color: rgba(255, 242, 185, 0.2);
+      cursor: pointer; }
       #mainContainer #projects #project:hover {
         background-color: #415057; }
       #mainContainer #projects #project #projectName {
@@ -276,10 +277,48 @@ body, html {
         text-align: center;
         margin: 0.5em;
         font-size: 1.2em; }
-      #mainContainer #projects #project #projectLink {
+      #mainContainer #projects #project #projectButtons {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        position: absolute;
+        margin: 3em 0 0.1em 0;
+        z-index: 0;
         align-self: center;
         text-align: center;
-        margin: 0.5em;
-        font-size: 1.2em; }
+        background-color: #576b74;
+        height: auto;
+        width: 18em; }
+        #mainContainer #projects #project #projectButtons a {
+          display: inline-block;
+          text-decoration: none;
+          color: black;
+          text-align: center; }
+        #mainContainer #projects #project #projectButtons div:nth-child(1), #mainContainer #projects #project #projectButtons div:nth-child(2), #mainContainer #projects #project #projectButtons div:nth-child(3) {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          text-align: center;
+          background-color: #415057;
+          align-self: center;
+          height: 1.8em;
+          width: 90%;
+          margin: 0.2em 0.1em 0 0.1em;
+          padding: 1%; }
+          #mainContainer #projects #project #projectButtons div:nth-child(1):hover, #mainContainer #projects #project #projectButtons div:nth-child(2):hover, #mainContainer #projects #project #projectButtons div:nth-child(3):hover {
+            background-color: #2b353a; }
+        #mainContainer #projects #project #projectButtons div:nth-child(4) {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-self: center;
+          height: 0;
+          width: 0;
+          border-left: 2em solid transparent;
+          border-right: 2em solid transparent;
+          border-bottom: 2em solid #fff2b9;
+          margin: 0.1em 0.1em 0.2em 0.1em;
+          padding: 0; }
 
 /*# sourceMappingURL=portfolio.css.map */

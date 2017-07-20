@@ -47,9 +47,11 @@
                 </div>
             </div>
 
+            {% for p in profile_pic %}
             <div id="profilePic">
-                <img src="{% static "portfoliopages/img/pofi.jpg" %}" class="img-circle" width="20%"  alt="Profile picture">
+                <img src="media/{{p.img}}" class="img-circle" height="20%"  alt="Profile picture">
             </div>
+            {% endfor %}
         </div>
 
         <div id="projectSection">
@@ -59,11 +61,16 @@
             <div id="projects">
 
                 {% for p in projects %}
-                <div id="project">
+                <div id="project" class="project">
                     <div id="projectName"><b>{{ p.name }}</b></div>
                     <div id="projectImg"><img src="media/{{ p.img }}" alt="Project file" class="projectRoundPic" height="120px" width="120px"></div>
                     <div id="projectDescription">{{ p.description }}</div>
-                    <div id="projectLink"><a href="{{ p.project_link }}" target="_blank"><b>See the code</b></a></div>
+                    <div id="projectButtons" class="projectButtons" style="display: none">
+                        <div id="seeDemo" class="buttonLink">See how it works</div>
+                        <div id="seeCode" class="buttonLink"><a href="{{ p.project_link }}" target="_blank">Look at the code</a></div>
+                        <div id="seeReadMe" class="buttonLink"><a href="{{ p.readme_link }}" target="_blank">Open the ReadMe.md file</a></div>
+                        <div id="arrowClose" class="arrowClose"></div>
+                    </div>
                 </div>
                 {% endfor %}
 
