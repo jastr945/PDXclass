@@ -67,8 +67,8 @@
                     <div id="projectDescription">{{ p.description }}</div>
                     <div id="projectButtons" class="projectButtons" style="display: none">
                         <div id="seeDemo" class="buttonLink">See how it works</div>
-                        <div id="seeCode" class="buttonLink"><a href="{{ p.project_link }}" target="_blank">Look at the code</a></div>
-                        <div id="seeReadMe" class="buttonLink"><a href="{{ p.readme_link }}" target="_blank">Open the ReadMe.md file</a></div>
+                        <div id="seeCode" class="buttonLink"><a href="{{ p.project_link }}" onclick="window.open('{{ p.project_link }}', '_blank')"><span>Look at the code</span></a></div>
+                        <div id="seeReadMe" class="buttonLink"><a href="{{ p.readme_link }}" onclick="window.open('{{ p.readme_link }}', '_blank')">Open the ReadMe.md file</a></div>
                         <div id="arrowClose" class="arrowClose"></div>
                     </div>
                 </div>
