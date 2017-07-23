@@ -5,8 +5,12 @@
 
 //makes a slide from one part of the main page to another upon click
 $('#arrow').click(function () {
+    // $('html, body').animate({
+    //     scrollTop: $('#mainContainer').offset().top
+    // }, 700);
     $('#titlePageTable').slideUp(300, 'swing', function () {
         $("#mainContainer").appendTo('#firstContainer');
+        $('#firstContainer').css('overflow', 'auto');
     });
 });
 

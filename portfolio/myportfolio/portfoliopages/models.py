@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 from PIL import Image
 
 
@@ -12,9 +13,14 @@ class Project(models.Model):
     description = models.CharField(max_length=100)
     project_link = models.CharField(max_length=500, blank=True, null=True)
     readme_link = models.CharField(max_length=500, blank=True, null=True)
+    slug = models.SlugField(max_length=50, default='')
 
     def __str__(self):
         return '{}'.format(self.name)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Project, self).save(*args, **kwargs)
 
     # def save(self, *args, **kwargs):
     #     if not self.pk:

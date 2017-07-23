@@ -60,19 +60,21 @@
             </div>
             <div id="projects">
 
-                {% for p in projects %}
-                <div id="project" class="project">
-                    <div id="projectName"><b>{{ p.name }}</b></div>
-                    <div id="projectImg"><img src="media/{{ p.img }}" alt="Project file" class="projectRoundPic" height="120px" width="120px"></div>
-                    <div id="projectDescription">{{ p.description }}</div>
-                    <div id="projectButtons" class="projectButtons" style="display: none">
-                        <div id="seeDemo" class="buttonLink">See how it works</div>
-                        <div id="seeCode" class="buttonLink"><a href="{{ p.project_link }}" onclick="window.open('{{ p.project_link }}', '_blank')"><span>Look at the code</span></a></div>
-                        <div id="seeReadMe" class="buttonLink"><a href="{{ p.readme_link }}" onclick="window.open('{{ p.readme_link }}', '_blank')">Open the ReadMe.md file</a></div>
-                        <div id="arrowClose" class="arrowClose"></div>
-                    </div>
-                </div>
-                {% endfor %}
+                {% if projects %}
+                    {% for p in projects %}
+                        <div id="project" class="project">
+                            <div id="projectName"><b>{{ p.name }}</b></div>
+                            <div id="projectImg"><img src="media/{{ p.img }}" alt="Project file" class="projectRoundPic" height="120px" width="120px"></div>
+                            <div id="projectDescription">{{ p.description }}</div>
+                            <div id="projectButtons" class="projectButtons" style="display: none">
+                                <div id="seeDemo" class="buttonLink"><a href="{{ p.slug }}" onclick="window.open('{{ p.slug }}', '_blank')"></a>See how it works</div>
+                                <div id="seeCode" class="buttonLink"><a href="{{ p.project_link }}" onclick="window.open('{{ p.project_link }}', '_blank')">Look at the code</a></div>
+                                <div id="seeReadMe" class="buttonLink"><a href="{{ p.readme_link }}" onclick="window.open('{{ p.readme_link }}', '_blank')">Open the ReadMe.md file</a></div>
+                                <div id="arrowClose" class="arrowClose"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
 
             </div>
         </div>

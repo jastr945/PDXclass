@@ -64,6 +64,9 @@ body,html {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    position:fixed;
+    overflow: auto;
+
 }
 
 #titlePageTable {
@@ -137,7 +140,7 @@ body,html {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    align-self: center;
+    align-self: flex-start;
     width: 75%;
     height: auto;
     min-height: 100%;
@@ -145,6 +148,7 @@ body,html {
     padding: 0;
     background-color: rgba(87, 107, 116, .5);
     font-family: "Tlwg Typist";
+    overflow: auto;
 
     #banner {
         //background-color: pink;
@@ -320,11 +324,10 @@ body,html {
         align-self: center;
         margin: 0 2em 3em 2em;
         h1 {
-            background-color: pink;
             align-self: center;
             font-size: 3em;
             text-align: center;
-            margin:0.5em 0 0.5em 0;
+            margin:0.5em 0.2em 0.2em 0.2em;
             background-color: rgba(255, 242, 185, .2);
             &:hover {
                 background-color: lighten($color1, 5%);

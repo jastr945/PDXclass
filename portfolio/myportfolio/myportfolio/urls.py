@@ -25,4 +25,5 @@ app_name = 'portfoliopages'
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', page_views.index, name='index'),
+    url(r'^projects/(?P<project_name_slug>[-\w]+)/$', page_views.project, name='project')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

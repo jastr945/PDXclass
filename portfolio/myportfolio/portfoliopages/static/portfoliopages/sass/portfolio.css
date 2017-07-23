@@ -40,7 +40,9 @@ body, html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed; }
+  background-attachment: fixed;
+  position: fixed;
+  overflow: auto; }
 
 #titlePageTable {
   display: flex;
@@ -105,14 +107,15 @@ body, html {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  align-self: center;
+  align-self: flex-start;
   width: 75%;
   height: auto;
   min-height: 100%;
   margin: 0 12.5% 0 12.5%;
   padding: 0;
   background-color: rgba(87, 107, 116, 0.5);
-  font-family: "Tlwg Typist"; }
+  font-family: "Tlwg Typist";
+  overflow: auto; }
   #mainContainer #banner {
     display: flex;
     flex-direction: row;
@@ -233,11 +236,10 @@ body, html {
     align-self: center;
     margin: 0 2em 3em 2em; }
     #mainContainer #projectSection h1 {
-      background-color: pink;
       align-self: center;
       font-size: 3em;
       text-align: center;
-      margin: 0.5em 0 0.5em 0;
+      margin: 0.5em 0.2em 0.2em 0.2em;
       background-color: rgba(255, 242, 185, 0.2); }
       #mainContainer #projectSection h1:hover {
         background-color: #627883; }
