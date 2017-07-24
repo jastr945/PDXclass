@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
+body {
+    background-color: #f78645;
+}
+
+#game {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#header {
+    position: relative;
+    display:flex;
+    justify-content: center;
+    font-family: "Gloria Hallelujah";
+    font-size: 50pt;
+    text-shadow: 5px 5px red;
+}
+
+#poster {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: 20px solid white;
+    height: 50vh;
+}
+
+#welcome {
+    color:red;
+    position: relative;
+    display:flex;
+    justify-content: center;
+    font-size: 50pt;
+    margin-bottom: 200px;
+    cursor: pointer;
+}
+
+#round {
+    font-family: "Gloria Hallelujah";
+    font-size: 35pt;
+    text-shadow: 5px 5px red;
+    margin-top: 170px;
+    margin-bottom:-20px;
+}
+
+#dies {
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:100px;
+}
+
+@keyframes shaking {
+    0% {
+        transform: rotate(3deg);
+    }
+    25% {
+        transform: rotate(-6deg);
+    }
+    50% {
+        transform: rotate(6deg);
+    }
+    100% {
+        transform: rotate(-3deg);
+    }
+}
+
+#die1, #die2 {
+    float: left;
+    flex-direction: row;
+    margin: 100px;
+    border: 5px solid transparent;
+    cursor: pointer;
+    animation: shaking 3s infinite alternate;
+}
+
+#message {
+    margin-top: -80px;
+    font-family: "Gloria Hallelujah";
+    font-size: 25pt;
+}
+
+#roll {
+    margin:100px;
+    height:100px;
+    width:300px;
+    font-family: "Gloria Hallelujah";
+    text-shadow: 2px 2px red;
+    font-size: 35pt;
+    cursor: pointer;
+}
+
+#reset {
+    margin:100px;
+    height:100px;
+    width:300px;
+    font-family: "Gloria Hallelujah";
+    font-size: 35pt;
+    cursor: pointer;
+}

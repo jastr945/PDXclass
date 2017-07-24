@@ -50,7 +50,7 @@ body, html {
   flex-direction: column;
   height: 20em;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   margin-top: 35em;
   align-items: flex-start;
   font-family: "Tlwg Typist"; }
@@ -234,7 +234,7 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-self: center;
-    margin: 0 2em 3em 2em; }
+    margin: 3em 2em 3em 2em; }
     #mainContainer #projectSection h1 {
       align-self: center;
       font-size: 3em;

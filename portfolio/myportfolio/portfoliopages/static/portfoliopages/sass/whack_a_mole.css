@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Chewy');
+
+html {
+    background-image: url("portfoliopages/img/grass.jpg");
+}
+
+body {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 80%;
+    height: 90%;
+    margin-right: 10%;
+    margin-left: 10%;
+    background-color: #a6c871;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+#header {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+}
+
+@keyframes darker {
+    0% {color:#FFFF14;}
+    25% {color:#D7D700;}
+    50% {color:#FFFF14;}
+    100% {color:#C3C300;}
+}
+
+h1 {
+    margin-top: 10px;
+    margin-right:20px;
+    margin-left:-20px;
+    align-self:center;
+    font-family: 'Chewy';
+    font-size: 35pt;
+    color: #FFFF14;
+    text-shadow: 5px 5px black;
+    animation: darker 2s infinite;
+}
+
+#score {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    margin-top: -30px;
+    margin-right:0;
+    margin-left:0;
+    font-family: 'Chewy';
+    font-size: 20pt;
+}
+
+#scoreCounter {
+    align-self:center;
+    font-family: 'Chewy';
+    font-size: 20pt;
+    margin-right:25px;
+    margin-left:25px;
+}
+
+#timeCounter {
+    display:flex;
+    flex-direction: row;
+    align-self:center;
+    font-family: 'Chewy';
+    font-size: 20pt;
+    margin-right:25px;
+    margin-left:25px;
+}
+
+#buttons:nth-child(1), #buttons:nth-child(2), #buttons:nth-child(3) {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+#start {
+    margin-right: 10px;
+    margin-right: 10px;
+    height: 50px;
+    width:200px;
+    font-family: 'Chewy';
+    font-size: 20pt;
+    background-color: #FFFF14;
+    color: black;
+    cursor: pointer;
+}
+
+#stop {
+    margin-right: 10px;
+    margin-right: 10px;
+    height: 50px;
+    width:100px;
+    background-color: #C3C300;
+    font-family: 'Chewy';
+    font-size: 20pt;
+    color: black;
+    cursor: pointer;
+}
+
+#reset {
+    margin-right: 10px;
+    margin-right: 10px;
+    height: 50px;
+    width:100px;
+    background-color: #C3C300;
+    font-family: 'Chewy';
+    font-size: 20pt;
+    color:black;
+    cursor: pointer;
+}
+
+#field {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-items: center;
+    margin-left:auto;
+    margin-right:auto;
+    cursor: url("cursor.cur"), auto;
+}
+
+#field > div > div {
+    margin: 50px;
+    margin-top:50px;
+    margin-bottom: 50px;
+}

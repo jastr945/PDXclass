@@ -25,8 +25,7 @@ def project(request, project_name_slug):
 
     try:
         myproject = Project.objects.get(slug=project_name_slug)
-        context_dict['project_name'] = myproject.name
-        context_dict['project'] = myproject
+        context_dict['myproject'] = myproject
     except Project.DoesNotExist:
-        pass
-    return render(request, 'portfoliopages/project.html', context_dict)
+        context_dict['myproject'] = None
+    return render(request, 'portfoliopages/{}.html'.format(project_name_slug), context_dict)

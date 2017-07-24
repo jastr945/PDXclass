@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angry Dice</title>
+    <link rel="stylesheet" href="{% static 'portfoliopages/sass/angry_dice.css' %}">
+</head>
+<body>
+<h1 id="header">ANGRY DICE GAME</h1>
+<img id="poster" src="{% static 'portfoliopages/img/pic1714296_md.jpg' %}" height="500" width="341"/>
+<h2 id="welcome"><u>CLICK HERE TO START>>></u></h2>
+<div id="game">
+    <div id="round">Round: <span id="roundNumber">1</span></div>
+    <div id="dies">
+        <div id="die1" class="dieClick"><img src="{% static 'portfoliopages/img/angry.png' %}" height="184" width="184"/></div>
+        <div id="die2" class="dieClick"><img src="{% static 'portfoliopages/img/angry.png' %}" height="184" width="184"/></div>
+    </div>
+    <div id="message">Click 'Roll' button to roll the dice, or 'New Game' to reset!<br>
+    If the die rolls to something you will need, just click on it and lock it!</div>
+    <div id="gameButtons">
+        <button id="roll">Roll</button>
+        <button id="reset">New Game</button>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'portfoliopages/js/angry_dice.js' %}"></script>
+</body>
+</html>
+
