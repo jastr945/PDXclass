@@ -1,0 +1,54 @@
+#body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: dimgrey;
+    background-repeat: no-repeat;
+    background-position: 50% 7%;
+    background-size: cover;
+}
+
+.content {
+    border: 40px solid rgba(40, 40, 40, .4);
+    position: absolute;
+    height: 500px;
+    width: 800px;
+    margin: -250px 0 0 -450px;
+    top: 45%;
+    left: 50%;
+    background-image: url("/static/portfoliopages/img/bg.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+h1 {
+    text-shadow: 2px 2px grey;
+}
+
+#city {
+    height:30px;
+    width:300px;
+    font-size: 14pt;
+}
+
+#checkWeather {
+    justify-content: center;
+    height: 35px;
+    text-align: center;
+    font-size: 14pt;
+}
+
+#result {
+    font-size: 1.5em;
+    margin-top: 70px;
+    color: black;
+    background: rgba(230, 230, 250, 0.5);
+}
+
+
+#icon {
+    height:25px;
+    margin-top:50px;
+    margin-bottom:10px;
+}
