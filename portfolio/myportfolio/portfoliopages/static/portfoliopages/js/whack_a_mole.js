@@ -46,15 +46,15 @@ var Clock = {
 //after 2 seconds, the picture of a mole turns back into a hole
 function pickHole () {
     var holeNumber = (Math.floor(Math.random() * 20) + 1);
-    $('#' + holeNumber).html("<img src='portfoliopages/img/mole.jpg'/>").addClass('active');
+    $('#' + holeNumber).html("<img src='/static/portfoliopages/img/mole.jpg'/>").addClass('active');
     setTimeout(function () {
-        $('#' + holeNumber).html("<img src='portfoliopages/img/hole.jpg'/>").removeClass('active');
+        $('#' + holeNumber).html("<img src='/static/portfoliopages/img/hole.jpg'/>").removeClass('active');
   }, 2000);
 
     //changes image back to a hole and adds score points ONLY when the image on a mole is on
     $('#' + holeNumber).click(function () {
         if ($(this).attr('class') === 'active') {
-            $(this).html("<img src='portfoliopages/img/hole.jpg'/>").removeClass('active');
+            $(this).html("<img src='/static/portfoliopages/img/hole.jpg'/>").removeClass('active');
             score++;
             $('#scoreCounter').html(score);
         }

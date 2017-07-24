@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Chewy');
 
 html {
-    background-image: url("portfoliopages/img/grass.jpg");
+    background-image: url("/static/portfoliopages/img/grass.jpg");
 }
 
 body {
@@ -127,7 +127,7 @@ h1 {
     justify-items: center;
     margin-left:auto;
     margin-right:auto;
-    cursor: url("cursor.cur"), auto;
+    cursor: url("/static/portfoliopages/img/cursor.cur"), auto;
 }
 
 #field > div > div {

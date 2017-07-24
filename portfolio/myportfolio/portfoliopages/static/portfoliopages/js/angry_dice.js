@@ -7,6 +7,7 @@
 'use strict';
 var round = 1;
 
+
 //Creates a die object
 function Die(id) {
     this.id = id;
@@ -24,17 +25,17 @@ function Die(id) {
     //inserts a picture of a die depending of the random number
     this.render = function () {
         if (this.val.toString() === '1') {
-            $('#' + this.id).html("<img src='portfoliopages/img/1.png' height='184px' width='184px'/>");
+            $('#' + this.id).html("<img src='/static/portfoliopages/img/1.png' height='184px' width='184px'/>");
         } else if (this.val.toString() === '2') {
-            $('#' + this.id).html("<img src='portfoliopages/img/2.png' height='184px' width='184px'/>");
+            $('#' + this.id).html("<img src='/static/portfoliopages/img/2.png' height='184px' width='184px'/>");
         } else if (this.val.toString() === '3') {
-            $('#' + this.id).html("<img src='portfoliopages/img/3.png' height='184px' width='184px'/>");
+            $('#' + this.id).html("<img src='/static/portfoliopages/img/3.png' height='184px' width='184px'/>");
         } else if (this.val.toString() === '4') {
-            $('#' + this.id).html("<img src='portfoliopages/img/4.png' height='184px' width='184px'/>");
+            $('#' + this.id).html("<img src='/static/portfoliopages/img/4.png' height='184px' width='184px'/>");
         } else if (this.val.toString() === '5') {
-            $('#' + this.id).html("<img src='portfoliopages/img/5.png' height='184px' width='184px'/>");
+            $('#' + this.id).html("<img src='/static/portfoliopages/img/5.png' height='184px' width='184px'/>");
         } else if (this.val.toString() === '6') {
-            $('#' + this.id).html("<img src='portfoliopages/img/6.png' height='184px' width='184px'/>");
+            $('#' + this.id).html("<img src='/static/portfoliopages/img/6.png' height='184px' width='184px'/>");
         }
     }
 }
