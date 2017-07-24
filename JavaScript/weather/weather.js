@@ -7,13 +7,13 @@ function insertPic (someid) {
         $('#body').css({'background-image': 'url(rain.jpg)'});
         $('#icon').html("<img src='3.png'/>");
     } else if (someid >= 600 && someid <= 622) {
-        $('#body').css({'background-image': 'url(snow.jpeg)'});
+        $('#body').css({'background-image': 'url(snow.jpg)'});
         $('#icon').html("<img src='5.png'/>");
     } else if (someid >= 701 && someid <= 781) {
         $('#body').css({'background-image': 'url(fog.jpg)'});
         $('#icon').html("<img src='6.png'/>");
     } else if (someid === '800') {
-        $('#body').css('background-image', 'url(sun.jpg)');
+        $('#body').css('background-image', 'url(sun.JPG)');
         $('#icon').html("<img src='1.png'/>");
     } else if (someid >= 801 && someid <= 804) {
         $('#body').css('background-image', 'url(clouds.jpg)');
