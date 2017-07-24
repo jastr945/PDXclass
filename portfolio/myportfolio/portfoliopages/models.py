@@ -10,7 +10,7 @@ def profile_upload_handler(instance, filename):
 class Project(models.Model):
     name = models.CharField(max_length=255, unique=True)
     img = models.ImageField(upload_to=profile_upload_handler)
-    description = models.CharField(max_length=100)
+    description = models.TextField(max_length=255)
     project_link = models.CharField(max_length=500, blank=True, null=True)
     readme_link = models.CharField(max_length=500, blank=True, null=True)
     slug = models.SlugField(max_length=50, default='')
@@ -43,7 +43,7 @@ class Skill(models.Model):
 
 class Bio(models.Model):
     name = 'Bio'
-    text = models.CharField(max_length=255)
+    text = models.TextField(max_length=255)
 
     def __str__(self):
         return '{}'.format(self.name)
