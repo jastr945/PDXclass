@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ceasar Cipher</title>
+    <link rel="stylesheet" href="{% static 'portfoliopages/sass/caesar.css' %}">
+</head>
+<body>
+    <div id="panel">
+        <div id="description"><p><b>Caesar cipher</b> is said to have been used by Julius Caesar to communicate with his army. Caesar cipher is a way of encrypting simple text <u>using a single number as a key</u>. Each letter is "rotated" forward or backward by that key number. The ciphertext alphabet is derived from the plaintext alphabet by shifting each letter a certain number of spaces. <b>Try it yourself!</b></p></div>
+        <div id="content">
+            <div id="encryptionTab">
+                <input id="encryptString" type="text" placeholder="Enter a word...">
+                <input id="encryptKey" type="number" placeholder="Enter a key...">
+                <input id="encrypt" type="submit" value="Encrypt">
+                <p>The result of your encryption:<br></p>
+                <div id="encryptResult"></div>
+            </div>
+            <div id="decryptionTab">
+                <input id="decryptString" type="text" placeholder="Enter a word...">
+                <input id="decryptKey" type="number" placeholder="Enter a key...">
+                <input id="decrypt" type="submit" value="Decrypt">
+                <p>The result of your decryption:<br></p>
+                <div id="decryptResult"></div>
+            </div>
+        </div>
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'portfoliopages/js/caesar.js' %}"></script>
+</body>
+</html>
