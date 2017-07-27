@@ -292,7 +292,6 @@ body,html {
                 font-size: 1em;
                 margin: 0.5em 0.5em 0 0.5em;
                 padding: 0;
-
                 #skillsList {
                     //background-color: green;
                     display: flex;
@@ -372,7 +371,7 @@ body,html {
                 //background-color: pink;
                 align-self: center;
                 text-align: center;
-                margin: 0.5em;
+                margin: 1.5em 0.5em 0.5em 0.5em;
                 font-size: 1.2em;
             }
             & #projectButtons {
@@ -391,8 +390,9 @@ body,html {
                 a {
                     display: inline-block;
                     text-decoration: none;
-                    color: black;
+                    color: $color2;
                     text-align: center;
+                    font-size: 1.2em;
                 }
 
                 & div:nth-child(1), div:nth-child(2), div:nth-child(3) {

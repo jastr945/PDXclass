@@ -40,10 +40,29 @@ function caesarEncrypt(plainStr, key) {
         $('#encryptResult').html(result).css('background-color', '#5b5a5a');
     }
 }
-// encrypts a string upon clicking the 'submit' button
-$('#encrypt').click(function (e) {
-    e.preventDefault();
-    caesarEncrypt($('#encryptString').val().toLowerCase(), $('#encryptKey').val());
+
+
+//encrypts a string upon clicking the 'submit' button
+$(document).ready(function() {
+    $('#encryptionTab').validate({
+        rules: {
+            encryptString: "required",
+            encryptKey: "required"
+        },
+        message: {
+            encryptString: 'Enter a word.',
+            encryptKey:'Enter a key.'
+        },
+        errorPlacement: function(error, element) {
+            element.attr('placeholder', error.text());
+        }
+    });
+    $('#encrypt').click(function (e) {
+        e.preventDefault();
+        if ($('#encryptionTab').valid()) {
+            caesarEncrypt($('#encryptString').val().toLowerCase(), $('#encryptKey').val());
+        }
+    });
 });
 
 //an opposite process with a similar logic as above
@@ -91,3 +110,4 @@ $('#decrypt').click(function (e) {
     e.preventDefault();
     caesarDecrypt($('#decryptString').val().toLowerCase(), $('#decryptKey').val());
 });
+

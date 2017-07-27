@@ -271,7 +271,7 @@ body, html {
       #mainContainer #projects #project #projectDescription {
         align-self: center;
         text-align: center;
-        margin: 0.5em;
+        margin: 1.5em 0.5em 0.5em 0.5em;
         font-size: 1.2em; }
       #mainContainer #projects #project #projectButtons {
         display: flex;
@@ -289,8 +289,9 @@ body, html {
         #mainContainer #projects #project #projectButtons a {
           display: inline-block;
           text-decoration: none;
-          color: black;
-          text-align: center; }
+          color: #fff2b9;
+          text-align: center;
+          font-size: 1.2em; }
         #mainContainer #projects #project #projectButtons div:nth-child(1), #mainContainer #projects #project #projectButtons div:nth-child(2), #mainContainer #projects #project #projectButtons div:nth-child(3) {
           display: flex;
           justify-content: center;
