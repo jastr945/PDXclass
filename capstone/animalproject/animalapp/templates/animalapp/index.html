@@ -1,10 +1,27 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Search Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/animalapp/sass/index.css' %}">
 </head>
 <body>
-
+<div id="mainContainer">
+    <h1>Find a pet</h1>
+    <div id="searchTab">
+        <div id="searchEngine">
+            <input type="search" id="searchField" title="searchField" name="searchField" placeholder="Start typing, eg. adult Siamese cat...">
+            <input type="submit" id="findButton" name="submitSearch" value="Find">
+        </div>
+        <div id="findAllTab">
+            <button type="submit" id="allDogs">Show me all dogs</button>
+            <button type="submit" id="allCats">Show me all cats</button>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../static/animalapp/js/index.js"></script>
 </body>
 </html>

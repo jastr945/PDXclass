@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from animalapp import views
 from django.conf import settings
 from django.conf.urls.static import static
+from animalapp import views
 
 
 app_name = 'animalapp'

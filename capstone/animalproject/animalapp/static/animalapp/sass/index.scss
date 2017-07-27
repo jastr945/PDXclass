@@ -1,0 +1,81 @@
+body, html {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+#mainContainer {
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-items: center;
+  width: 75%;
+  height: 100%;
+  margin: auto;
+  padding:0;
+  background-color: #003366;
+  font-family: Arial;
+  h1 {
+    font-size: 3em;
+    color:white;
+    padding: 1em;
+  }
+  #searchTab {
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    align-self: center;
+    margin:1em;
+    padding:0;
+    width: 55em;
+    height:20em;
+    background-color: white;
+    #searchEngine {
+      display:flex;
+      flex-direction:row;
+      flex-wrap:wrap;
+      width: 85%;
+      height:50%;
+      align-content: stretch;
+      align-items: center;
+      align-self: center;
+      justify-content: center;
+      margin: 0;
+      #searchField {
+        margin: 0;
+        width: 25em;
+        height: 3em;
+        font-size: 1.5em;
+
+      }
+      #findButton {
+        margin: 0;
+        width: 5em;
+        height: 3em;
+        font-size: 1.5em;
+      }
+    }
+    #findAllTab {
+      display:flex;
+      flex-direction:row;
+      flex-wrap:wrap;
+      align-content: stretch;
+      align-items: flex-start;
+      align-self: center;
+      justify-content: center;
+      margin: 0;
+      width: 85%;
+      height:50%;
+      #allDogs {
+        width:10em;
+        height:3em;
+        font-size: 1.5em;
+      }
+      #allCats {
+        width:10em;
+        height:3em;
+        font-size: 1.5em;
+      }
+    }
+  }
+}
