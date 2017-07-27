@@ -23,23 +23,27 @@ The information about adoptable animals will be contained in animal profiles sto
 ![alt text](https://github.com/jastr945/jastr945.github.io/blob/master/data_model_diagram.jpg?raw=true "Data model diagram")
  ### Technical Components
 All pages will be created using HTML5 and CSS flexbox containers. The database component will be created with PostgreSQL.
+
 ####Admin Panel
 - A basic login script with user authentication (Django's built-in login system)
 - Form validation for login and sign-up (JQuery Validation Plugin)
 - Admin panel interface (Django)
 - Drop-down menu and autocomplete for profile creation (probably Django?)
 - Ability to create, edit and delete animal profiles (Python, JQuery/JavaScript)
+
 ####Animal Profiles
 - Image gallery with the ability to view pictures in a large size (JQuery Roundabout slider)
 - Social media buttons (CSS, JQuery)
 - An email button to contact the shelter team (the message will have the animal name and ID in the title)
 - Small preview of a few similar profiles (SQL), which the users might also like
+
 ####Search Engine
 - Full-text search (Elastic Search / API in Python)
 - Autocomplete or autosuggest (JQuery autocomplete plugin or Taggle.js (API))
 - Checkboxes and radio buttons for search parameters (JQuery, JavaScript)
 - Ability to filter search results (Python, JQuery/JavaScript, SQL)
 - Donation button sending to the donations section of the website
+
 ### Sketches
 1. Search engine page prototype
 ![alt text](https://github.com/jastr945/PDXclass/blob/master/capstone/animalproject/animalapp/static/animalapp/img/search_engine_page.png "Search engine page")
