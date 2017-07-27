@@ -55,10 +55,14 @@ All pages will be created using HTML5 and CSS flexbox containers. The database c
 ![alt text](https://github.com/jastr945/PDXclass/blob/master/capstone/animalproject/animalapp/static/animalapp/img/admin_panel.png "Admin panel")
  ### Estimated Schedule
 week 1: creating admin profile and login script
+
 week 2: creating animal database and animal profiles
+
 week 3: creating a search engine
-week 4: connecting all of the elements and working on design.
- ### Functionality Beyond MVP
+
+week 4: connecting all of the elements and working on design
+
+### Functionality Beyond MVP
 - Ability to apply filters to animal pictures and edit them
 - Ability to add videos to animal profiles
 - Make the shelter team be able to highlight certain animal profiles on the main page
