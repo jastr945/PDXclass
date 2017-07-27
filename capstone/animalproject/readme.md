@@ -19,27 +19,36 @@ The information about adoptable animals will be contained in animal profiles sto
 - Ability to share profiles on social media
 - Ability to send an email to OFOSA staff about a specific animal using a button in the profile
 - Ability to make a donation from the animal profile
-
- ### Data Model
+### Data Model
 ![alt text](https://github.com/jastr945/jastr945.github.io/blob/master/data_model_diagram.jpg?raw=true "Data model diagram")
  ### Technical Components
 All pages will be created using HTML5 and CSS flexbox containers. The database component will be created with PostgreSQL.
-| Admin Panel | Animal Profiles | Search Engine |
-| ------------- | ------------- | ---------- |
-| A basic login script with user authentication (Django's built-in login system) | Image gallery with the ability to view pictures in a large size (JQuery Roundabout slider) | Full-text search (Elastic Search / API in Python)|
-| Form validation for login and sign-up (HTML + RegEx) | Social media buttons (CSS, JQuery) | Autocomplete or autosuggest (JQuery autocomplete plugin or Taggle.js (API))|
-|  Admin panel interface (Django)| An email button to contact the shelter team (the message will have the animal name and ID in the title) | Checkboxes and radio buttons for search parameters (JQuery, JavaScript) |
-| Drop-down menu and autocomplete for profile creation (probably Django?) | Small preview of a few similar profiles (SQL), which the users might also like | Ability to filter search results (Python, JQuery/JavaScript, SQL)
-| Ability to create, edit and delete animal profiles (Python, JQuery/JavaScript) | Donation button sending to the donations section of the website |
+####Admin Panel
+- A basic login script with user authentication (Django's built-in login system)
+- Form validation for login and sign-up (JQuery Validation Plugin)
+- Admin panel interface (Django)
+- Drop-down menu and autocomplete for profile creation (probably Django?)
+- Ability to create, edit and delete animal profiles (Python, JQuery/JavaScript)
+####Animal Profiles
+- Image gallery with the ability to view pictures in a large size (JQuery Roundabout slider)
+- Social media buttons (CSS, JQuery)
+- An email button to contact the shelter team (the message will have the animal name and ID in the title)
+- Small preview of a few similar profiles (SQL), which the users might also like
+####Search Engine
+- Full-text search (Elastic Search / API in Python)
+- Autocomplete or autosuggest (JQuery autocomplete plugin or Taggle.js (API))
+- Checkboxes and radio buttons for search parameters (JQuery, JavaScript)
+- Ability to filter search results (Python, JQuery/JavaScript, SQL)
+- Donation button sending to the donations section of the website
 ### Sketches
 1. Search engine page prototype
-![alt text](https://github.com/jastr945/jastr945.github.io/blob/master/search_engine_page2.png?raw=true "Search engine page")
+![alt text](https://github.com/jastr945/PDXclass/blob/master/capstone/animalproject/animalapp/static/animalapp/img/search_engine_page.png "Search engine page")
 2. Animal profile
-![alt text](https://github.com/jastr945/jastr945.github.io/blob/master/animal_profile.png?raw=true "Animal profile")
+![alt text](https://github.com/jastr945/PDXclass/blob/master/capstone/animalproject/animalapp/static/animalapp/img/animal_profile.png "Animal profile")
 3. Search results page
-![alt text](https://github.com/jastr945/jastr945.github.io/blob/master/search_results_page.png?raw=true "Search results")
+![alt text](https://github.com/jastr945/PDXclass/blob/master/capstone/animalproject/animalapp/static/animalapp/img/search_results_page.png "Search results")
 4. Admin panel
-![alt text](https://github.com/jastr945/jastr945.github.io/blob/master/admin_panel.png?raw=true "Admin panel")
+![alt text](https://github.com/jastr945/PDXclass/blob/master/capstone/animalproject/animalapp/static/animalapp/img/admin_panel.png "Admin panel")
  ### Estimated Schedule
 week 1: creating admin profile and login script
 week 2: creating animal database and animal profiles
