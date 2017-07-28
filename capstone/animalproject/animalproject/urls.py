@@ -25,4 +25,5 @@ app_name = 'animalapp'
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
+    url(r'^animal_profile/', views.animal_profile, name='animal_profile'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

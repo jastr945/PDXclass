@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal Profile</title>
+</head>
+<body>
+{% if animals %}
+    {% for a in animals %}
+        <p>
+            Name: {{a.name}}<br>
+            Id number: {{a.id_number}}<br>
+            Gender: {{a.gender}}<br>
+            Breed: {{a.breed}}<br>
+            Age: {{a.age}}<br>
+            Spayed/neutered: {{a.surgery}}<br>
+            Location: {{a.location}}<br>
+            Intake date: {{a.intake_date}}<br>
+            Status: {{a.status}}<br>
+            Personality: {{a.personality}}<br>
+        </p>
+    {% endfor %}
+{% endif %}
+</body>
+</html>
