@@ -33,7 +33,12 @@
                 </div>
 
                 <div id="socialIcons">
-                    <div id="gMail"><a href="mailto:polina.jastr@gmail.com" target="_blank"><img src="{% static "portfoliopages/img/gmail.png" %}" class="gmail-circle" alt="Gmail icon"></a></div>
+                    <div id="tooltip" style="display: none">
+                        <div id="emailAddress" title="Email Address">polina.jastr@gmail.com</div>
+                        <button id="copy" data-clipboard-target="#emailAddress">Copy</button>
+                    </div>
+                    <div id="tip" style="display: none"></div>
+                    <div id="gMail"><img src="{% static "portfoliopages/img/gmail.png" %}" class="gmail-circle" alt="Gmail icon"></a></div>
                     <div id="gitHub"><a href="https://github.com/jastr945" target="_blank"><span>Github</span></a></div>
                     <div id="linkedIn"><a href="https://www.linkedin.com/in/polinajastrzebska/" target="_blank"><span>LinkedIn</span></a></div>
                 </div>
@@ -82,5 +87,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="{% static 'portfoliopages/js/site.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
 </body>
 </html>

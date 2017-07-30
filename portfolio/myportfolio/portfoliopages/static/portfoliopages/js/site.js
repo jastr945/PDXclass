@@ -31,3 +31,22 @@ $('.arrowClose').each(function () {
         $(this).parents('.projectButtons').slideUp({duration: "fast"});
     })
 });
+
+//shows email info upon click
+$('#gMail').click(function (e) {
+    e.preventDefault();
+    $('#tip').show({duration: "fast"});
+    $('#tooltip').show({duration: "fast"});
+});
+
+//copies email address to clipboard
+$(document).ready(function () {
+    var clipboard = new Clipboard('#copy');
+    clipboard.on('success', function(e) {
+    console.info('Action:', e.action);
+    console.info('Text:', e.text);
+    console.info('Trigger:', e.trigger);
+
+    e.clearSelection();
+    });
+});

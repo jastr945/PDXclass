@@ -181,28 +181,57 @@ body, html {
             content: ""; }
       #mainContainer #banner #personalInfo #socialIcons {
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
         justify-content: center;
         align-self: flex-end;
-        margin: 0.5em;
+        align-items: center;
+        margin: 0 0.8em 0 0.5em;
         padding: 0; }
+        #mainContainer #banner #personalInfo #socialIcons #tooltip {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          height: 4em;
+          width: 23em;
+          margin: 0;
+          background-color: rgba(255, 242, 185, 0.2); }
+          #mainContainer #banner #personalInfo #socialIcons #tooltip #emailAddress {
+            height: 1.5em;
+            width: 14em;
+            margin: 0;
+            font-family: "Tlwg Typist";
+            font-size: 1.2em;
+            text-align: center;
+            text-decoration: none; }
+          #mainContainer #banner #personalInfo #socialIcons #tooltip #copy {
+            text-align: center;
+            height: 2em;
+            width: 4.5em;
+            margin: 0;
+            padding: 0;
+            font-family: "Tlwg Typist";
+            font-size: 1em;
+            cursor: copy; }
+        #mainContainer #banner #personalInfo #socialIcons #tip {
+          margin: 0 0.5em 0 0;
+          height: 0;
+          width: 0;
+          border-left: 3em solid rgba(255, 242, 185, 0.2);
+          border-top: 2em solid transparent;
+          border-bottom: 2em solid transparent; }
         #mainContainer #banner #personalInfo #socialIcons .gmail-circle {
           width: 2.5em;
           height: 2.5em;
           border-radius: 50%; }
-        #mainContainer #banner #personalInfo #socialIcons #gMail {
-          margin: 0.5em; }
-          #mainContainer #banner #personalInfo #socialIcons #gMail:hover {
-            animation-name: shaking;
-            animation-duration: 0.5s; }
-        #mainContainer #banner #personalInfo #socialIcons #gitHub {
-          margin: 0.5em; }
-          #mainContainer #banner #personalInfo #socialIcons #gitHub:hover {
-            animation-name: shaking;
-            animation-duration: 0.5s; }
-        #mainContainer #banner #personalInfo #socialIcons #linkedIn {
-          margin: 0.5em; }
-          #mainContainer #banner #personalInfo #socialIcons #linkedIn:hover {
+        #mainContainer #banner #personalInfo #socialIcons #gMail, #mainContainer #banner #personalInfo #socialIcons #gitHub, #mainContainer #banner #personalInfo #socialIcons #linkedIn {
+          display: flex;
+          align-items: center;
+          margin: 0.5em;
+          cursor: pointer; }
+          #mainContainer #banner #personalInfo #socialIcons #gMail:hover, #mainContainer #banner #personalInfo #socialIcons #gitHub:hover, #mainContainer #banner #personalInfo #socialIcons #linkedIn:hover {
             animation-name: shaking;
             animation-duration: 0.5s; }
       #mainContainer #banner #personalInfo #skillsSection {
