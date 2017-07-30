@@ -294,19 +294,21 @@ body, html {
           font-size: 1.2em; }
         #mainContainer #projects #project #projectButtons div:nth-child(1), #mainContainer #projects #project #projectButtons div:nth-child(2), #mainContainer #projects #project #projectButtons div:nth-child(3) {
           display: flex;
-          justify-content: center;
+          flex-wrap: wrap;
           flex-direction: column;
+          justify-content: center;
           text-align: center;
           background-color: #415057;
           align-self: center;
           height: 2em;
-          width: 17em;
+          width: 17.5em;
           margin: 0.2em 0.1em 0 0.1em;
           padding: 1%; }
           #mainContainer #projects #project #projectButtons div:nth-child(1):hover, #mainContainer #projects #project #projectButtons div:nth-child(2):hover, #mainContainer #projects #project #projectButtons div:nth-child(3):hover {
             background-color: #2b353a; }
         #mainContainer #projects #project #projectButtons div:nth-child(4) {
           display: flex;
+          flex-wrap: wrap;
           justify-content: center;
           flex-direction: column;
           align-self: center;

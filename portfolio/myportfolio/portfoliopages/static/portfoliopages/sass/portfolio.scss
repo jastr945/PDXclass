@@ -397,13 +397,14 @@ body,html {
 
                 & div:nth-child(1), div:nth-child(2), div:nth-child(3) {
                     display: flex;
-                    justify-content: center;
+                    flex-wrap: wrap;
                     flex-direction: column;
+                    justify-content: center;
                     text-align: center;
                     background-color: darken($color1, 10%);
                     align-self: center;
                     height:2em;
-                    width:17em;
+                    width:17.5em;
                     margin: 0.2em 0.1em 0 0.1em;
                     padding: 1%;
                     &:hover {
@@ -413,6 +414,7 @@ body,html {
 
                 & div:nth-child(4) {
                     display: flex;
+                    flex-wrap: wrap;
                     justify-content: center;
                     flex-direction: column;
                     align-self: center;

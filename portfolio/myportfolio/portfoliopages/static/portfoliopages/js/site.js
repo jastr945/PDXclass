@@ -19,7 +19,7 @@ $('.project').each(function () {
     $(this).click(function (e) {
         e.preventDefault();
         if ($(this).find('.arrowClose').is(':hidden')) {
-            $(this).children('.projectButtons').show('slow')
+            $(this).children('.projectButtons').slideDown({duration: "fast"})
         }
     })
 });
@@ -28,8 +28,6 @@ $('.project').each(function () {
 $('.arrowClose').each(function () {
     $(this).click(function (e) {
         e.preventDefault();
-        $(this).parents('.projectButtons').hide('slow');
+        $(this).parents('.projectButtons').slideUp({duration: "fast"});
     })
 });
-
-//opens a link upon clicking on the entire div
