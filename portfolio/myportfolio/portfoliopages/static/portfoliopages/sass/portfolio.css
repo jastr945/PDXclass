@@ -206,6 +206,8 @@ body, html {
             font-size: 1.2em;
             text-align: center;
             text-decoration: none; }
+          #mainContainer #banner #personalInfo #socialIcons #tooltip button {
+            border: none; }
           #mainContainer #banner #personalInfo #socialIcons #tooltip #copy {
             text-align: center;
             height: 2em;
@@ -214,7 +216,10 @@ body, html {
             padding: 0;
             font-family: "Tlwg Typist";
             font-size: 1em;
-            cursor: copy; }
+            cursor: copy;
+            color: #fff2b9;
+            background-color: #576b74;
+            box-shadow: none; }
         #mainContainer #banner #personalInfo #socialIcons #tip {
           margin: 0 0.5em 0 0;
           height: 0;

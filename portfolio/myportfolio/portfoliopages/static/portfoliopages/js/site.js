@@ -46,6 +46,7 @@ $(document).ready(function () {
     console.info('Action:', e.action);
     console.info('Text:', e.text);
     console.info('Trigger:', e.trigger);
+    $('#copy').css('background-color', '#2b353a');
 
     e.clearSelection();
     });

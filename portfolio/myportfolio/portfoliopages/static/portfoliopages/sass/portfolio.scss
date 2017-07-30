@@ -274,6 +274,10 @@ body,html {
                         text-align: center;
                         text-decoration: none;
                     }
+
+                    button {
+                        border:none;
+                    }
                     #copy {
                         text-align: center;
                         height:2em;
@@ -283,6 +287,9 @@ body,html {
                         font-family: "Tlwg Typist";
                         font-size: 1em;
                         cursor: copy;
+                        color: $color2;
+                        background-color: $color1;
+                        box-shadow: none;
                     }
                 }
 
