@@ -1,5 +1,7 @@
 from django.db import models
 import datetime
+from django.template.defaultfilters import slugify
+
 
 def profile_upload_handler(instance, filename):
     return '{name}/{filename}'.format(name=instance.name, filename=filename)
@@ -65,9 +67,7 @@ class Animal(models.Model):
     personality = models.CharField(max_length=255)
     slug = models.SlugField(max_length=50, default='')
 
-    def __str__(self):
-        return '{}'.format(self.name)
-
+    # calculating age based on the date of birth
     def age(self):
         dob = self.birthday
         tod = datetime.date.today()
@@ -81,3 +81,11 @@ class Animal(models.Model):
 
     animal_age = property(age)
 
+    def __str__(self):
+        return '{} - {} - {}'.format(self.name, self.id_number, self.location)
+
+    def save(self, *args, **kwargs):
+        """the slug will change every time the name changes"""
+        if self.id_number is None:
+            self.slug = slugify(self.id_number)
+        super(Animal, self).save(*args, **kwargs)

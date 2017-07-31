@@ -6,7 +6,14 @@ def index(request):
     return render(request, 'animalapp/index.html', {})
 
 # rendering a single animal profile page
-def animal_profile(request):
-    animals = Animal.objects.all()
-    context_dict = {'animals': animals}
+def animal_profile(request, animal_id_slug):
+    context_dict = {}
+
+    try:
+        animals = Animal.objects.get(slug=animal_id_slug)
+        context_dict['animals'] = animals
+
+    except Animal.DoesNotExist:
+        pass
+
     return render(request, 'animalapp/animal_profile.html', context_dict)
