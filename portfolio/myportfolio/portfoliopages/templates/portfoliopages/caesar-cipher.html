@@ -14,21 +14,25 @@
             letter is "rotated" forward or backward by that key number. The ciphertext alphabet is derived from the
             plaintext alphabet by shifting each letter a certain number of spaces.<br><b>Try it yourself!</b></p></div>
         <div id="content">
-            <form id="encryptionTab">
-                <input id="encryptString" name="encryptString" type="text" placeholder="Enter a word...">
-                <input id="encryptKey" name="encryptKey" type="number" min=0 placeholder="Enter a key...">
-                <input id="encrypt" type="submit" value="Encrypt">
+            <div id="encryptionTab">
+                <form name="encryptionForm">
+                    <input id="encryptString" name="encryptString" type="text" placeholder="Enter a word..." value="">
+                    <input id="encryptKey" name="encryptKey" type="number" min="0" placeholder="Enter a key...">
+                    <input id="encrypt" type="submit" value="Encrypt">
+                </form>
                 <p>The result of your encryption:<br></p>
                 <div id="encryptResult"></div>
-            </form>
+            </div>
 
-            <form id="decryptionTab">
-                <input id="decryptString" type="text" placeholder="Enter a word...">
-                <input id="decryptKey" type="number" placeholder="Enter a key...">
-                <input id="decrypt" type="submit" value="Decrypt">
+            <div id="decryptionTab">
+                <form name="decryptionForm">
+                    <input id="decryptString" name="decryptString" type="text" placeholder="Enter a word...">
+                    <input id="decryptKey" name="decryptKey" type="number" min="0" placeholder="Enter a key...">
+                    <input id="decrypt" type="submit" value="Decrypt">
+                </form>
                 <p>The result of your decryption:<br></p>
                 <div id="decryptResult"></div>
-            </form>
+            </div>
         </div>
     </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

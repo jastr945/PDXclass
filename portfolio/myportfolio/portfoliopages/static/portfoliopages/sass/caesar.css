@@ -86,6 +86,14 @@ p {
     align-self: center;
 }
 
+#encrypt:hover {
+    background-color: #4d4d4d;
+}
+
+#decrypt:hover {
+    background-color: #4d4d4d;
+}
+
 #encryptResult, #decryptResult {
     width: 73vh;
     height: 12vh;
@@ -97,9 +105,10 @@ p {
     text-overflow: ellipsis;
 }
 
-#encryptionTab label.error {
-color:red;
-}
 #encryptionTab input.error {
-border:1px solid red;
+    border:1px solid red;
+}
+
+#decryptionTab input.error {
+    border:1px solid red;
 }

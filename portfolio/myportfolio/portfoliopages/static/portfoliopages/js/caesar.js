@@ -42,24 +42,45 @@ function caesarEncrypt(plainStr, key) {
 }
 
 
-//encrypts a string upon clicking the 'submit' button
+//encrypts a string upon clicking the 'submit' button; validation is included
 $(document).ready(function() {
-    $('#encryptionTab').validate({
+    $.validator.addMethod(
+    "regex",
+    function(value, element, regexp) {
+        var check = false;
+        return this.optional(element) || regexp.test(value);
+    },
+    "Please check your input."
+    );
+
+    $("form[name='encryptionForm']").validate({
         rules: {
-            encryptString: "required",
-            encryptKey: "required"
+            encryptString: {
+                required: true,
+                maxlength: 30,
+                regex:/^[A-Za-z]+$/
+            },
+            encryptKey: {
+                required: true
+            }
         },
-        message: {
-            encryptString: 'Enter a word.',
-            encryptKey:'Enter a key.'
+        messages: {
+            encryptString: {
+                required: 'Enter a word.',
+                maxlength: 'Maximum length exceeded.',
+                regex: 'Letters only.'
+            },
+            encryptKey:{
+                required: 'Enter a key.'
+            }
         },
         errorPlacement: function(error, element) {
-            element.attr('placeholder', error.text());
+             element.html( error.text());
         }
     });
     $('#encrypt').click(function (e) {
         e.preventDefault();
-        if ($('#encryptionTab').valid()) {
+        if ($("form[name='encryptionForm']").valid()) {
             caesarEncrypt($('#encryptString').val().toLowerCase(), $('#encryptKey').val());
         }
     });
@@ -105,9 +126,47 @@ function caesarDecrypt(plainStr, key) {
         $('#decryptResult').html(result).css('background-color', '#5b5a5a');
     }
 }
-// decrypts a string upon clicking the 'submit' button
-$('#decrypt').click(function (e) {
-    e.preventDefault();
-    caesarDecrypt($('#decryptString').val().toLowerCase(), $('#decryptKey').val());
+// decrypts a string upon clicking the 'submit' button; validation is included
+$(document).ready(function() {
+      $.validator.addMethod(
+    "regex",
+    function(value, element, regexp) {
+        var check = false;
+        return this.optional(element) || regexp.test(value);
+    },
+    "Please check your input."
+    );
+
+    $("form[name='decryptionForm']").validate({
+        rules: {
+            decryptString: {
+                required: true,
+                maxlength: 30,
+                regex:/^[A-Za-z]+$/
+            },
+            decryptKey: {
+                required: true
+            }
+        },
+        messages: {
+            decryptString: {
+                required: 'Enter a word.',
+                maxlength: 'Maximum length exceeded.',
+                regex: 'Letters only.'
+            },
+            decryptKey: {
+                required: 'Enter a key.'
+            }
+        },
+        errorPlacement: function(error, element) {
+            element.attr('placeholder', error.text());
+        }
+    });
+    $('#decrypt').click(function (e) {
+        e.preventDefault();
+        if ($("form[name='decryptionForm']").valid()) {
+            caesarDecrypt($('#decryptString').val().toLowerCase(), $('#decryptKey').val());
+        }
+    });
 });
 
