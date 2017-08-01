@@ -1,4 +1,4 @@
-# Dillinger
+# Portfolio Website
 This is my online portfolio website, which contains my basic contact details and the list of my projects.
 ## Specific Functionality
 - written in Django web framework;
