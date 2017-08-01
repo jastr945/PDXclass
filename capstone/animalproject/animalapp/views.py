@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Animal
+from .forms import AnimalForm, DogForm
 
 # rendering the main page with the search tab
 def index(request):
@@ -17,3 +18,14 @@ def animal_profile(request, animal_id_slug):
         pass
 
     return render(request, 'animalapp/animal_profile.html', context_dict)
+
+
+def add_animal(request):
+
+    form = AnimalForm()
+    dog_form = DogForm()
+    context_dict = {
+        'form': form,
+        'dog_form': dog_form
+    }
+    return render(request, 'animalapp/add_animal.html', context_dict)

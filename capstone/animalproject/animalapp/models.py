@@ -2,17 +2,23 @@ from django.db import models
 import datetime
 from django.template.defaultfilters import slugify
 
-
 def profile_upload_handler(instance, filename):
     return '{name}/{filename}'.format(name=instance.name, filename=filename)
 
 
 class Animal(models.Model):
     """
-    Animal profile structure.
+    An abstract class containing basic information about each animal.
     """
-    name = models.CharField(max_length=50)
-    id_number = models.CharField(max_length=50)
+
+    SPECIES_CHOICES = (
+        ('dog', 'dog'),
+        ('cat', 'cat')
+    )
+
+    species = models.CharField(max_length=50, choices=SPECIES_CHOICES, default='')
+    name = models.CharField(max_length=50, default='')
+    id_number = models.CharField(max_length=50, default='')
 
     GENDER_CHOICES = (
         ('male', 'male'),
@@ -20,13 +26,6 @@ class Animal(models.Model):
     )
 
     gender = models.CharField(max_length=20, choices=GENDER_CHOICES, default='')
-
-    BREED_CHOICES = (
-        ('Domestic shorthair/mix', 'Domestic shorthair/mix'),
-        ('Persian', 'Persian'),
-        ('Siamese', 'Siamese')
-    )
-    breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='Domestic shorthair/mix')
     birthday = models.DateField(blank=True, null=True)
 
     SURGERY_CHOICES = (
@@ -64,10 +63,17 @@ class Animal(models.Model):
     )
 
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='available')
-    personality = models.CharField(max_length=255)
+
+    HOME_CHOICES = (
+        ('young children', 'young children'),
+        ('cats', 'cats'),
+        ('dogs', 'dogs')
+    )
+
+    home = models.CharField(max_length=255, blank=True, default='', choices=HOME_CHOICES, verbose_name='Prefers a home without (optional)')
     slug = models.SlugField(max_length=50, default='')
 
-    # calculating age based on the date of birth
+    # calculating animal's age based on the date of birth
     def age(self):
         dob = self.birthday
         tod = datetime.date.today()
@@ -89,3 +95,71 @@ class Animal(models.Model):
         if self.id_number is None:
             self.slug = slugify(self.id_number)
         super(Animal, self).save(*args, **kwargs)
+
+
+class Cat(models.Model):
+    """A class representing dogs, which inherits from the basic Animal class."""
+
+    id = models.OneToOneField('Animal', primary_key=True)
+
+    BREED_CHOICES = (
+        ('Domestic shorthair/mix', 'Domestic shorthair/mix'),
+        ('Persian', 'Persian'),
+        ('Siamese', 'Siamese')
+    )
+    breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='Domestic shorthair/mix')
+
+    COLOR_CHOICES = (
+        ('white', 'white'),
+        ('black', 'black'),
+        ('tabby', 'tabby'),
+        ('seal point', 'seal point')
+    )
+
+    color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='')
+
+    PERSONALITY_CHOICES = (
+        ('sociable and outgoing', 'sociable and outgoing'),
+        ('a bit shy in the shelter environment', 'a bit shy in the shelter environment')
+    )
+
+    personality = models.CharField(max_length=255, choices=PERSONALITY_CHOICES, default='')
+
+class Dog(models.Model):
+    """A class representing dogs, which inherits from the basic Animal class."""
+
+    id = models.OneToOneField('Animal', primary_key=True)
+
+    BREED_CHOICES = (
+        ('Terrier/Mix', 'Terrier/Mix'),
+        ('Chihuahua', 'Chihuahua'),
+        ('Shepherd/Mix', 'Shepherd/Mix')
+    )
+    breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='')
+
+    SIZE_CHOICES = (
+        ('small', 'small'),
+        ('medium', 'medium'),
+        ('large', 'large')
+    )
+
+    size = models.CharField(max_length=50, choices=SIZE_CHOICES, default='')
+    weight = models.FloatField(max_length=50, blank=True, default='', verbose_name='Specify weight (optional)')
+
+    COLOR_CHOICES = (
+        ('white', 'white'),
+        ('black', 'black'),
+    )
+
+    color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='')
+
+    PERSONALITY_CHOICES = (
+        ('sociable and outgoing', 'sociable and outgoing'),
+        ('profoundly loyal', 'profoundly loyal')
+    )
+
+    personality = models.CharField(max_length=255, choices=PERSONALITY_CHOICES, default='')
+
+
+
+

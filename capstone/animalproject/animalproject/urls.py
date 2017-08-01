@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'^animal_profile/(?P<animal_id_slug>[0-9]+)/$', views.animal_profile, name='animal_profile'),
+    url(r'^add_animal/', views.add_animal, name='add_animal'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
