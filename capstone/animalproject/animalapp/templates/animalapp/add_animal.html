@@ -9,8 +9,9 @@
 <body>
     Add a new profile: {{form.species}}<br>
 
-<form id="addDog" style="display: none" action="/your-name/" method="post">
+<form id="addDog" style="display: none" method="post">
     {% csrf_token %}
+    <table>
     Name: {{ form.name }}<br>
     ID number: {{form.id_number}}<br>
     Gender: {{form.gender}}<br>
@@ -26,10 +27,12 @@
     Status: {{form.status}}<br>
     Personality: {{dog_form.dog_personality}}<br>
     <input type="submit" value="Create Profile" />
+    </table>
 </form>
 
-<form id="addCat" style="display: none" action="/your-name/" method="post">
+<form id="addCat" style="display: none" method="post">
     {% csrf_token %}
+    <table>
     Name: {{ form.name }}<br>
     ID number: {{form.id_number}}<br>
     Gender: {{form.gender}}<br>
@@ -43,6 +46,7 @@
     Status: {{form.status}}<br>
     Personality: {{cat_form.cat_personality}}<br>
     <input type="submit" value="Create Profile" />
+    </table>
 </form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="{% static 'animalapp/js/add_animal.js' %}"></script>

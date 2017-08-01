@@ -6,7 +6,7 @@ class AnimalForm(ModelForm):
     class Meta:
         model = Animal
         exclude = ['id']
-        birthday = forms.DateField(widget=forms.SelectDateWidget(empty_label="Nothing"))
+        birthday = forms.DateField()
 
 class DogForm(ModelForm):
     class Meta:
