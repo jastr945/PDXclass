@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Animal, Dog
+from .models import Animal, Dog, Cat
 
 
 class AnimalForm(ModelForm):
@@ -11,4 +11,10 @@ class AnimalForm(ModelForm):
 class DogForm(ModelForm):
     class Meta:
         model = Dog
+        exclude = ['id']
+
+
+class CatForm(ModelForm):
+    class Meta:
+        model = Cat
         exclude = ['id']

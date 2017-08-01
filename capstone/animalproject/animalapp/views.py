@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from .models import Animal
-from .forms import AnimalForm, DogForm
+from .forms import AnimalForm, DogForm, CatForm
 
-# rendering the main page with the search tab
+
 def index(request):
+    """Rendering the main(index) page with a search tab."""
     return render(request, 'animalapp/index.html', {})
 
-# rendering a single animal profile page
+
 def animal_profile(request, animal_id_slug):
+    """Rendering a single animal profile page."""
     context_dict = {}
 
     try:
@@ -21,11 +23,13 @@ def animal_profile(request, animal_id_slug):
 
 
 def add_animal(request):
-
+    """Rendering the page on which users add animals."""
     form = AnimalForm()
     dog_form = DogForm()
+    cat_form = CatForm()
     context_dict = {
         'form': form,
-        'dog_form': dog_form
+        'dog_form': dog_form,
+        'cat_form': cat_form
     }
     return render(request, 'animalapp/add_animal.html', context_dict)

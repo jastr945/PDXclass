@@ -1,16 +1,50 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Add Animal</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/animalapp/sass/index.css' %}">
 </head>
 <body>
-<form action="/your-name/" method="post">
+    Choose species: {{form.species}}<br>
+<form id="addDog" action="/your-name/" method="post">
     {% csrf_token %}
-    {{ form }}
-    {{dog_form}}
-    <input type="submit" value="Submit" />
+    Name: {{ form.name }}<br>
+    ID number: {{form.id_number}}<br>
+    Gender: {{form.gender}}<br>
+    Birthday: {{form.birthday}}<br>
+    Breed: {{dog_form.dog_breed}}<br>
+    Size: {{dog_form.size}}<br>
+    Enter weight (optional): {{dog_form.weight}}<br>
+    Color: {{dog_form.dog_color}}<br>
+    Spayed/neutered: {{form.surgery}}<br>
+    Current on vaccinations: {{form.vaccine}}<br>
+    Location: {{form.location}}<br>
+    Intake date: {{form.intake_date}}<br>
+    Status: {{form.status}}<br>
+    Personality: {{dog_form.dog_personality}}<br>
+    <input type="submit" value="Create Profile" />
 </form>
 
+<form id="addCat" action="/your-name/" method="post">
+    {% csrf_token %}
+    Name: {{ form.name }}<br>
+    ID number: {{form.id_number}}<br>
+    Gender: {{form.gender}}<br>
+    Birthday: {{form.birthday}}<br>
+    Breed: {{cat_form.cat_breed}}<br>
+    Color: {{cat_form.cat_color}}<br>
+    Spayed/neutered: {{form.surgery}}<br>
+    Current on vaccinations: {{form.vaccine}}<br>
+    Location: {{form.location}}<br>
+    Intake date: {{form.intake_date}}<br>
+    Status: {{form.status}}<br>
+    Personality: {{cat_form.cat_personality}}<br>
+    <input type="submit" value="Create Profile" />
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'animalapp/js/add_animal.js' %}"></script>
 </body>
 </html>

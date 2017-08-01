@@ -16,7 +16,7 @@ class Animal(models.Model):
         ('cat', 'cat')
     )
 
-    species = models.CharField(max_length=50, choices=SPECIES_CHOICES, default='')
+    species = models.CharField(max_length=50, choices=SPECIES_CHOICES, default='', blank=True)
     name = models.CharField(max_length=50, default='')
     id_number = models.CharField(max_length=50, default='')
 
@@ -25,7 +25,7 @@ class Animal(models.Model):
         ('female', 'female')
     )
 
-    gender = models.CharField(max_length=20, choices=GENDER_CHOICES, default='')
+    gender = models.CharField(max_length=20, choices=GENDER_CHOICES, default='', blank=True)
     birthday = models.DateField(blank=True, null=True)
 
     SURGERY_CHOICES = (
@@ -107,7 +107,7 @@ class Cat(models.Model):
         ('Persian', 'Persian'),
         ('Siamese', 'Siamese')
     )
-    breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='Domestic shorthair/mix')
+    cat_breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='Domestic shorthair/mix')
 
     COLOR_CHOICES = (
         ('white', 'white'),
@@ -116,14 +116,14 @@ class Cat(models.Model):
         ('seal point', 'seal point')
     )
 
-    color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='')
+    cat_color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='', blank=True)
 
     PERSONALITY_CHOICES = (
         ('sociable and outgoing', 'sociable and outgoing'),
         ('a bit shy in the shelter environment', 'a bit shy in the shelter environment')
     )
 
-    personality = models.CharField(max_length=255, choices=PERSONALITY_CHOICES, default='')
+    cat_personality = models.CharField(max_length=255, choices=PERSONALITY_CHOICES, default='', blank=True)
 
 class Dog(models.Model):
     """A class representing dogs, which inherits from the basic Animal class."""
@@ -135,7 +135,7 @@ class Dog(models.Model):
         ('Chihuahua', 'Chihuahua'),
         ('Shepherd/Mix', 'Shepherd/Mix')
     )
-    breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='')
+    dog_breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='', blank=True)
 
     SIZE_CHOICES = (
         ('small', 'small'),
@@ -143,7 +143,7 @@ class Dog(models.Model):
         ('large', 'large')
     )
 
-    size = models.CharField(max_length=50, choices=SIZE_CHOICES, default='')
+    size = models.CharField(max_length=50, choices=SIZE_CHOICES, default='', blank=True)
     weight = models.FloatField(max_length=50, blank=True, default='', verbose_name='Specify weight (optional)')
 
     COLOR_CHOICES = (
@@ -151,14 +151,14 @@ class Dog(models.Model):
         ('black', 'black'),
     )
 
-    color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='')
+    dog_color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='', blank=True)
 
     PERSONALITY_CHOICES = (
         ('sociable and outgoing', 'sociable and outgoing'),
         ('profoundly loyal', 'profoundly loyal')
     )
 
-    personality = models.CharField(max_length=255, choices=PERSONALITY_CHOICES, default='')
+    dog_personality = models.CharField(max_length=255, choices=PERSONALITY_CHOICES, default='')
 
 
 
