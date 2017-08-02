@@ -4,8 +4,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="{% static '/animalapp/sass/base.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/animalapp/sass/index.css' %}">
 </head>
 <body>
 <div id="mainContainer">
@@ -19,7 +19,11 @@
             <div id="signup">&nbsp;Register</div>
         {% endif %}
     </div>
+    {% block content %}
+    {% endblock %}
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% block js %}
+{% endblock %}
 </body>
 </html>

@@ -1,12 +1,7 @@
+{% extends 'animalapp/base.html' %}
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Animal Profile</title>
-</head>
-<body>
+<title>{% block title %}Animal Profile{% endblock %}</title>
+{% block content %}
 {% if animals %}
     <p>
         {{ animals.species | capfirst }}'s name: {{ animals.name }}<br>
@@ -43,5 +38,4 @@
 {% else %}
     The specified animal profile does not exist! Please double-check the animal's ID number.
 {% endif %}
-</body>
-</html>
+{% endblock %}

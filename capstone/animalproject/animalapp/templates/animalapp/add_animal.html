@@ -1,16 +1,12 @@
+{% extends 'animalapp/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Animal</title>
-    <link rel="stylesheet" type="text/css" href="{% static '/animalapp/sass/index.css' %}">
-</head>
-<body>
+{% block title %}My Account{% endblock title %}
 
+{% block content %}
+<div id="addOption"><h1>Add a new profile</h1></div>
 <form id="addAnimal" method="post">
     {% csrf_token %}
-    <div>Add a new profile: {{form.species}}<br></div>
+    <div>Select species: {{form.species}}<br></div>
     <div>Name: {{ form.name }}<br></div>
     <div>ID number: {{form.id_number}}<br></div>
     <div>Gender: {{form.gender}}<br></div>
@@ -32,7 +28,10 @@
     <input type="submit" value="Create Profile" />
 </form>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="{% static 'animalapp/js/add_animal.js' %}"></script>
-</body>
-</html>
+<div id="seeAllOption"><h1>Manage existing entries</h1></div>
+{% endblock content %}
+
+{% block js %}
+    <script src="{% static 'animalapp/js/add_animal.js' %}"></script>
+{% endblock %}
+

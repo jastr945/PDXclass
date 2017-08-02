@@ -9,7 +9,8 @@ body, html {
   flex-wrap: wrap;
   justify-items: center;
   width: 75%;
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   margin: auto;
   padding: 0;
   background-color: #003366;
@@ -84,5 +85,20 @@ body, html {
         width: 10em;
         height: 3em;
         font-size: 1.5em; }
+
+#addAnimal {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: Arial;
+  color: white;
+  font-size: 1.5em;
+  margin-left: 25%; }
+  #addAnimal select, #addAnimal input {
+    color: black;
+    font-family: Arial;
+    font-size: 1em; }
 
 /*# sourceMappingURL=index.css.map */
