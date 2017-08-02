@@ -8,29 +8,38 @@
 </head>
 <body>
 {% if animals %}
-        <p>
-            Name: {{animals.name}}<br>
-            Id number: {{animals.id_number}}<br>
-            Gender: {{animals.gender}}<br>
-            Breed: {{animals.breed}}<br>
-            Color: {{animals.color}}<br>
-            Age: {{animals.animal_age}}<br>
-            {% if animals.size %}
-                Size: {{animals.size}}<br>
+    <p>
+        {{ animals.species | capfirst }}'s name: {{ animals.name }}<br>
+        Id number: {{ animals.id_number }}<br>
+        Gender: {{ animals.gender }}<br>
+        {% if animals.cat %}
+            Breed: {{ animals.cat.cat_breed }}<br>
+            Color: {{ animals.cat.cat_color }}<br>
+        {% else %}
+            Breed: {{ animals.dog.dog_breed }}<br>
+            Color: {{ animals.dog.dog_color }}<br>
+        {% endif %}
+        Age: {{ animals.animal_age }}<br>
+        {% if animals.dog %}
+            Size: {{ animals.dog.size }}<br>
+            {% if animals.dog.weight %}
+                Weight: {{ animals.dog.weight }} lbs<br>
             {% endif %}
-            {% if animals.weight %}
-                Weight: {{animals.weight}} lbs<br>
-            {% endif %}
-            Spayed/neutered: {{animals.surgery}}<br>
-            Current on vaccinations: {{animals.vaccine}}<br>
-            Location: {{animals.location}}<br>
-            Intake date: {{animals.intake_date}}<br>
-            Status: {{animals.status}}<br>
-            {% if animals.home %}
-                Prefers a home without: {{animals.home}}<br>
-            {% endif %}
-            Personality: {{animals.personality}}<br>
-        </p>
+        {% endif %}
+        Spayed/neutered: {{ animals.surgery }}<br>
+        Current on vaccinations: {{ animals.vaccine }}<br>
+        Location: {{ animals.location }}<br>
+        Intake date: {{ animals.intake_date }}<br>
+        Status: {{ animals.status }}<br>
+        {% if animals.home %}
+            Prefers a home without: {{ animals.home }}<br>
+        {% endif %}
+        {% if animals.cat %}
+            Personality: {{ animals.cat.cat_personality }}<br>
+        {% else %}
+            Personality: {{ animals.dog.dog_personality }}<br>
+        {% endif %}
+    </p>
 {% else %}
     The specified animal profile does not exist! Please double-check the animal's ID number.
 {% endif %}

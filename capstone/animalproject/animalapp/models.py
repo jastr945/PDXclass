@@ -99,7 +99,7 @@ class Animal(models.Model):
 class Cat(models.Model):
     """A class representing dogs, which inherits from the basic Animal class."""
 
-    id = models.OneToOneField('Animal', primary_key=True)
+    id = models.OneToOneField('Animal', primary_key=True, related_name="cat")
 
     BREED_CHOICES = (
         ('Domestic shorthair/mix', 'Domestic shorthair/mix'),
@@ -124,10 +124,14 @@ class Cat(models.Model):
 
     cat_personality = models.CharField(max_length=255, choices=PERSONALITY_CHOICES, default='', blank=True)
 
+    def __str__(self):
+        return '{}'.format(self.id)
+
+
 class Dog(models.Model):
     """A class representing dogs, which inherits from the basic Animal class."""
 
-    id = models.OneToOneField('Animal', primary_key=True)
+    id = models.OneToOneField('Animal', primary_key=True, related_name="dog")
 
     BREED_CHOICES = (
         ('Terrier/Mix', 'Terrier/Mix'),
@@ -159,4 +163,6 @@ class Dog(models.Model):
 
     dog_personality = models.CharField(max_length=255, choices=PERSONALITY_CHOICES, default='')
 
+    def __str__(self):
+        return '{}'.format(self.id)
 
