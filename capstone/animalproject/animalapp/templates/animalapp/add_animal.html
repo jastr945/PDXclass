@@ -7,47 +7,30 @@
     <link rel="stylesheet" type="text/css" href="{% static '/animalapp/sass/index.css' %}">
 </head>
 <body>
-    Add a new profile: {{form.species}}<br>
 
-<form id="addDog" style="display: none" method="post">
+<form id="addAnimal" method="post">
     {% csrf_token %}
-    <table>
-    Name: {{ form.name }}<br>
-    ID number: {{form.id_number}}<br>
-    Gender: {{form.gender}}<br>
-    Birthday: {{form.birthday}}<br>
-    Breed: {{dog_form.dog_breed}}<br>
-    Size: {{dog_form.size}}<br>
-    Enter weight (optional): {{dog_form.weight}}<br>
-    Color: {{dog_form.dog_color}}<br>
-    Spayed/neutered: {{form.surgery}}<br>
-    Current on vaccinations: {{form.vaccine}}<br>
-    Location: {{form.location}}<br>
-    Intake date: {{form.intake_date}}<br>
-    Status: {{form.status}}<br>
-    Personality: {{dog_form.dog_personality}}<br>
+    <div>Add a new profile: {{form.species}}<br></div>
+    <div>Name: {{ form.name }}<br></div>
+    <div>ID number: {{form.id_number}}<br></div>
+    <div>Gender: {{form.gender}}<br></div>
+    <div>Birthday: {{form.birthday}}<br></div>
+    <div class="dog" style="display: none">Breed: {{dog_form.dog_breed}}<br></div>
+    <div class="cat" style="display: none">Breed: {{cat_form.cat_breed}}<br></div>
+    <div class="dog" style="display: none">Size: {{dog_form.size}}<br></div>
+    <div class="dog" style="display: none">Enter weight (optional): {{dog_form.weight}}<br></div>
+    <div class="dog" style="display: none">Color: {{dog_form.dog_color}}<br></div>
+    <div class="cat" style="display: none">Color: {{cat_form.cat_color}}<br></div>
+    <div>Spayed/neutered: {{form.surgery}}<br></div>
+    <div>Current on vaccinations: {{form.vaccine}}<br></div>
+    <div>Location: {{form.location}}<br></div>
+    <div>Intake date: {{form.intake_date}}<br></div>
+    <div>Status: {{form.status}}<br></div>
+    <div class="dog" style="display: none">Personality: {{dog_form.dog_personality}}<br></div>
+    <div class="cat" style="display: none">Personality: {{cat_form.cat_personality}}<br></div>
     <input type="submit" value="Create Profile" />
-    </table>
 </form>
 
-<form id="addCat" style="display: none" method="post">
-    {% csrf_token %}
-    <table>
-    Name: {{ form.name }}<br>
-    ID number: {{form.id_number}}<br>
-    Gender: {{form.gender}}<br>
-    Birthday: {{form.birthday}}<br>
-    Breed: {{cat_form.cat_breed}}<br>
-    Color: {{cat_form.cat_color}}<br>
-    Spayed/neutered: {{form.surgery}}<br>
-    Current on vaccinations: {{form.vaccine}}<br>
-    Location: {{form.location}}<br>
-    Intake date: {{form.intake_date}}<br>
-    Status: {{form.status}}<br>
-    Personality: {{cat_form.cat_personality}}<br>
-    <input type="submit" value="Create Profile" />
-    </table>
-</form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="{% static 'animalapp/js/add_animal.js' %}"></script>
 </body>

@@ -6,11 +6,11 @@
 $(function() {
     $('#id_species').change(function () {
         if ($('#id_species').val() === 'dog') {
-            $('#addCat').hide();
-            $('#addDog').show()
+            $('.cat').hide();
+            $('.dog').show()
         } else {
-            $('#addDog').hide();
-            $('#addCat').show()
+            $('.dog').hide();
+            $('.cat').show()
         }
     });
 });

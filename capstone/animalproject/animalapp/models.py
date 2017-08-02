@@ -18,7 +18,7 @@ class Animal(models.Model):
 
     species = models.CharField(max_length=50, choices=SPECIES_CHOICES, default='', blank=True)
     name = models.CharField(max_length=50, default='')
-    id_number = models.CharField(max_length=50, default='')
+    id_number = models.CharField(max_length=50, default='', unique=True)
 
     GENDER_CHOICES = (
         ('male', 'male'),
@@ -71,7 +71,7 @@ class Animal(models.Model):
     )
 
     home = models.CharField(max_length=255, blank=True, default='', choices=HOME_CHOICES, verbose_name='Prefers a home without (optional)')
-    slug = models.SlugField(max_length=50, default='')
+    slug = models.SlugField(max_length=50, default='', unique=True)
 
     # calculating animal's age based on the date of birth
     def age(self):
@@ -92,8 +92,7 @@ class Animal(models.Model):
 
     def save(self, *args, **kwargs):
         """the slug will change every time the name changes"""
-        if self.id_number is None:
-            self.slug = slugify(self.id_number)
+        self.slug = slugify(self.id_number)
         super(Animal, self).save(*args, **kwargs)
 
 
@@ -159,7 +158,5 @@ class Dog(models.Model):
     )
 
     dog_personality = models.CharField(max_length=255, choices=PERSONALITY_CHOICES, default='')
-
-
 
 

@@ -5,7 +5,7 @@ from django import forms
 class AnimalForm(ModelForm):
     class Meta:
         model = Animal
-        exclude = ['id']
+        exclude = ['id', 'slug']
         birthday = forms.DateField()
 
 class DogForm(ModelForm):
