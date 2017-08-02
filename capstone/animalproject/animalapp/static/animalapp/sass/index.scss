@@ -20,6 +20,25 @@ body, html {
     color:white;
     padding: 1em;
   }
+  #loginInfo {
+    //background-color: saddlebrown;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    height: 3em;
+    width: 98%;
+    margin: 0 0 0;
+    padding:0;
+    font-family: Arial;
+    color: white;
+    font-size: 1.5em;
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
   #searchTab {
     display:flex;
     flex-direction:column;

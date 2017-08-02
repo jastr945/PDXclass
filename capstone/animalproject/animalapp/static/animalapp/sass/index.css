@@ -18,6 +18,22 @@ body, html {
     font-size: 3em;
     color: white;
     padding: 1em; }
+  #mainContainer #loginInfo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    height: 3em;
+    width: 98%;
+    margin: 0 0 0;
+    padding: 0;
+    font-family: Arial;
+    color: white;
+    font-size: 1.5em; }
+    #mainContainer #loginInfo a {
+      text-decoration: none;
+      color: white; }
   #mainContainer #searchTab {
     display: flex;
     flex-direction: column;

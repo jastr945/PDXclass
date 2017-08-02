@@ -1,6 +1,34 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
 from .models import Animal
-from .forms import AnimalForm, DogForm, CatForm
+from .forms import AnimalForm, DogForm, CatForm, SignUpForm
+
+
+def signup(request):
+    """Rendering the sign-up page."""
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('add_animal')
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
+
+
+def login_view(request):
+    """Rendering the login page."""
+    return login(request)
+
+
+def logout_view(request):
+    """Rendering the logout page."""
+    logout(request)
 
 
 def index(request):

@@ -9,6 +9,16 @@
 </head>
 <body>
 <div id="mainContainer">
+    <div id="loginInfo">
+        {% if user.is_authenticated %}
+            Hello, {{ user.first_name }}!&nbsp;|
+            <div id="cabinet"><a href="{% url 'login' %}">&nbsp;My Activity&nbsp;|</a></div>
+            <div id="logout">&nbsp;Sign Out</div>
+        {% else %}
+            <div id="login">Login&nbsp;|</div>
+            <div id="signup">&nbsp;Register</div>
+        {% endif %}
+    </div>
     <h1>Find a pet</h1>
     <div id="searchTab">
         <div id="searchEngine">

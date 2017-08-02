@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 from animalapp import views
@@ -24,6 +25,9 @@ app_name = 'animalapp'
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
+    url(r'^signup/$', views.signup, name='signup'),
     url(r'^$', views.index, name='index'),
     url(r'^animal_profile/(?P<animal_id_slug>[0-9]+)/$', views.animal_profile, name='animal_profile'),
     url(r'^add_animal/', views.add_animal, name='add_animal'),
