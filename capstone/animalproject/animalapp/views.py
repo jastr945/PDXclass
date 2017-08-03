@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
 from .models import Animal
 from .forms import AnimalForm, DogForm, CatForm, SignUpForm
+from django.conf import settings
 
 
 def signup(request):
@@ -27,7 +27,7 @@ def login_view(request):
 
 
 def logout_view(request):
-    """Rendering the logout page."""
+    """Logs a user out and redirects to the main(index) page."""
     logout(request)
 
 
@@ -52,6 +52,9 @@ def animal_profile(request, animal_id_slug):
 
 def add_animal(request):
     """Rendering the page on which users add animals and submit the form."""
+
+    if not request.user.is_authenticated:
+        return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
 
     if request.method == "POST":
         form = AnimalForm(request.POST)

@@ -101,4 +101,31 @@ body, html {
     font-family: Arial;
     font-size: 1em; }
 
+.headline {
+  align-self: center;
+  justify-content: center; }
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: Arial;
+  color: white;
+  font-size: 1.5em;
+  border: 6px double white;
+  padding: 1em;
+  width: auto; }
+  .forms button {
+    align-self: center;
+    font-family: Arial;
+    font-size: 1em;
+    margin: 1em; }
+  .forms input {
+    width: 18em;
+    font-family: Arial;
+    font-size: 1em; }
+
 /*# sourceMappingURL=index.css.map */

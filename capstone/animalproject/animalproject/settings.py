@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     'animalapp',
 ]
 
+LOGIN_URL = '/login/'
+
 LOGIN_REDIRECT_URL = '/add_animal/'
+
+LOGOUT_REDIRECT_URL = ''
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
