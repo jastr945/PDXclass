@@ -88,7 +88,7 @@ class Animal(models.Model):
     animal_age = property(age)
 
     def __str__(self):
-        return '{} - {} - {}'.format(self.name, self.id_number, self.location)
+        return '{} - {} - {} - {}'.format(self.name, self.species, self.id_number, self.location)
 
     def save(self, *args, **kwargs):
         """the slug will change every time the name changes"""

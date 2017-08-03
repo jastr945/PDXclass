@@ -56,6 +56,8 @@ def add_animal(request):
     if not request.user.is_authenticated:
         return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
 
+    animals = Animal.objects.all()
+
     if request.method == "POST":
         form = AnimalForm(request.POST)
         dog_form = DogForm(request.POST)

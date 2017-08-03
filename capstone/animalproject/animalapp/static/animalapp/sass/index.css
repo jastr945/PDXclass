@@ -18,7 +18,9 @@ body, html {
   #mainContainer h1 {
     font-size: 3em;
     color: white;
-    padding: 1em; }
+    padding: 0.5em;
+    height: 1em;
+    text-align: start; }
   #mainContainer #loginInfo {
     display: flex;
     flex-direction: row;
@@ -86,20 +88,31 @@ body, html {
         height: 3em;
         font-size: 1.5em; }
 
+#addOption, #seeAllOption {
+  align-self: center;
+  width: 96%;
+  cursor: pointer; }
+  #addOption h1, #seeAllOption h1 {
+    border-bottom: 3px solid white; }
+
 #addAnimal {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  display: table;
+  align-self: center;
+  align-items: center;
   justify-content: center;
   font-family: Arial;
   color: white;
   font-size: 1.5em;
-  margin-left: 25%; }
+  margin: 1em 0 0 1em; }
   #addAnimal select, #addAnimal input {
+    display: table-cell;
     color: black;
     font-family: Arial;
     font-size: 1em; }
+  #addAnimal p {
+    display: table-row; }
+  #addAnimal label {
+    display: table-cell; }
 
 .headline {
   align-self: center;
@@ -127,5 +140,40 @@ body, html {
     width: 18em;
     font-family: Arial;
     font-size: 1em; }
+
+#tableContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-self: center;
+  width: 96%; }
+  #tableContainer #dataBaseRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #205067;
+    color: white;
+    font-family: Arial;
+    font-size: 1.5em;
+    height: 3em;
+    margin: 0 0 0.5em 0; }
+    #tableContainer #dataBaseRow #dataBaseInfo {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 40em;
+      margin: 0 0 0 1em; }
+      #tableContainer #dataBaseRow #dataBaseInfo div {
+        width: 7em; }
+    #tableContainer #dataBaseRow #dataButtons {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-left: 1em; }
+      #tableContainer #dataBaseRow #dataButtons input {
+        margin: 0 1em 0 0; }
 
 /*# sourceMappingURL=index.css.map */

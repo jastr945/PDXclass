@@ -19,7 +19,9 @@ body, html {
   h1 {
     font-size: 3em;
     color: white;
-    padding: 1em;
+    padding: 0.5em;
+    height: 1em;
+    text-align: start;
   }
   #loginInfo {
     //background-color: saddlebrown;
@@ -99,21 +101,37 @@ body, html {
   }
 }
 
+#addOption, #seeAllOption {
+  align-self: center;
+  width:96%;
+  cursor: pointer;
+  h1 {
+    //background-color: #447e9b;
+    border-bottom: 3px solid white;
+  }
+}
+
 #addAnimal {
   //background-color: yellow;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  display: table;
+  align-self: center;
+  align-items: center;
   justify-content:center;
   font-family: Arial;
   color:white;
   font-size: 1.5em;
-  margin-left: 25%;
+  margin: 1em 0 0 1em;
   select, input {
+      //margin-left: 15em;
+      display: table-cell;
       color: black;
       font-family: Arial;
       font-size: 1em;
+  }
+  p { display: table-row;}
+  label { display: table-cell; }
+  #submitButton {
+
   }
 }
 
@@ -145,5 +163,46 @@ body, html {
     width: 18em;
     font-family: Arial;
     font-size: 1em;
+  }
+}
+
+#tableContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-self: center;
+  width: 96%;
+  #dataBaseRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #205067;
+    color: white;
+    font-family: Arial;
+    font-size: 1.5em;
+    height: 3em;
+    margin: 0 0 0.5em 0;
+    #dataBaseInfo {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 40em;
+      margin: 0 0 0 1em;
+      div {
+        width: 7em;
+      }
+    }
+    #dataButtons {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-left: 1em;
+      input {
+        margin: 0 1em 0 0;
+      }
+    }
   }
 }

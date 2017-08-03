@@ -4,31 +4,49 @@
 
 {% block content %}
 <div id="addOption"><h1>Add a new profile</h1></div>
-<form id="addAnimal" method="post">
+<form id="addAnimal" style="display: none" method="post">
     {% csrf_token %}
-    <div>Select species: {{form.species}}<br></div>
-    <div>Name: {{ form.name }}<br></div>
-    <div>ID number: {{form.id_number}}<br></div>
-    <div>Gender: {{form.gender}}<br></div>
-    <div>Birthday: {{form.birthday}}<br></div>
-    <div class="dog" style="display: none">Breed: {{dog_form.dog_breed}}<br></div>
-    <div class="cat" style="display: none">Breed: {{cat_form.cat_breed}}<br></div>
-    <div class="dog" style="display: none">Size: {{dog_form.size}}<br></div>
-    <div class="dog" style="display: none">Enter weight (optional): {{dog_form.weight}}<br></div>
-    <div class="dog" style="display: none">Color: {{dog_form.dog_color}}<br></div>
-    <div class="cat" style="display: none">Color: {{cat_form.cat_color}}<br></div>
-    <div>Spayed/neutered: {{form.surgery}}<br></div>
-    <div>Current on vaccinations: {{form.vaccine}}<br></div>
-    <div>Location: {{form.location}}<br></div>
-    <div>Intake date: {{form.intake_date}}<br></div>
-    <div>Status: {{form.status}}<br></div>
-    <div>Prefers a home without (optional): {{form.home}}<br></div>
-    <div class="dog" style="display: none">Personality: {{dog_form.dog_personality}}<br></div>
-    <div class="cat" style="display: none">Personality: {{cat_form.cat_personality}}<br></div>
-    <input type="submit" value="Create Profile" />
+    <p><label for="id_species">Select species: </label>{{form.species}}</p><br>
+    <p><label for="id_name">Name: </label>{{ form.name }}</p><br>
+    <p><label for="id_id_number">ID number: </label>{{form.id_number}}</p><br>
+    <p><label for="id_gender">Gender: </label>{{form.gender}}</p><br>
+    <p><label for="id_birthday">Birthday: </label>{{form.birthday}}</p><br>
+    <p class="dog" style="display: none"><label for="id_dog_breed">Breed: </label>{{dog_form.dog_breed}}</p><br>
+    <p class="cat" style="display: none"><label for="id_cat_breed">Breed: </label>{{cat_form.cat_breed}}</p><br>
+    <p class="dog" style="display: none"><label for="id_size">Size: </label>{{dog_form.size}}</p><br>
+    <p class="dog" style="display: none"><label for="id_weight">Enter weight (optional): </label>{{dog_form.weight}}</p><br>
+    <p class="dog" style="display: none"><label for="id_dog_color">Color: </label>{{dog_form.dog_color}}</p><br>
+    <p class="cat" style="display: none"><label for="id_cat_color">Color: </label>{{cat_form.cat_color}}</p><br>
+    <p><label for="id_surgery">Spayed/neutered: </label>{{form.surgery}}</p><br>
+    <p><label for="id_vaccine">Current on vaccinations: </label>{{form.vaccine}}</p><br>
+    <p><label for="id_location">Location: </label>{{form.location}}</p><br>
+    <p><label for="id_intake_date">Intake date: </label>{{form.intake_date}}</p><br>
+    <p><label for="id_status">Status: </label>{{form.status}}</p><br>
+    <p><label for="id_home">Prefers a home without (optional):&nbsp;</label>{{form.home}}</p><br>
+    <p class="dog" style="display: none"><label for="id_dog_personality">Personality: </label>{{dog_form.dog_personality}}</p><br>
+    <p class="cat" style="display: none"><label for="id_cat_personality">Personality: </label>{{cat_form.cat_personality}}</p><br>
+    <input type="submit" id="submitButton" value="Create Profile" />
 </form>
 
 <div id="seeAllOption"><h1>Manage existing entries</h1></div>
+    <div id="tableContainer">
+    {% for a in animals %}
+        <div id="dataBaseRow">
+            <div id="dataBaseInfo">
+                <div id="nameRow">{{ a.name }}</div>
+                <div id="speciesRow">{{ a.species }}</div>
+                <div id="idRow">{{ a.id_number }}</div>
+                <div id="locationRow">{{ a.location }}</div>
+            </div>
+
+            <div id="dataButtons">
+                <input type="submit" value="View" />
+                <input type="submit" value="Edit" />
+                <input type="submit" value="Delete" />
+            </div>
+        </div>
+    {% endfor %}
+    </div>
 {% endblock content %}
 
 {% block js %}
