@@ -5,7 +5,7 @@
 // Opens the 'add animal' form upon clicking
 $('#addOption').click(function (e) {
     e.preventDefault();
-    $('#addAnimal').toggle('slow')
+    $('#addAnimal').toggle('fast')
 });
 
 $('#seeAllOption').click(function (e) {
@@ -18,10 +18,14 @@ $(function() {
     $('#id_species').change(function () {
         if ($('#id_species').val() === 'dog') {
             $('.cat').hide();
-            $('.dog').show()
+            $('.dog').show();
+        } else if ($('#id_species').val() === 'cat') {
+            $('.dog').hide();
+            $('.cat').show();
         } else {
             $('.dog').hide();
-            $('.cat').show()
+            $('.cat').hide();
         }
     });
 });
+

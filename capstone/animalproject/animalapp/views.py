@@ -88,5 +88,5 @@ def add_animal(request):
         dog_form = DogForm()
         cat_form = CatForm()
 
-    return render(request, 'animalapp/add_animal.html', {'form': form, 'dog_form': dog_form, 'cat_form': cat_form})
+    return render(request, 'animalapp/add_animal.html', {'form': form, 'dog_form': dog_form, 'cat_form': cat_form, 'animals': animals})
 

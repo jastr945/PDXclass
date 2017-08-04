@@ -3,49 +3,108 @@
 {% block title %}My Account{% endblock title %}
 
 {% block content %}
-<div id="addOption"><h1>Add a new profile</h1></div>
-<form id="addAnimal" style="display: none" method="post">
-    {% csrf_token %}
-    <p><label for="id_species">Select species: </label>{{form.species}}</p><br>
-    <p><label for="id_name">Name: </label>{{ form.name }}</p><br>
-    <p><label for="id_id_number">ID number: </label>{{form.id_number}}</p><br>
-    <p><label for="id_gender">Gender: </label>{{form.gender}}</p><br>
-    <p><label for="id_birthday">Birthday: </label>{{form.birthday}}</p><br>
-    <p class="dog" style="display: none"><label for="id_dog_breed">Breed: </label>{{dog_form.dog_breed}}</p><br>
-    <p class="cat" style="display: none"><label for="id_cat_breed">Breed: </label>{{cat_form.cat_breed}}</p><br>
-    <p class="dog" style="display: none"><label for="id_size">Size: </label>{{dog_form.size}}</p><br>
-    <p class="dog" style="display: none"><label for="id_weight">Enter weight (optional): </label>{{dog_form.weight}}</p><br>
-    <p class="dog" style="display: none"><label for="id_dog_color">Color: </label>{{dog_form.dog_color}}</p><br>
-    <p class="cat" style="display: none"><label for="id_cat_color">Color: </label>{{cat_form.cat_color}}</p><br>
-    <p><label for="id_surgery">Spayed/neutered: </label>{{form.surgery}}</p><br>
-    <p><label for="id_vaccine">Current on vaccinations: </label>{{form.vaccine}}</p><br>
-    <p><label for="id_location">Location: </label>{{form.location}}</p><br>
-    <p><label for="id_intake_date">Intake date: </label>{{form.intake_date}}</p><br>
-    <p><label for="id_status">Status: </label>{{form.status}}</p><br>
-    <p><label for="id_home">Prefers a home without (optional):&nbsp;</label>{{form.home}}</p><br>
-    <p class="dog" style="display: none"><label for="id_dog_personality">Personality: </label>{{dog_form.dog_personality}}</p><br>
-    <p class="cat" style="display: none"><label for="id_cat_personality">Personality: </label>{{cat_form.cat_personality}}</p><br>
-    <input type="submit" id="submitButton" value="Create Profile" />
-</form>
+    <div id="addOption"><h1>Add a new profile</h1></div>
+    <div id="addAnimalTable">
+        <form id="addAnimal" method="post">
+            {% csrf_token %}
+            <div class="addAnimalRows">
+                <div class="left">Select species:</div>
+                <div class="right">{{ form.species }}</div>
+            </div>
+            <div class="addAnimalRows">
+                <div class="left">Name:</div>
+                <div class="right">{{ form.name }}</div>
+            </div>
+            <div class="addAnimalRows">
+                <div class="left">ID number:</div>
+                <div class="right">{{ form.id_number }}</div>
+            </div>
+            <div class="addAnimalRows">
+                <div class="left">Gender:</div>
+                <div class="right">{{ form.gender }}</div>
+            </div>
+            <div class="addAnimalRows">
+                <div class="left">Birthday:</div>
+                <div class="right">{{ form.birthday }}</div>
+            </div>
+            <div class="addAnimalRows" style="display: none">
+                <div class="left">Breed:</div>
+                <div class="right">{{ dog_form.dog_breed }}</div>
+            </div>
+            <div class="addAnimalRows" style="display: none">
+                <div class="left">Breed:</div>
+                <div class="right">{{ cat_form.cat_breed }}</div>
+            </div>
+            <div class="addAnimalRows dog" style="display: none">
+                <div class="left">Size:</div>
+                <div class="right">{{ dog_form.size }}</div>
+            </div>
+            <div class="addAnimalRows dog" style="display: none">
+                <div class="left">Enter weight(optional):</div>
+                <div class="right">{{ dog_form.weight }}</div>
+            </div>
+            <div class="addAnimalRows dog" style="display: none">
+                <div class="left">Color:</div>
+                <div class="right">{{ dog_form.dog_color }}</div>
+            </div>
+            <div class="addAnimalRows cat" style="display: none">
+                <div class="left">Color:</div>
+                <div class="right">{{ cat_form.cat_color }}</div>
+            </div>
+            <div class="addAnimalRows">
+                <div class="left">Spayed/neutered:</div>
+                <div class="right">{{ form.surgery }}</div>
+            </div>
+            <div class="addAnimalRows">
+                <div class="left">Current on vaccinations:</div>
+                <div class="right">{{ form.vaccine }}</div>
+            </div>
+            <div class="addAnimalRows">
+                <div class="left">Intake date:</div>
+                <div class="right">{{ form.intake_date }}</div>
+            </div>
+            <div class="addAnimalRows">
+                <div class="left">Status:</div>
+                <div class="right">{{ form.status }}</div>
+            </div>
+            <div class="addAnimalRows">
+                <div class="left">Prefers a home without (optional):</div>
+                <div class="right">{{ form.home }}</div>
+            </div>
+            <div class="addAnimalRows dog" style="display: none">
+                <div class="left">Personality:</div>
+                <div class="right">{{ dog_form.dog_personality }}</div>
+            </div>
+            <div class="addAnimalRows cat" style="display: none">
+                <div class="left">Personality:</div>
+                <div class="right">{{ cat_form.cat_personality }}</div>
+            </div>
+            <div class="addAnimalRows">
+                <input type="submit" id="submitButton" value="Create Profile"/>
+            </div>
+        </form>
+    </div>
 
-<div id="seeAllOption"><h1>Manage existing entries</h1></div>
+    <div id="seeAllOption"><h1>Manage existing entries</h1></div>
     <div id="tableContainer">
-    {% for a in animals %}
-        <div id="dataBaseRow">
-            <div id="dataBaseInfo">
-                <div id="nameRow">{{ a.name }}</div>
-                <div id="speciesRow">{{ a.species }}</div>
-                <div id="idRow">{{ a.id_number }}</div>
-                <div id="locationRow">{{ a.location }}</div>
-            </div>
+        {% for a in animals %}
+            {% if a %}
+                <div id="dataBaseRow">
+                    <div id="dataBaseInfo">
+                        <div id="nameRow">{{ a.name }}</div>
+                        <div id="speciesRow">{{ a.species }}</div>
+                        <div id="idRow">{{ a.id_number }}</div>
+                        <div id="locationRow">{{ a.location }}</div>
+                    </div>
 
-            <div id="dataButtons">
-                <input type="submit" value="View" />
-                <input type="submit" value="Edit" />
-                <input type="submit" value="Delete" />
-            </div>
-        </div>
-    {% endfor %}
+                    <div id="dataButtons">
+                        <div id="viewButton"><a href="{% url 'animal_profile' a.slug %}" target="_blank">View</a></div>
+                        <div id="editButton"><a href="{% url 'animal_profile' a.slug %}" target="_blank">Edit</a></div>
+                        <div id="deleteButton"><a href="{% url 'animal_profile' a.slug %}" target="_blank">View</a></div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
 {% endblock content %}
 

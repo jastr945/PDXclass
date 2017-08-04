@@ -95,24 +95,42 @@ body, html {
   #addOption h1, #seeAllOption h1 {
     border-bottom: 3px solid white; }
 
-#addAnimal {
-  display: table;
+#addAnimalTable {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-self: center;
   align-self: center;
-  align-items: center;
   justify-content: center;
+  width: auto;
+  height: auto;
+  align-content: stretch;
   font-family: Arial;
   color: white;
-  font-size: 1.5em;
-  margin: 1em 0 0 1em; }
-  #addAnimal select, #addAnimal input {
-    display: table-cell;
-    color: black;
-    font-family: Arial;
-    font-size: 1em; }
-  #addAnimal p {
-    display: table-row; }
-  #addAnimal label {
-    display: table-cell; }
+  font-size: 1.5em; }
+  #addAnimalTable .addAnimalRows {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    width: 30em;
+    height: 2em;
+    margin: 0.5em; }
+    #addAnimalTable .addAnimalRows .right {
+      width: 13em; }
+    #addAnimalTable .addAnimalRows #submitButton {
+      align-self: center;
+      height: 2.5em;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 2em;
+      font-size: 1em;
+      cursor: pointer; }
+    #addAnimalTable .addAnimalRows input, #addAnimalTable .addAnimalRows select {
+      font-family: Arial;
+      color: black;
+      font-size: 0.8em; }
 
 .headline {
   align-self: center;
@@ -173,7 +191,28 @@ body, html {
       flex-wrap: wrap;
       align-items: center;
       margin-left: 1em; }
-      #tableContainer #dataBaseRow #dataButtons input {
-        margin: 0 1em 0 0; }
+      #tableContainer #dataBaseRow #dataButtons #viewButton, #tableContainer #dataBaseRow #dataButtons #editButton, #tableContainer #dataBaseRow #dataButtons #deleteButton {
+        margin: 0 1em 0 0;
+        padding: 1px 6px;
+        font-family: Arial;
+        font-size: 0.8em;
+        cursor: pointer;
+        text-decoration: none;
+        align-items: flex-start;
+        text-align: center;
+        color: buttontext;
+        background-color: buttonface;
+        box-sizing: border-box;
+        padding: 2px 6px 3px;
+        border-width: 2px;
+        border-style: outset;
+        border-color: buttonface;
+        border-image: initial;
+        -webkit-appearance: push-button;
+        user-select: none;
+        white-space: pre; }
+        #tableContainer #dataBaseRow #dataButtons #viewButton a, #tableContainer #dataBaseRow #dataButtons #editButton a, #tableContainer #dataBaseRow #dataButtons #deleteButton a {
+          text-decoration: none;
+          color: black; }
 
 /*# sourceMappingURL=index.css.map */
