@@ -3,14 +3,19 @@ from .models import Animal, Dog, Cat
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.forms.extras.widgets import SelectDateWidget
+import datetime
 
+
+yearNow = datetime.date.today().year
 
 class AnimalForm(ModelForm):
     class Meta:
         model = Animal
         exclude = ['id', 'slug']
-        birthday = forms.DateField()
-
+        widgets = {
+            'birthday': SelectDateWidget(years=reversed(range(yearNow - 30, yearNow + 1)))
+        }
 
 class DogForm(ModelForm):
     class Meta:
