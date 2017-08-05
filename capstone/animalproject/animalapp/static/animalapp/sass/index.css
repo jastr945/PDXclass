@@ -115,7 +115,8 @@ body, html {
     align-content: center;
     justify-content: space-between;
     width: 30em;
-    height: 2em;
+    height: auto;
+    min-height: 2em;
     margin: 0.5em; }
     #addAnimalTable .addAnimalRows .right {
       width: 13em; }
@@ -127,10 +128,13 @@ body, html {
       margin-top: 2em;
       font-size: 1em;
       cursor: pointer; }
-    #addAnimalTable .addAnimalRows input, #addAnimalTable .addAnimalRows select {
+    #addAnimalTable .addAnimalRows input, #addAnimalTable .addAnimalRows select, #addAnimalTable .addAnimalRows textarea {
       font-family: Arial;
       color: black;
       font-size: 0.8em; }
+    #addAnimalTable .addAnimalRows textarea {
+      height: auto;
+      width: 18em; }
 
 .headline {
   align-self: center;

@@ -27,11 +27,11 @@
                 <div class="left">Birthday:</div>
                 <div class="right">{{ form.birthday }}</div>
             </div>
-            <div class="addAnimalRows" style="display: none">
+            <div class="addAnimalRows dog" style="display: none">
                 <div class="left">Breed:</div>
                 <div class="right">{{ dog_form.dog_breed }}</div>
             </div>
-            <div class="addAnimalRows" style="display: none">
+            <div class="addAnimalRows cat" style="display: none">
                 <div class="left">Breed:</div>
                 <div class="right">{{ cat_form.cat_breed }}</div>
             </div>
@@ -60,6 +60,10 @@
                 <div class="right">{{ form.vaccine }}</div>
             </div>
             <div class="addAnimalRows">
+                <div class="left">Location:</div>
+                <div class="right">{{ form.location }}</div>
+            </div>
+            <div class="addAnimalRows">
                 <div class="left">Intake date:</div>
                 <div class="right">{{ form.intake_date }}</div>
             </div>
@@ -78,6 +82,10 @@
             <div class="addAnimalRows cat" style="display: none">
                 <div class="left">Personality:</div>
                 <div class="right">{{ cat_form.cat_personality }}</div>
+            </div>
+            <div class="addAnimalRows">
+                <div class="left">Add a special note (optional):</div>
+                <div class="right">{{ form.notes }}</div>
             </div>
             <div class="addAnimalRows">
                 <input type="submit" id="submitButton" value="Create Profile"/>

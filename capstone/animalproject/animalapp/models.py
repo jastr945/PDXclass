@@ -2,6 +2,7 @@ from django.db import models
 import datetime
 from django.template.defaultfilters import slugify
 
+
 def profile_upload_handler(instance, filename):
     return '{name}/{filename}'.format(name=instance.name, filename=filename)
 
@@ -71,6 +72,9 @@ class Animal(models.Model):
     )
 
     home = models.CharField(max_length=255, blank=True, default='', choices=HOME_CHOICES, verbose_name='Prefers a home without (optional)')
+
+    notes = models.TextField(max_length=255, blank=True, default='')
+
     slug = models.SlugField(max_length=50, default='', unique=True)
 
     # calculating animal's age based on the date of birth

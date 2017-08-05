@@ -34,6 +34,9 @@
         {% else %}
             Personality: {{ animals.dog.dog_personality }}<br>
         {% endif %}
+        {% if animals.notes %}
+            Special note: {{ animals.notes }}<br>
+        {% endif %}
     </p>
 {% else %}
     The specified animal profile does not exist! Please double-check the animal's ID number.

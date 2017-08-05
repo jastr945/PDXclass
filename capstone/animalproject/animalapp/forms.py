@@ -7,15 +7,16 @@ from django.forms.extras.widgets import SelectDateWidget
 import datetime
 
 
-yearNow = datetime.date.today().year
-
 class AnimalForm(ModelForm):
+
     class Meta:
         model = Animal
         exclude = ['id', 'slug']
         widgets = {
-            'birthday': SelectDateWidget(years=reversed(range(yearNow - 30, yearNow + 1)))
+            'birthday': SelectDateWidget(),
+            'intake_date': SelectDateWidget()
         }
+
 
 class DogForm(ModelForm):
     class Meta:
