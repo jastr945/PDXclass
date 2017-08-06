@@ -123,7 +123,21 @@ body, html {
       width: 13em; }
     #addAnimalTable .addAnimalRows ul {
       list-style: none;
-      display: inline-block; }
+      -webkit-margin-before: 0;
+      -webkit-margin-after: 0;
+      -webkit-padding-start: 0; }
+      #addAnimalTable .addAnimalRows ul li {
+        margin: 0 1em 0 0; }
+        #addAnimalTable .addAnimalRows ul li input[type="radio"] {
+          width: 1em;
+          height: 1em;
+          color: black;
+          display: inline-block;
+          cursor: pointer; }
+    #addAnimalTable .addAnimalRows #id_gender, #addAnimalTable .addAnimalRows #id_surgery, #addAnimalTable .addAnimalRows #id_vaccine {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap; }
     #addAnimalTable .addAnimalRows #submitButton {
       align-self: center;
       height: 2.5em;

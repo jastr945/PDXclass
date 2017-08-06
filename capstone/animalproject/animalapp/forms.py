@@ -16,7 +16,7 @@ class AnimalForm(ModelForm):
 
     CHOICES = [('0', 'yes'), ('1', 'no')]
 
-    gender = forms.TypedChoiceField(choices=GENDER_CHOICES, widget=forms.RadioSelect)
+    gender = forms.TypedChoiceField(choices=GENDER_CHOICES, widget=forms.RadioSelect(attrs={'class': 'radio-inline'}))
 
     surgery = forms.TypedChoiceField(choices=CHOICES, initial='0', widget=forms.RadioSelect)
 
@@ -29,7 +29,6 @@ class AnimalForm(ModelForm):
             'birthday': SelectDateWidget(years=(range(datetime.date.today().year - 20, datetime.date.today().year + 1))),
             'notes': TextInput(attrs={'placeholder': 'Describe any special needs, etc.'})
         }
-
 
 
 class DogForm(ModelForm):

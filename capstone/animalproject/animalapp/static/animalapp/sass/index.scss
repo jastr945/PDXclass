@@ -138,10 +138,26 @@ body, html {
     .right {
       width: 13em;
     }
-
     ul {
       list-style: none;
-      display: inline-block;
+      -webkit-margin-before: 0;
+      -webkit-margin-after: 0;
+      -webkit-padding-start: 0;
+      li {
+        margin: 0 1em 0 0;
+        input[type="radio"]  {
+          width: 1em;
+          height:1em;
+          color: black;
+          display: inline-block;
+          cursor: pointer;
+        }
+      }
+    }
+    #id_gender, #id_surgery, #id_vaccine {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
     }
     #submitButton {
       align-self: center;
