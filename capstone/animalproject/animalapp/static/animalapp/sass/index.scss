@@ -136,21 +136,25 @@ body, html {
     min-height: 2em;
     margin: 0.5em;
     .right {
-      width: 13em;
+      width: 14em;
     }
     ul {
       list-style: none;
+      padding:0;
+      margin:0;
       -webkit-margin-before: 0;
       -webkit-margin-after: 0;
       -webkit-padding-start: 0;
       li {
         margin: 0 1em 0 0;
+        align-items: center;
         input[type="radio"]  {
           width: 1em;
           height:1em;
           color: black;
           display: inline-block;
           cursor: pointer;
+          margin:0;
         }
       }
     }
@@ -158,6 +162,7 @@ body, html {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      align-items: center;
     }
     #submitButton {
       align-self: center;
@@ -172,6 +177,7 @@ body, html {
       font-family: Arial;
       color:black;
       font-size: 0.8em;
+      padding: 0.2em;
     }
     #id_notes {
       height: 3em;

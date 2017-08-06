@@ -120,24 +120,29 @@ body, html {
     min-height: 2em;
     margin: 0.5em; }
     #addAnimalTable .addAnimalRows .right {
-      width: 13em; }
+      width: 14em; }
     #addAnimalTable .addAnimalRows ul {
       list-style: none;
+      padding: 0;
+      margin: 0;
       -webkit-margin-before: 0;
       -webkit-margin-after: 0;
       -webkit-padding-start: 0; }
       #addAnimalTable .addAnimalRows ul li {
-        margin: 0 1em 0 0; }
+        margin: 0 1em 0 0;
+        align-items: center; }
         #addAnimalTable .addAnimalRows ul li input[type="radio"] {
           width: 1em;
           height: 1em;
           color: black;
           display: inline-block;
-          cursor: pointer; }
+          cursor: pointer;
+          margin: 0; }
     #addAnimalTable .addAnimalRows #id_gender, #addAnimalTable .addAnimalRows #id_surgery, #addAnimalTable .addAnimalRows #id_vaccine {
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap; }
+      flex-wrap: wrap;
+      align-items: center; }
     #addAnimalTable .addAnimalRows #submitButton {
       align-self: center;
       height: 2.5em;
@@ -149,7 +154,8 @@ body, html {
     #addAnimalTable .addAnimalRows input, #addAnimalTable .addAnimalRows select, #addAnimalTable .addAnimalRows textarea {
       font-family: Arial;
       color: black;
-      font-size: 0.8em; }
+      font-size: 0.8em;
+      padding: 0.2em; }
     #addAnimalTable .addAnimalRows #id_notes {
       height: 3em;
       width: 18em; }
