@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from .models import Animal
 from .forms import AnimalForm, DogForm, CatForm, SignUpForm
 from django.conf import settings
+from django.contrib import messages
 
 
 def signup(request):
@@ -71,7 +72,7 @@ def add_animal(request):
             dog_form_instance.save()
             return HttpResponseRedirect('/animal_profile/{}/'.format(request.POST['id_number']))
 
-        #if the user selects 'cat', only form and cat_form will be validated
+        # if the user selects 'cat', only form and cat_form will be validated and saved
         elif request.POST['species'] == 'cat' and form.is_valid() and cat_form.is_valid():
             form_instance = form.save()
             cat_form_instance = cat_form.save(commit=False)
@@ -80,13 +81,13 @@ def add_animal(request):
             return HttpResponseRedirect('/animal_profile/{}/'.format(request.POST['id_number']))
 
         else:
-            print(form.errors)
-            print(dog_form.errors)
-            print(cat_form.errors)
+            messages.error(request, "Error")
+
     else:
         form = AnimalForm()
         dog_form = DogForm()
         cat_form = CatForm()
 
-    return render(request, 'animalapp/add_animal.html', {'form': form, 'dog_form': dog_form, 'cat_form': cat_form, 'animals': animals})
+    return render(request, 'animalapp/add_animal.html', {'form': form, 'dog_form': dog_form, 'cat_form': cat_form,
+                                                         'animals': animals})
 

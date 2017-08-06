@@ -4,20 +4,23 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms.extras.widgets import SelectDateWidget
+from django.forms.widgets import TextInput
 import datetime
 
 
 class AnimalForm(ModelForm):
 
-    intake_date = forms.DateField(initial=datetime.date.today())
+    intake_date = forms.DateField(initial=datetime.date.today(), widget=SelectDateWidget
+    (years=(range(datetime.date.today().year - 10, datetime.date.today().year + 1))))
 
     class Meta:
         model = Animal
         exclude = ['id', 'slug']
         widgets = {
             'birthday': SelectDateWidget(years=(range(datetime.date.today().year - 20, datetime.date.today().year + 1))),
-            'intake_date': SelectDateWidget()
+            'notes': TextInput(attrs={'placeholder': 'Describe any special needs, etc.'})
         }
+
 
 
 class DogForm(ModelForm):

@@ -16,7 +16,7 @@ $('#seeAllOption').click(function (e) {
 // Depending on selection choice, shows either dog or cat form to fill out
 $(function() {
     $('#id_species').change(function () {
-        if ($('#id_species').val() === 'dog') {
+        if ($(this).val() === 'dog') {
             $('.cat').hide();
             $('.dog').show();
         } else if ($('#id_species').val() === 'cat') {

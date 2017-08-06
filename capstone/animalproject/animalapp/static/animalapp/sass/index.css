@@ -132,8 +132,8 @@ body, html {
       font-family: Arial;
       color: black;
       font-size: 0.8em; }
-    #addAnimalTable .addAnimalRows textarea {
-      height: auto;
+    #addAnimalTable .addAnimalRows #id_notes {
+      height: 3em;
       width: 18em; }
 
 .headline {

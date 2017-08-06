@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 from django.template.defaultfilters import slugify
+from django.core.validators import MinValueValidator
 
 
 def profile_upload_handler(instance, filename):
@@ -18,7 +19,9 @@ class Animal(models.Model):
     )
 
     species = models.CharField(max_length=50, choices=SPECIES_CHOICES, default='', blank=True)
-    name = models.CharField(max_length=50, default='')
+
+    name = models.CharField(max_length=50, default='', unique=True)
+
     id_number = models.CharField(max_length=50, default='', unique=True)
 
     GENDER_CHOICES = (
@@ -27,7 +30,7 @@ class Animal(models.Model):
     )
 
     gender = models.CharField(max_length=20, choices=GENDER_CHOICES, default='', blank=True)
-    birthday = models.DateField(blank=True, null=True)
+    birthday = models.DateField(blank=True, null=False)
 
     SURGERY_CHOICES = (
         ('yes', 'yes'),
@@ -54,7 +57,7 @@ class Animal(models.Model):
 
     location = models.CharField(max_length=50, choices=LOCATION_CHOICES, default='')
 
-    intake_date = models.DateField(blank=True, null=True)
+    intake_date = models.DateField(blank=False, null=False)
 
     STATUS_CHOICES = (
         ('available', 'available'),
@@ -73,7 +76,7 @@ class Animal(models.Model):
 
     home = models.CharField(max_length=255, blank=True, default='', choices=HOME_CHOICES, verbose_name='Prefers a home without (optional)')
 
-    notes = models.TextField(max_length=255, blank=True, default='')
+    notes = models.TextField(max_length=255, blank=True, null=True, default='')
 
     slug = models.SlugField(max_length=50, default='', unique=True)
 
@@ -150,8 +153,9 @@ class Dog(models.Model):
         ('large', 'large')
     )
 
-    size = models.CharField(max_length=50, choices=SIZE_CHOICES, default='', blank=True)
-    weight = models.FloatField(max_length=50, blank=True, default='', verbose_name='Specify weight (optional)')
+    size = models.CharField(max_length=50, choices=SIZE_CHOICES, default='', blank=True, null=True)
+    weight = models.FloatField(max_length=50, validators=[MinValueValidator(0.0)], null=True, blank=True, default='',
+                               verbose_name='Specify weight (optional)')
 
     COLOR_CHOICES = (
         ('white', 'white'),
