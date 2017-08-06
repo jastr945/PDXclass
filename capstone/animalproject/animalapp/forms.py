@@ -9,11 +9,13 @@ import datetime
 
 class AnimalForm(ModelForm):
 
+    intake_date = forms.DateField(initial=datetime.date.today())
+
     class Meta:
         model = Animal
         exclude = ['id', 'slug']
         widgets = {
-            'birthday': SelectDateWidget(),
+            'birthday': SelectDateWidget(years=(range(datetime.date.today().year - 20, datetime.date.today().year + 1))),
             'intake_date': SelectDateWidget()
         }
 
