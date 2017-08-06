@@ -24,27 +24,13 @@ class Animal(models.Model):
 
     id_number = models.CharField(max_length=50, default='', unique=True)
 
-    GENDER_CHOICES = (
-        ('male', 'male'),
-        ('female', 'female')
-    )
+    gender = models.BooleanField()
 
-    gender = models.CharField(max_length=20, choices=GENDER_CHOICES, default='', blank=True)
     birthday = models.DateField(blank=True, null=False)
 
-    SURGERY_CHOICES = (
-        ('yes', 'yes'),
-        ('no', 'no')
-    )
+    surgery = models.BooleanField(verbose_name='Spayed/neutered')
 
-    surgery = models.CharField(max_length=20, choices=SURGERY_CHOICES, default='', verbose_name='Spayed/neutered')
-
-    VACCINE_CHOICES = (
-        ('yes', 'yes'),
-        ('no', 'no')
-    )
-
-    vaccine = models.CharField(max_length=20, choices=VACCINE_CHOICES, default='yes', verbose_name='Vaccinated')
+    vaccine = models.BooleanField(verbose_name='Vaccinated')
 
     LOCATION_CHOICES = (
         ('OFOSA shelter', 'OFOSA shelter'),

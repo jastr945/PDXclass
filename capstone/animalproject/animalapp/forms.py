@@ -10,8 +10,17 @@ import datetime
 
 class AnimalForm(ModelForm):
 
-    intake_date = forms.DateField(initial=datetime.date.today(), widget=SelectDateWidget
-    (years=(range(datetime.date.today().year - 10, datetime.date.today().year + 1))))
+    intake_date = forms.DateField(initial=datetime.date.today(), widget=SelectDateWidget(years=(range(datetime.date.today().year - 10, datetime.date.today().year + 1))))
+
+    GENDER_CHOICES = [('0', 'male'), ('1', 'female')]
+
+    CHOICES = [('0', 'yes'), ('1', 'no')]
+
+    gender = forms.TypedChoiceField(choices=GENDER_CHOICES, widget=forms.RadioSelect)
+
+    surgery = forms.TypedChoiceField(choices=CHOICES, initial='0', widget=forms.RadioSelect)
+
+    vaccine = forms.TypedChoiceField(choices=CHOICES, initial='0', widget=forms.RadioSelect)
 
     class Meta:
         model = Animal
