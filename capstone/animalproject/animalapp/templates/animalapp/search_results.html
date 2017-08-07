@@ -1,0 +1,43 @@
+{% extends 'animalapp/base.html' %}
+{% load static %}
+<title>{% block title %}Search Results{% endblock %}</title>
+{% block content %}
+{% for a in animals %}
+    <p>
+        {{ a.species | capfirst }}'s name: {{ a.name }}<br>
+        Id number: {{ a.id_number }}<br>
+        Gender: {{ a.gender }}<br>
+        {% if a.cat %}
+            Breed: {{ a.cat.cat_breed }}<br>
+            Color: {{ a.cat.cat_color }}<br>
+        {% else %}
+            Breed: {{ a.dog.dog_breed }}<br>
+            Color: {{ a.dog.dog_color }}<br>
+        {% endif %}
+        Age: {{ a.animal_age }}<br>
+        {% if a.dog %}
+            Size: {{ a.dog.size }}<br>
+            {% if a.dog.weight %}
+                Weight: {{ a.dog.weight }} lbs<br>
+            {% endif %}
+        {% endif %}
+        Spayed/neutered: {{ a.surgery }}<br>
+        Current on vaccinations: {{ a.vaccine }}<br>
+        Location: {{ a.location }}<br>
+        Intake date: {{ a.intake_date }}<br>
+        Status: {{ a.status }}<br>
+        {% if a.home %}
+            Prefers a home without: {{ a.home }}<br>
+        {% endif %}
+        {% if a.cat %}
+            Personality: {{ a.cat.cat_personality }}<br>
+        {% else %}
+            Personality: {{ a.dog.dog_personality }}<br>
+        {% endif %}
+        {% if a.notes %}
+            Special note: {{ a.notes }}<br>
+        {% endif %}
+        Tags: {% for tag in  a.tags.all %}{{ tag }}, {% endfor %}
+    </p>
+{% endfor %}
+{% endblock %}

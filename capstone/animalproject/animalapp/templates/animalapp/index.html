@@ -6,8 +6,10 @@
 <h1>Find a pet</h1>
 <div id="searchTab">
     <div id="searchEngine">
-        <input type="search" id="searchField" title="searchField" name="searchField" placeholder="Start typing, eg. adult Siamese cat...">
-        <input type="submit" id="findButton" name="submitSearch" value="Find">
+        <form method="GET" action="/search_results">
+            <input type="search" id="searchField" title="searchField" name="searchField" placeholder="Start typing, eg. adult Siamese cat...">
+            <input type="submit" id="findButton" name="submitSearch" value="Find">
+        </form>
     </div>
     <div id="findAllTab">
         <button type="submit" id="allDogs">Show me all dogs</button>

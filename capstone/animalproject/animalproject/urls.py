@@ -24,6 +24,7 @@ from animalapp import views
 app_name = 'animalapp'
 
 urlpatterns = [
+
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
@@ -31,4 +32,6 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^animal_profile/(?P<animal_id_slug>[0-9]+)/$', views.animal_profile, name='animal_profile'),
     url(r'^add_animal/', views.add_animal, name='add_animal'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^search_results/', views.search_results, name='search_results'),
+
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

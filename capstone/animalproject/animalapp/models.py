@@ -2,6 +2,7 @@ from django.db import models
 import datetime
 from django.template.defaultfilters import slugify
 from django.core.validators import MinValueValidator
+from taggit.managers import TaggableManager
 
 
 def profile_upload_handler(instance, filename):
@@ -20,7 +21,7 @@ class Animal(models.Model):
 
     species = models.CharField(max_length=50, choices=SPECIES_CHOICES, default='', blank=True)
 
-    name = models.CharField(max_length=50, default='', unique=True)
+    name = models.CharField(max_length=50, default='')
 
     id_number = models.CharField(max_length=50, default='', unique=True)
 
@@ -55,14 +56,17 @@ class Animal(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='available')
 
     HOME_CHOICES = (
-        ('young children', 'young children'),
         ('cats', 'cats'),
-        ('dogs', 'dogs')
+        ('dogs', 'dogs'),
+        ('other pets', 'other pets'),
+        ('young children', 'young children')
     )
 
     home = models.CharField(max_length=255, blank=True, default='', choices=HOME_CHOICES, verbose_name='Prefers a home without (optional)')
 
     notes = models.TextField(max_length=255, blank=True, null=True, default='')
+
+    tags = TaggableManager()
 
     slug = models.SlugField(max_length=50, default='', unique=True)
 
@@ -70,6 +74,8 @@ class Animal(models.Model):
     def age(self):
         dob = self.birthday
         tod = datetime.date.today()
+        if not dob or not all([dob.year, dob.month, dob.day]):
+            return 'No data'
         dob_days = int(dob.year) * 365 + int(dob.month) * 30 + int(dob.day)
         tod_days = int(tod.year) * 365 + int(tod.month) * 30 + int(tod.day)
         age_days = tod_days - dob_days
@@ -95,17 +101,32 @@ class Cat(models.Model):
     id = models.OneToOneField('Animal', primary_key=True, related_name="cat")
 
     BREED_CHOICES = (
-        ('Domestic shorthair/mix', 'Domestic shorthair/mix'),
+        ('American Shorthair', 'American Shorthair'),
+        ('Birman', 'Birman'),
+        ('Domestic Shorthair/Mix', 'Domestic Shorthair/Mix'),
+        ('Maine Coon', 'Maine Coon'),
+        ('Oriental', 'Oriental'),
         ('Persian', 'Persian'),
-        ('Siamese', 'Siamese')
+        ('Ragdoll', 'Ragdoll'),
+        ('Siamese', 'Siamese'),
+        ('Sphynx', 'Sphynx')
     )
-    cat_breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='Domestic shorthair/mix')
+
+    cat_breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='Domestic Shorthair/Mix')
 
     COLOR_CHOICES = (
-        ('white', 'white'),
         ('black', 'black'),
+        ('brown', 'brown'),
+        ('calico', 'calico'),
+        ('gray', 'gray'),
+        ('orange', 'orange'),
+        ('seal point', 'seal point'),
         ('tabby', 'tabby'),
-        ('seal point', 'seal point')
+        ('tabby orange', 'tabby orange'),
+        ('tabby white', 'tabby white'),
+        ('tortoiseshell', 'tortoiseshell'),
+        ('tuxedo', 'tuxedo'),
+        ('white', 'white'),
     )
 
     cat_color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='', blank=True)
@@ -127,10 +148,24 @@ class Dog(models.Model):
     id = models.OneToOneField('Animal', primary_key=True, related_name="dog")
 
     BREED_CHOICES = (
-        ('Terrier/Mix', 'Terrier/Mix'),
+        ('Beagle', 'Beagle'),
+        ('Boxer', 'Boxer'),
+        ('Bulldog', 'Bulldog'),
         ('Chihuahua', 'Chihuahua'),
-        ('Shepherd/Mix', 'Shepherd/Mix')
+        ('Dachshund', 'Dachshund'),
+        ('German Shepherd', 'German Shepherd'),
+        ('Golden Retriever', 'Golden Retriever'),
+        ('Labrador Retriever', 'Labrador Retriever'),
+        ('Labrador/Mix', 'Labrador/Mix'),
+        ('Miniature Schnauzer', 'Miniature Schnauzer'),
+        ('Poodle', 'Poodle'),
+        ('Shepherd/Mix', 'Shepherd/Mix'),
+        ('Shih Tzu', 'Shih Tzu'),
+        ('Spaniel/Mix', 'Spaniel/Mix'),
+        ('Terrier/Mix', 'Terrier/Mix'),
+        ('Yorkshire Terrier', 'Yorkshire Terrier')
     )
+
     dog_breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='', blank=True)
 
     SIZE_CHOICES = (
@@ -144,8 +179,10 @@ class Dog(models.Model):
                                verbose_name='Specify weight (optional)')
 
     COLOR_CHOICES = (
-        ('white', 'white'),
         ('black', 'black'),
+        ('brown', 'brown'),
+        ('tan', 'tan'),
+        ('white', 'white')
     )
 
     dog_color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='', blank=True)
@@ -159,4 +196,3 @@ class Dog(models.Model):
 
     def __str__(self):
         return '{}'.format(self.id)
-

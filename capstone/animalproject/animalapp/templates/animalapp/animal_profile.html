@@ -37,6 +37,7 @@
         {% if animals.notes %}
             Special note: {{ animals.notes }}<br>
         {% endif %}
+        Tags: {% for tag in  animals.tags.all %}{{ tag }}, {% endfor %}
     </p>
 {% else %}
     The specified animal profile does not exist! Please double-check the animal's ID number.

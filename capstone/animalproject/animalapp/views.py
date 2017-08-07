@@ -63,6 +63,7 @@ def add_animal(request):
         form = AnimalForm(request.POST)
         dog_form = DogForm(request.POST)
         cat_form = CatForm(request.POST)
+        tags = [request.POST['species']]
 
         # if the user selects 'dog', only form and dog_form will be validated and saved
         if request.POST['species'] == 'dog' and form.is_valid() and dog_form.is_valid():
@@ -70,6 +71,9 @@ def add_animal(request):
             dog_form_instance = dog_form.save(commit=False)
             dog_form_instance.id = form_instance
             dog_form_instance.save()
+            tags.append(dog_form.data['dog_breed'])
+            tags.append(dog_form.data['dog_color'])
+            form_instance.tags.add(*tags)
             return HttpResponseRedirect('/animal_profile/{}/'.format(request.POST['id_number']))
 
         # if the user selects 'cat', only form and cat_form will be validated and saved
@@ -78,10 +82,14 @@ def add_animal(request):
             cat_form_instance = cat_form.save(commit=False)
             cat_form_instance.id = form_instance
             cat_form_instance.save()
+            from ipdb import set_trace;set_trace()
+            tags.append(cat_form.data['cat_breed'])
+            tags.append(cat_form.data['cat_color'])
+            form_instance.tags.add(*tags)
             return HttpResponseRedirect('/animal_profile/{}/'.format(request.POST['id_number']))
 
         else:
-            messages.error(request, "Error")
+            messages.error(request, form.errors)
 
     else:
         form = AnimalForm()
@@ -91,3 +99,9 @@ def add_animal(request):
     return render(request, 'animalapp/add_animal.html', {'form': form, 'dog_form': dog_form, 'cat_form': cat_form,
                                                          'animals': animals})
 
+
+def search_results(request):
+    search_string_list = request.GET['searchField'].split(' ')
+    animals = Animal.objects.filter(tags__name__in=search_string_list)
+
+    return render(request, 'animalapp/search_results.html', {'animals': animals})
