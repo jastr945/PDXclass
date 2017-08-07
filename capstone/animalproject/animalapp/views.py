@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from .models import Animal
 from .forms import AnimalForm, DogForm, CatForm, SignUpForm
@@ -52,14 +52,14 @@ def animal_profile(request, animal_id_slug):
 
 
 def add_animal(request):
-    """Rendering the page on which users add animals and submit the form."""
+    """Rendering the page on which users add, edit and delete database entries."""
 
     if not request.user.is_authenticated:
         return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
 
     animals = Animal.objects.all()
 
-    if request.method == "POST":
+    if request.POST.get("submitButton"):
         form = AnimalForm(request.POST)
         dog_form = DogForm(request.POST)
         cat_form = CatForm(request.POST)
@@ -90,6 +90,10 @@ def add_animal(request):
         else:
             messages.error(request, form.errors)
 
+    elif request.POST.get("deleteButton"):
+        get_object_or_404(Animal, name=request.POST['deleteButton']).delete()
+        return HttpResponseRedirect('/add_animal/')
+
     else:
         form = AnimalForm()
         dog_form = DogForm()
@@ -106,10 +110,8 @@ def search_results(request):
         search_string_list = request.GET['searchField'].lower().split(' ')
         animals = Animal.objects.filter(tags__name__in=search_string_list)
     elif request.GET.get("allDogs"):
-        search_string_list = request.GET['allDogs']
-        animals = Animal.objects.filter(species=search_string_list)
+        animals = Animal.objects.filter(species='dog')
     else:
-        search_string_list = request.GET['allCats']
-        animals = Animal.objects.filter(species=search_string_list)
+        animals = Animal.objects.filter(species='cat')
 
     return render(request, 'animalapp/search_results.html', {'animals': animals})

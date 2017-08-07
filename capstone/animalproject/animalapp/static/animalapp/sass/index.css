@@ -220,7 +220,7 @@ body, html {
       flex-wrap: wrap;
       align-items: center;
       margin-left: 1em; }
-      #tableContainer #dataBaseRow #dataButtons #viewButton, #tableContainer #dataBaseRow #dataButtons #editButton, #tableContainer #dataBaseRow #dataButtons #deleteButton {
+      #tableContainer #dataBaseRow #dataButtons .dbButton {
         margin: 0 1em 0 0;
         padding: 1px 6px;
         font-family: Arial;
@@ -240,14 +240,14 @@ body, html {
         -webkit-appearance: push-button;
         user-select: none;
         white-space: pre; }
-        #tableContainer #dataBaseRow #dataButtons #viewButton a, #tableContainer #dataBaseRow #dataButtons #editButton a, #tableContainer #dataBaseRow #dataButtons #deleteButton a {
+        #tableContainer #dataBaseRow #dataButtons .dbButton a {
           text-decoration: none;
           color: black; }
 
-#noResults {
+.infoText {
   font-size: 1.5em;
   margin: 2em 0 0 1em; }
-  #noResults a {
+  .infoText a {
     text-decoration: none;
     color: white; }
 

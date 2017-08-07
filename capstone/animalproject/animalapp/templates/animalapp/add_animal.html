@@ -14,7 +14,7 @@
                 {% endfor %}
             </ul>
         {% endif %}
-        <form id="addAnimal" method="post">
+        <form id="addAnimal" method="POST">
             {% csrf_token %}
             <div class="addAnimalRows">
                 <div class="left">Select species:</div>
@@ -97,29 +97,33 @@
                 <div class="right">{{ form.notes }}</div>
             </div>
             <div class="addAnimalRows">
-                <input type="submit" id="submitButton" value="Create Profile"/>
+                <input type="submit" id="submitButton" name="submitButton" value="Create Profile"/>
             </div>
         </form>
     </div>
 
     <div id="seeAllOption"><h1>Manage existing entries</h1></div>
     <div id="tableContainer">
+
         {% for a in animals %}
             {% if a %}
-                <div id="dataBaseRow">
-                    <div id="dataBaseInfo">
-                        <div id="nameRow">{{ a.name }}</div>
-                        <div id="speciesRow">{{ a.species }}</div>
-                        <div id="idRow">{{ a.id_number }}</div>
-                        <div id="locationRow">{{ a.location }}</div>
-                    </div>
+                <form method="POST">
+                {% csrf_token %}
+                    <div id="dataBaseRow">
+                        <div id="dataBaseInfo">
+                            <div id="nameRow">{{ a.name }}</div>
+                            <div id="speciesRow">{{ a.species }}</div>
+                            <div id="idRow">{{ a.id_number }}</div>
+                            <div id="locationRow">{{ a.location }}</div>
+                        </div>
 
-                    <div id="dataButtons">
-                        <div id="viewButton"><a href="{% url 'animal_profile' a.slug %}" target="_blank">View</a></div>
-                        <div id="editButton"><a href="{% url 'animal_profile' a.slug %}" target="_blank">Edit</a></div>
-                        <div id="deleteButton"><a href="{% url 'animal_profile' a.slug %}" target="_blank">View</a></div>
+                        <div id="dataButtons">
+                            <div class="dbButton"><a href="{% url 'animal_profile' a.slug %}" target="_blank">View</a></div>
+                            <div class="dbButton"><a href="{% url 'animal_profile' a.slug %}" target="_blank">Edit</a></div>
+                            <input type="submit"  class="dbButton" name="deleteButton" value={{ a.name }}>
+                        </div>
                     </div>
-                </div>
+                </form>
             {% endif %}
         {% endfor %}
     </div>

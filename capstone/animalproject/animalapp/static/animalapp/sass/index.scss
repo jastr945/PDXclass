@@ -253,7 +253,7 @@ body, html {
       align-items: center;
       margin-left: 1em;
 
-      #viewButton, #editButton, #deleteButton {
+      .dbButton {
         margin: 0 1em 0 0;
         padding: 1px 6px;
         font-family: Arial;
@@ -282,7 +282,7 @@ body, html {
   }
 }
 
-#noResults {
+.infoText {
   font-size: 1.5em;
   margin: 2em 0 0 1em;
   a {
