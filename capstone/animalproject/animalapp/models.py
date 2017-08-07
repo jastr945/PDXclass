@@ -75,7 +75,7 @@ class Animal(models.Model):
         dob = self.birthday
         tod = datetime.date.today()
         if not dob or not all([dob.year, dob.month, dob.day]):
-            return 'No data'
+            return 'no data'
         dob_days = int(dob.year) * 365 + int(dob.month) * 30 + int(dob.day)
         tod_days = int(tod.year) * 365 + int(tod.month) * 30 + int(tod.day)
         age_days = tod_days - dob_days

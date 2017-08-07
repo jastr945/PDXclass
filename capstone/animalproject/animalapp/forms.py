@@ -12,15 +12,15 @@ class AnimalForm(ModelForm):
 
     intake_date = forms.DateField(initial=datetime.date.today(), widget=SelectDateWidget(years=(range(datetime.date.today().year - 10, datetime.date.today().year + 1))))
 
-    GENDER_CHOICES = [('0', 'male'), ('1', 'female')]
+    GENDER_CHOICES = [(True, 'male'), (False, 'female')]
 
-    CHOICES = [('0', 'yes'), ('1', 'no')]
+    CHOICES = [(True, 'yes'), (False, 'no')]
 
     gender = forms.TypedChoiceField(choices=GENDER_CHOICES, widget=forms.RadioSelect(attrs={'class': 'radio-inline'}))
 
-    surgery = forms.TypedChoiceField(choices=CHOICES, initial='0', widget=forms.RadioSelect)
+    surgery = forms.TypedChoiceField(choices=CHOICES, initial=True, widget=forms.RadioSelect)
 
-    vaccine = forms.TypedChoiceField(choices=CHOICES, initial='0', widget=forms.RadioSelect)
+    vaccine = forms.TypedChoiceField(choices=CHOICES, initial=True, widget=forms.RadioSelect)
 
     class Meta:
         model = Animal

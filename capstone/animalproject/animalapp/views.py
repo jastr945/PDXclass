@@ -71,8 +71,8 @@ def add_animal(request):
             dog_form_instance = dog_form.save(commit=False)
             dog_form_instance.id = form_instance
             dog_form_instance.save()
-            tags.append(dog_form.data['dog_breed'])
-            tags.append(dog_form.data['dog_color'])
+            tags.append(dog_form.data['dog_breed'].lower())
+            tags.append(dog_form.data['dog_color'].lower())
             form_instance.tags.add(*tags)
             return HttpResponseRedirect('/animal_profile/{}/'.format(request.POST['id_number']))
 
@@ -82,9 +82,8 @@ def add_animal(request):
             cat_form_instance = cat_form.save(commit=False)
             cat_form_instance.id = form_instance
             cat_form_instance.save()
-            from ipdb import set_trace;set_trace()
-            tags.append(cat_form.data['cat_breed'])
-            tags.append(cat_form.data['cat_color'])
+            tags.append(cat_form.data['cat_breed'].lower())
+            tags.append(cat_form.data['cat_color'].lower())
             form_instance.tags.add(*tags)
             return HttpResponseRedirect('/animal_profile/{}/'.format(request.POST['id_number']))
 
@@ -101,7 +100,16 @@ def add_animal(request):
 
 
 def search_results(request):
-    search_string_list = request.GET['searchField'].split(' ')
-    animals = Animal.objects.filter(tags__name__in=search_string_list)
+    """Rendering the search results page; the results are filtered by species or a user's search string."""
+
+    if request.GET.get("searchField"):
+        search_string_list = request.GET['searchField'].lower().split(' ')
+        animals = Animal.objects.filter(tags__name__in=search_string_list)
+    elif request.GET.get("allDogs"):
+        search_string_list = request.GET['allDogs']
+        animals = Animal.objects.filter(species=search_string_list)
+    else:
+        search_string_list = request.GET['allCats']
+        animals = Animal.objects.filter(species=search_string_list)
 
     return render(request, 'animalapp/search_results.html', {'animals': animals})

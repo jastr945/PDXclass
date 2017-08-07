@@ -14,7 +14,8 @@ body, html {
   margin: auto;
   padding: 0;
   background-color: #003366;
-  font-family: Arial; }
+  font-family: Arial;
+  color: white; }
   #mainContainer h1 {
     font-size: 3em;
     color: white;
@@ -42,7 +43,7 @@ body, html {
     flex-direction: column;
     flex-wrap: wrap;
     align-self: center;
-    margin: 1em;
+    margin: auto;
     padding: 0;
     width: 55em;
     height: 20em;
@@ -242,5 +243,12 @@ body, html {
         #tableContainer #dataBaseRow #dataButtons #viewButton a, #tableContainer #dataBaseRow #dataButtons #editButton a, #tableContainer #dataBaseRow #dataButtons #deleteButton a {
           text-decoration: none;
           color: black; }
+
+#noResults {
+  font-size: 1.5em;
+  margin: 2em 0 0 1em; }
+  #noResults a {
+    text-decoration: none;
+    color: white; }
 
 /*# sourceMappingURL=index.css.map */

@@ -4,18 +4,18 @@
 
 {% block content %}
 <h1>Find a pet</h1>
+    <form method="GET" action="/search_results">
 <div id="searchTab">
     <div id="searchEngine">
-        <form method="GET" action="/search_results">
-            <input type="search" id="searchField" title="searchField" name="searchField" placeholder="Start typing, eg. adult Siamese cat...">
-            <input type="submit" id="findButton" name="submitSearch" value="Find">
-        </form>
+        <input type="search" id="searchField" title="searchField" name="searchField" placeholder="Start typing, eg. adult Siamese cat...">
+        <input type="submit" id="findButton" name="submitSearch" value="Find">
     </div>
     <div id="findAllTab">
-        <button type="submit" id="allDogs">Show me all dogs</button>
-        <button type="submit" id="allCats">Show me all cats</button>
+        <input type="submit" id="allDogs" title="allDogs" name="allDogs" value="dog">
+        <input type="submit" id="allCats" title="allCats" name="allCats" value="cat">
     </div>
 </div>
+    </form>
 {% endblock content %}
 {% block js %}
     <script src="{% static 'animalapp/js/index.js' %}"></script>

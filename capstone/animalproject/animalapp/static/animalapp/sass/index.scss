@@ -16,6 +16,7 @@ body, html {
   padding: 0;
   background-color: #003366;
   font-family: Arial;
+  color: white;
   h1 {
     font-size: 3em;
     color: white;
@@ -47,7 +48,7 @@ body, html {
     flex-direction: column;
     flex-wrap: wrap;
     align-self: center;
-    margin: 1em;
+    margin: auto;
     padding: 0;
     width: 55em;
     height: 20em;
@@ -278,5 +279,14 @@ body, html {
         }
       }
     }
+  }
+}
+
+#noResults {
+  font-size: 1.5em;
+  margin: 2em 0 0 1em;
+  a {
+    text-decoration: none;
+    color: white;
   }
 }
