@@ -252,32 +252,61 @@ body, html {
       flex-wrap: wrap;
       align-items: center;
       margin-left: 1em;
+    }
 
-      .dbButton {
-        margin: 0 1em 0 0;
-        padding: 1px 6px;
-        font-family: Arial;
-        font-size: 0.8em;
-        cursor: pointer;
+    .dbButton {
+      margin: 0 1em 0 0;
+      font-family: Arial;
+      color: black;
+      font-size: 0.8em;
+      cursor: pointer;
+      text-decoration: none;
+      align-items: flex-start;
+      text-align: center;
+      background-color: buttonface;
+      box-sizing: border-box;
+      padding: 2px 6px 3px;
+      border-width: 2px;
+      border-style: outset;
+      border-color: buttonface;
+      border-image: initial;
+      -webkit-appearance: push-button;
+      user-select: none;
+      white-space: pre;
+      input, a {
         text-decoration: none;
-        align-items: flex-start;
-        text-align: center;
-        color: buttontext;
-        background-color: buttonface;
-        box-sizing: border-box;
-        padding: 2px 6px 3px;
-        border-width: 2px;
-        border-style: outset;
-        border-color: buttonface;
-        border-image: initial;
-        -webkit-appearance: push-button;
-        user-select: none;
-        white-space: pre;
-        a {
-          text-decoration: none;
-          color: black;
-        }
+        color: black;
       }
+    }
+  }
+ .deleteEntry {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    height: 3em;
+    width: 100%;
+    margin: 0 0 0.5em 0;
+    padding: 0;
+    background-color: #003366;
+    color: white;
+    font-family: Arial;
+    font-size: 1.5em;
+    input {
+      margin: 0 1em 0 0;
+      font-family: Arial;
+      font-size: 0.8em;
+      cursor: pointer;
+    }
+    p {
+      margin: 0 1em 0 0;
+      font-size: 1em;
+    }
+    div {
+      margin: 0 1em 0 0;
+      font-size: 1em;
+      cursor: pointer;
     }
   }
 }
