@@ -111,7 +111,16 @@ def search_results(request):
         animals = Animal.objects.filter(tags__name__in=search_string_list)
     elif request.GET.get("allDogs"):
         animals = Animal.objects.filter(species='dog')
-    else:
+    elif request.GET.get("allCats"):
+        animals = Animal.objects.filter(species='cat')
+    elif request.GET.get("previousSearch"):
+        search_string_list = request.GET['previousSearch'].lower().split(' ')
+        animals = Animal.objects.filter(tags__name__in=search_string_list)
+    elif request.GET.get("showDogs"):
+        animals = Animal.objects.filter(species='dog')
+    elif request.GET.get("showCats"):
         animals = Animal.objects.filter(species='cat')
 
+
     return render(request, 'animalapp/search_results.html', {'animals': animals})
+
