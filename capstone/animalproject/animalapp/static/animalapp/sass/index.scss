@@ -319,3 +319,45 @@ body, html {
     color: white;
   }
 }
+
+#searchResultsBlock {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height:auto;
+  margin: 0;
+  padding: 1em;
+  color: white;
+  font-family: Arial;
+  font-size: 1.5em;
+  #profilePreview {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    text-align: center;
+    margin:0 0 1em 1em;
+    background-color: #5D8896;
+    width: 18%;
+    height: auto;
+    min-height: 18em;
+    #img {
+      align-self: center;
+      margin:1em 0 1em 0;
+      padding: 0;
+      height: 8em;
+      width: 8em;
+      background-color: white;
+    }
+    #previewDescription {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 0 0.5em 1em 0.5em;
+    }
+  }
+}

@@ -4,7 +4,7 @@
 {% block content %}
 {% if animals %}
     <p>
-        {{ animals.species | capfirst }}'s name: {{ animals.name }}<br>
+        {{ animals.species|capfirst }}'s name: {{ animals.name }}<br>
         Id number: {{ animals.id_number }}<br>
         Gender: {{ animals.gender|yesno:"male, female"}}<br>
         {% if animals.cat %}
