@@ -332,6 +332,37 @@ body, html {
   color: white;
   font-family: Arial;
   font-size: 1.5em;
+  #searchTools {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 6em;
+    width: 100%;
+    margin: 0 1em 0 1em;
+    #searchBar {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0 0 1em 0;
+      #previousSearch {
+        width: 20em;
+        color: black;
+      }
+      input {
+        font-family: Arial;
+        font-size: 1em;
+      }
+      #showDogs {
+        margin-left: 1em;
+      }
+    }
+    #searchFilters {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0.5em 0 0 0;
+    }
+  }
   #profilePreview {
     display: flex;
     flex-direction: column;

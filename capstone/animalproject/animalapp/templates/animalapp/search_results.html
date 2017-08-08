@@ -4,6 +4,17 @@
 {% block content %}
 {% if animals %}
     <div id="searchResultsBlock">
+    <div id="searchTools">
+    <div id="searchBar">
+        <input type="search" id="previousSearch" name="previousSearch" placeholder="Previous string">
+        <input type="submit" id="searchAgain" name="searchAgain" value="Find">
+        <input type="submit" id="showDogs" name="showDogs" value="Show me all dogs">
+        <input type="submit" id="showCats" name="showCats" value="Show me all cats">
+    </div>
+    <div id="searchFilters">
+        Results: 0 | 25 per page
+    </div>
+    </div>
     {% for a in animals %}
         <div id="profilePreview">
             <div id="img"></div>

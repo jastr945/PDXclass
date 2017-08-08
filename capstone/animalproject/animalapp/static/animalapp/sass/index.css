@@ -288,6 +288,31 @@ body, html {
   color: white;
   font-family: Arial;
   font-size: 1.5em; }
+  #searchResultsBlock #searchTools {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 6em;
+    width: 100%;
+    margin: 0 1em 0 1em; }
+    #searchResultsBlock #searchTools #searchBar {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0 0 1em 0; }
+      #searchResultsBlock #searchTools #searchBar #previousSearch {
+        width: 20em;
+        color: black; }
+      #searchResultsBlock #searchTools #searchBar input {
+        font-family: Arial;
+        font-size: 1em; }
+      #searchResultsBlock #searchTools #searchBar #showDogs {
+        margin-left: 1em; }
+    #searchResultsBlock #searchTools #searchFilters {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0.5em 0 0 0; }
   #searchResultsBlock #profilePreview {
     display: flex;
     flex-direction: column;
