@@ -214,6 +214,8 @@ body, html {
       margin: 0 0 0 1em; }
       #tableContainer #dataBaseRow #dataBaseInfo div {
         width: 7em; }
+      #tableContainer #dataBaseRow #dataBaseInfo #locationRow {
+        width: 15em; }
     #tableContainer #dataBaseRow #dataButtons {
       display: flex;
       flex-direction: row;

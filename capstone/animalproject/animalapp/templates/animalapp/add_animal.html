@@ -86,11 +86,31 @@
             </div>
             <div class="addAnimalRows dog" style="display: none">
                 <div class="left">Personality:</div>
-                <div class="right">{{ dog_form.dog_personality }}</div>
+                <div class="right">
+                    {% for value, text in dog_form.dog_personality.field.choices %}
+                        <div class="ui slider checkbox">
+                            <input id="id_dog_personality_{{ forloop.counter0 }}"
+                                   name="{{ dog_form.d_dog_personality.name }}" type="checkbox"
+                                   value="{{ value }}"{% if value in checked_dog_personality %}
+                                   checked="checked"{% endif %}>
+                            <label>{{ text }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
             <div class="addAnimalRows cat" style="display: none">
                 <div class="left">Personality:</div>
-                <div class="right">{{ cat_form.cat_personality }}</div>
+                <div class="right">
+                    {% for value, text in cat_form.cat_personality.field.choices %}
+                        <div class="ui slider checkbox">
+                            <input id="id_cat_personality_{{ forloop.counter0 }}"
+                                   name="{{ cat_form.d_cat_personality.name }}" type="checkbox"
+                                   value="{{ value }}"{% if value in checked_cat_personality %}
+                                   checked="checked"{% endif %}>
+                            <label>{{ text }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
             <div class="addAnimalRows">
                 <div class="left">Add a special note (optional):</div>

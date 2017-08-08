@@ -32,12 +32,14 @@ class AnimalForm(ModelForm):
 
 
 class DogForm(ModelForm):
+
     class Meta:
         model = Dog
         exclude = ['id']
 
 
 class CatForm(ModelForm):
+
     class Meta:
         model = Cat
         exclude = ['id']
@@ -47,7 +49,8 @@ class SignUpForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, help_text=None)
     last_name = forms.CharField(max_length=30, help_text=None)
     email = forms.EmailField(max_length=254, help_text='Required. Please enter a valid email address.')
-    password1 = forms.CharField(max_length=254, help_text='Your password must contain at least 8 characters, and they can\'t be all numeric.')
+    password1 = forms.CharField(max_length=254, help_text='Your password must contain at least 8 characters, '
+                                                          'and they can\'t be all numeric.')
     password2 = forms.CharField(max_length=254, help_text=None)
 
     class Meta:

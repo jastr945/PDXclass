@@ -3,6 +3,7 @@ import datetime
 from django.template.defaultfilters import slugify
 from django.core.validators import MinValueValidator
 from taggit.managers import TaggableManager
+from multiselectfield import MultiSelectField
 
 
 def profile_upload_handler(instance, filename):
@@ -132,11 +133,13 @@ class Cat(models.Model):
     cat_color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='', blank=True)
 
     PERSONALITY_CHOICES = (
+        ('playful', 'playful'),
         ('sociable and outgoing', 'sociable and outgoing'),
-        ('a bit shy in the shelter environment', 'a bit shy in the shelter environment')
+        ('a bit shy in the shelter environment', 'a bit shy in the shelter environment'),
+        ('loves to be around people', 'loves to be around people')
     )
 
-    cat_personality = models.CharField(max_length=255, choices=PERSONALITY_CHOICES, default='', blank=True)
+    cat_personality = MultiSelectField(choices=PERSONALITY_CHOICES)
 
     def __str__(self):
         return '{}'.format(self.id)
@@ -188,11 +191,16 @@ class Dog(models.Model):
     dog_color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='', blank=True)
 
     PERSONALITY_CHOICES = (
+        ('playful', 'playful'),
         ('sociable and outgoing', 'sociable and outgoing'),
         ('profoundly loyal', 'profoundly loyal')
     )
 
-    dog_personality = models.CharField(max_length=255, choices=PERSONALITY_CHOICES, default='')
+    dog_personality = MultiSelectField(choices=PERSONALITY_CHOICES)
 
     def __str__(self):
         return '{}'.format(self.id)
+
+
+
+

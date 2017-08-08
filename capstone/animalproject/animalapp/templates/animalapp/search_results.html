@@ -21,7 +21,7 @@
         <div id="profilePreview">
             <div id="img"></div>
             <div id="previewDescription">
-                {{ a.name }}<br>
+                <b>{{ a.name }}</b><br>
                  {% if a.dog %}
                      {{ a.dog.size|capfirst }}
                      {{ a.gender|yesno:"male, female" }}
