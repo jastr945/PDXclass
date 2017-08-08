@@ -91,7 +91,7 @@ def add_animal(request):
             messages.error(request, form.errors)
 
     elif request.POST.get("deleteButton"):
-        get_object_or_404(Animal, name=request.POST['deleteButton']).delete()
+        get_object_or_404(Animal, id=request.POST['animalID']).delete()
         return HttpResponseRedirect('/add_animal/')
 
     else:

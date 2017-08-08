@@ -120,7 +120,8 @@
                         <div id="dataButtons">
                             <div class="dbButton"><a href="{% url 'animal_profile' a.slug %}" target="_blank">View</a></div>
                             <div class="dbButton"><a href="{% url 'animal_profile' a.slug %}" target="_blank">Edit</a></div>
-                            <input type="submit"  class="dbButton" name="deleteButton" value={{ a.name }}>
+                            <input type="submit"  class="dbButton" name="deleteButton" value="Delete">
+                            <input type="hidden" name="animalID" value={{ a.id }}>
                         </div>
                     </div>
                 </form>
