@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Animal, Dog, Cat
+from .models import Animal, Dog, Cat, Image
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -9,8 +9,12 @@ import datetime
 
 
 class AnimalForm(ModelForm):
+    img = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}), required=False)
 
-    intake_date = forms.DateField(initial=datetime.date.today(), widget=SelectDateWidget(years=(range(datetime.date.today().year - 10, datetime.date.today().year + 1))))
+
+    intake_date = forms.DateField(initial=datetime.date.today(),
+                                  widget=SelectDateWidget(years=(range(datetime.date.today().year - 10,
+                                                                       datetime.date.today().year + 1))))
 
     GENDER_CHOICES = [(True, 'male'), (False, 'female')]
 
@@ -29,6 +33,13 @@ class AnimalForm(ModelForm):
             'birthday': SelectDateWidget(years=(range(datetime.date.today().year - 20, datetime.date.today().year + 1))),
             'notes': TextInput(attrs={'placeholder': 'Describe any special needs, etc.'})
         }
+
+
+# class ImageForm(ModelForm):
+#     img = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+#
+#     class Meta:
+#         model = Image
 
 
 class DogForm(ModelForm):

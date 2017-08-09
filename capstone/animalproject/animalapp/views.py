@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
-from .models import Animal
+from .models import Animal, Image, Dog, Cat
 from .forms import AnimalForm, DogForm, CatForm, SignUpForm
 from django.conf import settings
 from django.contrib import messages
@@ -71,6 +71,10 @@ def add_animal(request):
             dog_form_instance = dog_form.save(commit=False)
             dog_form_instance.id = form_instance
             dog_form_instance.save()
+
+            for img in request.FILES.getlist('img'):
+                Image.objects.create(img=img, pet=Animal.objects.get(pk=dog_form_instance.id.pk))
+
             tags.append(dog_form.data['dog_breed'].lower())
             tags.append(dog_form.data['dog_color'].lower())
             form_instance.tags.add(*tags)
@@ -82,6 +86,10 @@ def add_animal(request):
             cat_form_instance = cat_form.save(commit=False)
             cat_form_instance.id = form_instance
             cat_form_instance.save()
+
+            for img in request.FILES.getlist('img'):
+                Image.objects.create(img=img, pet=Animal.objects.get(pk=cat_form_instance.id.pk))
+
             tags.append(cat_form.data['cat_breed'].lower())
             tags.append(cat_form.data['cat_color'].lower())
             form_instance.tags.add(*tags)
@@ -90,6 +98,7 @@ def add_animal(request):
         else:
             messages.error(request, form.errors)
 
+    # deleting a profile
     elif request.POST.get("deleteButton"):
         get_object_or_404(Animal, id=request.POST['animalID']).delete()
         return HttpResponseRedirect('/add_animal/')

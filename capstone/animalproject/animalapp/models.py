@@ -6,14 +6,22 @@ from taggit.managers import TaggableManager
 from multiselectfield import MultiSelectField
 
 
-def profile_upload_handler(instance, filename):
-    return '{name}/{filename}'.format(name=instance.name, filename=filename)
+def upload_pet_image(instance, filename):
+    """Images will be uploaded to MEDIA_ROOT/<name>/<filename>"""
+
+    return '{name}/{filename}'.format(name=instance.pet.name, filename=filename)
+
+
+class Image(models.Model):
+    """Image gallery for every pet."""
+
+    img = models.FileField(upload_to=upload_pet_image)
+    alt = models.CharField(max_length=255, default='', null=True)
+    pet = models.ForeignKey('Animal', related_name='images')
 
 
 class Animal(models.Model):
-    """
-    An abstract class containing basic information about each animal.
-    """
+    """Contains basic information about each animal, common for cats and dogs."""
 
     SPECIES_CHOICES = (
         ('dog', 'dog'),
@@ -136,6 +144,7 @@ class Cat(models.Model):
     PERSONALITY_CHOICES = (
         ('playful', 'playful'),
         ('sociable and outgoing', 'sociable and outgoing'),
+        ('independent', 'independent'),
         ('a bit shy in the shelter environment', 'a bit shy in the shelter environment'),
         ('loves to be around people', 'loves to be around people')
     )
@@ -193,6 +202,7 @@ class Dog(models.Model):
 
     PERSONALITY_CHOICES = (
         ('playful', 'playful'),
+        ('friendly and affectionate', 'friendly and affectionate'),
         ('sociable and outgoing', 'sociable and outgoing'),
         ('profoundly loyal', 'profoundly loyal')
     )

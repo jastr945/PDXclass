@@ -14,11 +14,15 @@
                 {% endfor %}
             </ul>
         {% endif %}
-        <form id="addAnimal" method="POST">
+        <form id="addAnimal" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="addAnimalRows">
                 <div class="left">Select species:</div>
                 <div class="right">{{ form.species }}</div>
+            </div>
+            <div class="addAnimalRows">
+                <div class="left">Upload pictures:</div>
+                <div class="right">{{ form.img }}</div>
             </div>
             <div class="addAnimalRows">
                 <div class="left">Name:</div>

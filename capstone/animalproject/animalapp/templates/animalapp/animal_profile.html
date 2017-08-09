@@ -4,6 +4,9 @@
 {% block content %}
 {% if animals %}
     <p>
+        {% for img in animals.images.all %}
+            <img src="{{ img.img.url }}" alt="{{ img.img.alt }}">
+        {% endfor %}
         {{ animals.species|capfirst }}'s name: {{ animals.name }}<br>
         Id number: {{ animals.id_number }}<br>
         Gender: {{ animals.gender|yesno:"male, female"}}<br>
