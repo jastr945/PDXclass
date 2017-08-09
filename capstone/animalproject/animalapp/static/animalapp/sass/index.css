@@ -326,8 +326,13 @@ body, html {
     background-color: #5D8896;
     width: 18%;
     height: auto;
-    min-height: 18em; }
-    #searchResultsBlock #profilePreview #img {
+    min-height: 16em;
+    cursor: pointer; }
+    #searchResultsBlock #profilePreview a {
+      text-decoration: none;
+      color: #FFFFFF;
+      font-size: 0.9em; }
+    #searchResultsBlock #profilePreview img {
       align-self: center;
       margin: 1em 0 1em 0;
       padding: 0;

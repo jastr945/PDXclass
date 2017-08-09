@@ -380,8 +380,14 @@ body, html {
     background-color: #5D8896;
     width: 18%;
     height: auto;
-    min-height: 18em;
-    #img {
+    min-height: 16em;
+    cursor: pointer;
+    a {
+      text-decoration: none;
+      color: $color2;
+      font-size: 0.9em;
+    }
+    img {
       align-self: center;
       margin:1em 0 1em 0;
       padding: 0;

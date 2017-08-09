@@ -6,7 +6,7 @@
         <div class="slides">
             <ul class="pgwSlideshow">
                 {% for img in animals.images.all %}
-                    <li><img class="animalpic" src="{{ img.img.url }}" alt="{{ animals.name }}"></li>
+                    <li><img src="{{ img.img.url }}" alt="{{ animals.name }}"></li>
                 {% endfor %}
             </ul>
         </div>

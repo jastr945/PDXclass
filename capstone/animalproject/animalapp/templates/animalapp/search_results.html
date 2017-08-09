@@ -19,22 +19,24 @@
     </div>
     {% for a in animals %}
         <div id="profilePreview">
-            <div id="img"></div>
-            <div id="previewDescription">
-                <b>{{ a.name }}</b><br>
-                 {% if a.dog %}
-                     {{ a.dog.size|capfirst }}
-                     {{ a.gender|yesno:"male, female" }}
-                     {{ a.dog.dog_color }}
-                     {{ a.dog.dog_breed }}<br>
-                 {% else %}
-                     {{ a.gender|yesno:"male, female"|capfirst }}
-                     {{ a.cat.cat_color }}
-                     {{ a.cat.cat_breed }}<br>
-                 {% endif %}
-                {{ a.animal_age }}<br>
-                {{ a.location }}<br>
-            </div>
+            <a href="{% url 'animal_profile' a.slug %}">
+                <img src="{{ a.images.all.0.img.url }}" alt="{{ a.name }}">
+                <div id="previewDescription">
+                    <b>{{ a.name|capfirst }}</b><br>
+                    {% if a.dog %}
+                        {{ a.dog.size|capfirst }}
+                        {{ a.gender|yesno:"male, female" }}
+                        {{ a.dog.dog_color }}
+                        {{ a.dog.dog_breed }}<br>
+                    {% else %}
+                        {{ a.gender|yesno:"Male, Female" }}
+                        {{ a.cat.cat_color }}
+                        {{ a.cat.cat_breed }}<br>
+                    {% endif %}
+                    {{ a.animal_age }}<br>
+                    {{ a.location }}<br>
+                </div>
+            </a>
         </div>
     {% endfor %}
     </div>
