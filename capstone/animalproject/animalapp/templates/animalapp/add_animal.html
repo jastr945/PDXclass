@@ -90,7 +90,7 @@
                     {% for value, text in dog_form.dog_personality.field.choices %}
                         <div class="ui slider checkbox">
                             <input id="id_dog_personality_{{ forloop.counter0 }}"
-                                   name="{{ dog_form.d_dog_personality.name }}" type="checkbox"
+                                   name="{{ dog_form.dog_personality.name }}" type="checkbox"
                                    value="{{ value }}"{% if value in checked_dog_personality %}
                                    checked="checked"{% endif %}>
                             <label>{{ text }}</label>
@@ -104,7 +104,7 @@
                     {% for value, text in cat_form.cat_personality.field.choices %}
                         <div class="ui slider checkbox">
                             <input id="id_cat_personality_{{ forloop.counter0 }}"
-                                   name="{{ cat_form.d_cat_personality.name }}" type="checkbox"
+                                   name="{{ cat_form.cat_personality.name }}" type="checkbox"
                                    value="{{ value }}"{% if value in checked_cat_personality %}
                                    checked="checked"{% endif %}>
                             <label>{{ text }}</label>

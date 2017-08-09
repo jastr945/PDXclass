@@ -30,9 +30,7 @@
             Prefers a home without: {{ animals.home }}<br>
         {% endif %}
         {% if animals.cat %}
-            Personality:
-
-            <br>
+            Personality: {{ animals.cat.cat_personality }}<br>
         {% else %}
             Personality: {{ animals.dog.dog_personality }}<br>
         {% endif %}

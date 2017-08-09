@@ -63,7 +63,8 @@ class Animal(models.Model):
         ('young children', 'young children')
     )
 
-    home = models.CharField(max_length=255, blank=True, default='', choices=HOME_CHOICES, verbose_name='Prefers a home without (optional)')
+    home = models.CharField(max_length=255, blank=True, default='', choices=HOME_CHOICES,
+                            verbose_name='Prefers a home without (optional)')
 
     notes = models.TextField(max_length=255, blank=True, null=True, default='')
 
@@ -139,7 +140,7 @@ class Cat(models.Model):
         ('loves to be around people', 'loves to be around people')
     )
 
-    cat_personality = MultiSelectField(choices=PERSONALITY_CHOICES)
+    cat_personality = MultiSelectField(choices=PERSONALITY_CHOICES, default='', blank=True)
 
     def __str__(self):
         return '{}'.format(self.id)
@@ -196,7 +197,7 @@ class Dog(models.Model):
         ('profoundly loyal', 'profoundly loyal')
     )
 
-    dog_personality = MultiSelectField(choices=PERSONALITY_CHOICES)
+    dog_personality = MultiSelectField(choices=PERSONALITY_CHOICES, default='', blank=True)
 
     def __str__(self):
         return '{}'.format(self.id)
