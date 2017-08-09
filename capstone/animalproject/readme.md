@@ -20,7 +20,7 @@ The information about adoptable animals will be contained in animal profiles sto
 - Ability to send an email to OFOSA staff about a specific animal using a button in the profile
 - Ability to make a donation from the animal profile
 ### Data Model
-![alt text]( PDXclass/capstone/animalproject/animalapp/static/animalapp/img/capstone_data_structure.jpg  "Data model diagram")
+![alt text]( https://github.com/jastr945/PDXclass/blob/master/capstone/animalproject/animalapp/static/animalapp/img/capstone_data_structure.jpg "Data model diagram")
  ### Technical Components
 All pages will be created using HTML5 and CSS flexbox containers. The database component will be created with PostgreSQL.
 
