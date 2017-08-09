@@ -342,6 +342,18 @@ body, html {
       align-items: center;
       margin: 0 0.5em 1em 0.5em; }
 
+.slides {
+  width: 75em;
+  height: auto;
+  margin: 2em auto 2em auto; }
+  .slides ul {
+    list-style: inside none disc;
+    margin: 0;
+    padding: 0; }
+  .slides img {
+    max-height: 35em;
+    max-width: 35em; }
+
 .search {
   position: absolute;
   z-index: 101;

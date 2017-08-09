@@ -2,14 +2,17 @@
 {% load static %}
 <title>{% block title %}Animal Profile{% endblock %}</title>
 {% block content %}
-{% if animals %}
-    <p>
-        {% for img in animals.images.all %}
-            <img src="{{ img.img.url }}" alt="{{ img.img.alt }}">
-        {% endfor %}
-        {{ animals.species|capfirst }}'s name: {{ animals.name }}<br>
+    {% if animals %}
+        <div class="slides">
+            <ul class="pgwSlideshow">
+                {% for img in animals.images.all %}
+                    <li><img class="animalpic" src="{{ img.img.url }}" alt="{{ animals.name }}"></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {{ animals.species|capfirst }}'s name: {{ animals.name|capfirst }}<br>
         Id number: {{ animals.id_number }}<br>
-        Gender: {{ animals.gender|yesno:"male, female"}}<br>
+        Gender: {{ animals.gender|yesno:"male, female" }}<br>
         {% if animals.cat %}
             Breed: {{ animals.cat.cat_breed }}<br>
             Color: {{ animals.cat.cat_color }}<br>
@@ -41,8 +44,13 @@
             Special note: {{ animals.notes }}<br>
         {% endif %}
         Tags: {% for tag in  animals.tags.all %}{{ tag }}, {% endfor %}
-    </p>
-{% else %}
-    The specified animal profile does not exist! Please double-check the animal's ID number.
-{% endif %}
+        </p>
+    {% else %}
+        The specified animal profile does not exist! Please double-check the animal's ID number.
+    {% endif %}
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'animalapp/js/animal_profile.js' %}"></script>
+    <script src="{% static 'animalapp/js/PgwSlideshow-master/pgwslideshow.js' %}"></script>
 {% endblock %}
