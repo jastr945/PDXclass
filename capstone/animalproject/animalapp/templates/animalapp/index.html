@@ -8,7 +8,6 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static '/animalapp/sass/demo.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static '/animalapp/sass/style2.css' %}"/>
 {% endblock %}
 
 {% block content %}
@@ -31,26 +30,23 @@
                     <use xlink:href="#icon-cross"></use>
                 </svg>
             </button>
-
             <form class="search__form" method="GET" action="/search_results">
                 <div id="findAllTab">
-                    <input type="submit" id="allDogs" name="allDogs" value="Show me all dogs">
-                    <input type="submit" id="allCats" name="allCats" value="Show me all cats">
+                    <input type="submit" class="search_all" id="allDogs" name="allDogs" value="See all dogs">
+                    <input type="submit" class="search_all" id="allCats" name="allCats" value="See all cats">
                 </div>
-                <input id="search-input" class="search__input" name="searchField" type="search" placeholder="Find a pet..."/>
+                <input id="search-input" class="search__input" name="searchField" type="search" placeholder="Find a friend..."/>
 
                 <button class="btn btn--search" type="submit" name="submitSearch">
                     <svg class="icon icon--search">
                         <use xlink:href="#icon-search"></use>
                     </svg>
                 </button>
-
             </form>
             <div class="search__suggestion">
-
-                <h3>Search suggestions:</h3>
+                <h3>Need an idea?</h3>
                 <p>#kitten #white #shepherd #calico #cat #brown #male #chihuahua #siamese #tortoiseshell #puppy #ragdoll
-                    #dog #tuxedo #labrador #tan #female #shorthair #dachshund</p>
+                    #dog #tuxedo #labrador #tan #female #shorthair #dachshund #longhair</p>
             </div>
         </div>
     </main>

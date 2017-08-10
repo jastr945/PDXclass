@@ -3,9 +3,9 @@
  */
 //This is the JavaScript/JQuery code for the index page
 
-'use strict';
-
-//removing placeholder from the search tab on focus and bringing it back on blur
+// 'use strict';
+//
+// removing placeholder from the search tab on focus and bringing it back on blur
 // $('#searchField').focus(function(){
 //    $(this).data('placeholder', $(this).attr('placeholder'))
 //           .attr('placeholder','');
@@ -28,9 +28,9 @@
 	function initEvents() {
 		inputSearch.addEventListener('focus', openSearch);
 		closeCtrl.addEventListener('click', closeSearch);
-		document.addEventListener('keyup', function(ev) {
+		document.addEventListener('keyup', function(e) {
 			// escape key.
-			if( ev.keyCode == 27 ) {
+			if( e.keyCode == 27 ) {
 				closeSearch();
 			}
 		});
