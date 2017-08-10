@@ -71,7 +71,7 @@ class Animal(models.Model):
         ('young children', 'young children')
     )
 
-    home = models.CharField(max_length=255, blank=True, default='', choices=HOME_CHOICES,
+    home = MultiSelectField(max_length=255, blank=True, default='', choices=HOME_CHOICES,
                             verbose_name='Prefers a home without (optional)')
 
     notes = models.TextField(max_length=255, blank=True, null=True, default='')
@@ -198,13 +198,14 @@ class Dog(models.Model):
         ('white', 'white')
     )
 
-    dog_color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='', blank=True)
+    dog_color = MultiSelectField(choices=COLOR_CHOICES, default='', blank=True)
 
     PERSONALITY_CHOICES = (
         ('playful', 'playful'),
         ('friendly and affectionate', 'friendly and affectionate'),
         ('sociable and outgoing', 'sociable and outgoing'),
-        ('profoundly loyal', 'profoundly loyal')
+        ('profoundly loyal', 'profoundly loyal'),
+        ('house-trained', 'house-trained')
     )
 
     dog_personality = MultiSelectField(choices=PERSONALITY_CHOICES, default='', blank=True)

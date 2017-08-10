@@ -113,7 +113,9 @@ def add_animal(request):
 
 
 def search_results(request):
-    """Rendering the search results page; the results are filtered by species or a user's search string."""
+    """Rendering the search results page; the results are filtered by species or a user's search string.
+       If the string is empty, the search will return all available entries.
+    """
 
     if request.GET.get("searchField"):
         search_string_list = request.GET['searchField'].lower().split(' ')

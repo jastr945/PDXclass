@@ -417,7 +417,8 @@ body, html {
         color: black; }
       #searchResultsBlock #searchTools #searchBar input {
         font-family: Arial;
-        font-size: 1em; }
+        font-size: 1em;
+        cursor: pointer; }
       #searchResultsBlock #searchTools #searchBar #showDogs {
         margin-left: 1em; }
     #searchResultsBlock #searchTools #searchFilters {
