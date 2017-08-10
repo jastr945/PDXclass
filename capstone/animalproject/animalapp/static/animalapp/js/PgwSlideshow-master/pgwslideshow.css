@@ -98,6 +98,10 @@
     overflow: hidden;
 }
 
+.ps-item img {
+    object-fit: cover;
+}
+
 .pgwSlideshow .ps-list li .ps-item.ps-selected img {
     margin: -4px;
 }

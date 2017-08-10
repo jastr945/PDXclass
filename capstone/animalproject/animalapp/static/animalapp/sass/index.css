@@ -338,7 +338,8 @@ body, html {
       padding: 0;
       height: 8em;
       width: 8em;
-      background-color: white; }
+      background-color: white;
+      object-fit: cover; }
     #searchResultsBlock #profilePreview #previewDescription {
       display: flex;
       flex-direction: column;

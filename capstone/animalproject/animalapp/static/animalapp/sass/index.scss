@@ -394,7 +394,9 @@ body, html {
       height: 8em;
       width: 8em;
       background-color: white;
+      object-fit: cover;
     }
+
     #previewDescription {
       display: flex;
       flex-direction: column;
