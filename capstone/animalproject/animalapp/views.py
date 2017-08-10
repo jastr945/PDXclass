@@ -129,6 +129,8 @@ def search_results(request):
         animals = Animal.objects.filter(species='dog')
     elif request.GET.get("showCats"):
         animals = Animal.objects.filter(species='cat')
+    else:
+        animals = Animal.objects.all()
 
     return render(request, 'animalapp/search_results.html', {'animals': animals})
 

@@ -49,4 +49,6 @@
 
 	init();
 
-})(window);
+})
+
+(window);
