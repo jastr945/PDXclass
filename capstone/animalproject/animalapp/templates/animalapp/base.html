@@ -8,9 +8,11 @@
     <link rel="stylesheet" type="text/css" href="{% static '/animalapp/sass/index.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/animalapp/js/PgwSlideshow-master/pgwslideshow.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% block css %}
+    {% endblock %}
 </head>
 <body>
-<div id="mainContainer">
+<div id="mainContainer" class="demo-2">
     <div id="loginInfo">
         {% if user.is_authenticated %}
             Hello, {{ user.first_name }}!&nbsp;|
@@ -25,7 +27,6 @@
     {% block content %}
     {% endblock %}
 </div>
-
 {% block js %}
 {% endblock %}
 </body>

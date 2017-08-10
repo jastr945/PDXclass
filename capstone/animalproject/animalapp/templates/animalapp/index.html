@@ -1,22 +1,17 @@
 {% extends 'animalapp/base.html' %}
 {% load static %}
 {% block title %}Search Page{% endblock %}
+{% block css %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static '/animalapp/sass/demo.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static '/animalapp/sass/style2.css' %}"/>
+{% endblock %}
 
 {% block content %}
-    <form method="GET" action="/search_results">
-        <div id="searchTab">
-            <div id="searchEngine">
-                <input type="search" id="searchField" title="searchField" name="searchField"
-                       placeholder="Find a pet...">
-                <input type="submit" id="findButton" name="submitSearch" value="Find">
-            </div>
-            <div id="findAllTab">
-                <input type="submit" id="allDogs" title="allDogs" name="allDogs" value="Show me all dogs">
-                <input type="submit" id="allCats" title="allCats" name="allCats" value="Show me all cats">
-            </div>
-        </div>
-    </form>
-
     <svg class="hidden">
         <defs>
             <symbol id="icon-search" viewBox="0 0 24 24">
@@ -36,18 +31,26 @@
                     <use xlink:href="#icon-cross"></use>
                 </svg>
             </button>
-            <form class="search__form" action="">
-                <input id="search-input" class="search__input" name="search" type="search"/>
-                <button class="btn btn--search">
+
+            <form class="search__form" method="GET" action="/search_results">
+                <div id="findAllTab">
+                    <input type="submit" id="allDogs" name="allDogs" value="Show me all dogs">
+                    <input type="submit" id="allCats" name="allCats" value="Show me all cats">
+                </div>
+                <input id="search-input" class="search__input" name="searchField" type="search" placeholder="Find a pet..."/>
+
+                <button class="btn btn--search" type="submit" name="submitSearch">
                     <svg class="icon icon--search">
                         <use xlink:href="#icon-search"></use>
                     </svg>
                 </button>
+
             </form>
             <div class="search__suggestion">
-                <h3>Suggestions</h3>
-                <p>#puppy #brown #cat #shepherd #tortoiseshell #kitten #tan #calico #siamese #white #chihuahua #tabby
-                    #dog #spaniel #shorthair #tuxedo #dachshund #adult #white #kitten</p>
+
+                <h3>Search suggestions:</h3>
+                <p>#kitten #white #shepherd #calico #cat #brown #male #chihuahua #siamese #tortoiseshell #puppy #ragdoll
+                    #dog #tuxedo #labrador #tan #female #shorthair #dachshund</p>
             </div>
         </div>
     </main>
