@@ -66,7 +66,6 @@ body, html {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    background: rgba(14, 16, 15, 0.7);
   }
 
   .btn--search-close {
@@ -79,7 +78,7 @@ body, html {
 
   .search__form {
     position: relative;
-    width: 50%;
+    width: 55%;
     min-width: 400px;
     margin-right: auto;
     margin-left: auto;
@@ -87,14 +86,14 @@ body, html {
 
   .search__input {
     font-family: inherit;
-    font-size: 5em;
+    font-size: 4em;
     display: inline-block;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     width: 100%;
     padding: 0 1em 0.15em 0;
     pointer-events: auto;
-    color: #ffefb9;
+    color: $color2;
     border-bottom: 4px solid;
   }
 
@@ -245,13 +244,13 @@ body, html {
     justify-content: space-between;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 4em;
-    width: 80%;
+    margin-bottom: 6em;
+    width: 90%;
     pointer-events: auto;
     #allDogs, #allCats {
-      width: 10em;
-      height: 3em;
-      font-size: 1.5em;
+      width: 6em;
+      height: 2em;
+      font-size: 3.5em;
       cursor: pointer;
       border-right: none;
       border-left: none;
@@ -535,6 +534,17 @@ body, html {
       flex-direction: row;
       flex-wrap: wrap;
       margin: 0.5em 0 0 0;
+      #filters {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 0 0 6em;
+        select {
+          margin-left: 1em;
+          font-family: Arial;
+          font-size: 0.8em;
+        }
+      }
     }
   }
   #profilePreview {
@@ -577,6 +587,8 @@ body, html {
     }
   }
 }
+
+/* Profile Pages */
 
 .slides {
   width: 75em;

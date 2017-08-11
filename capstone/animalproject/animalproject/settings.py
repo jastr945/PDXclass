@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'animalapp',
     'taggit',
     'multiselectfield',
+    'django_filters',
 ]
 
 LOGIN_URL = '/login/'

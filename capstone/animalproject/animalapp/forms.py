@@ -9,6 +9,8 @@ import datetime
 
 
 class AnimalForm(ModelForm):
+    """The main form for creating an animal profile."""
+
     img = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}),
                           required=False, help_text='Hold Ctrl to select multiple images.')
 
@@ -36,6 +38,7 @@ class AnimalForm(ModelForm):
 
 
 class DogForm(ModelForm):
+    """The component of the AnimalForm, containing fields unique for dogs."""
 
     class Meta:
         model = Dog
@@ -43,6 +46,7 @@ class DogForm(ModelForm):
 
 
 class CatForm(ModelForm):
+    """The component of the AnimalForm, containing fields unique for cats."""
 
     class Meta:
         model = Cat
@@ -50,6 +54,8 @@ class CatForm(ModelForm):
 
 
 class SignUpForm(UserCreationForm):
+    """The basic registration form for new users."""
+
     first_name = forms.CharField(max_length=30, help_text=None)
     last_name = forms.CharField(max_length=30, help_text=None)
     email = forms.EmailField(max_length=254, help_text='Required. Please enter a valid email address.')

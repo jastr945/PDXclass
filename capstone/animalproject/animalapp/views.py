@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
-from .models import Animal, Image, Dog, Cat
+from .models import Animal, Image
 from .forms import AnimalForm, DogForm, CatForm, SignUpForm
+from .filters import AnimalFilter
 from django.conf import settings
 from django.contrib import messages
 
@@ -76,7 +77,8 @@ def add_animal(request):
                 Image.objects.create(img=img, pet=Animal.objects.get(pk=dog_form_instance.id.pk))
 
             tags.append(dog_form.data['dog_breed'].lower())
-            tags.append(dog_form.data['dog_color'].lower())
+            tags.append(dog_form.data['dog_color'])
+            tags.append(dog_form.data['size'])
             form_instance.tags.add(*tags)
             return HttpResponseRedirect('/animal_profile/{}/'.format(request.POST['id_number']))
 
@@ -115,7 +117,11 @@ def add_animal(request):
 def search_results(request):
     """Rendering the search results page; the results are filtered by species or a user's search string.
        If the string is empty, the search will return all available entries.
+       Once the page is rendered, search results can be filtered by gender and location.
     """
+
+    results = Animal.objects.all()
+    results_filtered = AnimalFilter(request.GET, queryset=results)
 
     if request.GET.get("searchField"):
         search_string_list = request.GET['searchField'].lower().split(' ')
@@ -127,14 +133,10 @@ def search_results(request):
     elif request.GET.get("previousSearch"):
         search_string_list = request.GET['previousSearch'].lower().split(' ')
         animals = Animal.objects.filter(tags__name__in=search_string_list)
-    elif request.GET.get("showDogs"):
-        animals = Animal.objects.filter(species='dog')
-    elif request.GET.get("showCats"):
-        animals = Animal.objects.filter(species='cat')
     else:
         animals = Animal.objects.all()
 
-    return render(request, 'animalapp/search_results.html', {'animals': animals})
+    return render(request, 'animalapp/search_results.html', {'animals': animals, 'results_filtered': results_filtered})
 
 
 

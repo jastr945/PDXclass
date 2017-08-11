@@ -2,53 +2,56 @@
 {% load static %}
 <title>{% block title %}Search Results{% endblock %}</title>
 {% block content %}
-{% if animals %}
-    <div id="searchResultsBlock">
-    <div id="searchTools">
-    <div id="searchBar">
-        <form method="get">
-        <input type="search" id="previousSearch" name="previousSearch" placeholder="Previous string">
-        <input type="submit" id="searchAgain" name="searchAgain" value="Find">
-        <input type="submit" id="showDogs" name="showDogs" value="Show me all dogs">
-        <input type="submit" id="showCats" name="showCats" value="Show me all cats">
-        </form>
-    </div>
-    <div id="searchFilters">
-        Results: {{ animals|length }} | 25 per page
-    </div>
-    </div>
-    {% for a in animals %}
-        <div id="profilePreview">
-            <a href="{% url 'animal_profile' a.slug %}">
-                <img src="{{ a.images.all.0.img.url }}" alt="{{ a.name }}">
-                <div id="previewDescription">
-                    <b>{{ a.name|capfirst }}</b><br>
-                    {% if a.dog %}
-                        {{ a.dog.size|capfirst }}
-                        {{ a.gender|yesno:"male, female" }}
-                        {{ a.dog.dog_color }}
-                        {{ a.dog.dog_breed }}<br>
-                    {% else %}
-                        {{ a.gender|yesno:"Male, Female" }}
-                        {{ a.cat.cat_color }}
-                        {{ a.cat.cat_breed }}<br>
-                    {% endif %}
-                    {{ a.animal_age }}<br>
-                    {{ a.location }}<br>
+    {% if animals %}
+        <div id="searchResultsBlock">
+            <div id="searchTools">
+                <div id="searchBar">
+                    <form method="get">
+                        <input type="search" id="previousSearch" name="previousSearch" placeholder="Previous string">
+                        <input type="submit" id="searchAgain" name="searchAgain" value="Find">
+                        <input type="submit" id="showDogs" name="allDogs" value="Show me all dogs">
+                        <input type="submit" id="showCats" name="allCats" value="Show me all cats">
+                    </form>
                 </div>
-            </a>
+                <div id="searchFilters">
+                    Results: {{ animals|length }} | 25 per page<br>
+                    <form method="GET" id="filters">
+                        Filter by: {{ results_filtered.form.gender }} {{ results_filtered.form.location }}
+                    </form>
+                </div>
+            </div>
+            {% for a in animals %}
+                <div id="profilePreview">
+                    <a href="{% url 'animal_profile' a.slug %}">
+                        <img src="{{ a.images.all.0.img.url }}" alt="{{ a.name }}">
+                        <div id="previewDescription">
+                            <b>{{ a.name|capfirst }}</b><br>
+                            {% if a.dog %}
+                                {{ a.dog.size|capfirst }}
+                                {{ a.gender|yesno:"male, female" }}
+                                {{ a.dog.dog_color }}
+                                {{ a.dog.dog_breed }}<br>
+                            {% else %}
+                                {{ a.gender|yesno:"Male, Female" }}
+                                {{ a.cat.cat_color }}
+                                {{ a.cat.cat_breed }}<br>
+                            {% endif %}
+                            {{ a.animal_age }}<br>
+                            {{ a.location }}<br>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
-    </div>
-{% else %}
-    <div class="infoText">Your search did not match any documents.
-        Suggestions:
-        <ul>
-            <li>Make sure all words are spelled correctly.</li>
-            <li>Try different keywords.</li>
-            <li>Try more general keywords.</li>
-        </ul>
-        <u><a href="{% url 'index' %}">Go back to Search</a></u>
-    </div>
-{% endif %}
+    {% else %}
+        <div class="infoText">Your search did not match any documents.
+            Suggestions:
+            <ul>
+                <li>Make sure all words are spelled correctly.</li>
+                <li>Try different keywords.</li>
+                <li>Try more general keywords.</li>
+            </ul>
+            <u><a href="{% url 'index' %}">Go back to Search</a></u>
+        </div>
+    {% endif %}
 {% endblock %}
