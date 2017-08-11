@@ -3,3 +3,8 @@
  */
 
 'use strict';
+
+//submits form on change of dropdown list
+$('#id_gender').change(function () {
+    $(this).form.submit()
+});

@@ -120,23 +120,25 @@ def search_results(request):
        Once the page is rendered, search results can be filtered by gender and location.
     """
 
-    results = Animal.objects.all()
-    results_filtered = AnimalFilter(request.GET, queryset=results)
-
     if request.GET.get("searchField"):
         search_string_list = request.GET['searchField'].lower().split(' ')
         animals = Animal.objects.filter(tags__name__in=search_string_list)
+        filtered_animals = AnimalFilter(request.GET, queryset=animals)
     elif request.GET.get("allDogs"):
         animals = Animal.objects.filter(species='dog')
+        filtered_animals = AnimalFilter(request.GET, queryset=animals)
     elif request.GET.get("allCats"):
         animals = Animal.objects.filter(species='cat')
+        filtered_animals = AnimalFilter(request.GET, queryset=animals)
     elif request.GET.get("previousSearch"):
         search_string_list = request.GET['previousSearch'].lower().split(' ')
         animals = Animal.objects.filter(tags__name__in=search_string_list)
+        filtered_animals = AnimalFilter(request.GET, queryset=animals)
     else:
         animals = Animal.objects.all()
+        filtered_animals = AnimalFilter(request.GET, queryset=animals)
 
-    return render(request, 'animalapp/search_results.html', {'animals': animals, 'results_filtered': results_filtered})
+    return render(request, 'animalapp/search_results.html', {'animals': animals, 'filtered_animals': filtered_animals})
 
 
 
