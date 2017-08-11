@@ -10,41 +10,107 @@
                 {% endfor %}
             </ul>
         </div>
-        {{ animals.species|capfirst }}'s name: {{ animals.name|capfirst }}<br>
-        Id number: {{ animals.id_number }}<br>
-        Gender: {{ animals.gender|yesno:"male, female" }}<br>
+        <div id="profile">
+        <div id="profileBox">
+        <div class="profileRow">
+            <div class="left">{{ animals.species|capfirst }}'s name:</div>
+            <div class="right">{{ animals.name|capfirst }}</div>
+        </div>
+        <div class="profileRow">
+            <div class="left">Id number:</div>
+            <div class="right">{{ animals.id_number }}</div>
+        </div>
+        <div class="profileRow">
+            <div class="left">Gender:</div>
+            <div class="right">{{ animals.gender|yesno:"male, female" }}</div>
+        </div>
         {% if animals.cat %}
-            Breed: {{ animals.cat.cat_breed }}<br>
-            Color: {{ animals.cat.cat_color }}<br>
+            <div class="profileRow">
+                <div class="left">Breed:</div>
+                <div class="right">{{ animals.cat.cat_breed }}</div>
+            </div>
+            <div class="profileRow">
+                <div class="left">Color:</div>
+                <div class="right">{{ animals.cat.cat_color }}</div>
+            </div>
         {% else %}
-            Breed: {{ animals.dog.dog_breed }}<br>
-            Color: {{ animals.dog.dog_color }}<br>
+            <div class="profileRow">
+                <div class="left">Breed:</div>
+                <div class="right">{{ animals.dog.dog_breed }}</div>
+            </div>
+            <div class="profileRow">
+                <div class="left">Color:</div>
+                <div class="right">{{ animals.dog.dog_color }}</div>
+            </div>
         {% endif %}
-        Age: {{ animals.animal_age }}<br>
+        <div class="profileRow">
+            <div class="left">Age:</div>
+            <div class="right">{{ animals.animal_age }}</div>
+        </div>
         {% if animals.dog %}
-            Size: {{ animals.dog.size }}<br>
+            <div class="profileRow">
+                <div class="left">Size:</div>
+                <div class="right">{{ animals.dog.size }}</div>
+            </div>
             {% if animals.dog.weight %}
-                Weight: {{ animals.dog.weight }} lbs<br>
+                <div class="profileRow">
+                    <div class="left">Weight:</div>
+                    <div class="right">{{ animals.dog.weight }} lbs</div>
+                </div>
             {% endif %}
         {% endif %}
-        Spayed/neutered: {{ animals.surgery|yesno:"yes, no" }}<br>
-        Current on vaccinations: {{ animals.vaccine|yesno:"yes, no" }}<br>
-        Location: {{ animals.location }}<br>
-        Intake date: {{ animals.intake_date }}<br>
-        Status: {{ animals.status }}<br>
+        <div class="profileRow">
+            <div class="left">Spayed/neutered:</div>
+            <div class="right">{{ animals.surgery|yesno:"yes, no" }}</div>
+        </div>
+        <div class="profileRow">
+            <div class="left">Current on vaccinations:</div>
+            <div class="right">{{ animals.vaccine|yesno:"yes, no" }}</div>
+        </div>
+        <div class="profileRow">
+            <div class="left">Location:</div>
+            <div class="right">{{ animals.location }}</div>
+        </div>
+        <div class="profileRow">
+            <div class="left">Intake date:</div>
+            <div class="right">{{ animals.intake_date }}</div>
+        </div>
+        <div class="profileRow">
+            <div class="left">Status:</div>
+            <div class="right">{{ animals.status }}</div>
+        </div>
         {% if animals.home %}
-            Prefers a home without: {{ animals.home }}<br>
+            <div class="profileRow">
+                <div class="left">Prefers a home without:</div>
+                <div class="right">{{ animals.home }}</div>
+            </div>
         {% endif %}
+        </div>
+
+        <div id="personalityBox">
         {% if animals.cat %}
-            Personality: {{ animals.cat.cat_personality }}<br>
+            <div class="profileRow">
+                <div class="left">Personality:</div>
+                <div class="right">{{ animals.cat.cat_personality }}</div>
+            </div>
         {% else %}
-            Personality: {{ animals.dog.dog_personality }}<br>
+            <div class="profileRow">
+                <div class="left">Personality:</div>
+                <div class="right">{{ animals.dog.dog_personality }}</div>
+            </div>
         {% endif %}
         {% if animals.notes %}
-            Special note: {{ animals.notes }}<br>
+            <div class="profileRow">
+                <div class="left">Special note:</div>
+                <div class="right">{{ animals.notes }}</div>
+            </div>
         {% endif %}
-        Tags: {% for tag in  animals.tags.all %}{{ tag }}, {% endfor %}
-        </p>
+        <div class="profileRow">
+            <div class="left">Tags:</div>
+            <div class="right">{% for tag in  animals.tags.all %}{{ tag }}, {% endfor %}</div>
+        </div>
+        </div>
+        </div>
     {% else %}
         The specified animal profile does not exist! Please double-check the animal's ID number.
     {% endif %}

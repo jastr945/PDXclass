@@ -7,7 +7,7 @@
 // enabling a slide show (PgwSlideshow JQuery plugin)
 $(document).ready(function() {
     $('.pgwSlideshow').pgwSlideshow({
-      autoSlide: false
+      autoSlide: true
     });
 });
 
