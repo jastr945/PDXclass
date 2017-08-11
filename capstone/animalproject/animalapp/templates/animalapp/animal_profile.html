@@ -107,7 +107,11 @@
         {% endif %}
         <div class="profileRow">
             <div class="left">Tags:</div>
-            <div class="right">{% for tag in  animals.tags.all %}{{ tag }}, {% endfor %}</div>
+            <div class="right tags">
+                {% for tag in  animals.tags.all %}
+                    <div class="tag">{{ tag }}</div>
+                {% endfor %}
+            </div>
         </div>
         </div>
         </div>
