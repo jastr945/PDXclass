@@ -142,11 +142,20 @@ class Cat(models.Model):
     cat_color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='', blank=True)
 
     PERSONALITY_CHOICES = (
-        ('playful', 'playful'),
+        ('very playful', 'very playful'),
         ('sociable and outgoing', 'sociable and outgoing'),
+        ('cuddly and affectionate', 'cuddly and affectionate'),
         ('independent', 'independent'),
+        ('calm', 'calm'),
         ('a bit shy in the shelter environment', 'a bit shy in the shelter environment'),
-        ('loves to be around people', 'loves to be around people')
+        ('loves to be around people', 'loves to be around people'),
+        ('adores brushing', 'adores brushing'),
+        ('needs a quiet home', 'needs a quiet home'),
+        ('needs love and consistency', 'needs love and consistency'),
+        ('appreciates lots of attention', 'appreciates lots of attention'),
+        ('talkative', 'talkative'),
+        ('not shy about looking for attention', 'not shy about looking for attention'),
+        ('sweet and gentle', 'sweet and gentle')
     )
 
     cat_personality = MultiSelectField(choices=PERSONALITY_CHOICES, default='', blank=True)
@@ -205,7 +214,8 @@ class Dog(models.Model):
         ('friendly and affectionate', 'friendly and affectionate'),
         ('sociable and outgoing', 'sociable and outgoing'),
         ('profoundly loyal', 'profoundly loyal'),
-        ('house-trained', 'house-trained')
+        ('house-trained', 'house-trained'),
+        ('cuddly and affectionate', 'cuddly and affectionate'),
     )
 
     dog_personality = MultiSelectField(choices=PERSONALITY_CHOICES, default='', blank=True)

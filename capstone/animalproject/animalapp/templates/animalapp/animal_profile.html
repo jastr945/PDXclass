@@ -1,6 +1,7 @@
 {% extends 'animalapp/base.html' %}
 {% load static %}
 <title>{% block title %}Profile{% endblock %}</title>
+
 {% block content %}
     {% if animals %}
         <div class="slides">
@@ -89,10 +90,16 @@
 
             <div id="personalityBox">
                 <div id="socialMedia">
-                    <img class="social" src="{% static 'animalapp/img/facebook.png' %}">
-                    <img class="social" src="{% static 'animalapp/img/google.png' %}">
-                    <img class="social" src="{% static 'animalapp/img/twitter.png' %}">
-                    <img class="social" src="{% static 'animalapp/img/pinterest.png' %}">
+                    <div class="fb-share-button">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=http://ofosa.org/" target="_blank">
+                        <img class="social" src="{% static 'animalapp/img/facebook.png' %}"></a></div>
+                    <div id="google"><a href="https://plus.google.com/share?url=http://ofosa.org/" target="_blank">
+                        <img class="social" src="{% static 'animalapp/img/google.png' %}"></a></div>
+                    <div id="twitter"><a href="http://twitter.com/intent/tweet?http://ofosa.org/" target="_blank">
+                        <img class="social" src="{% static 'animalapp/img/twitter.png' %}"></a></div>
+                    <div id="pinterest">
+                        <a href="http://pinterest.com/pin/create/button/?url=http://ofosa.org/&media=http://ofosa.org/&description=OFOSA" target="_blank">
+                        <img class="social" src="{% static 'animalapp/img/pinterest.png' %}"></a></div>
                     <div>
                         <div id="personalityProfile">
                             {% if animals.cat %}
@@ -122,8 +129,11 @@
                             </div>
                         </div>
                         <div id="contactButtons">
-                        <div class="contact">Ask about {{ animals.name }}</div>
-                        <div class="contact">Send a donation</div>
+                        <div class="contact">Ask about {{ animals.name }}
+                            <img class="contactIcon" src={% static 'animalapp/img/contact.svg' %}/>
+                        </div>
+                        <div class="contact">Send a donation
+                        <img class="contactIcon" src={% static 'animalapp/img/gift.svg' %}/></div>
                         </div>
                     </div>
                 </div>
@@ -138,3 +148,4 @@
     <script src="{% static 'animalapp/js/animal_profile.js' %}"></script>
     <script src="{% static 'animalapp/js/PgwSlideshow-master/pgwslideshow.js' %}"></script>
 {% endblock %}
+
