@@ -471,6 +471,9 @@ body, html {
       margin: 0 0.5em 1em 0.5em; }
 
 /* Profile Pages */
+@keyframes pulse {
+  100% {
+    transform: perspective(0.8em) translateZ(0.3em); } }
 .slides {
   width: 70em;
   height: auto;
@@ -589,6 +592,10 @@ body, html {
       margin: auto;
       width: 100%;
       height: 3em; }
+      #profile #personalityBox #contactButtons #ask:hover .contactIcon {
+        animation: pulse 0.5s ease-in-out forwards infinite; }
+      #profile #personalityBox #contactButtons #donation:hover .contactIcon {
+        animation: pulse 0.5s ease-in-out forwards infinite; }
       #profile #personalityBox #contactButtons .contact {
         display: flex;
         flex-direction: row;
@@ -601,7 +608,7 @@ body, html {
         margin: 0.5em auto;
         font-size: 1.5em; }
       #profile #personalityBox #contactButtons .contactIcon {
-        width: 1.5em;
+        width: 1em;
         margin-left: 0.8em;
         padding: 0; }
 
