@@ -224,12 +224,12 @@ body, html {
     align-content: center;
     justify-content: space-between;
     align-items: center;
-    width: 30em;
+    width: 40em;
     height: auto;
     min-height: 2em;
     margin: 0.5em; }
     #addAnimalTable .addAnimalRows .right {
-      width: 14em; }
+      width: 25em; }
     #addAnimalTable .addAnimalRows ul {
       list-style: none;
       padding: 0;
@@ -254,8 +254,7 @@ body, html {
       /* Safari and Chrome */
       column-count: 2; }
       #addAnimalTable .addAnimalRows .two-columns li, #addAnimalTable .addAnimalRows .two-columns div {
-        background-color: #CC3434;
-        width: 20em; }
+        width: 15em; }
     #addAnimalTable .addAnimalRows #id_gender, #addAnimalTable .addAnimalRows #id_surgery, #addAnimalTable .addAnimalRows #id_vaccine {
       display: flex;
       flex-direction: row;
@@ -283,7 +282,9 @@ body, html {
       background-color: #bbccdd; }
     #addAnimalTable .addAnimalRows #id_notes {
       height: 3em;
-      width: 18em; }
+      width: 31em; }
+    #addAnimalTable .addAnimalRows #id_img {
+      width: 31em; }
 
 .headline {
   align-self: center;
@@ -569,7 +570,7 @@ body, html {
       flex-wrap: wrap;
       margin-left: auto;
       margin-right: auto;
-      margin-top: 4em;
+      margin-top: 3em;
       height: auto;
       width: 42em;
       padding-left: 1em; }
@@ -580,7 +581,7 @@ body, html {
         width: 100%;
         height: auto;
         justify-content: space-between;
-        margin: 0 0 4em 0; }
+        margin: 0 0 2em 0; }
         #profile #personalityBox #personalityProfile .profileRow .left {
           align-self: flex-start;
           font-family: Arial;
@@ -611,7 +612,8 @@ body, html {
       justify-content: center;
       margin: 0 auto;
       width: 100%;
-      height: 3em;
+      height: auto;
+      padding: 0;
       cursor: pointer; }
       #profile #personalityBox #contactButtons #ask:hover .contactIcon {
         animation: pulse 0.5s ease-in-out forwards infinite; }

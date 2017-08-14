@@ -33,7 +33,7 @@ class AnimalForm(ModelForm):
         exclude = ['id', 'slug', 'tags']
         widgets = {
             'birthday': SelectDateWidget(years=(range(datetime.date.today().year - 20, datetime.date.today().year + 1))),
-            'notes': TextInput(attrs={'placeholder': 'Describe any special needs, etc.'})
+            'notes': TextInput(attrs={'placeholder': 'Provide more information, describe any special needs, etc.'})
         }
 
 

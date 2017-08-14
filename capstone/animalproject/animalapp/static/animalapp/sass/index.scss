@@ -301,12 +301,12 @@ body, html {
     align-content: center;
     justify-content: space-between;
     align-items: center;
-    width: 30em;
+    width: 40em;
     height: auto;
     min-height: 2em;
     margin: 0.5em;
     .right {
-      width: 14em;
+      width: 25em;
     }
     ul {
       list-style: none;
@@ -333,8 +333,7 @@ body, html {
       -webkit-column-count: 2; /* Safari and Chrome */
       column-count: 2;
       li, div {
-        background-color: #CC3434;
-        width: 20em;
+        width: 15em;
       }
     }
     #id_gender, #id_surgery, #id_vaccine {
@@ -368,7 +367,10 @@ body, html {
     }
     #id_notes {
       height: 3em;
-      width:18em;
+      width:31em;
+    }
+    #id_img {
+      width: 31em;
     }
   }
 }
@@ -710,7 +712,7 @@ body, html {
       flex-wrap: wrap;
       margin-left: auto;
       margin-right: auto;
-      margin-top: 4em;
+      margin-top: 3em;
       height: auto;
       width: 42em;
       padding-left: 1em;
@@ -721,7 +723,7 @@ body, html {
         width: 100%;
         height: auto;
         justify-content: space-between;
-        margin: 0 0 4em 0;
+        margin: 0 0 2em 0;
         .left {
           align-self: flex-start;
           font-family: Arial;
@@ -760,7 +762,8 @@ body, html {
       justify-content: center;
       margin: 0 auto;
       width: 100%;
-      height: 3em;
+      height: auto;
+      padding: 0;
       cursor: pointer;
       #ask:hover {
         .contactIcon {
