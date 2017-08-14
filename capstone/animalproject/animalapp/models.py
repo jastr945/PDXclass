@@ -119,6 +119,7 @@ class Cat(models.Model):
         ('Persian', 'Persian'),
         ('Ragdoll', 'Ragdoll'),
         ('Siamese', 'Siamese'),
+        ('Siamese/Mix', 'Siamese/Mix'),
         ('Sphynx', 'Sphynx')
     )
 

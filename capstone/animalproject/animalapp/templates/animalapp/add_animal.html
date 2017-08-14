@@ -4,7 +4,7 @@
 
 {% block content %}
     <div id="addOption"><h1>Add a new profile</h1></div>
-    <div id="addAnimalTable">
+    <div id="addAnimalTable" style="display: none">
         {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
@@ -88,7 +88,7 @@
                 <div class="left">Prefers a home without (optional):</div>
                 <div class="right two-columns">{{ form.home }}</div>
             </div>
-            <div class="addAnimalRows dog" style="display: none">
+            <div class="addAnimalRows dog" id="dogPersonality" style="display: none">
                 <div class="left">Personality:</div>
                 <div class="right two-columns">
                     {% for value, text in dog_form.dog_personality.field.choices %}
@@ -102,7 +102,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="addAnimalRows cat" style="display: none">
+            <div class="addAnimalRows cat" id="catPersonality" style="display: none">
                 <div class="left">Personality:</div>
                 <div class="right two-columns">
                     {% for value, text in cat_form.cat_personality.field.choices %}
@@ -127,7 +127,7 @@
     </div>
 
     <div id="seeAllOption"><h1>Manage existing entries</h1></div>
-    <div id="tableContainer">
+    <div id="tableContainer" style="display: none">
         {% for a in animals %}
             {% if a %}
                 <form method="POST">

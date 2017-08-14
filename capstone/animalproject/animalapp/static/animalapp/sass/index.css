@@ -252,7 +252,8 @@ body, html {
       /* Firefox */
       -webkit-column-count: 2;
       /* Safari and Chrome */
-      column-count: 2; }
+      column-count: 2;
+      margin: 1em 0; }
       #addAnimalTable .addAnimalRows .two-columns li, #addAnimalTable .addAnimalRows .two-columns div {
         width: 15em; }
     #addAnimalTable .addAnimalRows #id_gender, #addAnimalTable .addAnimalRows #id_surgery, #addAnimalTable .addAnimalRows #id_vaccine {

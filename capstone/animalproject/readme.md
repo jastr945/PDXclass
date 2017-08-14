@@ -22,27 +22,39 @@ The information about adoptable animals will be contained in animal profiles sto
 ### Data Model
 ![alt text]( https://github.com/jastr945/PDXclass/blob/master/capstone/animalproject/animalapp/static/animalapp/img/capstone_data_structure.jpg "Data model diagram")
  ### Technical Components
-All pages will be created using HTML5 and CSS flexbox containers. The database component will be created with PostgreSQL.
 
-#### Admin Panel
-- A basic login script with user authentication (Django's built-in login system)
-- Form validation for login and sign-up (JQuery Validation Plugin)
-- Admin panel interface (Django)
-- Drop-down menu and autocomplete for profile creation (probably Django?)
-- Ability to create, edit and delete animal profiles (Python, JQuery/JavaScript)
+The entire frontend was created using SASS and CSS Flexbox.
+
+#### Sign up/ log in pages
+- Django built-in authentication system
+- Customized templates
+
+#### My Activity page
+- Django ModelForm based on 3 models
+- Basic form validation in models, views and HTML
+- Django FileField uploading multiple images
+- Django TypedChoiceFields with customized RadioSelect widgets
+- Django Taggit package for searchable tags
+- Python function calculating each animal's precise age
+- Python function adding 'kitten', 'puppy' or 'adult' tags depending on animal's age
+- RegEx function splitting several-words fields into one-word tags
+- JQuery for displaying the 'delete' option for every database row
+- Showing and hiding basic categories on click with JQuery
+
+#### Index (main) page with a search engine
+- Django form
+- Javascript for zooming in the search form
+- Ability to search through tags with Django Taggit
+
+#### Search Resukts page
+- Django form for repeating the search
+- A template counter for the number of results
 
 #### Animal Profiles
-- Image gallery with the ability to view pictures in a large size (JQuery Roundabout slider)
-- Social media buttons (CSS, JQuery)
-- An email button to contact the shelter team (the message will have the animal name and ID in the title)
-- Small preview of a few similar profiles (SQL), which the users might also like
-
-#### Search Engine
-- Full-text search (Elastic Search / API in Python)
-- Autocomplete or autosuggest (JQuery autocomplete plugin or Taggle.js (API))
-- Checkboxes and radio buttons for search parameters (JQuery, JavaScript)
-- Ability to filter search results (Python, JQuery/JavaScript, SQL)
-- Donation button sending to the donations section of the website
+- Image gallery (JQuery PGWSlideShow slider)
+- Social media buttons (HTML)
+- An email button to contact the shelter team (HTML, coming soon)
+- A donation button for sending money (HTML, coming soon)
 
 ### Sketches
 1. Search engine page prototype
@@ -62,7 +74,7 @@ week 3: creating a search engine
 
 week 4: connecting all of the elements and working on design
 
-### Functionality Beyond MVP
+### Functionality Beyond MVP (coming soon)
 - Ability to apply filters to animal pictures and edit them
 - Ability to add videos to animal profiles
 - Make the shelter team be able to highlight certain animal profiles on the main page

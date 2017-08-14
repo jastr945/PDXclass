@@ -6,7 +6,7 @@
 // Opens the 'add animal' form form upon clicking
 $('#addOption').click(function (e) {
     e.preventDefault();
-    $('#addAnimal').toggle('fast')
+    $('#addAnimalTable').toggle('fast')
 });
 
 
