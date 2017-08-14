@@ -58,7 +58,7 @@
             </div>
             <div class="addAnimalRows dog" style="display: none">
                 <div class="left">Color:</div>
-                <div class="right">{{ dog_form.dog_color }}</div>
+                <div class="right two-columns">{{ dog_form.dog_color }}</div>
             </div>
             <div class="addAnimalRows cat" style="display: none">
                 <div class="left">Color:</div>
@@ -86,11 +86,11 @@
             </div>
             <div class="addAnimalRows">
                 <div class="left">Prefers a home without (optional):</div>
-                <div class="right">{{ form.home }}</div>
+                <div class="right two-columns">{{ form.home }}</div>
             </div>
             <div class="addAnimalRows dog" style="display: none">
                 <div class="left">Personality:</div>
-                <div class="right">
+                <div class="right two-columns">
                     {% for value, text in dog_form.dog_personality.field.choices %}
                         <div class="ui slider checkbox">
                             <input id="id_dog_personality_{{ forloop.counter0 }}"
@@ -104,7 +104,7 @@
             </div>
             <div class="addAnimalRows cat" style="display: none">
                 <div class="left">Personality:</div>
-                <div class="right">
+                <div class="right two-columns">
                     {% for value, text in cat_form.cat_personality.field.choices %}
                         <div class="ui slider checkbox">
                             <input id="id_cat_personality_{{ forloop.counter0 }}"

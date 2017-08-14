@@ -247,6 +247,15 @@ body, html {
           display: inline-block;
           cursor: pointer;
           margin: 0; }
+    #addAnimalTable .addAnimalRows .two-columns {
+      -moz-column-count: 2;
+      /* Firefox */
+      -webkit-column-count: 2;
+      /* Safari and Chrome */
+      column-count: 2; }
+      #addAnimalTable .addAnimalRows .two-columns li, #addAnimalTable .addAnimalRows .two-columns div {
+        background-color: #CC3434;
+        width: 20em; }
     #addAnimalTable .addAnimalRows #id_gender, #addAnimalTable .addAnimalRows #id_surgery, #addAnimalTable .addAnimalRows #id_vaccine {
       display: flex;
       flex-direction: row;
@@ -255,16 +264,23 @@ body, html {
     #addAnimalTable .addAnimalRows #submitButton {
       align-self: center;
       height: 2.5em;
+      width: 8em;
       margin-right: auto;
       margin-left: auto;
       margin-top: 2em;
       font-size: 1em;
-      cursor: pointer; }
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #FFFFFF; }
+      #addAnimalTable .addAnimalRows #submitButton:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+        border: 5px solid #FFFFFF; }
     #addAnimalTable .addAnimalRows input, #addAnimalTable .addAnimalRows select, #addAnimalTable .addAnimalRows textarea {
       font-family: Arial;
       color: black;
       font-size: 0.8em;
-      padding: 0.2em; }
+      padding: 0.2em;
+      background-color: #bbccdd; }
     #addAnimalTable .addAnimalRows #id_notes {
       height: 3em;
       width: 18em; }
@@ -492,7 +508,6 @@ body, html {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 82em;
-  height: auto;
   margin: 2em auto;
   padding: 2em;
   background-color: rgba(0, 0, 0, 0.2); }
@@ -531,11 +546,10 @@ body, html {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-items: center;
     width: 52%;
-    height: auto;
-    margin: 0;
-    padding: 0; }
+    margin: 0 auto;
+    padding-left: 0; }
     #profile #personalityBox #socialMedia {
       display: flex;
       flex-direction: row;
@@ -550,9 +564,15 @@ body, html {
         margin-left: 0.4em;
         border-radius: 3%; }
     #profile #personalityBox #personalityProfile {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      margin-left: auto;
+      margin-right: auto;
       margin-top: 4em;
       height: auto;
-      padding: 1em; }
+      width: 42em;
+      padding-left: 1em; }
       #profile #personalityBox #personalityProfile .profileRow {
         display: flex;
         flex-direction: row;
@@ -589,9 +609,10 @@ body, html {
     #profile #personalityBox #contactButtons {
       align-self: center;
       justify-content: center;
-      margin: auto;
+      margin: 0 auto;
       width: 100%;
-      height: 3em; }
+      height: 3em;
+      cursor: pointer; }
       #profile #personalityBox #contactButtons #ask:hover .contactIcon {
         animation: pulse 0.5s ease-in-out forwards infinite; }
       #profile #personalityBox #contactButtons #donation:hover .contactIcon {

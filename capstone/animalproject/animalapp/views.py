@@ -5,6 +5,8 @@ from .forms import AnimalForm, DogForm, CatForm, SignUpForm
 from .filters import AnimalFilter
 from django.conf import settings
 from django.contrib import messages
+import datetime
+import re
 
 
 def signup(request):
@@ -55,16 +57,33 @@ def animal_profile(request, animal_id_slug):
 def add_animal(request):
     """Rendering the page on which users add, edit and delete database entries."""
 
+    # redirecting to add_animal page after logging in
     if not request.user.is_authenticated:
         return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
 
     animals = Animal.objects.all()
+
+    # splits fields containing several words into a list of separate words
+    def clear_tags(raw_data: str):
+        cleaned = (re.sub('[\/\-]+', ' ', raw_data)).split(' ')
+        return cleaned
 
     if request.POST.get("submitButton"):
         form = AnimalForm(request.POST)
         dog_form = DogForm(request.POST)
         cat_form = CatForm(request.POST)
         tags = [request.POST['species']]
+
+        # creating 'male' or 'female' tags
+        if request.POST['gender'] == 'True':
+            tags.append('male')
+        else:
+            tags.append('female')
+
+        # calculating animal's age in days in order to add an appropriate tag (kitten/puppy/adult)
+        tod = datetime.date.today()
+        dob = int(dog_form.data['birthday_year']) * 365 + int(dog_form.data['birthday_month']) * 30 + int(dog_form.data['birthday_day'])
+        age = (int(tod.year) * 365 + int(tod.month) * 30 + int(tod.day)) - dob
 
         # if the user selects 'dog', only form and dog_form will be validated and saved
         if request.POST['species'] == 'dog' and form.is_valid() and dog_form.is_valid():
@@ -73,10 +92,25 @@ def add_animal(request):
             dog_form_instance.id = form_instance
             dog_form_instance.save()
 
+            # rendering multiple images for each dog profile
             for img in request.FILES.getlist('img'):
                 Image.objects.create(img=img, pet=Animal.objects.get(pk=dog_form_instance.id.pk))
 
-            tags.append(dog_form.data['dog_breed'].lower())
+            # parses a breed name, if it consists of more than one word, and renders one-word tags
+            if len(clear_tags(dog_form.data['dog_breed'])) > 1:
+                i = 0
+                list_length = len(clear_tags(dog_form.data['dog_breed']))
+                while i < list_length:
+                    tags.append(clear_tags(dog_form.data['dog_breed'])[i].lower())
+                    i += 1
+            else:
+                tags.append(dog_form.data['dog_breed'].lower())
+
+            if age < 365:
+                tags.append('puppy')
+            else:
+                tags.append('adult')
+
             tags.append(dog_form.data['dog_color'])
             tags.append(dog_form.data['size'])
             form_instance.tags.add(*tags)
@@ -89,11 +123,35 @@ def add_animal(request):
             cat_form_instance.id = form_instance
             cat_form_instance.save()
 
+            # rendering multiple images for each cat profile
             for img in request.FILES.getlist('img'):
                 Image.objects.create(img=img, pet=Animal.objects.get(pk=cat_form_instance.id.pk))
 
-            tags.append(cat_form.data['cat_breed'].lower())
-            tags.append(cat_form.data['cat_color'].lower())
+            # parses a breed name, if it consists of more than one word, and renders one-word tags
+            if len(clear_tags(cat_form.data['cat_breed'])) > 1:
+                i = 0
+                list_length = len(clear_tags(cat_form.data['cat_breed']))
+                while i < list_length:
+                    tags.append(clear_tags(cat_form.data['cat_breed'])[i].lower())
+                    i += 1
+            else:
+                tags.append(cat_form.data['cat_breed'].lower())
+
+            # parses a color name, if it consists of more than one word, and renders one-word tags
+            if len(clear_tags(cat_form.data['cat_color'])) > 1:
+                i = 0
+                list_length = len(clear_tags(cat_form.data['cat_color']))
+                while i < list_length:
+                    tags.append(clear_tags(cat_form.data['cat_color'])[i].lower())
+                    i += 1
+            else:
+                tags.append(cat_form.data['cat_color'].lower())
+
+            if age < 365:
+                tags.append('kitten')
+            else:
+                tags.append('adult')
+
             form_instance.tags.add(*tags)
             return HttpResponseRedirect('/animal_profile/{}/'.format(request.POST['id_number']))
 

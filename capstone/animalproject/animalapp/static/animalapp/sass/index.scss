@@ -328,6 +328,15 @@ body, html {
         }
       }
     }
+    .two-columns {
+      -moz-column-count: 2; /* Firefox */
+      -webkit-column-count: 2; /* Safari and Chrome */
+      column-count: 2;
+      li, div {
+        background-color: #CC3434;
+        width: 20em;
+      }
+    }
     #id_gender, #id_surgery, #id_vaccine {
       display: flex;
       flex-direction: row;
@@ -337,17 +346,25 @@ body, html {
     #submitButton {
       align-self: center;
       height: 2.5em;
+      width: 8em;
       margin-right: auto;
       margin-left:auto;
       margin-top: 2em;
       font-size: 1em;
       cursor: pointer;
+      background-color: $color3;
+      color: $color2;
+      &:hover {
+        background-color: $color4;
+        border: 5px solid $color2;
+      }
     }
     input, select, textarea {
       font-family: Arial;
       color:black;
       font-size: 0.8em;
       padding: 0.2em;
+      background-color: #bbccdd;
     }
     #id_notes {
       height: 3em;
@@ -596,10 +613,9 @@ body, html {
 /* Profile Pages */
 
 @keyframes pulse {
-
-    100% {
-        transform: perspective(0.8em) translateZ(0.3em);
-    }
+  100% {
+    transform: perspective(0.8em) translateZ(0.3em);
+  }
 }
 
 .slides {
@@ -623,7 +639,6 @@ body, html {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 82em;
-  height: auto;
   margin: 2em auto;
   padding: 2em;
   background-color: $color3;
@@ -669,11 +684,10 @@ body, html {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-items: center;
     width: 52%;
-    height: auto;
-    margin: 0;
-    padding: 0;
+    margin: 0 auto;
+    padding-left: 0;
     #socialMedia {
       display: flex;
       flex-direction: row;
@@ -691,9 +705,15 @@ body, html {
     }
     #personalityProfile {
       //background-color: green;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      margin-left: auto;
+      margin-right: auto;
       margin-top: 4em;
       height: auto;
-      padding: 1em;
+      width: 42em;
+      padding-left: 1em;
       .profileRow {
         display: flex;
         flex-direction: row;
@@ -735,11 +755,13 @@ body, html {
       }
     }
     #contactButtons {
+      //background-color: #CC3434;
       align-self: center;
       justify-content: center;
-      margin: auto;
+      margin: 0 auto;
       width: 100%;
       height: 3em;
+      cursor: pointer;
       #ask:hover {
         .contactIcon {
           animation: pulse 0.5s ease-in-out forwards infinite;

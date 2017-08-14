@@ -210,12 +210,16 @@ class Dog(models.Model):
     dog_color = MultiSelectField(choices=COLOR_CHOICES, default='', blank=True)
 
     PERSONALITY_CHOICES = (
-        ('playful', 'playful'),
         ('friendly and affectionate', 'friendly and affectionate'),
         ('sociable and outgoing', 'sociable and outgoing'),
         ('profoundly loyal', 'profoundly loyal'),
         ('house-trained', 'house-trained'),
         ('cuddly and affectionate', 'cuddly and affectionate'),
+        ('frequent training sessions', 'frequent training sessions'),
+        ('friendly toward strangers', 'friendly toward strangers'),
+        ('has a quiet, laid-back temperament', 'has a quiet, laid-back temperament'),
+        ('loves running around and playing', 'loves running around and playing'),
+        ('not very fond of the outdoors', 'not very fond of the outdoors')
     )
 
     dog_personality = MultiSelectField(choices=PERSONALITY_CHOICES, default='', blank=True)
