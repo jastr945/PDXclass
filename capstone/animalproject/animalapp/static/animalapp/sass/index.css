@@ -605,7 +605,9 @@ body, html {
           padding: 0.5em;
           width: auto;
           cursor: pointer;
-          font-size: 0.8em; }
+          font-size: 0.8em;
+          color: #FFFFFF;
+          border: none; }
           #profile #personalityBox #personalityProfile .profileRow .tag:hover {
             background-color: #004d99; }
     #profile #personalityBox #contactButtons {

@@ -124,7 +124,9 @@
                                 <div class="left">Tags:</div>
                                 <div class="right tags">
                                     {% for tag in  animals.tags.all %}
-                                        <div class="tag">{{ tag }}</div>
+                                        <form method="get">
+                                            <input type="submit" class="tag" name="tag" value="{{ tag }}">
+                                        </form>
                                     {% endfor %}
                                 </div>
                             </div>

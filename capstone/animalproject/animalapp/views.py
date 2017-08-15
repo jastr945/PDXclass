@@ -41,9 +41,13 @@ def index(request):
 
 
 def animal_profile(request, animal_id_slug):
-    """Rendering a single animal profile page."""
+    """Rendering a single animal profile page.
+    Clicking a tag field results in redirecting to the search results page filtered by a tag name.
+    """
     context_dict = {}
 
+    if request.GET.get('tag'):
+        return HttpResponseRedirect('/search_results/?search={}'.format(request.GET['tag']))
     try:
         animals = Animal.objects.get(slug=animal_id_slug)
         context_dict['animals'] = animals
@@ -178,8 +182,8 @@ def search_results(request):
        Once the page is rendered, search results can be filtered by gender and location.
     """
 
-    if request.GET.get("searchField"):
-        search_string_list = request.GET['searchField'].lower().split(' ')
+    if request.GET.get("search"):
+        search_string_list = request.GET['search'].lower().split(' ')
         animals = Animal.objects.filter(tags__name__in=search_string_list)
         filtered_animals = AnimalFilter(request.GET, queryset=animals)
     elif request.GET.get("allDogs"):
@@ -188,15 +192,8 @@ def search_results(request):
     elif request.GET.get("allCats"):
         animals = Animal.objects.filter(species='cat')
         filtered_animals = AnimalFilter(request.GET, queryset=animals)
-    elif request.GET.get("previousSearch"):
-        search_string_list = request.GET['previousSearch'].lower().split(' ')
-        animals = Animal.objects.filter(tags__name__in=search_string_list)
-        filtered_animals = AnimalFilter(request.GET, queryset=animals)
     else:
         animals = Animal.objects.all()
         filtered_animals = AnimalFilter(request.GET, queryset=animals)
 
     return render(request, 'animalapp/search_results.html', {'animals': animals, 'filtered_animals': filtered_animals})
-
-
-
