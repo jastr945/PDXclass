@@ -186,15 +186,16 @@ def search_results(request):
         search_string_list = request.GET['search'].lower().split(' ')
         animals = Animal.objects.filter(tags__name__in=search_string_list)
         filtered_animals = AnimalFilter(request.GET, queryset=animals)
-        from ipdb import set_trace;set_trace()
     elif request.GET.get("allDogs"):
-        animals = Animal.objects.filter(species='dog')
-        filtered_animals = AnimalFilter(request.GET, queryset=animals)
+        dogs = Animal.objects.filter(species='dog')
+        filtered_animals = AnimalFilter(request.GET, queryset=dogs)
+        # from ipdb import set_trace;set_trace()
     elif request.GET.get("allCats"):
-        animals = Animal.objects.filter(species='cat')
-        filtered_animals = AnimalFilter(request.GET, queryset=animals)
+        cats = Animal.objects.filter(species='cat')
+        filtered_animals = AnimalFilter(request.GET, queryset=cats)
     else:
         animals = Animal.objects.all()
         filtered_animals = AnimalFilter(request.GET, queryset=animals)
 
-    return render(request, 'animalapp/search_results.html', {'animals': animals, 'filtered_animals': filtered_animals})
+    return render(request, 'animalapp/search_results.html', {'filtered_animals': filtered_animals})
+

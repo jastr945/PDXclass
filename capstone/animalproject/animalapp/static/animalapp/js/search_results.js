@@ -4,7 +4,10 @@
 
 'use strict';
 
-//submits form on change of dropdown list
-$('#id_gender').change(function () {
-    $(this).form.submit()
+//submits form on change of dropdown list dynamically
+$(function() {
+  $('#filters').on('change', function(e) {
+    $(this).closest('form')
+           .trigger('submit')
+  })
 });

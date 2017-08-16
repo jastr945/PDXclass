@@ -2,7 +2,7 @@
 {% load static %}
 <title>{% block title %}Search Results{% endblock %}</title>
 {% block content %}
-    {% if animals %}
+    {% if filtered_animals.qs %}
         <div id="searchResultsBlock">
             <div id="searchTools">
                 <div id="searchBar">
@@ -14,13 +14,13 @@
                     </form>
                 </div>
                 <div id="searchFilters">
-                    Results: {{ animals|length }} | 25 per page<br>
+                    Results: {{ filtered_animals.qs|length }} | 25 per page<br>
                     <form method="GET" id="filters">
-                        Filter by: {{ filtered_animals.form.gender }} {{ filtered_animals.form.location }}
+                        Filter results by: {{ filtered_animals.form.gender }} {{ filtered_animals.form.location }}
                     </form>
                 </div>
             </div>
-            {% for a in animals %}
+            {% for a in filtered_animals.qs %}
                 <div id="profilePreview">
                     <a href="{% url 'animal_profile' a.slug %}">
                         <img src="{{ a.images.all.0.img.url }}" alt="{{ a.name }}">
@@ -54,4 +54,8 @@
             <u><a href="{% url 'index' %}">Go back to Search</a></u>
         </div>
     {% endif %}
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'animalapp/js/search_results.js' %}"></script>
 {% endblock %}

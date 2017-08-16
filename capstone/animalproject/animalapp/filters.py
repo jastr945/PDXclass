@@ -1,5 +1,6 @@
 from .models import Animal
 import django_filters
+from django_filters import STRICTNESS
 
 
 class AnimalFilter(django_filters.FilterSet):
@@ -26,3 +27,4 @@ class AnimalFilter(django_filters.FilterSet):
     class Meta:
         model = Animal
         fields = ['gender', 'location', ]
+        strict = STRICTNESS.RETURN_NO_RESULTS
