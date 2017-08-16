@@ -186,6 +186,7 @@ def search_results(request):
         search_string_list = request.GET['search'].lower().split(' ')
         animals = Animal.objects.filter(tags__name__in=search_string_list)
         filtered_animals = AnimalFilter(request.GET, queryset=animals)
+        from ipdb import set_trace;set_trace()
     elif request.GET.get("allDogs"):
         animals = Animal.objects.filter(species='dog')
         filtered_animals = AnimalFilter(request.GET, queryset=animals)

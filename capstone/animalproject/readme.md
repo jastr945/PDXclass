@@ -1,6 +1,6 @@
-# New Searchable Database for OFOSA (Oregon Friends of Shelter Animals)
+# A Searchable Database For An Animal Shelter
 ### Product Overview
- The goal of this project is to set up a new searchable database for Oregon Friends of Shelter Animals (OFOSA), which will be added to the existing website of the organization. The current system that the website has, is poorly organized and has limited options. The new search engine will allow potential adopters to find the best match. The shelter team should be able to add and edit animal profiles easily. The new application will be simply looking, easy to use, lightweight and mobile-friendly. It's very important for the OFOSA team to be able to access the database from any device and edit it on the go. 
+ The goal of this project is to set up a searchable database, which could be potentially used on a website of any animal shelter or animal rescue organization. This search engine will allow potential adopters to find the best match. The shelter team should be able to add and edit animal profiles easily. The new application will be simply looking, easy to use, lightweight and mobile-friendly. It's very important for any animal rescue team to be able to access the database from any device and edit it on the go. 
 ### Specific Functionality
 The information about adoptable animals will be contained in animal profiles stored in the database. The project will have two main sections for the two groups of users: 
    - the database management system available **for the shelter staff** from the admin panel;
@@ -10,8 +10,8 @@ The information about adoptable animals will be contained in animal profiles sto
 - Ability to add new profiles quickly, with as little typing as possible, eg. by selecting tags for personality description
 - Plenty of options to choose from, when creating a new profile (drop-down or autocomplete)
 - Ability to add many profiles one by one easily
-- Ability to search, view, sort, edit and delete existing profiles from the admin panel
-- Ability to upload several pictures to every animal profile
+- Ability to search, view, sort, edit and delete existing profiles
+- Ability to upload multiple pictures to every animal profile
 ##### 2. Search Engine
 - Full text search and autosuggest. Enables users to quickly find and select from a pre-populated list of values as they type. Will correct user's typos.
 - Ability to see all profiles at once or apply filters
@@ -23,7 +23,7 @@ The information about adoptable animals will be contained in animal profiles sto
 ![alt text]( https://github.com/jastr945/PDXclass/blob/master/capstone/animalproject/animalapp/static/animalapp/img/capstone_data_structure.jpg "Data model diagram")
  ### Technical Components
 
-The entire frontend was created using SASS and CSS Flexbox.
+**__The entire front-end was created using SASS and CSS Flexbox.__**
 
 #### Sign up/ log in pages
 - Django built-in authentication system
@@ -34,7 +34,6 @@ The entire frontend was created using SASS and CSS Flexbox.
 - Basic form validation in models, views and HTML
 - Django FileField uploading multiple images
 - Django TypedChoiceFields with customized RadioSelect widgets
-- Django Taggit package for searchable tags
 - Python function calculating each animal's precise age
 - Python function adding 'kitten', 'puppy' or 'adult' tags depending on animal's age
 - RegEx function splitting several-words fields into one-word tags
@@ -42,17 +41,18 @@ The entire frontend was created using SASS and CSS Flexbox.
 - Showing and hiding basic categories on click with JQuery
 
 #### Index (main) page with a search engine
-- Django form
+- A Django form for searching the database
 - Javascript for zooming in the search form
-- Ability to search through tags with Django Taggit
+- Ability to search through tags with Django Taggit package
 
-#### Search Resukts page
-- Django form for repeating the search
+#### Search Results page
+- A Django form for repeating the search
 - A template counter for the number of results
 
 #### Animal Profiles
 - Image gallery (JQuery PGWSlideShow slider)
 - Social media buttons (HTML)
+- Searchable tags (Django Taggit package)
 - An email button to contact the shelter team (HTML, coming soon)
 - A donation button for sending money (HTML, coming soon)
 
