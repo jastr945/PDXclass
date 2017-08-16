@@ -4,7 +4,7 @@
 
 'use strict';
 
-//submits form on change of dropdown list dynamically
+//submits form on change of the drop-down filter lists dynamically
 $(function() {
   $('#filters').on('change', function(e) {
     $(this).closest('form')

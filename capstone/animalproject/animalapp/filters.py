@@ -7,8 +7,8 @@ class AnimalFilter(django_filters.FilterSet):
     """Filtering search results by gender and location."""
 
     GENDER_CHOICES = (
-        ('male', 'male'),
-        ('female', 'female')
+        (True, 'male'),
+        (False, 'female')
     )
 
     gender = django_filters.ChoiceFilter(choices=GENDER_CHOICES, empty_label='all genders')
