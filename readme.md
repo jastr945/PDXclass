@@ -1,5 +1,5 @@
 # PDX Code Guild labs & projects
-This repository contains the labs and projects, which I created during the **12-weeks Python-based developer bootcamp**, covering Python, Django, JavaScript & JQuery, database design, HTML, SASS and CSS.
+This repository contains the labs and projects, created by me during the **12-weeks Python-based developer bootcamp**, covering Python, Django, JavaScript & JQuery, database design, HTML, SASS and CSS.
 ### Python folder
 I worked on these labs during the first 4 weeks of the bootcamp. The main topics include:
 - Python data structures (lists, dictionaries, objects, etc.)
