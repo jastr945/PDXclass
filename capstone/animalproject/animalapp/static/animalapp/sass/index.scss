@@ -413,6 +413,23 @@ body, html {
   flex-wrap: wrap;
   align-self: center;
   width: 96%;
+  color: $color2;
+  font-family: Arial;
+
+  #dbfilters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+    margin: 0 0 1em 0;
+    select {
+      font-size: 0.8em;
+      margin-left: 0.5em;
+    }
+  }
+
   #dataBaseRow {
     display: flex;
     flex-direction: row;
@@ -420,8 +437,6 @@ body, html {
     align-items: center;
     justify-content: space-between;
     background-color: $color3;
-    color: white;
-    font-family: Arial;
     font-size: 1.5em;
     height: 3em;
     margin: 0 0 0.5em 0;

@@ -128,16 +128,17 @@
 
     <div id="seeAllOption"><h1>Manage existing entries</h1></div>
 
-    <div id="tableContainer" style="display: none">
+    <div id="tableContainer" style="display: flex">
         <form method="GET" id="dbfilters">
-            Filter all entries:
-            {{ filtered_animals.form.species }}
-            {{ filtered_animals.form.gender }}
-            {{ filtered_animals.form.location }}
+            <div class="filterPanel">Results found: {{ filtered_animals.qs|length }}</div>
+            <div class="filterPanel">Filter all entries:
+                {{ filtered_animals.form.species }}
+                {{ filtered_animals.form.gender }}
+                {{ filtered_animals.form.location }}</div>
         </form>
-            {% if filtered_animals.qs %}
-                {% for a in filtered_animals.qs %}
-                    <form method="GET">
+        {% if filtered_animals.qs %}
+            {% for a in filtered_animals.qs %}
+                <form method="GET">
                     {% csrf_token %}
                     <div id="dataBaseRow">
                         <div id="dataBaseInfo">

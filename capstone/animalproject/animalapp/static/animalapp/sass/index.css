@@ -319,7 +319,20 @@ body, html {
   flex-direction: column;
   flex-wrap: wrap;
   align-self: center;
-  width: 96%; }
+  width: 96%;
+  color: #FFFFFF;
+  font-family: Arial; }
+  #tableContainer #dbfilters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+    margin: 0 0 1em 0; }
+    #tableContainer #dbfilters select {
+      font-size: 0.8em;
+      margin-left: 0.5em; }
   #tableContainer #dataBaseRow {
     display: flex;
     flex-direction: row;
@@ -327,8 +340,6 @@ body, html {
     align-items: center;
     justify-content: space-between;
     background-color: rgba(0, 0, 0, 0.2);
-    color: white;
-    font-family: Arial;
     font-size: 1.5em;
     height: 3em;
     margin: 0 0 0.5em 0; }
