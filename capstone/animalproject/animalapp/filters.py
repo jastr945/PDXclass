@@ -6,6 +6,13 @@ from django_filters import STRICTNESS
 class AnimalFilter(django_filters.FilterSet):
     """Filtering search results by gender and location."""
 
+    SPECIES_CHOICES = (
+        ('dog', 'only dogs'),
+        ('cat', 'only cats')
+    )
+
+    species = django_filters.ChoiceFilter(choices=SPECIES_CHOICES, empty_label='all species')
+
     GENDER_CHOICES = (
         (True, 'male'),
         (False, 'female')
@@ -26,5 +33,5 @@ class AnimalFilter(django_filters.FilterSet):
 
     class Meta:
         model = Animal
-        fields = ['gender', 'location', ]
+        fields = ['gender', 'location', 'species',]
         strict = STRICTNESS.RETURN_NO_RESULTS

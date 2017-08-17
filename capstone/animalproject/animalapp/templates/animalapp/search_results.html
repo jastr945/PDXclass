@@ -9,14 +9,15 @@
                     <form method="get">
                         <input type="search" id="previousSearch" name="search">
                         <input type="submit" id="searchAgain" value="Find">
-                        <input type="submit" id="showDogs" name="allDogs" value="Show me all dogs">
-                        <input type="submit" id="showCats" name="allCats" value="Show me all cats">
                     </form>
                 </div>
                 <div id="searchFilters">
                     Results: {{ filtered_animals.qs|length }} | 25 per page<br>
                     <form method="GET" id="filters">
-                        Filter results by: {{ filtered_animals.form.gender }} {{ filtered_animals.form.location }}
+                        Filter all profiles:
+                        {{ filtered_animals.form.species }}
+                        {{ filtered_animals.form.gender }}
+                        {{ filtered_animals.form.location }}
                     </form>
                 </div>
             </div>

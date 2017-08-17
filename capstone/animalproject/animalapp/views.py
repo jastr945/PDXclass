@@ -76,7 +76,7 @@ def add_animal(request):
         form = AnimalForm(request.POST)
         dog_form = DogForm(request.POST)
         cat_form = CatForm(request.POST)
-        tags = [request.POST['species']]
+        tags = [request.POST['species'], request.POST['name'].lower()]
 
         # creating 'male' or 'female' tags
         if request.POST['gender'] == 'True':
@@ -189,11 +189,11 @@ def search_results(request):
     elif request.GET.get("allDogs"):
         dogs = Animal.objects.filter(species='dog')
         filtered_animals = AnimalFilter(request.GET, queryset=dogs)
-        # from ipdb import set_trace;set_trace()
     elif request.GET.get("allCats"):
         cats = Animal.objects.filter(species='cat')
         filtered_animals = AnimalFilter(request.GET, queryset=cats)
     else:
+        # from ipdb import set_trace;set_trace()
         animals = Animal.objects.all()
         filtered_animals = AnimalFilter(request.GET, queryset=animals)
 
