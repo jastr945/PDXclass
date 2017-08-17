@@ -127,10 +127,17 @@
     </div>
 
     <div id="seeAllOption"><h1>Manage existing entries</h1></div>
+
     <div id="tableContainer" style="display: none">
-        {% for a in animals %}
-            {% if a %}
-                <form method="POST">
+        <form method="GET" id="dbfilters">
+            Filter all entries:
+            {{ filtered_animals.form.species }}
+            {{ filtered_animals.form.gender }}
+            {{ filtered_animals.form.location }}
+        </form>
+            {% if filtered_animals.qs %}
+                {% for a in filtered_animals.qs %}
+                    <form method="GET">
                     {% csrf_token %}
                     <div id="dataBaseRow">
                         <div id="dataBaseInfo">
@@ -140,8 +147,10 @@
                             <div id="locationRow">{{ a.location }}</div>
                         </div>
                         <div id="dataButtons">
-                            <div class="dbButton"><a href="{% url 'animal_profile' a.slug %}" target="_blank">View</a></div>
-                            <div class="dbButton"><a href="{% url 'animal_profile' a.slug %}" target="_blank">Edit</a></div>
+                            <div class="dbButton"><a href="{% url 'animal_profile' a.slug %}" target="_blank">View</a>
+                            </div>
+                            <div class="dbButton"><a href="{% url 'animal_profile' a.slug %}" target="_blank">Edit</a>
+                            </div>
                             <div class="dbButton delete">Delete</div>
                         </div>
                     </div>
@@ -151,9 +160,12 @@
                         <input type="hidden" name="animalID" value={{ a.id }}>
                         <div class="dbButton noDelete"><u>No</u></div>
                     </div>
-                </form>
+                    </form>
+                {% endfor %}
+            {% else %}
+                <div class="infoText">No entries matching your selection criteria were found.</div>
             {% endif %}
-        {% endfor %}
+    </div>
     </div>
 {% endblock content %}
 

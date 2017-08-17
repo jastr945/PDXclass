@@ -435,23 +435,27 @@ body, html {
       width: 40em;
       margin: 0 0 0 1em;
       div {
-        width: 7em;
+        width: 9em;
       }
       #locationRow {
-        width: 15em;
+        width: 13em;
       }
     }
+
     #dataButtons {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       align-items: center;
+      width: auto;
       margin-left: 1em;
     }
 
     .dbButton {
       margin: 0 1em 0 0;
       font-family: Arial;
+      width: 4em;
+      height: 1.5em;
       color: black;
       font-size: 0.8em;
       cursor: pointer;
@@ -460,7 +464,6 @@ body, html {
       text-align: center;
       background-color: buttonface;
       box-sizing: border-box;
-      padding: 2px 6px 3px;
       border-width: 2px;
       border-style: outset;
       border-color: buttonface;
@@ -474,6 +477,7 @@ body, html {
       }
     }
   }
+
  .deleteEntry {
     display: flex;
     flex-direction: row;

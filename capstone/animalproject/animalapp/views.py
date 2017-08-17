@@ -65,20 +65,22 @@ def add_animal(request):
     if not request.user.is_authenticated:
         return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
 
-    animals = Animal.objects.all()
+    # filtering database entries by species, gender and location
+    filtered_animals = AnimalFilter(request.GET, queryset=Animal.objects.all())
 
     # splits fields containing several words into a list of separate words
     def clear_tags(raw_data: str):
-        cleaned = (re.sub('[\/\-]+', ' ', raw_data)).split(' ')
+        cleaned = (re.sub('[/\-]+', ' ', raw_data)).split(' ')
         return cleaned
 
+    # creating a pet's profile
     if request.POST.get("submitButton"):
         form = AnimalForm(request.POST)
         dog_form = DogForm(request.POST)
         cat_form = CatForm(request.POST)
         tags = [request.POST['species'], request.POST['name'].lower()]
 
-        # creating 'male' or 'female' tags
+        # creating gender tags
         if request.POST['gender'] == 'True':
             tags.append('male')
         else:
@@ -100,7 +102,7 @@ def add_animal(request):
             for img in request.FILES.getlist('img'):
                 Image.objects.create(img=img, pet=Animal.objects.get(pk=dog_form_instance.id.pk))
 
-            # parses a breed name, if it consists of more than one word, and renders one-word tags
+            # splitting several-words breed names into one-word tags
             if len(clear_tags(dog_form.data['dog_breed'])) > 1:
                 i = 0
                 list_length = len(clear_tags(dog_form.data['dog_breed']))
@@ -110,11 +112,15 @@ def add_animal(request):
             else:
                 tags.append(dog_form.data['dog_breed'].lower())
 
+            # adding age category as a tag
             if age < 365:
                 tags.append('puppy')
+            elif age > 365 * 9:
+                tags.append('senior')
             else:
                 tags.append('adult')
 
+            # adding color and size to tags field
             tags.append(dog_form.data['dog_color'])
             tags.append(dog_form.data['size'])
             form_instance.tags.add(*tags)
@@ -131,7 +137,7 @@ def add_animal(request):
             for img in request.FILES.getlist('img'):
                 Image.objects.create(img=img, pet=Animal.objects.get(pk=cat_form_instance.id.pk))
 
-            # parses a breed name, if it consists of more than one word, and renders one-word tags
+            # splitting several-words cat breed names into one-word tags
             if len(clear_tags(cat_form.data['cat_breed'])) > 1:
                 i = 0
                 list_length = len(clear_tags(cat_form.data['cat_breed']))
@@ -141,7 +147,7 @@ def add_animal(request):
             else:
                 tags.append(cat_form.data['cat_breed'].lower())
 
-            # parses a color name, if it consists of more than one word, and renders one-word tags
+            # splitting several-words color names into one-word tags
             if len(clear_tags(cat_form.data['cat_color'])) > 1:
                 i = 0
                 list_length = len(clear_tags(cat_form.data['cat_color']))
@@ -151,8 +157,11 @@ def add_animal(request):
             else:
                 tags.append(cat_form.data['cat_color'].lower())
 
+            # adding age category as a tag
             if age < 365:
                 tags.append('kitten')
+            elif age > 365 * 11:
+                tags.append('senior')
             else:
                 tags.append('adult')
 
@@ -163,17 +172,18 @@ def add_animal(request):
             messages.error(request, form.errors)
 
     # deleting a profile
-    elif request.POST.get("deleteButton"):
-        get_object_or_404(Animal, id=request.POST['animalID']).delete()
+    elif request.GET.get("deleteButton"):
+        get_object_or_404(Animal, id=request.GET['animalID']).delete()
         return HttpResponseRedirect('/add_animal/')
 
     else:
         form = AnimalForm()
         dog_form = DogForm()
         cat_form = CatForm()
+        filtered_animals = AnimalFilter(request.GET, queryset=Animal.objects.all())
 
     return render(request, 'animalapp/add_animal.html', {'form': form, 'dog_form': dog_form, 'cat_form': cat_form,
-                                                         'animals': animals})
+                                                         'filtered_animals': filtered_animals})
 
 
 def search_results(request):
@@ -193,7 +203,6 @@ def search_results(request):
         cats = Animal.objects.filter(species='cat')
         filtered_animals = AnimalFilter(request.GET, queryset=cats)
     else:
-        # from ipdb import set_trace;set_trace()
         animals = Animal.objects.all()
         filtered_animals = AnimalFilter(request.GET, queryset=animals)
 

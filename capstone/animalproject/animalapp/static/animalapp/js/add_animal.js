@@ -34,6 +34,15 @@ $('#seeAllOption').click(function (e) {
 });
 
 
+//submits form on change of the drop-down filter lists dynamically
+$(function() {
+  $('#dbfilters').on('change', function (e) {
+      e.preventDefault();
+      $(this).submit()
+  })
+});
+
+
 //Shows the bar with deletion choices
 $('.delete').each(function () {
     $(this).click(function (e) {
