@@ -60,13 +60,8 @@ body,html {
     background-image: url('../img/drops-wide.jpg');
     height: 100%;
     width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
     position:fixed;
-    //overflow: auto;
-
 }
 
 #titlePageTable {
@@ -151,7 +146,6 @@ body,html {
     overflow: auto;
 
     #banner {
-        //background-color: pink;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -162,7 +156,6 @@ body,html {
         padding: 2%;
 
         #profilePic {
-            //background-color: grey;
             display: flex;
             justify-content: center;
             width: 40%;
@@ -180,7 +173,6 @@ body,html {
         }
 
         #personalInfo {
-            //background-color: saddlebrown;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
@@ -377,14 +369,14 @@ body,html {
         display: flex;
         flex-wrap: wrap;
         width:100%;
-        justify-content: space-around;
+        justify-content: flex-start;
 
         #project {
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
             margin:0.5em;
-            width: 20em;
+            width: 20.3em;
             height: auto;
             background-color: rgba(255, 242, 185, .2);
             cursor: pointer;
@@ -431,6 +423,7 @@ body,html {
                     color: $color2;
                     text-align: center;
                     font-size: 1.2em;
+                    outline: 0;
                 }
 
                 & div:nth-child(1), div:nth-child(2), div:nth-child(3) {

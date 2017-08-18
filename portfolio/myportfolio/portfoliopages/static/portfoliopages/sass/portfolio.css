@@ -37,10 +37,7 @@ body, html {
   background-image: url("../img/drops-wide.jpg");
   height: 100%;
   width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
   position: fixed; }
 
 #titlePageTable {
@@ -280,13 +277,13 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: space-around; }
+    justify-content: flex-start; }
     #mainContainer #projects #project {
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
       margin: 0.5em;
-      width: 20em;
+      width: 20.3em;
       height: auto;
       background-color: rgba(255, 242, 185, 0.2);
       cursor: pointer; }
@@ -325,7 +322,8 @@ body, html {
           text-decoration: none;
           color: #fff2b9;
           text-align: center;
-          font-size: 1.2em; }
+          font-size: 1.2em;
+          outline: 0; }
         #mainContainer #projects #project #projectButtons div:nth-child(1), #mainContainer #projects #project #projectButtons div:nth-child(2), #mainContainer #projects #project #projectButtons div:nth-child(3) {
           display: flex;
           flex-wrap: wrap;
