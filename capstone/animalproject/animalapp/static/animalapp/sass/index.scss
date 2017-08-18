@@ -370,8 +370,11 @@ body, html {
       height: 3em;
       width:31em;
     }
-    #id_img {
+    #id_img, #id_name, #id_id_number {
       width: 31em;
+    }
+    #id_species, #id_location, #id_status, #id_dog_breed, #id_size, #id_weight, #id_cat_breed, #id_cat_color {
+      width: 14.2em;
     }
   }
 }
@@ -415,6 +418,14 @@ body, html {
   width: 96%;
   color: $color2;
   font-family: Arial;
+
+  .messages {
+    align-self: center;
+    font-size: 1.5em;
+    margin: 1em auto;
+    padding: 1em;
+    color: #52D017;
+  }
 
   #dbfilters {
     display: flex;
@@ -633,6 +644,14 @@ body, html {
 }
 
 /* Profile Pages */
+
+.messages {
+    align-self: center;
+    font-size: 1.5em;
+    margin: 1em auto;
+    padding: 1em;
+    color: #52D017;
+}
 
 @keyframes pulse {
   100% {

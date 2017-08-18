@@ -88,7 +88,8 @@ def add_animal(request):
 
         # calculating animal's age in days in order to add an appropriate tag (kitten/puppy/adult)
         tod = datetime.date.today()
-        dob = int(dog_form.data['birthday_year']) * 365 + int(dog_form.data['birthday_month']) * 30 + int(dog_form.data['birthday_day'])
+        dob = int(dog_form.data['birthday_year']) * 365 + int(dog_form.data['birthday_month']) \
+                                                          * 30 + int(dog_form.data['birthday_day'])
         age = (int(tod.year) * 365 + int(tod.month) * 30 + int(tod.day)) - dob
 
         # if the user selects 'dog', only form and dog_form will be validated and saved
@@ -124,6 +125,7 @@ def add_animal(request):
             tags.append(dog_form.data['dog_color'])
             tags.append(dog_form.data['size'])
             form_instance.tags.add(*tags)
+            messages.success(request, 'The profile was created successfully!')
             return HttpResponseRedirect('/animal_profile/{}/'.format(request.POST['id_number']))
 
         # if the user selects 'cat', only form and cat_form will be validated and saved
@@ -166,6 +168,7 @@ def add_animal(request):
                 tags.append('adult')
 
             form_instance.tags.add(*tags)
+            messages.success(request, 'The profile was created successfully!')
             return HttpResponseRedirect('/animal_profile/{}/'.format(request.POST['id_number']))
 
         else:
@@ -174,6 +177,7 @@ def add_animal(request):
     # deleting a profile
     elif request.GET.get("deleteButton"):
         get_object_or_404(Animal, id=request.GET['animalID']).delete()
+        messages.success(request, 'The profile was successfully deleted from the database!')
         return HttpResponseRedirect('/add_animal/')
 
     else:

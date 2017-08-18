@@ -3,6 +3,13 @@
 <title>{% block title %}Profile{% endblock %}</title>
 
 {% block content %}
+    {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+    {% endif %}
     {% if animals %}
         <div class="slides">
             <ul class="pgwSlideshow">

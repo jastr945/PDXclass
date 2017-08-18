@@ -284,8 +284,10 @@ body, html {
     #addAnimalTable .addAnimalRows #id_notes {
       height: 3em;
       width: 31em; }
-    #addAnimalTable .addAnimalRows #id_img {
+    #addAnimalTable .addAnimalRows #id_img, #addAnimalTable .addAnimalRows #id_name, #addAnimalTable .addAnimalRows #id_id_number {
       width: 31em; }
+    #addAnimalTable .addAnimalRows #id_species, #addAnimalTable .addAnimalRows #id_location, #addAnimalTable .addAnimalRows #id_status, #addAnimalTable .addAnimalRows #id_dog_breed, #addAnimalTable .addAnimalRows #id_size, #addAnimalTable .addAnimalRows #id_weight, #addAnimalTable .addAnimalRows #id_cat_breed, #addAnimalTable .addAnimalRows #id_cat_color {
+      width: 14.2em; }
 
 .headline {
   align-self: center;
@@ -322,6 +324,12 @@ body, html {
   width: 96%;
   color: #FFFFFF;
   font-family: Arial; }
+  #tableContainer .messages {
+    align-self: center;
+    font-size: 1.5em;
+    margin: 1em auto;
+    padding: 1em;
+    color: #52D017; }
   #tableContainer #dbfilters {
     display: flex;
     flex-direction: row;
@@ -502,6 +510,13 @@ body, html {
       margin: 0 0.5em 1em 0.5em; }
 
 /* Profile Pages */
+.messages {
+  align-self: center;
+  font-size: 1.5em;
+  margin: 1em auto;
+  padding: 1em;
+  color: #52D017; }
+
 @keyframes pulse {
   100% {
     transform: perspective(0.8em) translateZ(0.3em); } }
