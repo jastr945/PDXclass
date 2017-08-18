@@ -23,7 +23,7 @@ The information about adoptable animals will be contained in animal profiles sto
 ![alt text]( https://github.com/jastr945/PDXclass/blob/master/capstone/animalproject/animalapp/static/animalapp/img/capstone_data_structure.jpg "Data model diagram")
  ### Technical Components
 
-**__The entire front-end was created using SASS and CSS Flexbox.__**
+**__The responsive design was created using SASS and CSS Flexbox.__**
 
 #### Sign up/ log in pages
 - Django built-in authentication system
@@ -37,17 +37,19 @@ The information about adoptable animals will be contained in animal profiles sto
 - Python function calculating each animal's precise age
 - Python function adding 'kitten', 'puppy' or 'adult' tags depending on animal's age
 - RegEx function splitting several-words fields into one-word tags
+- Filtering database rows dynamically with Django-filters
 - JQuery for displaying the 'delete' option for every database row
 - Showing and hiding basic categories on click with JQuery
 
 #### Index (main) page with a search engine
 - A Django form for searching the database
 - Javascript for zooming in the search form
-- Ability to search through tags with Django Taggit package
+- Ability to search through the database tags with Django Taggit package
 
 #### Search Results page
 - A Django form for repeating the search
 - A template counter for the number of results
+- Filtering the results dynamically with Django-filters
 
 #### Animal Profiles
 - Image gallery (JQuery PGWSlideShow slider)
