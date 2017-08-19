@@ -68,6 +68,10 @@ def add_animal(request):
     # filtering database entries by species, gender and location
     filtered_animals = AnimalFilter(request.GET, queryset=Animal.objects.all())
 
+    for animal in filtered_animals.qs:
+        edit_form = AnimalForm(instance=animal)
+        animal.edit_form = edit_form
+
     # splits fields containing several words into a list of separate words
     def clear_tags(raw_data: str):
         cleaned = (re.sub('[/\-]+', ' ', raw_data)).split(' ')
@@ -200,10 +204,8 @@ def add_animal(request):
                 messages.success(request, 'Your changes were saved successfully!')
                 return HttpResponseRedirect('/animal_profile/{}/'.format(edit_form.initial['id_number']))
 
-        else:
-            messages.error(request, edit_form.errors)
-
-        return render(request, 'animalapp/add_animal.html', {'edit_form': edit_form})
+        return render(request, 'animalapp/add_animal.html', {'edit_form': edit_form, 'cat_edit_form': cat_edit_form,
+        'dog_edit_form': dog_edit_form})
 
     # deleting a profile
     elif request.GET.get('deleteButton'):
@@ -215,11 +217,9 @@ def add_animal(request):
         form = AnimalForm()
         dog_form = DogForm()
         cat_form = CatForm()
-        filtered_animals = AnimalFilter(request.GET, queryset=Animal.objects.all())
 
     return render(request, 'animalapp/add_animal.html', {'form': form, 'dog_form': dog_form, 'cat_form': cat_form,
-                                                         'filtered_animals': filtered_animals,
-                                                        })
+                                                         'filtered_animals': filtered_animals})
 
 
 def search_results(request):
@@ -243,4 +243,3 @@ def search_results(request):
         filtered_animals = AnimalFilter(request.GET, queryset=animals)
 
     return render(request, 'animalapp/search_results.html', {'filtered_animals': filtered_animals})
-

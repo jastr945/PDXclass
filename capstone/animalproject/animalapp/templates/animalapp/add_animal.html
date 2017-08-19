@@ -173,7 +173,7 @@
                     <div class="editProfile">
                         <form method="post" enctype="multipart/form-data">
                             {% csrf_token %}
-                            {{ edit_form.as_p }}
+                            {{ a.edit_form.as_p }}
                             <input type="submit" value="Save">
                             <input type="hidden" name="edit" value={{ a.id }}>
                         </form>
@@ -189,4 +189,3 @@
 {% block js %}
     <script src="{% static 'animalapp/js/add_animal.js' %}"></script>
 {% endblock %}
-
