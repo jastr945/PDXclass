@@ -174,8 +174,18 @@ def add_animal(request):
         else:
             messages.error(request, form.errors)
 
+    # editing a profile and re-submitting an edited form
+    elif request.POST.get('edit'):
+        animal = get_object_or_404(Animal, id=request.POST['edit'])
+        edit_form = AnimalForm(request.POST, instance=animal)
+        if edit_form.is_valid():
+            edit_form.save()
+            messages.success(request, 'Your changes were saved successfully!')
+
+        return HttpResponseRedirect('/animal_profile/{}/'.format(edit_form.instance.id_number))
+
     # deleting a profile
-    elif request.GET.get("deleteButton"):
+    elif request.GET.get('deleteButton'):
         get_object_or_404(Animal, id=request.GET['animalID']).delete()
         messages.success(request, 'The profile was successfully deleted from the database!')
         return HttpResponseRedirect('/add_animal/')

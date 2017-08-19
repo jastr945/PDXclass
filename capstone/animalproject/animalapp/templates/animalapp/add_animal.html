@@ -169,6 +169,15 @@
                         <div class="dbButton noDelete"><u>No</u></div>
                     </div>
                     </form>
+
+                    <div class="editProfile">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ a }}
+                            <input type="submit" value="Save">
+                            <input type="hidden" name="edit" value={{ a.id }}>
+                        </form>
+                    </div>
                 {% endfor %}
             {% else %}
                 <div class="infoText">No entries matching your selection criteria were found.</div>
