@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
-from .models import Animal, Image
+from .models import Animal, Cat, Dog, Image
 from .forms import AnimalForm, DogForm, CatForm, SignUpForm
 from .filters import AnimalFilter
 from django.conf import settings
@@ -178,11 +178,32 @@ def add_animal(request):
     elif request.POST.get('edit'):
         animal = get_object_or_404(Animal, id=request.POST['edit'])
         edit_form = AnimalForm(request.POST, instance=animal)
-        if edit_form.is_valid():
-            edit_form.save()
-            messages.success(request, 'Your changes were saved successfully!')
+        if edit_form.initial['species'] == 'cat':
+            cat = get_object_or_404(Cat, id=request.POST['edit'])
+            cat_edit_form = CatForm(request.POST, instance=cat)
+            if edit_form.is_valid() and cat_edit_form.is_valid():
+                edit_form_instance = edit_form.save()
+                cat_edit_form_instance = cat_edit_form.save(commit=False)
+                cat_edit_form_instance.id = edit_form_instance
+                cat_edit_form_instance.save()
+                messages.success(request, 'Your changes were saved successfully!')
+                return HttpResponseRedirect('/animal_profile/{}/'.format(edit_form.initial['id_number']))
 
-        return HttpResponseRedirect('/animal_profile/{}/'.format(edit_form.instance.id_number))
+        elif edit_form.initial['species'] == 'dog':
+            dog = get_object_or_404(Dog, id=request.POST['edit'])
+            dog_edit_form = DogForm(request.POST, instance=dog)
+            if edit_form.is_valid() and dog_edit_form.is_valid():
+                edit_form_instance = edit_form.save()
+                dog_edit_form_instance = dog_edit_form.save(commit=False)
+                dog_edit_form_instance.id = edit_form_instance
+                dog_edit_form_instance.save()
+                messages.success(request, 'Your changes were saved successfully!')
+                return HttpResponseRedirect('/animal_profile/{}/'.format(edit_form.initial['id_number']))
+
+        else:
+            messages.error(request, edit_form.errors)
+
+        return render(request, 'animalapp/add_animal.html', {'edit_form': edit_form})
 
     # deleting a profile
     elif request.GET.get('deleteButton'):
@@ -197,7 +218,8 @@ def add_animal(request):
         filtered_animals = AnimalFilter(request.GET, queryset=Animal.objects.all())
 
     return render(request, 'animalapp/add_animal.html', {'form': form, 'dog_form': dog_form, 'cat_form': cat_form,
-                                                         'filtered_animals': filtered_animals})
+                                                         'filtered_animals': filtered_animals,
+                                                        })
 
 
 def search_results(request):
