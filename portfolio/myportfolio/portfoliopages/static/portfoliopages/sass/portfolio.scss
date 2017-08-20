@@ -57,11 +57,14 @@ body,html {
 #firstContainer {
     display:flex;
     flex-wrap: wrap;
-    background-image: url('../img/drops-wide.jpg');
+    background-image: url("../img/drops-wide.jpg");
     height: 100%;
     width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    position:fixed;
+    background-attachment: fixed;
+    position: fixed;
 }
 
 #titlePageTable {
@@ -183,7 +186,7 @@ body,html {
             margin: 1em;
 
             #bioText {
-                //background-color: pink;
+                // background-color: pink;
                 font-size: 1.2em;
                 text-underline-color: $color2;
                 background-color: rgba(255, 242, 185, .2);
@@ -236,7 +239,7 @@ body,html {
                 }
             }
             #socialIcons {
-                //background-color: green;
+                // background-color: pink;
                 display: flex;
                 flex-wrap: wrap;
                 flex-direction: row;
