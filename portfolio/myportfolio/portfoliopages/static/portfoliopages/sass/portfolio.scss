@@ -353,21 +353,26 @@ body,html {
         flex-direction: column;
         justify-content: center;
         align-self: center;
-        margin: 3rem 2rem 3rem 2rem;
+        width: auto;
+        margin: 0 2rem;
         h1 {
             align-self: center;
             font-size: 3rem;
             text-align: center;
-            margin:0.5rem 0.2rem 0.2rem 0.2rem;
             background-color: rgba(255, 242, 185, .2);
             &:hover {
                 background-color: lighten($color1, 5%);
             }
         }
+
+        @media only screen and (max-width: 375px) {
+          h1 {
+            padding: 0.5rem;
+          }
+        }
     }
 
     #projects {
-        //background-color: orange;
         display: flex;
         flex-wrap: wrap;
         width:100%;
@@ -378,7 +383,7 @@ body,html {
             flex-direction: column;
             flex-wrap: wrap;
             margin:0.5rem;
-            width: 20.5rem;
+            width: 20.3rem;
             height: auto;
             background-color: rgba(255, 242, 185, .2);
             cursor: pointer;
@@ -391,7 +396,6 @@ body,html {
                 margin: 0.5rem;
             }
             & #projectImg {
-                //background-color: yellow;
                 align-self: center;
                 padding:0;
                 & .projectRoundPic {
@@ -400,7 +404,6 @@ body,html {
                 }
             }
             & #projectDescription {
-                //background-color: pink;
                 align-self: center;
                 text-align: center;
                 margin: 1.5rem 0.5rem 0.5rem 0.5rem;
@@ -462,5 +465,35 @@ body,html {
                 }
             }
         }
+
+        @media only screen and (min-width: 770px) {
+          #project {
+            width: 100%;
+            margin: 1vh 0;
+            padding: 0;
+          }
+        }
+
+        @media only screen and (min-width: 768px) {
+          #project {
+            width: 46%;
+            margin: 1vh;
+            padding: 0;
+          }
+        }
     }
+}
+
+@media only screen and (max-width: 600px) {
+  #mainContainer {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #mainContainer {
+    width: 90%;
+    margin: auto;
+  }
 }
