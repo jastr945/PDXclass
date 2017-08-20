@@ -176,6 +176,15 @@ body,html {
           }
         }
 
+        @media only screen and (max-width: 1024px) {
+          #profilePic {
+            width: 100%;
+            height: 15%;
+            margin: 1vh auto 0 auto;
+            padding:0;
+          }
+        }
+
         #personalInfo {
             display: flex;
             flex-direction: column;
@@ -315,7 +324,6 @@ body,html {
             }
 
             #skillsSection {
-                //background-color: white;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -325,14 +333,12 @@ body,html {
                 margin: 0.5vw 0.5vw 0 0.5vw;
                 padding: 0;
                 #skillsList {
-                    //background-color: green;
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
                     justify-content: flex-end;
                     font-size: 1.2rem;
                     div {
-                        //background-color: orange;
                         margin: 0.5rem;
                         padding: 0.5rem;
                         align-self: center;
@@ -344,6 +350,39 @@ body,html {
                 }
             }
         }
+        @media only screen and (max-width: 1024px) {
+          #personalInfo {
+            width: 100%;
+            margin: 1vh auto;
+            padding: 0;
+            #bioText {
+              width: 97%;
+              margin: 1vh auto;
+              padding: 0;
+            }
+            #socialIcons {
+              width: 100%;
+              margin: 1vh auto;
+              padding: 0;
+            }
+            #skillsSection {
+              width: 100%;
+              margin: 1vh auto;
+              padding: 0;
+              #skillsList {
+                width: 100%;
+                justify-content: center;
+              }
+            }
+          }
+        }
+    }
+    @media only screen and (max-width: 1024px) {
+      #banner {
+        width: 100%;
+        margin: 1vh;
+        padding: 0;
+      }
     }
 
     #projectSection {
