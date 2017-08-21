@@ -78,7 +78,6 @@ body,html {
     font-family: "Tlwg Typist";
     & h1 {
         display: flex;
-        // flex-wrap: wrap;
         flex-direction: column;
         font-size: 3.5vw;
         color: lightgrey;
@@ -134,7 +133,7 @@ body,html {
 @media only screen and (max-width: 1024px) {
   #titlePageTable {
     margin-top: 65vh;
-    height: 32vh;
+    height: 33vh;
     h1 {
       font-size: 8vw;
       margin: 3vw;
@@ -145,25 +144,25 @@ body,html {
       margin: 0 0 1vw 0;
     }
     #arrow {
-      height: 50%;
+      height: 60%;
       width: 50%;
       div:nth-child(1) {
         width: 70%;
-        border-top: 5vw solid lightgrey;
+        border-top: 7vw solid lightgrey;
         border-left: 10vw solid transparent;
         border-right: 10vw solid transparent;
 
       }
       div:nth-child(2) {
         width: 29%;
-        border-top: 5vw solid lightgrey;
+        border-top: 7vw solid lightgrey;
         border-left: 10vw solid transparent;
         border-right: 10vw solid transparent;
       }
       div:nth-child(3) {
-        border-top: 4vw solid lightgrey;
-        border-left: 7vw solid transparent;
-        border-right: 7vw solid transparent;
+        border-top: 5vw solid lightgrey;
+        border-left: 6.8vw solid transparent;
+        border-right: 6.8vw solid transparent;
       }
     }
   }
@@ -233,7 +232,6 @@ body,html {
             margin: 1vh;
 
             #bioText {
-                // background-color: pink;
                 font-size: 1.2rem;
                 text-underline-color: $color2;
                 background-color: rgba(255, 242, 185, .2);
@@ -345,7 +343,7 @@ body,html {
                 @media only screen and (max-width: 500px) {
                   #tooltip {
                     flex-direction: column;
-                    justify-content: center;
+                    justify-content: space-around;
                     width: 36%;
                     #emailAddress {
                       padding-top: 5%;
@@ -557,6 +555,23 @@ body,html {
                     margin: 0.1rem 0.1rem 0.1rem 0.1rem;
                     padding: 0;
                 }
+            }
+            @media only screen and (max-width: 360px) {
+              #projectButtons {
+                width: 75%;
+                div:nth-child(1) {
+                  width: 100%;
+                }
+                div:nth-child(2) {
+                  width: 100%;
+                }
+                div:nth-child(3) {
+                  width: 100%;
+                }
+                a {
+                  font-size: 1rem;
+                }
+              }
             }
         }
 

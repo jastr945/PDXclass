@@ -1,14 +1,14 @@
 html, body {
     display: flex;
     justify-items: center;
-    height: 100%;
-    width:100%;
     margin: 0;
     padding:0;
     font-family: "Gill Sans", sans-serif;
     background-image: url("/static/portfoliopages/img/caesar.jpg");
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: repeat-y;
+    height: 100%;
+    width:100%;
 }
 
 #panel {
@@ -111,4 +111,24 @@ p {
 
 #decryptionTab input.error {
     border:1px solid red;
+}
+
+@media only screen and (max-width: 1024px) {
+  #panel {
+    width: 98%;
+    margin: auto;
+  }
+  #content {
+    width: 95%;
+    padding: 2%;
+  }
+  #encryptionTab, #decryptionTab {
+    width: 98%;
+  }
+  #encryptString, #encryptKey, #encrypt, #decryptString, #decryptKey, #decrypt, #encryptResult, #decryptResult {
+    width: 100%;
+    font-size: 2em;
+    text-align: center;
+    margin: 1vh auto;
+  }
 }
