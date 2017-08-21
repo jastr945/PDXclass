@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Portfolio</title>
     <link rel="stylesheet" type="text/css" href="{% static 'portfoliopages/sass/portfolio.min.css' %}">
 </head>
@@ -72,7 +72,11 @@
                             <div id="projectImg"><img src="media/{{ p.img }}" alt="Project file" class="projectRoundPic" height="120px" width="120px"></div>
                             <div id="projectDescription">{{ p.description }}</div>
                             <div id="projectButtons" class="projectButtons" style="display: none">
+                              {% if p.demo_link %}
+                                <div id="seeDemo" class="buttonLink"><a href="{{ p.demo_link }}" onclick="window.open('{{ p.demo_link }}', '_blank')"><b>See how it works</b></a></div>
+                              {% elif p.slug %}
                                 <div id="seeDemo" class="buttonLink"><a href="{% url 'project' p.slug %}" onclick="window.open('{% url 'project' p.slug %}', '_blank')"><b>See how it works</b></a></div>
+                              {% endif %}
                                 <div id="seeCode" class="buttonLink"><a href="{{ p.project_link }}" onclick="window.open('{{ p.project_link }}', '_blank')"><b>Look at the code</b></a></div>
                                 <div id="seeReadMe" class="buttonLink"><a href="{{ p.readme_link }}" onclick="window.open('{{ p.readme_link }}', '_blank')"><b>Open the ReadMe.md file</b></a></div>
                                 <div id="arrowClose" class="arrowClose"></div>
