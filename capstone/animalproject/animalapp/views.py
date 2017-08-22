@@ -70,7 +70,10 @@ def add_animal(request):
 
     for animal in filtered_animals.qs:
         edit_form = AnimalForm(instance=animal)
+        cat_edit_form = CatForm(instance=animal)
         animal.edit_form = edit_form
+        animal.cat_edit_form = cat_edit_form
+        # import ipdb; ipdb.set_trace()
 
     # splits fields containing several words into a list of separate words
     def clear_tags(raw_data: str):
