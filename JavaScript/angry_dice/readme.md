@@ -7,5 +7,6 @@ The game has 3 rounds. The object is to be the first to six by rolling your dice
 - Responsive CSS design
 - JavaScript classes and class functions
 - Generating random whole numbers within a specific range with Javascript
+- Basic JQuery animations
 
 **This was one of the labs during the 5th week of the PDX Code Gulid developer bootcamp.**
