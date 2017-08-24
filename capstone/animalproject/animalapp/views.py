@@ -68,12 +68,16 @@ def add_animal(request):
     # filtering database entries by species, gender and location
     filtered_animals = AnimalFilter(request.GET, queryset=Animal.objects.all())
 
+
     for animal in filtered_animals.qs:
+
         edit_form = AnimalForm(instance=animal)
-        cat_edit_form = CatForm(instance=animal)
+        if animal.species == 'cat':
+            species_edit_form = CatForm(instance=animal.cat)
+        else:
+            species_edit_form = DogForm(instance=animal.dog)
         animal.edit_form = edit_form
-        animal.cat_edit_form = cat_edit_form
-        # import ipdb; ipdb.set_trace()
+        animal.species_edit_form = species_edit_form
 
     # splits fields containing several words into a list of separate words
     def clear_tags(raw_data: str):

@@ -174,7 +174,7 @@
                         <form method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                             {{ a.edit_form.as_p }}
-                            {{ a.cat.cat_personality }}
+                            {{ a.species_edit_form.as_p }}
                             <input type="submit" value="Save">
                             <input type="hidden" name="edit" value={{ a.id }}>
                         </form>
