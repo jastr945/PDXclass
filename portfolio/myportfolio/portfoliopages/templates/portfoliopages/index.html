@@ -28,7 +28,7 @@
             <div id="personalInfo">
                 <div id="bioText">
                     {% for b in bio %}
-                        <p>{{b.text}}</p>
+                        <p>{{ b.text|linebreaks }}</p>
                     {% endfor %}
                 </div>
 
@@ -56,7 +56,7 @@
                         {% endfor %}
                     </div>
                 </div>
-            </div>  
+            </div>
         </div>
 
         <div id="projectSection">
