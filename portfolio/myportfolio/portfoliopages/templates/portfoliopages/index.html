@@ -42,7 +42,13 @@
                     <div id="gitHub"><a href="https://github.com/jastr945" target="_blank"><span>Github</span></a></div>
                     <div id="linkedIn"><a href="https://www.linkedin.com/in/polinajastrzebska/" target="_blank"><span>LinkedIn</span></a></div>
                 </div>
+            </div>
 
+
+            <div id="profilePic">
+              {% for p in profile_pic %}
+                <img src="media/{{p.img}}" class="img-circle" alt="Profile picture">
+              {% endfor %}
                 <div id="skillsSection" class="field">
                     <div id="skillsList">
                         {% for s in skills %}
@@ -50,13 +56,7 @@
                         {% endfor %}
                     </div>
                 </div>
-            </div>
-
-            {% for p in profile_pic %}
-            <div id="profilePic">
-                <img src="media/{{p.img}}" class="img-circle" alt="Profile picture">
-            </div>
-            {% endfor %}
+            </div>  
         </div>
 
         <div id="projectSection">

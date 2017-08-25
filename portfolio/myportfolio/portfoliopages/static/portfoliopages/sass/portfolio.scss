@@ -194,12 +194,13 @@ body,html {
         padding: 2%;
 
         #profilePic {
+          background-color: pink;
           display: flex;
           justify-content: center;
           align-self: center;
           margin:0 auto;
           width: 35rem;
-          height: 20rem;
+          height: auto;
           .img-circle {
             width: 25vh;
             border-radius: 50%;
@@ -209,6 +210,33 @@ body,html {
               animation-name: dottedborder;
               animation-duration: 0.7s;
             }
+          }
+          #skillsSection {
+              background-color: violet;
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              align-self: flex-end;
+              width:70%;
+              font-size: 1rem;
+              margin: 0.5vw 0.5vw 0 0.5vw;
+              padding: 0;
+              #skillsList {
+                  display: flex;
+                  flex-direction: row;
+                  flex-wrap: wrap;
+                  justify-content: flex-end;
+                  font-size: 1.2rem;
+                  div {
+                      margin: 0.5rem;
+                      padding: 0.5rem;
+                      align-self: center;
+                      background-color: rgba(255, 242, 185, .2);
+                      &:hover {
+                          background-color: lighten($color1, 5%);
+                      }
+                  }
+              }
           }
         }
 
@@ -287,9 +315,9 @@ body,html {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
-                align-self: flex-end;
+                align-self: center;
                 align-items: center;
-                margin: 0 0.8vw 0 0.5vw;
+                margin: 3vh 0.8vw 0 0.5vw;
                 padding: 0;
 
                 #tooltip {
@@ -373,33 +401,6 @@ body,html {
                     }
                 }
             }
-
-            #skillsSection {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                align-self: flex-end;
-                width:70%;
-                font-size: 1rem;
-                margin: 0.5vw 0.5vw 0 0.5vw;
-                padding: 0;
-                #skillsList {
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    justify-content: flex-end;
-                    font-size: 1.2rem;
-                    div {
-                        margin: 0.5rem;
-                        padding: 0.5rem;
-                        align-self: center;
-                        background-color: rgba(255, 242, 185, .2);
-                        &:hover {
-                            background-color: lighten($color1, 5%);
-                        }
-                    }
-                }
-            }
         }
 
         @media only screen and (max-width: 1024px) {
@@ -468,6 +469,7 @@ body,html {
         display: flex;
         flex-wrap: wrap;
         width:100%;
+        margin-bottom: 4vh;
         justify-content: flex-start;
 
         #project {
@@ -490,6 +492,7 @@ body,html {
             & #projectImg {
                 align-self: center;
                 padding:0;
+                margin-top: 0.5rem;
                 & .projectRoundPic {
                     border-radius: 50%;
                     border: 5px solid $color2;

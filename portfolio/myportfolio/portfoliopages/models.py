@@ -33,7 +33,7 @@ class Skill(models.Model):
 
 class Bio(models.Model):
     name = 'Bio'
-    text = models.TextField(max_length=255)
+    text = models.TextField(max_length=700)
 
     def __str__(self):
         return '{}'.format(self.name)
