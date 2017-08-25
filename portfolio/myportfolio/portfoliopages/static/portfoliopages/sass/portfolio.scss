@@ -127,7 +127,7 @@ body,html {
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 450px) {
   #titlePageTable {
     margin-top: 65vh;
     height: 33vh;
@@ -177,7 +177,8 @@ body,html {
   padding: 0;
   background-color: rgba(87, 107, 116, .5);
   font-family: "Tlwg Typist";
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   #banner {
     display: flex;
@@ -219,7 +220,7 @@ body,html {
         align-self: flex-end;
         width:100%;
         font-size: 1rem;
-        margin: 4vh 0 0 0;
+        margin: 3vh 0 0 0;
         padding: 0;
         #skillsList {
           display: flex;
@@ -240,7 +241,7 @@ body,html {
       }
     }
 
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (min-width: 320px) and (max-width: 1600px) {
       #profilePic {
         justify-content: center;
         width: 100%;
@@ -249,6 +250,9 @@ body,html {
         padding:0;
         .img-circle {
           margin: 0 auto;
+          &:hover {
+            animation: none;
+          }
         }
         #skillsSection {
           width: 100%;
@@ -257,6 +261,7 @@ body,html {
           #skillsList {
             width: 100%;
             justify-content: center;
+            font-size: 1rem;
           }
         }
       }
@@ -379,7 +384,7 @@ body,html {
           border-bottom: 2rem solid transparent;
         }
 
-        @media only screen and (max-width: 500px) {
+        @media only screen and (max-width: 320px) {
           #tooltip {
             flex-direction: column;
             justify-content: space-around;
@@ -414,7 +419,7 @@ body,html {
       }
     }
 
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1600px) {
       #personalInfo {
         justify-content: center;
         height: auto;
@@ -425,6 +430,8 @@ body,html {
           width: 96%;
           margin: 1vh auto;
           padding: 0;
+          font-size: 1rem;
+          height: auto;
         }
         #socialIcons {
           width: 100%;
@@ -435,7 +442,7 @@ body,html {
     }
   }
 
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1600px) {
     #banner {
       width: 100%;
       height: auto;
@@ -445,7 +452,6 @@ body,html {
   }
 
     #projectSection {
-        //background-color: aqua;
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
@@ -463,9 +469,10 @@ body,html {
             }
         }
 
-        @media only screen and (max-width: 375px) {
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
           h1 {
             padding: 0.5rem;
+            font-size: 2rem;
           }
         }
     }
@@ -564,53 +571,68 @@ body,html {
                     padding: 0;
                 }
             }
-            @media only screen and (max-width: 360px) {
+            @media only screen and (min-width: 320px) and (max-width: 767px) {
               #projectButtons {
-                width: 75%;
+                width: 64%;
                 div:nth-child(1) {
-                  width: 100%;
+                  width: 95%;
                 }
                 div:nth-child(2) {
-                  width: 100%;
+                  width: 95%;
                 }
                 div:nth-child(3) {
-                  width: 100%;
+                  width: 95%;
                 }
                 a {
-                  font-size: 1rem;
+                  font-size: 0.8rem;
                 }
               }
             }
         }
 
-        @media only screen and (max-width: 360px) {
+        @media only screen and (max-width: 768px) {
           #project {
             width: 100%;
             margin: 1vh 0;
             padding: 0;
+            #projectName {
+              font-size: 1.2rem;
+            }
+            #projectDescription {
+              font-size: 1rem;
+            }
           }
         }
 
-        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        @media only screen and (min-width: 768px) and (max-width: 1600px) {
           #project {
             width: 46%;
             margin: 1vh;
             padding: 0;
+            #projectName {
+              font-size: 1.2rem;
+            }
+            #projectDescription {
+              font-size: 1rem;
+            }
           }
         }
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 320px) {
   #mainContainer {
+    justify-content: flex-start;
     width: 90%;
     margin: auto;
+    overflow-x: scroll;
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1600px) {
   #mainContainer {
     width: 90%;
     margin: auto;
+    overflow-x: auto;
   }
 }
