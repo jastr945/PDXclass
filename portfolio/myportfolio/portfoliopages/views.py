@@ -4,7 +4,7 @@ from .models import Project, Skill, Bio, ProfilePic
 
 # rendering the main page
 def index(request):
-    projects = Project.objects.all()
+    projects = Project.objects.all().order_by('-id')
     skills = Skill.objects.all()
     bio = Bio.objects.all()
     profile_pic = ProfilePic.objects.all()
