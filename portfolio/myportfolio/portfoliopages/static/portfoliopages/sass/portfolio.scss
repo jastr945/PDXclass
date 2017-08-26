@@ -255,7 +255,7 @@ body,html {
           }
         }
         #skillsSection {
-          width: 100%;
+          width:100%;
           margin: 1vh auto;
           padding: 0;
           #skillsList {
@@ -284,6 +284,7 @@ body,html {
         background-color: rgba(255, 242, 185, .2);
         margin: 4vh 1vh 1vh 1vh;
         width: 85%;
+
         p {
           padding: 0 2% 0 2%;
           text-align: justify;
@@ -384,7 +385,7 @@ body,html {
           border-bottom: 2rem solid transparent;
         }
 
-        @media only screen and (max-width: 320px) {
+        @media only screen and (min-width: 320px) and (max-width: 767px) {
           #tooltip {
             flex-direction: column;
             justify-content: space-around;
@@ -451,173 +452,173 @@ body,html {
     }
   }
 
-    #projectSection {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
+  #projectSection {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    width: auto;
+    margin: 0 2rem;
+    h1 {
+      align-self: center;
+      font-size: 3rem;
+      text-align: center;
+      background-color: rgba(255, 242, 185, .2);
+      &:hover {
+        background-color: lighten($color1, 5%);
+      }
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+      h1 {
+        padding: 0.5rem;
+        font-size: 2rem;
+      }
+    }
+  }
+
+  #projects {
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    margin-bottom: 4vh;
+    justify-content: flex-start;
+
+    #project {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      margin:0.5rem;
+      width: 20.3rem;
+      height: auto;
+      background-color: rgba(255, 242, 185, .2);
+      cursor: pointer;
+      &:hover {
+        background-color: lighten($color1, 5%);
+      }
+      & #projectName {
         align-self: center;
-        width: auto;
-        margin: 0 2rem;
-        h1 {
-            align-self: center;
-            font-size: 3rem;
-            text-align: center;
-            background-color: rgba(255, 242, 185, .2);
-            &:hover {
-                background-color: lighten($color1, 5%);
-            }
+        font-size: 1.5rem;
+        margin: 0.5rem;
+      }
+      & #projectImg {
+        align-self: center;
+        padding:0;
+        margin-top: 0.5rem;
+        & .projectRoundPic {
+          border-radius: 50%;
+          border: 5px solid $color2;
         }
-
-        @media only screen and (min-width: 320px) and (max-width: 768px) {
-          h1 {
-            padding: 0.5rem;
-            font-size: 2rem;
-          }
-        }
-    }
-
-    #projects {
+      }
+      & #projectDescription {
+        align-self: center;
+        text-align: center;
+        margin: 1.5rem 0.5rem 0.5rem 0.5rem;
+        font-size: 1.2rem;
+        padding: 1rem;
+      }
+      & #projectButtons {
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
-        width:100%;
-        margin-bottom: 4vh;
-        justify-content: flex-start;
-
-        #project {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            margin:0.5rem;
-            width: 20.3rem;
-            height: auto;
-            background-color: rgba(255, 242, 185, .2);
-            cursor: pointer;
-            &:hover {
-                background-color: lighten($color1, 5%);
-            }
-            & #projectName {
-                align-self: center;
-                font-size: 1.5rem;
-                margin: 0.5rem;
-            }
-            & #projectImg {
-                align-self: center;
-                padding:0;
-                margin-top: 0.5rem;
-                & .projectRoundPic {
-                    border-radius: 50%;
-                    border: 5px solid $color2;
-                }
-            }
-            & #projectDescription {
-                align-self: center;
-                text-align: center;
-                margin: 1.5rem 0.5rem 0.5rem 0.5rem;
-                font-size: 1.2rem;
-                padding: 1rem;
-            }
-            & #projectButtons {
-                display: flex;
-                flex-direction: column;
-                flex-wrap: wrap;
-                justify-content: center;
-                position: absolute;
-                margin:3rem 0 0.1rem 0;
-                z-index: 0;
-                align-self: center;
-                text-align: center;
-                background-color: $color1;
-                height:auto;
-                width:18rem;
-                a {
-                    display: inline-block;
-                    text-decoration: none;
-                    color: $color2;
-                    text-align: center;
-                    font-size: 1.2rem;
-                    outline: 0;
-                }
-
-                & div:nth-child(1), div:nth-child(2), div:nth-child(3) {
-                    display: flex;
-                    flex-wrap: wrap;
-                    flex-direction: column;
-                    justify-content: center;
-                    text-align: center;
-                    background-color: darken($color1, 10%);
-                    align-self: center;
-                    height:2rem;
-                    width:17.5rem;
-                    margin: 0.2rem 0.1rem 0 0.1rem;
-                    padding: 1%;
-                    &:hover {
-                        background-color: #2b353a;
-                    }
-                }
-
-                & div:nth-child(4) {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    flex-direction: column;
-                    align-self: center;
-                    height: 0;
-                    width: 0;
-                    border-left: 2rem solid transparent;
-                    border-right: 2rem solid transparent;
-                    border-bottom: 2rem solid $color2;
-                    margin: 0.1rem 0.1rem 0.1rem 0.1rem;
-                    padding: 0;
-                }
-            }
-            @media only screen and (min-width: 320px) and (max-width: 767px) {
-              #projectButtons {
-                width: 64%;
-                div:nth-child(1) {
-                  width: 95%;
-                }
-                div:nth-child(2) {
-                  width: 95%;
-                }
-                div:nth-child(3) {
-                  width: 95%;
-                }
-                a {
-                  font-size: 0.8rem;
-                }
-              }
-            }
+        justify-content: center;
+        position: absolute;
+        margin:3rem 0 0.1rem 0;
+        z-index: 0;
+        align-self: center;
+        text-align: center;
+        background-color: $color1;
+        height:auto;
+        width:18rem;
+        a {
+          display: inline-block;
+          text-decoration: none;
+          color: $color2;
+          text-align: center;
+          font-size: 1.2rem;
+          outline: 0;
         }
 
-        @media only screen and (max-width: 768px) {
-          #project {
-            width: 100%;
-            margin: 1vh 0;
-            padding: 0;
-            #projectName {
-              font-size: 1.2rem;
-            }
-            #projectDescription {
-              font-size: 1rem;
-            }
+        & div:nth-child(1), div:nth-child(2), div:nth-child(3) {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+          background-color: darken($color1, 10%);
+          align-self: center;
+          height:2rem;
+          width:17.5rem;
+          margin: 0.2rem 0.1rem 0 0.1rem;
+          padding: 1%;
+          &:hover {
+            background-color: #2b353a;
           }
         }
 
-        @media only screen and (min-width: 768px) and (max-width: 1600px) {
-          #project {
-            width: 46%;
-            margin: 1vh;
-            padding: 0;
-            #projectName {
-              font-size: 1.2rem;
-            }
-            #projectDescription {
-              font-size: 1rem;
-            }
+        & div:nth-child(4) {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          flex-direction: column;
+          align-self: center;
+          height: 0;
+          width: 0;
+          border-left: 2rem solid transparent;
+          border-right: 2rem solid transparent;
+          border-bottom: 2rem solid $color2;
+          margin: 0.1rem 0.1rem 0.1rem 0.1rem;
+          padding: 0;
+        }
+      }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        #projectButtons {
+          width: 64%;
+          div:nth-child(1) {
+            width: 95%;
+          }
+          div:nth-child(2) {
+            width: 95%;
+          }
+          div:nth-child(3) {
+            width: 95%;
+          }
+          a {
+            font-size: 0.8rem;
           }
         }
+      }
     }
+
+    @media only screen and (max-width: 768px) {
+      #project {
+        width: 100%;
+        margin: 1vh 0;
+        padding: 0;
+        #projectName {
+          font-size: 1.2rem;
+        }
+        #projectDescription {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1600px) {
+      #project {
+        width: 46%;
+        margin: 1vh;
+        padding: 0;
+        #projectName {
+          font-size: 1.2rem;
+        }
+        #projectDescription {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 320px) {
