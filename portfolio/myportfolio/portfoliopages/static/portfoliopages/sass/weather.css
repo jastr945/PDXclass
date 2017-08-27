@@ -37,7 +37,7 @@ body, html {
 
 h1 {
   text-shadow: 2px 2px grey;
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 
 #city {
@@ -48,7 +48,7 @@ h1 {
 
 #checkWeather {
   justify-content: center;
-  height: 5.5vh;
+  height: 6vh;
   text-align: center;
   font-size: 1.5rem;
   padding: 0.5rem;
@@ -65,4 +65,45 @@ h1 {
 #icon > img {
   height:10vh;
   margin-top:3vh;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1600px) {
+  #content {
+    width: 98%;
+    height: 50%;
+    border-top: 2vh solid rgba(40, 40, 40, .4);
+    border-bottom: 2vh solid rgba(40, 40, 40, .4);
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+  #cityTab {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  #city {
+    font-size: 1rem;
+    width: 95%;
+    margin: 0 auto;
+  }
+  #checkWeather {
+    font-size: 0.8rem;
+    width: 50%;
+    margin: 1vh auto;
+    padding:0;
+  }
+  #result {
+    justify-content: center;
+    width: 80%;
+    font-size: 1rem;
+    margin-top: 2vh;
+    text-align: center;
+    padding:0;
+  }
+  #icon > img {
+    height: 4vh;
+    margin-top: 1vh;
+  }
 }
