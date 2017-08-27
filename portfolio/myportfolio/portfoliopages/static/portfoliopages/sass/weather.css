@@ -1,54 +1,68 @@
-#body {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: dimgrey;
-    background-repeat: no-repeat;
-    background-position: 50% 7%;
-    background-size: cover;
+body, html {
+  margin:0;
+  padding:0;
+  height: 100%;
+  width: 100%;
+}
+#mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: dimgray;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.content {
-    border: 40px solid rgba(40, 40, 40, .4);
-    position: absolute;
-    height: 500px;
-    width: 800px;
-    margin: -250px 0 0 -450px;
-    top: 45%;
-    left: 50%;
-    background-image: url("/static/portfoliopages/img/bg.jpg");
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
+#content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  border: 5vh solid rgba(40, 40, 40, .4);
+  height: 60vh;
+  width: 90vh;
+  margin: auto;
+  background-image: url("/static/portfoliopages/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
 }
 
 h1 {
-    text-shadow: 2px 2px grey;
+  text-shadow: 2px 2px grey;
+  font-size: 4rem;
 }
 
 #city {
-    height:30px;
-    width:300px;
-    font-size: 14pt;
+  height:5vh;
+  width:60vh;
+  font-size: 1.5rem;
 }
 
 #checkWeather {
-    justify-content: center;
-    height: 35px;
-    text-align: center;
-    font-size: 14pt;
+  justify-content: center;
+  height: 5.5vh;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 0.5rem;
 }
 
 #result {
-    font-size: 1.5em;
-    margin-top: 70px;
-    color: black;
-    background: rgba(230, 230, 250, 0.5);
+  font-size: 1.5rem;
+  margin-top: 3vh;
+  color: black;
+  background: rgba(230, 230, 250, 0.5);
+  padding: 1rem;
 }
 
-
-#icon {
-    height:25px;
-    margin-top:50px;
-    margin-bottom:10px;
+#icon > img {
+  height:10vh;
+  margin-top:3vh;
 }
