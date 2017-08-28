@@ -281,7 +281,7 @@ body, html {
   }
 }
 
-#addAnimalTable {
+#addAnimalTable, .editProfile {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -544,6 +544,7 @@ body, html {
     color: white;
   }
 }
+
 
 /* Search Results Page */
 

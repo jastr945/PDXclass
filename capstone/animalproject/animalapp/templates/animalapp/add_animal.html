@@ -171,8 +171,12 @@
                     </form>
 
                     <div class="editProfile">
-                        <form method="post" enctype="multipart/form-data">
+                        <form class="editForm" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
+                            <div class="addAnimalRows">
+                                <div class="left">Select species:</div>
+                                <div class="right">{{ a.edit_form.species }}</div>
+                            </div>
                             {{ a.edit_form.as_p }}
                             {{ a.species_edit_form.as_p }}
                             <input type="submit" value="Save">
