@@ -281,6 +281,21 @@ body, html {
   }
 }
 
+.submitButton {
+  align-self: center;
+  height: 2.5em;
+  width: 8em;
+  margin: 2em auto;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: $color3;
+  color: $color2;
+  &:hover {
+    background-color: $color4;
+    border: 5px solid $color2;
+  }
+}
+
 #addAnimalTable, .editProfile {
   display: flex;
   flex-direction: column;
@@ -294,6 +309,11 @@ body, html {
   font-family: Arial;
   color: $color2;
   font-size: 1.5em;
+  #addAnimal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .addAnimalRows {
     display: flex;
     flex-direction: row;
@@ -342,22 +362,6 @@ body, html {
       flex-direction: row;
       flex-wrap: wrap;
       align-items: center;
-    }
-    #submitButton {
-      align-self: center;
-      height: 2.5em;
-      width: 8em;
-      margin-right: auto;
-      margin-left:auto;
-      margin-top: 2em;
-      font-size: 1em;
-      cursor: pointer;
-      background-color: $color3;
-      color: $color2;
-      &:hover {
-        background-color: $color4;
-        border: 5px solid $color2;
-      }
     }
     input, select, textarea {
       font-family: Arial;
@@ -441,7 +445,7 @@ body, html {
     }
   }
 
-  #dataBaseRow {
+  .dataBaseRow {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -454,7 +458,7 @@ body, html {
     &:hover {
       background-color: lighten($color1, 10%);
     }
-    #dataBaseInfo {
+    .dataBaseInfo {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -463,12 +467,12 @@ body, html {
       div {
         width: 9em;
       }
-      #locationRow {
+      .locationRow {
         width: 13em;
       }
     }
 
-    #dataButtons {
+    .dataButtons {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
