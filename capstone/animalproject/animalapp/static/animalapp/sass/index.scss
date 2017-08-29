@@ -309,6 +309,15 @@ body, html {
   font-family: Arial;
   color: $color2;
   font-size: 1.5em;
+
+  .cross {
+    width: 2em;
+    height: 2em;
+    fill: $color2;
+    align-self: flex-end;
+    cursor: pointer;
+  }
+
   #addAnimal {
     display: flex;
     flex-direction: column;
@@ -458,6 +467,7 @@ body, html {
     &:hover {
       background-color: lighten($color1, 10%);
     }
+
     .dataBaseInfo {
       display: flex;
       flex-direction: row;

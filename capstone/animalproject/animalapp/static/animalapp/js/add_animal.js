@@ -67,3 +67,11 @@ $('.edit').each(function () {
     $(this).parent().parent().parent().next('.editProfile').show();
   });
 });
+
+// Closes the edit form upon clicking on the cross icon
+$('.cross').each(function () {
+  $(this).click(function (e) {
+    e.preventDefault();
+    $(this).parent('.editProfile').hide();
+  });
+});
