@@ -178,8 +178,15 @@
                     <div class="right">{{ a.edit_form.species }}</div>
                   </div>
                   <div class="addAnimalRows">
-                    <div class="left">Upload pictures:</div>
-                    <div class="right">{{ a.edit_form.img }}</div>
+                    <div class="left">Uploaded pictures:</div>
+                    <div class="right">
+                      {{ a.edit_form.img }}
+                      <div class="photos">
+                      {% for img in a.images.all %}
+                        {{ img.img }}<br>
+                      {% endfor %}
+                    </div>
+                    </div>
                   </div>
                   <div class="addAnimalRows">
                     <div class="left">Name:</div>
@@ -220,10 +227,6 @@
                   <div class="addAnimalRows">
                     <div class="left">Prefers a home without (optional):</div>
                     <div class="right two-columns">{{ a.edit_form.home }}</div>
-                  </div>
-                  <div class="addAnimalRows">
-                    <div class="left">Add a special note (optional):</div>
-                      <div class="right">{{ a.edit_form.notes }}</div>
                   </div>
                   {% if a.species_edit_form.cat_breed %}
                     <div class="addAnimalRows">
@@ -273,6 +276,10 @@
                       <div class="right">{{ a.species_edit_form.dog_personality }}</div>
                     </div>
                   {% endif %}
+                  <div class="addAnimalRows">
+                    <div class="left">Add a special note (optional):</div>
+                    <div class="right">{{ a.edit_form.notes }}</div>
+                  </div>
                   <input type="submit" class="submitButton" value="Save">
                   <input type="hidden" name="edit" value={{ a.id }}>
                 </form>

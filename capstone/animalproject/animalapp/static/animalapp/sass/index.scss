@@ -318,6 +318,11 @@ body, html {
     cursor: pointer;
   }
 
+  .photos {
+    font-size: 0.8em;
+    padding: 1em;
+  }
+
   #addAnimal {
     display: flex;
     flex-direction: column;

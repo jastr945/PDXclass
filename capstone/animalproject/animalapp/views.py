@@ -192,6 +192,7 @@ def add_animal(request):
         if edit_form.initial['species'] == 'cat':
             cat = get_object_or_404(Cat, id=request.POST['edit'])
             cat_edit_form = CatForm(request.POST, instance=cat)
+
             if edit_form.is_valid() and cat_edit_form.is_valid():
                 edit_form_instance = edit_form.save()
                 cat_edit_form_instance = cat_edit_form.save(commit=False)
