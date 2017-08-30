@@ -75,3 +75,11 @@ $('.cross').each(function () {
     $(this).parent('.editProfile').hide();
   });
 });
+
+// Removes a picture from the list upon clicking on the cross icon
+$('.small').each(function () {
+  $(this).click(function (e) {
+    e.preventDefault();
+    $(this).parents('.photos').remove();
+  });
+});
