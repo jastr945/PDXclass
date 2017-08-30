@@ -217,7 +217,7 @@ def add_animal(request):
 
                 # loading multiple images for each edited dog profile
                 for img in request.FILES.getlist('img'):
-                    Image.objects.create(img=img, pet=Animal.objects.get(pk=dog_form_instance.id.pk))
+                    Image.objects.create(img=img, pet=Animal.objects.get(pk=dog_edit_form_instance.id.pk))
 
                 messages.success(request, 'Your changes were saved successfully!')
                 return HttpResponseRedirect('/animal_profile/{}/'.format(edit_form.initial['id_number']))
