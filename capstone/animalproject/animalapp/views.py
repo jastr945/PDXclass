@@ -68,7 +68,7 @@ def add_animal(request):
     # filtering database entries by species, gender and location
     filtered_animals = AnimalFilter(request.GET, queryset=Animal.objects.all())
 
-
+    # creating an edit form for each intsance of a pet
     for animal in filtered_animals.qs:
 
         edit_form = AnimalForm(instance=animal)
@@ -198,6 +198,11 @@ def add_animal(request):
                 cat_edit_form_instance = cat_edit_form.save(commit=False)
                 cat_edit_form_instance.id = edit_form_instance
                 cat_edit_form_instance.save()
+
+                # loading multiple images for each eadited cat profile
+                for img in request.FILES.getlist('img'):
+                    Image.objects.create(img=img, pet=Animal.objects.get(pk=cat_edit_form_instance.id.pk))
+
                 messages.success(request, 'Your changes were saved successfully!')
                 return HttpResponseRedirect('/animal_profile/{}/'.format(edit_form.initial['id_number']))
 
@@ -209,6 +214,11 @@ def add_animal(request):
                 dog_edit_form_instance = dog_edit_form.save(commit=False)
                 dog_edit_form_instance.id = edit_form_instance
                 dog_edit_form_instance.save()
+
+                # loading multiple images for each edited dog profile
+                for img in request.FILES.getlist('img'):
+                    Image.objects.create(img=img, pet=Animal.objects.get(pk=dog_form_instance.id.pk))
+
                 messages.success(request, 'Your changes were saved successfully!')
                 return HttpResponseRedirect('/animal_profile/{}/'.format(edit_form.initial['id_number']))
 
