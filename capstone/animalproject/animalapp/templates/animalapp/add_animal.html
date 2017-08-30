@@ -3,15 +3,19 @@
 {% block title %}My Account{% endblock title %}
 
 {% block content %}
-    <div id="addOption"><h1>Add a new profile</h1></div>
+    <div id="addOption">
+      <h1>Add a new profile <img class="slideIcon" src={% static 'animalapp/img/arrows-couple.svg' %}/></h1>
+    </div>
     <div id="addAnimalTable" style="display: none">
         {% if messages %}
             <ul class="messages">
-                {% for message in messages %}
-                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                        {{ message }}
-                    </li>
-                {% endfor %}
+              {% for message in messages %}
+                {% if message.tags %}
+                  <li class="{{ message.tags }}">
+                    {{ message }}
+                  </li>
+                {% endif %}
+              {% endfor %}
             </ul>
         {% endif %}
         <form id="addAnimal" method="POST" enctype="multipart/form-data">
@@ -124,7 +128,9 @@
         </form>
     </div>
 
-    <div id="seeAllOption"><h1>Manage existing entries</h1></div>
+    <div id="seeAllOption">
+      <h1>Manage existing entries <img class="slideIcon" src={% static 'animalapp/img/arrows-couple.svg' %}/></h1>
+    </div>
 
     <div id="tableContainer" style="display: flex">
         <form method="GET" id="dbfilters">
