@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
+from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from .models import Animal, Cat, Dog, Image
 from .forms import AnimalForm, DogForm, CatForm, SignUpForm
@@ -185,6 +186,12 @@ def add_animal(request):
         else:
             messages.error(request, form.errors)
 
+
+    elif request.POST.get('delete_img'):
+        get_object_or_404(Image, id=request.POST['delete_img']).delete()
+        return HttpResponse('OK')
+
+
     # editing a profile and re-submitting an edited form
     elif request.POST.get('edit'):
         animal = get_object_or_404(Animal, id=request.POST['edit'])
@@ -224,6 +231,7 @@ def add_animal(request):
 
         return render(request, 'animalapp/add_animal.html', {'edit_form': edit_form, 'cat_edit_form': cat_edit_form,
         'dog_edit_form': dog_edit_form})
+
 
     # deleting a profile
     elif request.GET.get('deleteButton'):
