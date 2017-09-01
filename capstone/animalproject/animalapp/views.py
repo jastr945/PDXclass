@@ -187,11 +187,6 @@ def add_animal(request):
             messages.error(request, form.errors)
 
 
-    elif request.POST.get('delete_img'):
-        get_object_or_404(Image, id=request.POST['delete_img']).delete()
-        return HttpResponse('OK')
-
-
     # editing a profile and re-submitting an edited form
     elif request.POST.get('edit'):
         animal = get_object_or_404(Animal, id=request.POST['edit'])
@@ -246,6 +241,15 @@ def add_animal(request):
 
     return render(request, 'animalapp/add_animal.html', {'form': form, 'dog_form': dog_form, 'cat_form': cat_form,
                                                          'filtered_animals': filtered_animals})
+
+
+def delete_img(request):
+    """Deleting a single image from the edit form."""
+    if not request.user.is_authenticated:
+        return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+
+    get_object_or_404(Image, id=request.GET['img_id']).delete()
+    return HttpResponse("OK")
 
 
 def search_results(request):

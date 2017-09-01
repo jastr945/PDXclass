@@ -65,21 +65,23 @@ $('.edit').each(function () {
   $(this).click(function (e) {
     e.preventDefault();
     $(this).parent().parent().parent().next('.editProfile').show();
-  });
+  }); 
 });
 
-// Closes the edit form upon clicking on the cross icon
-$('.cross').each(function () {
-  $(this).click(function (e) {
-    e.preventDefault();
-    $(this).parent('.editProfile').hide();
-  });
-});
 
 // Removes a picture from the list upon clicking on the cross icon
-// $('.small').each(function () {
-//   $(this).click(function (e) {
-//     e.preventDefault();
-//     $(this).parents('.photos').remove();
-//   });
-// });
+$('.deleteIMG').each(function () {
+  $(this).click(function (e) {
+    e.preventDefault();
+    var photo = $(this).parent('.photos');
+    var href = $(this).attr("href");
+    $.ajax({
+      url: href,
+      type: "GET",
+      success: function (e) {
+        console.log(photo);
+        photo.fadeOut("fast");
+      }
+    });
+  });
+});

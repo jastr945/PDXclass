@@ -33,5 +33,6 @@ urlpatterns = [
     url(r'^animal_profile/(?P<animal_id_slug>[0-9]+)/$', views.animal_profile, name='animal_profile'),
     url(r'^add_animal/', views.add_animal, name='add_animal'),
     url(r'^search_results/', views.search_results, name='search_results'),
+    url(r'^delete_img/', views.delete_img, name='delete_img'),
 
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
