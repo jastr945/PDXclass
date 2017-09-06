@@ -101,11 +101,11 @@ class Animal(models.Model):
     def indexing(self):
        obj = AnimalIndex(
           meta={'id': self.id},
-          breed=self.breed,
-          intake_date=self.intake_date,
           name=self.name,
-          text=self.text
-       )
+          intake_date=self.intake_date,
+          gender=self.gender,
+          species=self.species
+          )
        obj.save()
        return obj.to_dict(include_meta=True)
 
