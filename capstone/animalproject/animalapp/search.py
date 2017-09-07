@@ -3,13 +3,19 @@ from elasticsearch.helpers import bulk
 from elasticsearch_dsl import DocType, Text, Date, Search
 from elasticsearch import Elasticsearch
 from . import models
+import datetime
 
 connections.create_connection()
+
+es = Elasticsearch(
+[
+    'http://elastic:changeme@localhost:9200/',
+],
+)
 
 
 class AnimalIndex(DocType):
     name = Text()
-    intake_date = Date()
     gender = Text()
     species = Text()
 
@@ -18,12 +24,12 @@ class AnimalIndex(DocType):
 
 
 def bulk_indexing():
-    AnimalIndex.init()
-    es = Elasticsearch()
-    bulk(client=es, actions=(b.indexing() for b in models.Animal.objects.all().iterator()))
 
+    AnimalIndex.init(using=es)
+    pye = AnimalIndex(name='Pyjuszek', gender='male', species='cat')
+    pye.save(using=es)
 
-def search(species):
-    s = Search().filter('term', species=species)
+def search():
+    s = Search(using=es, index='animal-index').query("match", name="Pyjusz")
     response = s.execute()
     return response
