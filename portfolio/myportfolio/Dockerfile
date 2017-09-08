@@ -1,8 +1,9 @@
 FROM python:3.6
 
 WORKDIR /usr/src/app
-RUN pip install django Pillow
+RUN pip install django Pillow uwsgi
 COPY . .
+RUN python3 manage.py collectstatic
 
-EXPOSE 8000
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+EXPOSE 80
+CMD . /usr/src/app/startserver.sh
