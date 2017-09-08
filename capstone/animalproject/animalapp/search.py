@@ -24,12 +24,11 @@ class AnimalIndex(DocType):
 
 
 def bulk_indexing():
-
     AnimalIndex.init(using=es)
     pye = AnimalIndex(name='Pyjuszek', gender='male', species='cat')
     pye.save(using=es)
 
-def search():
-    s = Search(using=es, index='animal-index').query("match", name="Pyjusz")
-    response = s.execute()
+def search(pet):
+    s = Search().using(es).index('animal-index').query("match", name=pet)
+    response = s.execute().to_dict()
     return response
