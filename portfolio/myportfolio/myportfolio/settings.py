@@ -25,7 +25,7 @@ SECRET_KEY = 'egswytb3%7wymhudk&2c7jcjan44$lvn80z6!&w4i!ad1uo&@3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.0.106', 'polina.mee.how', 'localhost']
 
 
 # Application definition
