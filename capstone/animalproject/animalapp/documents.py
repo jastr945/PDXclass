@@ -30,11 +30,6 @@ class AnimalDocument(DocType):
         fields = [
             'species',
             'name',
-            'id_number',
-            'gender',
-            'location',
-            'status',
-            'home'
         ]
 
 

@@ -41,7 +41,14 @@ INSTALLED_APPS = [
     'taggit',
     'multiselectfield',
     'django_filters',
+    'django_elasticsearch_dsl',
 ]
+
+ELASTICSEARCH_DSL={
+    'default': {
+        'hosts': 'localhost:9200'
+    },
+}
 
 LOGIN_URL = '/login/'
 
@@ -134,4 +141,3 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'animalapp', 'static')]
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-

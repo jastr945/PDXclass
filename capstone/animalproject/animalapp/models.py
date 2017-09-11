@@ -4,7 +4,7 @@ from django.template.defaultfilters import slugify
 from django.core.validators import MinValueValidator
 from taggit.managers import TaggableManager
 from multiselectfield import MultiSelectField
-from .search import AnimalIndex
+# from .search import AnimalIndex
 
 
 def upload_pet_image(instance, filename):
@@ -98,16 +98,16 @@ class Animal(models.Model):
     animal_age = property(age)
 
     # adding indexing method for Elasticsearch
-    def indexing(self):
-       obj = AnimalIndex(
-          meta={'id': self.id},
-          name=self.name,
-          intake_date=self.intake_date,
-          gender=self.gender,
-          species=self.species
-          )
-       obj.save()
-       return obj.to_dict(include_meta=True)
+    # def indexing(self):
+    #    obj = AnimalIndex(
+    #       meta={'id': self.id},
+    #       name=self.name,
+    #       intake_date=self.intake_date,
+    #       gender=self.gender,
+    #       species=self.species
+    #       )
+    #    obj.save()
+    #    return obj.to_dict(include_meta=True)
 
     def __str__(self):
         return '{} - {} - {} - {}'.format(self.name, self.species, self.id_number, self.location)
