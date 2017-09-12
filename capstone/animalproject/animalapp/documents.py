@@ -32,6 +32,11 @@ class AnimalDocument(DocType):
             'name',
         ]
 
+# animal = Animal(
+#     name="Pofi",
+#     species="cat"
+# )
+# animal.save()
 
 #
 # class AnimalIndex(DocType):
