@@ -60,12 +60,22 @@ $('.noDelete').each(function () {
   });
 });
 
+
 // Shows the edit form upon clicking the specific edit button
 $('.edit').each(function () {
   $(this).click(function (e) {
     e.preventDefault();
     $(this).parent().parent().parent().next('.editProfile').show();
-  }); 
+  });
+});
+
+
+// Hides the edit form upon clicking the cross icon
+$('.cross').each(function () {
+  $(this).click(function (e) {
+    e.preventDefault();
+    $(this).parent('.editProfile').hide();
+  });
 });
 
 
