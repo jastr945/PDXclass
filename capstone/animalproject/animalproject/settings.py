@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_filters',
     # 'django_elasticsearch_dsl',
     'django_cleanup',
+    'django_unused_media',
 ]
 
 # ELASTICSEARCH_DSL={
