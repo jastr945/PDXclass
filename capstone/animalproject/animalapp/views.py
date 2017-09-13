@@ -8,6 +8,7 @@ from django.conf import settings
 from django.contrib import messages
 import datetime
 import re
+from django.core.exceptions import ObjectDoesNotExist
 
 
 def signup(request):
@@ -66,19 +67,23 @@ def add_animal(request):
     if not request.user.is_authenticated:
         return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
 
-    # filtering database entries by species, gender and location
-    filtered_animals = AnimalFilter(request.GET, queryset=Animal.objects.all())
+    try:
+        # filtering database entries by species, gender and location
+        filtered_animals = AnimalFilter(request.GET, queryset=Animal.objects.all())
 
-    # creating an edit form for each intsance of a pet
-    for animal in filtered_animals.qs:
+        # creating an edit form for each intsance of a pet
+        for animal in filtered_animals.qs:
 
-        edit_form = AnimalForm(instance=animal)
-        if animal.species == 'cat':
-            species_edit_form = CatForm(instance=animal.cat)
-        else:
-            species_edit_form = DogForm(instance=animal.dog)
-        animal.edit_form = edit_form
-        animal.species_edit_form = species_edit_form
+            edit_form = AnimalForm(instance=animal)
+            if animal.species == 'cat':
+                species_edit_form = CatForm(instance=animal.cat)
+            else:
+                species_edit_form = DogForm(instance=animal.dog)
+            animal.edit_form = edit_form
+            animal.species_edit_form = species_edit_form
+
+    except ObjectDoesNotExist:
+        filtered_animals = AnimalFilter(request.GET, queryset=Animal.objects.all())
 
     # splits fields containing several words into a list of separate words
     def clear_tags(raw_data: str):

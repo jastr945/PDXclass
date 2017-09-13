@@ -41,15 +41,15 @@ INSTALLED_APPS = [
     'taggit',
     'multiselectfield',
     'django_filters',
-    'django_elasticsearch_dsl',
+    # 'django_elasticsearch_dsl',
     'django_cleanup',
 ]
 
-ELASTICSEARCH_DSL={
-    'default': {
-        'hosts': 'localhost:9200'
-    },
-}
+# ELASTICSEARCH_DSL={
+#     'default': {
+#         'hosts': 'localhost:9200'
+#     },
+# }
 
 LOGIN_URL = '/login/'
 
