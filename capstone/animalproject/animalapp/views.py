@@ -85,6 +85,7 @@ def add_animal(request):
     except ObjectDoesNotExist:
         filtered_animals = AnimalFilter(request.GET, queryset=Animal.objects.all())
 
+
     # splits fields containing several words into a list of separate words
     def clear_tags(raw_data: str):
         cleaned = (re.sub('[/\-]+', ' ', raw_data)).split(' ')

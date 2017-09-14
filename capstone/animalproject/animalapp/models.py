@@ -25,11 +25,12 @@ class Animal(models.Model):
     """Contains basic information about each animal, common for cats and dogs."""
 
     SPECIES_CHOICES = (
+        ('', 'Select species...'),
         ('dog', 'dog'),
         ('cat', 'cat')
     )
 
-    species = models.CharField(max_length=50, choices=SPECIES_CHOICES, default='', blank=True)
+    species = models.CharField(max_length=50, choices=SPECIES_CHOICES, default='', blank=False)
 
     name = models.CharField(max_length=50, default='')
 
@@ -96,16 +97,16 @@ class Animal(models.Model):
         return '{}y {}m {}d'.format(animal_year, animal_month, animal_day)
 
     animal_age = property(age)
-
-    # adding indexing method for Elasticsearch
+    #
+    # # adding indexing
     # def indexing(self):
     #    obj = AnimalIndex(
     #       meta={'id': self.id},
-    #       name=self.name,
+    #       breed=self.breed,
     #       intake_date=self.intake_date,
-    #       gender=self.gender,
-    #       species=self.species
-    #       )
+    #       name=self.name,
+    #       text=self.text
+    #    )
     #    obj.save()
     #    return obj.to_dict(include_meta=True)
 
@@ -139,6 +140,7 @@ class Cat(models.Model):
     cat_breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='Domestic Shorthair/Mix')
 
     COLOR_CHOICES = (
+        ('', 'Select color...'),
         ('black', 'black'),
         ('brown', 'brown'),
         ('calico', 'calico'),
@@ -153,7 +155,7 @@ class Cat(models.Model):
         ('white', 'white'),
     )
 
-    cat_color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='', blank=True)
+    cat_color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='', blank=False)
 
     PERSONALITY_CHOICES = (
         ('very playful', 'very playful'),
@@ -184,6 +186,7 @@ class Dog(models.Model):
     id = models.OneToOneField('Animal', primary_key=True, related_name="dog")
 
     BREED_CHOICES = (
+        ('', 'Select breed...'),
         ('Beagle', 'Beagle'),
         ('Boxer', 'Boxer'),
         ('Bulldog', 'Bulldog'),
@@ -202,15 +205,16 @@ class Dog(models.Model):
         ('Yorkshire Terrier', 'Yorkshire Terrier')
     )
 
-    dog_breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='', blank=True)
+    dog_breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='', blank=False)
 
     SIZE_CHOICES = (
+        ('', 'Select size...'),
         ('small', 'small'),
         ('medium', 'medium'),
         ('large', 'large')
     )
 
-    size = models.CharField(max_length=50, choices=SIZE_CHOICES, default='', blank=True, null=True)
+    size = models.CharField(max_length=50, choices=SIZE_CHOICES, default='', blank=False)
     weight = models.FloatField(max_length=50, validators=[MinValueValidator(0.0)], null=True, blank=True, default='',
                                verbose_name='Specify weight (optional)')
 
