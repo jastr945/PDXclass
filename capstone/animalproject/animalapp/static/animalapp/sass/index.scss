@@ -313,6 +313,16 @@ body, html {
   color: $color2;
   font-size: 1.5em;
 
+  #errordiv {
+    color: red;
+    font-size: 0.8em;
+    li {
+      padding: 0.5em;
+      margin-left: 1.5em;
+      border: none;
+    }
+  }
+
   .cross {
     width: 2em;
     height: 2em;

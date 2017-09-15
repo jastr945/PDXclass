@@ -29,6 +29,8 @@ $(function() {
 // JQuery form validation
 $(document).ready(function() {
     $('form').validate({
+      errorLabelContainer: "#errordiv",
+      wrapper: "li",
       rules:
       {
         name:
@@ -40,10 +42,6 @@ $(document).ready(function() {
           required: true,
         },
         species:
-        {
-          required: true,
-        },
-        birthday:
         {
           required: true,
         },
@@ -71,6 +69,39 @@ $(document).ready(function() {
         {
           required: true,
         },
+      },
+      messages:
+      {
+        name: {
+          required: "Enter pet's name."
+        },
+        species: {
+          required: "Select a cat or a dog form."
+        },
+        id_number: {
+          required: "Enter a unique ID number."
+        },
+        gender: {
+          required: "Select gender."
+        },
+        cat_color: {
+          required: "Select cat's color."
+        },
+        cat_personality: {
+          required: "Select cat's personality."
+        },
+        size: {
+          required: "Select dog's size."
+        },
+        dog_color: {
+          required: "Select dog's color."
+        },
+        dog_personality: {
+          required: "Select dog's personality."
+        },
+        dog_breed: {
+          required: "Select dog's breed."
+        }
       },
       submitHandler: function(form)
       {
