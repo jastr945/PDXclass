@@ -38,7 +38,7 @@ class Animal(models.Model):
 
     gender = models.BooleanField()
 
-    birthday = models.DateField(blank=True, null=False)
+    birthday = models.DateField(blank=False, null=False)
 
     surgery = models.BooleanField(verbose_name='Spayed/neutered')
 
@@ -140,7 +140,6 @@ class Cat(models.Model):
     cat_breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='Domestic Shorthair/Mix')
 
     COLOR_CHOICES = (
-        ('', 'Select color...'),
         ('black', 'black'),
         ('brown', 'brown'),
         ('calico', 'calico'),
@@ -155,7 +154,7 @@ class Cat(models.Model):
         ('white', 'white'),
     )
 
-    cat_color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='', blank=False)
+    cat_color = models.CharField(max_length=255, choices=COLOR_CHOICES, default='', blank=True)
 
     PERSONALITY_CHOICES = (
         ('very playful', 'very playful'),
@@ -186,7 +185,6 @@ class Dog(models.Model):
     id = models.OneToOneField('Animal', primary_key=True, related_name="dog")
 
     BREED_CHOICES = (
-        ('', 'Select breed...'),
         ('Beagle', 'Beagle'),
         ('Boxer', 'Boxer'),
         ('Bulldog', 'Bulldog'),
@@ -205,16 +203,15 @@ class Dog(models.Model):
         ('Yorkshire Terrier', 'Yorkshire Terrier')
     )
 
-    dog_breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='', blank=False)
+    dog_breed = models.CharField(max_length=50, choices=BREED_CHOICES, default='', blank=True)
 
     SIZE_CHOICES = (
-        ('', 'Select size...'),
         ('small', 'small'),
         ('medium', 'medium'),
         ('large', 'large')
     )
 
-    size = models.CharField(max_length=50, choices=SIZE_CHOICES, default='', blank=False)
+    size = models.CharField(max_length=50, choices=SIZE_CHOICES, default='', blank=True, null=True)
     weight = models.FloatField(max_length=50, validators=[MinValueValidator(0.0)], null=True, blank=True, default='',
                                verbose_name='Specify weight (optional)')
 

@@ -18,6 +18,8 @@ class AnimalForm(ModelForm):
                                   widget=SelectDateWidget(years=(range(datetime.date.today().year - 10,
                                                                        datetime.date.today().year + 1))))
 
+    birthday = forms.DateField(initial=datetime.date.today(), widget=SelectDateWidget(years=(range(datetime.date.today().year - 20, datetime.date.today().year + 1))))
+
     GENDER_CHOICES = [(True, 'male'), (False, 'female')]
 
     CHOICES = [(True, 'yes'), (False, 'no')]
@@ -32,8 +34,7 @@ class AnimalForm(ModelForm):
         model = Animal
         exclude = ['id', 'slug', 'tags']
         widgets = {
-            'birthday': SelectDateWidget(years=(range(datetime.date.today().year - 20, datetime.date.today().year + 1))),
-            'notes': TextInput(attrs={'placeholder': 'Provide more information, describe any special needs, etc.'})
+            'notes': TextInput(attrs={'placeholder': 'Provide more information, describe any special needs, etc.'}),
         }
 
 
