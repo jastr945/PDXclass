@@ -26,6 +26,58 @@ $(function() {
   });
 });
 
+// JQuery form validation
+$(document).ready(function() {
+    $('form').validate({
+      rules:
+      {
+        name:
+        {
+          required: true,
+        },
+        id_number:
+        {
+          required: true,
+        },
+        species:
+        {
+          required: true,
+        },
+        birthday:
+        {
+          required: true,
+        },
+        cat_color:
+        {
+          required: true,
+        },
+        cat_personality:
+        {
+          required: true,
+        },
+        dog_breed:
+        {
+          required: true,
+        },
+        size:
+        {
+          required: true,
+        },
+        dog_personality:
+        {
+          required: true,
+        },
+        dog_color:
+        {
+          required: true,
+        },
+      },
+      submitHandler: function(form)
+      {
+        form.submit();
+      }
+  });
+});
 
 // Opens the list of database entries upon clicking
 $('#seeAllOption').click(function (e) {
