@@ -38,7 +38,7 @@ class Animal(models.Model):
 
     gender = models.BooleanField()
 
-    birthday = models.DateField(blank=True)
+    birthday = models.DateField(blank=False)
 
     surgery = models.BooleanField(verbose_name='Spayed/neutered')
 
