@@ -140,7 +140,7 @@
         {% endif %}
         {% if filtered_animals.qs %}
             {% for a in filtered_animals.qs|dictsort:"name" %}
-                <form method="GET">
+                <form id="deleteForm" method="GET">
                   {% csrf_token %}
                   <div class="dataBaseRow">
                       <div class="dataBaseInfo">

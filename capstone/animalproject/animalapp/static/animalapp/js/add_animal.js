@@ -31,6 +31,16 @@ $(document).ready(function() {
     $('#addAnimal').validate({
       errorLabelContainer: "#errordiv",
       wrapper: "li",
+      focusInvalid: false,
+      invalidHandler: function(form, validator) {
+
+        if (!validator.numberOfInvalids())
+            return;
+
+        $('html, body').animate({
+            scrollTop: $('#errordiv').offset().top
+        });
+      },
       rules:
       {
         name:
@@ -109,6 +119,7 @@ $(document).ready(function() {
       }
   });
 });
+
 
 // Opens the list of database entries upon clicking
 $('#seeAllOption').click(function (e) {
