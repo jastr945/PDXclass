@@ -7,17 +7,6 @@
       <h1>Add a new profile <img class="slideIcon" src={% static 'animalapp/img/arrows-couple.svg' %}/></h1>
     </div>
     <div id="addAnimalTable" style="display: none">
-        {% if messages %}
-            <ul class="messages">
-              {% for message in messages %}
-                {% if message.tags %}
-                  <li class="{{ message.tags }}">
-                    {{ message }}
-                  </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-        {% endif %}
         <form id="addAnimal" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div id="errordiv"></div>

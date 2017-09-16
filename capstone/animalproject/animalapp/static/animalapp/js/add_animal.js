@@ -28,7 +28,7 @@ $(function() {
 
 // JQuery form validation
 $(document).ready(function() {
-    $('form').validate({
+    $('#addAnimal').validate({
       errorLabelContainer: "#errordiv",
       wrapper: "li",
       rules:
@@ -131,6 +131,9 @@ $('.delete').each(function () {
   $(this).click(function (e) {
     e.preventDefault();
     $(this).parent().parent().siblings('.deleteEntry').show();
+    $('html,body').animate({
+      scrollTop: $(this).parent().parent().siblings('.deleteEntry').offset().top
+    });
   });
 });
 
