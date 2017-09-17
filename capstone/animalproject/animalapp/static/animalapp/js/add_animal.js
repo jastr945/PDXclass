@@ -37,6 +37,8 @@ $(document).ready(function() {
         if (!validator.numberOfInvalids())
             return;
 
+        $('#errordiv').css({"background-color": "rgba(0, 0, 0, 0.2)"});
+
         $('html, body').animate({
             scrollTop: $('#errordiv').offset().top
         });
