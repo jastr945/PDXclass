@@ -1,5 +1,5 @@
 $color0: #555756;
-$color1: #003366;
+$color1: #13345F;
 $color2: #FFFFFF;
 $color3: rgba(0, 0, 0, 0.2);
 $color4: rgba(0, 0, 0, 0.5);
@@ -261,6 +261,9 @@ body, html {
       border-left: none;
       border-top: none;
       font-family: Arial;
+      &:hover {
+        background-color: $color4;
+      }
     }
     .search_all {
       background-color: $color3;
@@ -485,6 +488,7 @@ body, html {
     select {
       font-size: 0.8em;
       margin-left: 0.5em;
+      padding: 0.2em;
     }
   }
 
@@ -627,6 +631,9 @@ body, html {
       input {
         font-family: Arial;
         font-size: 1em;
+        padding: 0.2em;
+      }
+      #searchAgain {
         cursor: pointer;
       }
       #showDogs {
@@ -638,6 +645,7 @@ body, html {
       flex-direction: row;
       flex-wrap: wrap;
       margin: 0.5em 0 0 0;
+      padding: 0.2em;
       #filters {
         display: flex;
         flex-direction: row;
