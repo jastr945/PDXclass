@@ -49,7 +49,7 @@ body,html {
   height:100%;
   margin:0;
   padding:0;
-  font-family: "Gill Sans", sans-serif;
+  font-family: 'Encode Sans Expanded', sans-serif;
   overflow-y: hidden;
 }
 
@@ -73,11 +73,12 @@ body,html {
   background-color: rgba(0, 0, 0, .4);
   margin-top: 55vh;
   align-items: flex-start;
-  font-family: "Tlwg Typist";
+  font-family: 'Encode Sans Expanded', sans-serif;
+
   & h1 {
     display: flex;
     flex-direction: column;
-    font-size: 3.5vw;
+    font-size: 3vw;
     color: lightgrey;
     margin: 1rem 0 0 2rem;
     padding: 0;
@@ -86,7 +87,7 @@ body,html {
     content: 'Software Developer';
     text-align: center;
     padding: 0;
-    font-size: 2.5vw;
+    font-size: 2vw;
     color: lightgrey;
   }
   #arrow {
@@ -95,7 +96,7 @@ body,html {
     align-items: center;
     height: 8vh;
     width: 29vw;
-    margin: 1vh 0 0 6vw;
+    margin: 1vw 0 0 2vw;
     &:hover {
       cursor: pointer;
     }
@@ -130,7 +131,7 @@ body,html {
 
 @media only screen and (max-width: 450px) {
   #titlePageTable {
-    margin-top: 65vh;
+    margin-top: 60vh;
     height: 33vh;
     h1 {
       font-size: 8vw;
@@ -144,6 +145,7 @@ body,html {
     #arrow {
       height: 60%;
       width: 50%;
+      margin: 1vw 0 0 6vw;
       div:nth-child(1) {
         width: 70%;
         border-top: 7vw solid lightgrey;
