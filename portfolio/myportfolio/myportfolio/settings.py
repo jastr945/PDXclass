@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portfoliopages',
+    'analytical',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,5 @@ STATIC_ROOT = '/staticfiles'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-107312786-1'

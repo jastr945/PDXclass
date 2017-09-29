@@ -5,8 +5,13 @@
  * Created by polina on 6/26/17.
  */
 'use strict';
-var round = 1;
 
+var siteWidth = 1280;
+var scale = screen.width /siteWidth
+
+document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+
+var round = 1;
 
 //Creates a die object
 function Die(id) {
