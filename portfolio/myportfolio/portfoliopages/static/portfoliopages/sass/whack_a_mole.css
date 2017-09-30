@@ -3,7 +3,7 @@
 html {
   background-image: url("/static/portfoliopages/img/grass.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   height: 100%;
   width:100%;
 }
@@ -21,6 +21,18 @@ body {
   flex-direction: column;
 }
 
+@media only screen and (max-width: 1300px) {
+  body {
+    padding: 10% 0;
+  }
+}
+
+@media only screen and (max-width: 790px) {
+  body {
+    padding:0;
+  }
+}
+
 #header {
 	display: flex;
   justify-content: center;
@@ -36,9 +48,7 @@ body {
 }
 
 h1 {
-  margin-top: 10px;
-  margin-right:20px;
-  margin-left:-20px;
+  margin: 5px auto;
   align-self:center;
   font-family: 'Chewy';
   font-size: 35pt;
@@ -47,16 +57,26 @@ h1 {
   animation: darker 2s infinite;
 }
 
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 20pt;
+  }
+}
+
 #score {
   display:flex;
   flex-direction: row;
   align-items: center;
   justify-items: center;
-  margin-top: -30px;
-  margin-right:0;
-  margin-left:0;
+  margin: 0 auto;
   font-family: 'Chewy';
   font-size: 20pt;
+}
+
+@media only screen and (max-width: 600px) {
+  #score {
+    font-size: 10pt;
+  }
 }
 
 #scoreCounter {
@@ -65,6 +85,12 @@ h1 {
   font-size: 20pt;
   margin-right:25px;
   margin-left:25px;
+}
+
+@media only screen and (max-width: 600px) {
+  #scoreCounter {
+    font-size: 10pt;
+  }
 }
 
 #timeCounter {
@@ -77,18 +103,22 @@ h1 {
   margin-left:25px;
 }
 
+@media only screen and (max-width: 600px) {
+  #timeCounter {
+    font-size: 10pt;
+  }
+}
+
 #buttons:nth-child(1), #buttons:nth-child(2), #buttons:nth-child(3) {
   display:flex;
   flex-direction: row;
   align-items: center;
   justify-items: center;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 #start {
-  margin-right: 10px;
-  margin-right: 10px;
   height: 50px;
   width:200px;
   font-family: 'Chewy';
@@ -98,9 +128,15 @@ h1 {
   cursor: pointer;
 }
 
+@media only screen and (max-width: 600px) {
+  #start {
+    height: 25px;
+    width:125px;
+    font-size: 10pt;
+  }
+}
+
 #stop {
-  margin-right: 10px;
-  margin-right: 10px;
   height: 50px;
   width:100px;
   background-color: #C3C300;
@@ -110,9 +146,15 @@ h1 {
   cursor: pointer;
 }
 
+@media only screen and (max-width: 600px) {
+  #stop {
+    height: 25px;
+    width:60px;
+    font-size: 10pt;
+  }
+}
+
 #reset {
-  margin-right: 10px;
-  margin-right: 10px;
   height: 50px;
   width:100px;
   background-color: #C3C300;
@@ -120,6 +162,14 @@ h1 {
   font-size: 20pt;
   color:black;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  #reset {
+    height: 25px;
+    width:50px;
+    font-size: 10pt;
+  }
 }
 
 #field {
@@ -135,3 +185,29 @@ h1 {
 #field > div > div {
   margin: 50px;
 }
+
+@media only screen and (max-width: 1300px) {
+  #field > div > div {
+    margin: 30px;
+  }
+}
+
+@media only screen and (max-width: 790px) {
+  #field > div > div {
+    margin: 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #field > div > div > img {
+      width: 51px;
+      height: 44px;
+    }
+  }
+
+@media only screen and (max-width: 350px) {
+  #field > div > div > img {
+      width: 45px;
+      height: 40px;
+    }
+  }
