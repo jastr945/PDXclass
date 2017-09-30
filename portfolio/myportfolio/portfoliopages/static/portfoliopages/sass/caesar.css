@@ -90,6 +90,7 @@ p {
 #encrypt, #decrypt {
     width: 11vh;
     align-self: center;
+    background-color: #BEBEBE;
 }
 
 #encrypt:hover {
