@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
 
 body {
+    margin: 0;
+    padding: 0;
     background-color: #f78645;
     font: Aerial;
 }
 
 #game {
+    margin: 0;
+    padding: 0;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -22,12 +26,30 @@ body {
     text-shadow: 5px 5px red;
 }
 
+@media only screen and (max-width: 800px) {
+  #header {
+    font-size: 25pt;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #header {
+    font-size: 20pt;
+  }
+}
+
 #poster {
     display: block;
     margin: 6vh auto;
     border: 20px solid white;
     height: 50vh;
     width: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  #poster {
+    height: 25vh;
+  }
 }
 
 #welcome {
@@ -40,12 +62,37 @@ body {
     cursor: pointer;
 }
 
+@media only screen and (max-width: 800px) {
+  #welcome {
+    font-size: 25pt;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #welcome {
+    font-size: 20pt;
+  }
+}
+
 #round {
     font-family: "Gloria Hallelujah";
     font-size: 35pt;
     text-shadow: 5px 5px red;
     margin-top: 170px;
     margin-bottom:-20px;
+}
+
+@media only screen and (max-width: 800px) {
+  #round {
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #round {
+    margin-top: 25px;
+    font-size: 20pt;
+  }
 }
 
 #dies {
@@ -79,10 +126,38 @@ body {
     animation: shaking 3s infinite alternate;
 }
 
+@media only screen and (max-width: 800px) {
+  #die1, #die2 {
+    margin: 50px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #die1, #die2 {
+    margin: 40px 20px 20px 20px;
+  }
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 #message {
     margin-top: -80px;
     font-family: "Gloria Hallelujah";
     font-size: 25pt;
+}
+
+@media only screen and (max-width: 800px) {
+  #message {
+    font-size: 15pt;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #message {
+    font-size: 10pt;
+  }
 }
 
 #roll {
@@ -95,6 +170,25 @@ body {
     cursor: pointer;
 }
 
+@media only screen and (max-width: 800px) {
+  #roll {
+    font-size: 15pt;
+    height: 70px;
+    width: 200px;
+    margin: 50px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #roll {
+    font-size: 15pt;
+    height: 50px;
+    width: 100px;
+    margin: 15px;
+    font-size: 10pt;
+  }
+}
+
 #reset {
     margin:100px;
     height:100px;
@@ -102,4 +196,23 @@ body {
     font-family: "Gloria Hallelujah";
     font-size: 35pt;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  #reset {
+    font-size: 15pt;
+    height: 70px;
+    width: 200px;
+    margin: 50px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #reset {
+    font-size: 15pt;
+    height: 50px;
+    width: 150px;
+    margin: 15px;
+    font-size: 10pt;
+  }
 }

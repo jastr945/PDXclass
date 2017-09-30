@@ -6,11 +6,6 @@
  */
 'use strict';
 
-var siteWidth = 1280;
-var scale = screen.width /siteWidth
-
-document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
-
 var round = 1;
 
 //Creates a die object
@@ -129,7 +124,7 @@ setInterval(blinker, 1000);
 //scrolls the webpage from the welcoming part to the gaming part upon clicking the button
 $('#welcome').click(function () {
     $('html, body').animate({
-        scrollTop: $('.dieClick').offset().top
+        scrollTop: $('#round').offset().top
     }, 1000);
 });
 
