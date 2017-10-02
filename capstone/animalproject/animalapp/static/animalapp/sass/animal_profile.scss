@@ -1,0 +1,199 @@
+$color0: #CC99CC;
+$color1: #3D3D3D;
+$color2: #FFFFFF;
+$color3: rgba(0, 0, 0, 0.2);
+$color4: rgba(0, 0, 0, 0.5);
+
+/* Profile Pages */
+
+.messages {
+    align-self: center;
+    font-size: 1.5em;
+    margin: 1em auto;
+    padding: 1em;
+    color: #52D017;
+}
+
+@keyframes pulse {
+  100% {
+    transform: perspective(0.8em) translateZ(0.3em);
+  }
+}
+
+.slides {
+  width: 70em;
+  height: auto;
+  margin: 2em auto 0 auto;
+  ul {
+    list-style: inside none disc;
+    margin: 0;
+    padding: 0;
+  }
+  img {
+    max-height: 35em;
+    max-width: 35em;
+  }
+}
+
+#profile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 82em;
+  margin: 2em auto;
+  padding: 2em;
+  background-color: $color3;
+
+  #profileBox {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 45%;
+    height: auto;
+    margin: 0;
+    padding: 1em;
+    background-color: $color3;
+    border-radius: 3%;
+    .profileRow {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      height: auto;
+      min-height: 3em;
+      justify-content: space-between;
+      margin: 0;
+      .left {
+        align-self: center;
+        justify-content: center;
+        font-family: Arial;
+        font-size: 1.5em;
+        width: 50%;
+      }
+      .right {
+        align-self: center;
+        font-family: Arial;
+        font-size: 1.5em;
+        width: 50%;
+      }
+    }
+  }
+
+  #personalityBox {
+    //background-color: blueviolet;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-items: center;
+    width: 52%;
+    margin: 0 auto;
+    padding-left: 0;
+    #socialMedia {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+      height: 5em;
+      padding: 0.5em;
+      .social {
+        width: 10em;
+        margin-top: 1em;
+        margin-left: 0.4em;
+        border-radius: 3%;
+      }
+    }
+    #personalityProfile {
+      //background-color: green;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 3em;
+      height: auto;
+      width: 42em;
+      padding-left: 1em;
+      .profileRow {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        height: auto;
+        justify-content: space-between;
+        margin: 0 0 2em 0;
+        .left {
+          align-self: flex-start;
+          font-family: Arial;
+          font-size: 1.5em;
+          width: 25%;
+        }
+        .right {
+          align-self: center;
+          text-align: left;
+          font-family: Arial;
+          font-size: 1.5em;
+          width: 75%;
+        }
+        .tags {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+        }
+        .tag {
+          background-color: $color4;
+          margin: 0 0 0.1em 0.1em;
+          padding: 0.5em;
+          width: auto;
+          cursor: pointer;
+          font-size: 0.8em;
+          color: $color2;
+          border: none;
+          &:hover {
+            background-color: lighten($color1, 10%);
+          }
+        }
+      }
+    }
+    #contactButtons {
+      //background-color: #CC3434;
+      align-self: center;
+      justify-content: center;
+      margin: 0 auto;
+      width: 100%;
+      height: auto;
+      padding: 0;
+      cursor: pointer;
+      #ask:hover {
+        .contactIcon {
+          animation: pulse 0.5s ease-in-out forwards infinite;
+        }
+      }
+      #donation:hover {
+        .contactIcon {
+          animation: pulse 0.5s ease-in-out forwards infinite;
+        }
+      }
+      .contact {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        height: 3em;
+        background-color: $color4;
+        width: 15em;
+        margin: 0.5em auto;
+        font-size: 1.5em;
+      }
+      .contactIcon {
+        width: 1em;
+        margin-left: 0.8em;
+        padding: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+$color0: #CC99CC;
+$color1: #3D3D3D;
+$color2: #FFFFFF;
+$color3: rgba(0, 0, 0, 0.2);
+$color4: rgba(0, 0, 0, 0.5);
+
+/* Search Results Page */
+
+#searchResultsBlock {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height:auto;
+  margin: 0;
+  padding: 1em;
+  color: white;
+  font-family: Arial;
+  font-size: 1.5em;
+  #searchTools {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 6em;
+    width: 100%;
+    margin: 0 1em 0 1em;
+    #searchBar {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0 0 1em 0;
+      #previousSearch {
+        width: 20em;
+        color: black;
+      }
+      input {
+        font-family: Arial;
+        font-size: 1em;
+        padding: 0.2em;
+      }
+      #searchAgain {
+        cursor: pointer;
+      }
+      #showDogs {
+        margin-left: 1em;
+      }
+    }
+    #searchFilters {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0.5em 0 0 0;
+      padding: 0.2em;
+      #filters {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 0 0 6em;
+        select {
+          margin-left: 1em;
+          font-family: Arial;
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+  #profilePreview {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    text-align: center;
+    margin:0 0 1em 1em;
+    background-color: $color3;
+    width: 18%;
+    height: auto;
+    min-height: 16em;
+    cursor: pointer;
+    &:hover {
+      background-color: lighten($color1, 10%);
+    }
+    a {
+      text-decoration: none;
+      color: $color2;
+      font-size: 0.9em;
+    }
+    img {
+      align-self: center;
+      margin:1em 0 1em 0;
+      padding: 0;
+      height: 9em;
+      width: 9em;
+      background-color: $color2;
+      object-fit: cover;
+    }
+
+    #previewDescription {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 0 0.5em 1em 0.5em;
+    }
+  }
+}

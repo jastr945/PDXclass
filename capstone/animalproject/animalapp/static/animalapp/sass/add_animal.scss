@@ -1,0 +1,330 @@
+$color0: #CC99CC;
+$color1: #3D3D3D;
+$color2: #FFFFFF;
+$color3: rgba(0, 0, 0, 0.2);
+$color4: rgba(0, 0, 0, 0.5);
+
+/* Add Animal Page */
+
+#addOption, #seeAllOption {
+  align-self: center;
+  width:96%;
+  cursor: pointer;
+  h1 {
+    //background-color: #447e9b;
+    border-bottom: 3px solid white;
+    .slideIcon {
+      height: 1em;
+    }
+  }
+}
+
+.submitButton {
+  align-self: center;
+  height: 2.5em;
+  width: 8em;
+  margin: 2em auto;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: $color3;
+  color: $color2;
+  &:hover {
+    background-color: $color4;
+    border: 5px solid $color2;
+  }
+}
+
+#addAnimalTable, .editProfile {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-self: center;
+  align-self: center;
+  justify-content: center;
+  width:auto;
+  height: auto;
+  align-content: stretch;
+  font-family: Arial;
+  color: $color2;
+  font-size: 1.5em;
+
+  #errordiv {
+    color: red;
+    font-size: 0.8em;
+    margin: 1em 0;
+    padding: 1em;
+    li {
+      padding: 0.5em;
+      margin-left: 1.5em;
+      border: none;
+    }
+  }
+
+  .cross {
+    width: 2em;
+    height: 2em;
+    fill: $color2;
+    align-self: flex-end;
+    cursor: pointer;
+  }
+
+  .photos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0.5em 0 0 0;
+    padding:0;
+    font-size: 0.8em;
+    .small {
+      width: 1.5em;
+      height: 1.5em;
+      padding: 0;
+      margin: 0.3em 0 0 1em;
+      fill: red;
+    }
+    img {
+      margin: 0 0 0 1em;
+    }
+  }
+
+  #addAnimal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .addAnimalRows {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 40em;
+    height: auto;
+    min-height: 2em;
+    margin: 0.5em;
+    .right {
+      width: 25em;
+    }
+    ul {
+      list-style: none;
+      padding:0;
+      margin:0;
+      -webkit-margin-before: 0;
+      -webkit-margin-after: 0;
+      -webkit-padding-start: 0;
+      li {
+        margin: 0 1em 0 0;
+        align-items: center;
+        input[type="radio"]  {
+          width: 1em;
+          height:1em;
+          color: black;
+          display: inline-block;
+          cursor: pointer;
+          margin:0;
+        }
+      }
+    }
+    .two-columns {
+      -moz-column-count: 2; /* Firefox */
+      -webkit-column-count: 2; /* Safari and Chrome */
+      column-count: 2;
+      margin: 1em 0;
+      li, div {
+        width: 15em;
+      }
+    }
+    #id_gender, #id_surgery, #id_vaccine {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    input, select, textarea {
+      font-family: Arial;
+      color:black;
+      font-size: 0.8em;
+      padding: 0.2em;
+      background-color: #bbccdd;
+    }
+    #id_notes {
+      height: 3em;
+      width:31em;
+    }
+    #id_img, #id_name, #id_id_number {
+      width: 31em;
+    }
+    #id_species, #id_location, #id_status, #id_dog_breed, #id_size, #id_weight, #id_cat_breed, #id_cat_color {
+      width: 14.2em;
+    }
+  }
+}
+
+.headline {
+  align-self: center;
+  justify-content:center;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-content:center;
+  align-items: flex-start;
+  font-family: Arial;
+  color:white;
+  font-size: 1.5em;
+  border: 6px double white;
+  padding: 1em;
+  width: auto;
+  button {
+    align-self: center;
+    font-family: Arial;
+    font-size: 1em;
+    margin: 1em;
+  }
+  input {
+    width: 18em;
+    font-family: Arial;
+    font-size: 1em;
+  }
+}
+
+#tableContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-self: center;
+  width: 96%;
+  color: $color2;
+  font-family: Arial;
+
+  .messages {
+    align-self: center;
+    font-size: 1.5em;
+    margin: 1em auto;
+    padding: 1em;
+    color: #52D017;
+  }
+
+  #dbfilters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+    margin: 0 0 1em 0;
+    select {
+      font-size: 0.8em;
+      margin-left: 0.5em;
+      padding: 0.2em;
+    }
+  }
+
+  .dataBaseRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $color3;
+    font-size: 1.5em;
+    height: 3em;
+    margin: 0 0 0.5em 0;
+    &:hover {
+      background-color: lighten($color1, 10%);
+    }
+
+    .dataBaseInfo {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 40em;
+      margin: 0 0 0 1em;
+      div {
+        width: 9em;
+      }
+      .locationRow {
+        width: 13em;
+      }
+    }
+
+    .dataButtons {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      width: auto;
+      margin-left: 1em;
+    }
+
+    .dbButton {
+      margin: 0 1em 0 0;
+      font-family: Arial;
+      width: 4em;
+      height: 1.5em;
+      color: black;
+      font-size: 0.8em;
+      cursor: pointer;
+      text-decoration: none;
+      align-items: flex-start;
+      text-align: center;
+      background-color: buttonface;
+      box-sizing: border-box;
+      border-width: 2px;
+      border-style: outset;
+      border-color: buttonface;
+      border-image: initial;
+      -webkit-appearance: push-button;
+      user-select: none;
+      white-space: pre;
+      input, a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+
+ .deleteEntry {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    height: 3em;
+    width: 100%;
+    margin: 0 0 0.5em 0;
+    padding: 0;
+    background-color: #003366;
+    color: white;
+    font-family: Arial;
+    font-size: 1.5em;
+    input {
+      margin: 0 1em 0 0;
+      font-family: Arial;
+      font-size: 0.8em;
+      cursor: pointer;
+    }
+    p {
+      margin: 0 1em 0 0;
+      font-size: 1em;
+    }
+    div {
+      margin: 0 1em 0 0;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  }
+}
+
+.infoText {
+  font-size: 1.5em;
+  margin: 2em 0 0 1em;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
