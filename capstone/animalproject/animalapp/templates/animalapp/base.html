@@ -25,7 +25,9 @@
             <div id="mainSite"><a href="{% url 'index' %}">&nbsp;Main Site&nbsp;|</a></div>
             <div id="logout"><a href="{% url 'logout' %}?next=/">&nbsp;Sign Out</a></div>
         {% else %}
-            <div id="login"><a href="{% url 'login' %}">Login&nbsp;|</a></div>
+            <div id="myActivity"><a href="{% url 'add_animal' %}">&nbsp;My Activity&nbsp;|</a></div>
+            <div id="mainSite"><a href="{% url 'index' %}">&nbsp;Main Site&nbsp;|</a></div>
+            <div id="login"><a href="{% url 'login' %}">&nbsp;Login&nbsp;|</a></div>
             <div id="signup"><a href="{% url 'signup' %}">&nbsp;Register</a></div>
         {% endif %}
     </div>

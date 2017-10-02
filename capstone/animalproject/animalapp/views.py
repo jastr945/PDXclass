@@ -64,8 +64,8 @@ def add_animal(request):
     """Rendering the page on which users add, edit and delete database entries."""
 
     # redirecting to add_animal page after logging in
-    if not request.user.is_authenticated:
-        return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+    # if not request.user.is_authenticated:
+    #     return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
 
     try:
         # filtering database entries by species, gender and location
