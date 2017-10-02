@@ -56,6 +56,16 @@ body, html {
     }
   }
 
+  @media screen and (max-width: 460px) {
+    #loginInfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: auto;
+      font-size: 1.2em;
+    }
+  }
+
   /* Search Tab on the main page*/
 
 
@@ -167,6 +177,13 @@ body, html {
     margin-left: auto;
   }
 
+  @media screen and (max-width: 650px) {
+    .search__form {
+      margin-top: 3em;
+      // background-color: green;
+    }
+  }
+
   .search__input {
     font-family: inherit;
     font-size: 4em;
@@ -230,6 +247,12 @@ body, html {
     pointer-events: none;
   }
 
+  @media screen and (max-width: 980px) {
+    .search__suggestion {
+      max-width: 300px;
+    }
+  }
+
   .search__suggestion:nth-child(2) {
     margin: 0 3em;
   }
@@ -258,6 +281,14 @@ body, html {
     }
   }
 
+  @media screen and (max-width: 650px) {
+    .search__suggestion p {
+      margin-top: 1em;
+      font-size: 1em;
+      max-width: 300px;
+    }
+  }
+
   /* Transitions */
 
   .js .search::before {
@@ -282,6 +313,13 @@ body, html {
 
   .search--open .search__form {
     transform: translate3d(0, 35vh, 0) translate3d(0, -75%, 0);
+  }
+
+  @media screen and (max-width: 650px) {
+    .search--open .search__form {
+      transform: translate3d(0, 25vh, 0) translate3d(0, -75%, 0);
+      transform: scale3d(0.8, 0.8, 0.5);
+    }
   }
 
   .btn--search-close {
@@ -314,6 +352,13 @@ body, html {
     transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
   }
 
+  @media screen and (max-width: 650px) {
+    .search--open .search__suggestion h3,
+    .search--open .search__suggestion p {
+      transform: translate3d(0, -200px, 0);
+    }
+  }
+
   .search--open .search__suggestion p {
     transition-delay: 0.1s;
   }
@@ -321,7 +366,7 @@ body, html {
   @media screen and (max-width: 40em) {
     .search__form {
       width: 100%;
-      padding: 2em 1em 0;
+      // padding: 2em 1em 0;
     }
     .search__input {
       font-size: 2em;
@@ -395,6 +440,20 @@ body, html {
         width: 100%;
         height: 2em;
         font-size: 2.5em;
+      }
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    #findAllTab {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 85%;
+      #allDogs, #allCats {
+        width: 100%;
+        height: 2em;
+        font-size: 2em;
       }
     }
   }
