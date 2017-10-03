@@ -184,6 +184,14 @@ body, html {
     }
   }
 
+  @media screen and (max-width: 400px) {
+    .search__form {
+      min-width: 300px;
+      margin-top: 3em;
+      margin-left: 0;
+    }
+  }
+
   .search__input {
     font-family: inherit;
     font-size: 4em;
@@ -285,7 +293,7 @@ body, html {
     .search__suggestion p {
       margin-top: 1em;
       font-size: 1em;
-      max-width: 300px;
+      max-width: 250px;
     }
   }
 
@@ -366,14 +374,12 @@ body, html {
   @media screen and (max-width: 40em) {
     .search__form {
       width: 100%;
-      // padding: 2em 1em 0;
     }
     .search__input {
       font-size: 2em;
     }
     .btn--search {
       font-size: 1.25em;
-      right: 1em;
     }
     .btn--search-close {
       font-size: 1.15em;
@@ -456,5 +462,11 @@ body, html {
         font-size: 2em;
       }
     }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #mainContainer {
+    width: 90%;
   }
 }
