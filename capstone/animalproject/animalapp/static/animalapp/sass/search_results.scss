@@ -64,7 +64,31 @@ $color4: rgba(0, 0, 0, 0.5);
         }
       }
     }
+
+    @media screen and (max-width: 1740px) {
+      #searchFilters {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        #filters {
+          display: flex;
+          flex-direction: column;
+          margin: 1em 0;
+          select {
+            width: 50%;
+            margin: 0.5em 0 0 0;
+          }
+        }
+      }
+    }
   }
+
+  @media screen and (max-width: 1740px) {
+    #searchTools {
+      height: auto;
+    }
+  }
+
   #profilePreview {
     display: flex;
     flex-direction: column;
@@ -102,6 +126,12 @@ $color4: rgba(0, 0, 0, 0.5);
       justify-content: center;
       align-items: center;
       margin: 0 0.5em 1em 0.5em;
+    }
+  }
+
+  @media screen and (max-width: 1915px) {
+    #profilePreview {
+      width: 23%;
     }
   }
 }
