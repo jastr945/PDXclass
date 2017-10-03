@@ -53,6 +53,29 @@ $color4: rgba(0, 0, 0, 0.5);
       }
     }
 
+    @media screen and (max-width: 800px) {
+      #searchBar {
+        font-size: 0.8em;
+        width: 100%;
+        #previousSearch {
+          width: auto;
+        }
+      }
+    }
+
+    @media screen and (max-width: 590px) {
+      #searchBar {
+        font-size: 0.7em;
+        width: 100%;
+        #previousSearch {
+          width: 60%;
+        }
+        #searchAgain {
+          padding: 0;
+        }
+      }
+    }
+
     #searchFilters {
       display: flex;
       flex-direction: row;
@@ -77,6 +100,7 @@ $color4: rgba(0, 0, 0, 0.5);
         display: flex;
         flex-direction: column;
         padding: 0;
+        font-size: 0.8em;
         #filters {
           display: flex;
           flex-direction: column;
@@ -89,9 +113,21 @@ $color4: rgba(0, 0, 0, 0.5);
       }
     }
 
-    @media screen and (max-width: 1740px) {
+    @media screen and (max-width: 400px) {
       #searchFilters {
-        font-size: 0.8em;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        font-size: 0.7em;
+        #filters {
+          display: flex;
+          flex-direction: column;
+          margin: 1em 0;
+          select {
+            width: 100%;
+            margin: 0.5em 0 0 0;
+          }
+        }
       }
     }
   }
@@ -171,6 +207,24 @@ $color4: rgba(0, 0, 0, 0.5);
     #profilePreview {
       margin:0 0 0.5em 0.5em;
       width: 31%;
+    }
+  }
+
+  @media screen and (max-width: 790px) {
+    #profilePreview {
+      margin:0 0 0.5em 0.5em;
+      width: 46%;
+    }
+  }
+
+  @media screen and (max-width: 590px) {
+    #profilePreview {
+      margin:0 0 0.5em 0.5em;
+      width: 100%;
+      img {
+        width: 9em;
+        height: 9em;
+      }
     }
   }
 }
