@@ -20,12 +20,26 @@ body, html {
   justify-items: center;
   width: 75%;
   height: auto;
-  overflow: auto;
-  margin: auto;
+  min-height: 100%;
+  margin: 0 auto;
   padding: 0;
   background-color: $color1;
   font-family: Arial;
   color: $color2;
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    margin: auto auto 0.5em auto;
+    hr {
+      align-items: stretch;
+      width: 100%;
+    }
+  }
+
   h1 {
     font-size: 3em;
     padding: 0.5em;
@@ -64,6 +78,7 @@ body, html {
       font-size: 1.2em;
     }
   }
+}
 
   /* Search Tab on the main page*/
 
@@ -74,7 +89,7 @@ body, html {
   	flex-direction: column;
   	align-items: center;
   	width: 100%;
-  	height: 100vh;
+  	height: 86vh;
   }
 
   /* Buttons */
@@ -462,7 +477,6 @@ body, html {
       }
     }
   }
-}
 
 @media screen and (max-width: 500px) {
   #mainContainer {

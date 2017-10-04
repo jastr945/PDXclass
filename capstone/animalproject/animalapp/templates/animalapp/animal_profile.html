@@ -1,14 +1,14 @@
 {% extends 'animalapp/base.html' %}
 {% load static %}
-<title>{% block title %}Profile{% endblock %}</title>
+{% block title %}Pet's Profile{% endblock %}
 
 {% block content %}
     {% if messages %}
-            <div class="messages">
-                {% for message in messages %}
-                    <div class="{{ message.tags }}">{{ message }}</div>
-                {% endfor %}
-            </div>
+      <div class="messages">
+          {% for message in messages %}
+              <div class="{{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+      </div>
     {% endif %}
     {% if animals %}
         <div class="slides">
@@ -155,7 +155,7 @@
             The specified animal profile does not exist! Please double-check the animal's ID number.
         </div>
     {% endif %}
-{% endblock %}
+{% endblock content %}
 
 {% block js %}
     <script src="{% static 'animalapp/js/animal_profile.js' %}"></script>

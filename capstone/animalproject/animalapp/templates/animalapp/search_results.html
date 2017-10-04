@@ -1,6 +1,6 @@
 {% extends 'animalapp/base.html' %}
 {% load static %}
-<title>{% block title %}Search Results{% endblock %}</title>
+{% block title %}Search Results{% endblock %}
 {% block content %}
     {% if filtered_animals.qs %}
         <div id="searchResultsBlock">

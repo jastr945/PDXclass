@@ -6,6 +6,19 @@ $color4: rgba(0, 0, 0, 0.5);
 
 /* Profile Pages */
 
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  margin: 1em auto;
+  hr {
+    align-items: stretch;
+    width: 100%;
+  }
+}
+
 .messages {
     align-self: center;
     font-size: 1.5em;
@@ -275,13 +288,13 @@ $color4: rgba(0, 0, 0, 0.5);
   #profile {
     padding: 0.5em;
     #profileBox {
-      width: 85%;
+      width: 95%;
     }
     font-size: 0.5em;
     #personalityBox {
       width: 100%;
       #socialMedia {
-        width: 80%
+        width: 80%;
       }
     }
   }
