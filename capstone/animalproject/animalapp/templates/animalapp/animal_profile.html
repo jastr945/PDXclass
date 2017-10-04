@@ -107,47 +107,48 @@
                     <div id="pinterest">
                         <a href="http://pinterest.com/pin/create/button/?url=http://ofosa.org/&media=http://ofosa.org/&description=OFOSA"
                            target="_blank">
-                        <img class="social" src="{% static 'animalapp/img/pinterest.png' %}"></a></div>
-                    <div>
-                        <div id="personalityProfile">
-                            {% if animals.cat %}
-                                <div class="profileRow">
-                                    <div class="left">Personality:</div>
-                                    <div class="right">{{ animals.cat.cat_personality }}</div>
-                                </div>
-                            {% else %}
-                                <div class="profileRow">
-                                    <div class="left">Personality:</div>
-                                    <div class="right">{{ animals.dog.dog_personality }}</div>
-                                </div>
-                            {% endif %}
-                            {% if animals.notes %}
-                                <div class="profileRow">
-                                    <div class="left">Special note:</div>
-                                    <div class="right">{{ animals.notes }}</div>
-                                </div>
-                            {% endif %}
-                            <div class="profileRow">
-                                <div class="left">Tags:</div>
-                                <div class="right tags">
-                                    {% for tag in  animals.tags.all %}
-                                        <form method="get">
-                                            <input type="submit" class="tag" name="tag" value="{{ tag }}">
-                                        </form>
-                                    {% endfor %}
-                                </div>
-                            </div>
+                        <img class="social" src="{% static 'animalapp/img/pinterest.png' %}"></a>
+                    </div>
+                </div>
+                <div id="personalityProfile">
+                    {% if animals.cat %}
+                        <div class="profileRow">
+                            <div class="left">Personality:</div>
+                            <div class="right">{{ animals.cat.cat_personality }}</div>
                         </div>
-                        <div id="contactButtons">
-                        <div id="ask" class="contact">Ask about {{ animals.name }}
-                            <img class="contactIcon" src={% static 'animalapp/img/contact.svg' %}/>
+                    {% else %}
+                        <div class="profileRow">
+                            <div class="left">Personality:</div>
+                            <div class="right">{{ animals.dog.dog_personality }}</div>
                         </div>
-                        <div id="donation" class="contact">Send a donation
-                        <img class="contactIcon" src={% static 'animalapp/img/gift.svg' %}/></div>
+                    {% endif %}
+                    {% if animals.notes %}
+                        <div class="profileRow">
+                            <div class="left">Special note:</div>
+                            <div class="right">{{ animals.notes }}</div>
+                        </div>
+                    {% endif %}
+                    <div class="profileRow">
+                        <div class="left">Tags:</div>
+                        <div class="right tags">
+                            {% for tag in  animals.tags.all %}
+                                <form method="get">
+                                    <input type="submit" class="tag" name="tag" value="{{ tag }}">
+                                </form>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
+                <div id="contactButtons">
+                  <div id="ask" class="contact">Ask about {{ animals.name }}
+                      <img class="contactIcon" src={% static 'animalapp/img/contact.svg' %}/>
+                  </div>
+                  <div id="donation" class="contact">Send a donation
+                  <img class="contactIcon" src={% static 'animalapp/img/gift.svg' %}/></div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
     {% else %}
         <div class="messages">
@@ -160,4 +161,3 @@
     <script src="{% static 'animalapp/js/animal_profile.js' %}"></script>
     <script src="{% static 'animalapp/js/PgwSlideshow-master/pgwslideshow.js' %}"></script>
 {% endblock %}
-

@@ -35,12 +35,20 @@ $color4: rgba(0, 0, 0, 0.5);
   }
 }
 
+@media screen and (max-width: 1700px) {
+  .slides {
+    width: 100%;
+    margin: 2em 0 0 0;
+  }
+}
+
 #profile {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 82em;
+  width: 93%;
+  height: auto;
   margin: 2em auto;
   padding: 2em;
   background-color: $color3;
@@ -62,6 +70,7 @@ $color4: rgba(0, 0, 0, 0.5);
       flex-wrap: wrap;
       width: 100%;
       height: auto;
+      overflow: auto;
       min-height: 3em;
       justify-content: space-between;
       margin: 0;
@@ -82,15 +91,17 @@ $color4: rgba(0, 0, 0, 0.5);
   }
 
   #personalityBox {
-    //background-color: blueviolet;
+    background-color: purple;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-items: center;
     width: 52%;
+    height: auto;
     margin: 0 auto;
     padding-left: 0;
     #socialMedia {
+      background-color: yellow;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -106,7 +117,6 @@ $color4: rgba(0, 0, 0, 0.5);
       }
     }
     #personalityProfile {
-      //background-color: green;
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
@@ -193,6 +203,72 @@ $color4: rgba(0, 0, 0, 0.5);
         width: 1em;
         margin-left: 0.8em;
         padding: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1845px) {
+  #profile {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    #profileBox {
+      width: 70%;
+      align-self: center;
+    }
+
+    #personalityBox {
+      width: 70%;
+      #socialMedia {
+        padding: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1390px) {
+  #profile {
+    #profileBox {
+      width: 90%;
+    }
+    #personalityBox {
+      width: 90%;
+      #socialMedia {
+        height: auto;
+        padding: 0;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #personalityProfile {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #profile {
+    font-size: 0.7em;
+    #profileBox {
+      width: 90%;
+    }
+    #personalityBox {
+      width: 90%;
+      #socialMedia {
+        height: auto;
+        padding: 0;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #personalityProfile {
+        padding: 0;
+        width: 100%;
       }
     }
   }
