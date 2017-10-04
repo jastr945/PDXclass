@@ -26,7 +26,7 @@ $color4: rgba(0, 0, 0, 0.5);
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 550px) {
   #addOption, #seeAllOption {
     h1 {
       font-size: 20px;
@@ -404,6 +404,26 @@ $color4: rgba(0, 0, 0, 0.5);
         }
       }
 
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  #tableContainer {
+    .filterPanel {
+      select {
+        width: 100%;
+      }
+    }
+    .dataBaseRow {
+      font-size: 0.8em;
+    }
+    .deleteEntry {
+      font-size: 0.8em;
+      padding: 0.5em 0;
+      input {
+        padding: 0;
+      }
     }
   }
 }
