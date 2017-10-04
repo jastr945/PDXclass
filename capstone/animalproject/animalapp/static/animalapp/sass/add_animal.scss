@@ -18,6 +18,22 @@ $color4: rgba(0, 0, 0, 0.5);
   }
 }
 
+@media screen and (max-width: 950px) {
+  #addOption, #seeAllOption {
+    h1 {
+      font-size: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #addOption, #seeAllOption {
+    h1 {
+      font-size: 20px;
+    }
+  }
+}
+
 .submitButton {
   align-self: center;
   height: 2.5em;
@@ -315,6 +331,79 @@ $color4: rgba(0, 0, 0, 0.5);
       margin: 0 1em 0 0;
       font-size: 1em;
       cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  #tableContainer {
+    #dbfilters {
+      font-size: 1.2em;
+    }
+    .dataBaseRow {
+      font-size: 1.2em;
+    }
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  #tableContainer {
+    #dbfilters {
+      display: flex;
+      flex-direction: column;
+    }
+    .dataBaseRow {
+      .dataBaseInfo {
+        width: auto;
+      }
+      .dataBaseInfo div {
+        width: auto;
+        margin-right: 1em;
+      }
+    }
+    .deleteEntry {
+      font-size: 1em;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  #tableContainer {
+    .filterPanel {
+      display: flex;
+      flex-direction: column;
+      margin-top: 0.5em;
+      select {
+        width: 50%;
+        margin-top: 0.5em;
+      }
+    }
+    .dataBaseRow {
+      height: auto;
+      .dataBaseInfo {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #tableContainer {
+    #dbfilters {
+      font-size: 1em;
+    }
+    .dataBaseRow {
+      font-size: 1em;
+      .dataButtons {
+        display: flex;
+        flex-direction: column;
+        .dbButton {
+          margin-top: 0.5em;
+          margin-bottom: 0.5em;
+        }
+      }
+
     }
   }
 }
