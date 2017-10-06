@@ -176,6 +176,39 @@ $color4: rgba(0, 0, 0, 0.5);
   }
 }
 
+@media screen and (max-width: 1400px) {
+  #addAnimalTable, .editProfile {
+    width: 100%;
+    margin:0;
+    #errordiv {
+      width: 75%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    font-size: 1.2em;
+    .addAnimalRows {
+      width: 75%;
+      margin-left: auto;
+      margin-right: auto;
+      .right {
+        width: 100%;
+        margin-top: 0.5em;
+      }
+      #id_notes {
+        width: 100%;
+        min-height: 3em;
+        height: auto;
+      }
+      #id_img, #id_name, #id_id_number {
+        width: 100%;
+      }
+      #id_species, #id_location, #id_status, #id_dog_breed, #id_size, #id_weight, #id_cat_breed, #id_cat_color {
+        width: inherit;
+      }
+    }
+  }
+}
+
 .headline {
   align-self: center;
   justify-content:center;
