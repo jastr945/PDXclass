@@ -261,6 +261,25 @@ $color4: rgba(0, 0, 0, 0.5);
   }
 }
 
+@media screen and (max-width: 400px) {
+  #addAnimalTable, .editProfile {
+    .photos {
+      display: flex;
+      flex-direction: column;
+      img {
+        height: 30;
+        margin-top: 0.5em;
+      }
+    }
+    .addAnimalRows {
+      #id_notes {
+        font-size: 0.55em;
+      }
+    }
+  }
+}
+
+
 .headline {
   align-self: center;
   justify-content:center;
