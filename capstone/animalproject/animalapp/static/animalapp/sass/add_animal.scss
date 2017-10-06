@@ -64,6 +64,7 @@ $color4: rgba(0, 0, 0, 0.5);
   font-size: 1.5em;
 
   #errordiv {
+    display: none;
     color: red;
     font-size: 0.8em;
     margin: 1em 0;
@@ -180,12 +181,12 @@ $color4: rgba(0, 0, 0, 0.5);
   #addAnimalTable, .editProfile {
     width: 100%;
     margin:0;
+    font-size: 1.2em;
     #errordiv {
       width: 75%;
       margin-right: auto;
       margin-left: auto;
     }
-    font-size: 1.2em;
     .addAnimalRows {
       width: 75%;
       margin-left: auto;
@@ -203,7 +204,58 @@ $color4: rgba(0, 0, 0, 0.5);
         width: 100%;
       }
       #id_species, #id_location, #id_status, #id_dog_breed, #id_size, #id_weight, #id_cat_breed, #id_cat_color {
-        width: inherit;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #addAnimalTable, .editProfile {
+    #errordiv {
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #addAnimal {
+      width: 100%;
+    }
+    .addAnimalRows {
+      width: 90%;
+      #id_notes {
+        width: 100%;
+        min-height: 3em;
+        height: auto;
+      }
+      #id_img, #id_name, #id_id_number {
+        width: 100%;
+      }
+      #id_species, #id_location, #id_status, #id_dog_breed, #id_size, #id_weight, #id_cat_breed, #id_cat_color {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #addAnimalTable, .editProfile {
+    font-size: 1em;
+    .addAnimalRows {
+    }
+  }
+}
+
+@media screen and (max-width: 630px) {
+  #addAnimalTable, .editProfile {
+    .addAnimalRows {
+      .two-columns {
+        -moz-column-count: 1; /* Firefox */
+        -webkit-column-count: 1; /* Safari and Chrome */
+        column-count: 1;
+        margin: 1em 0;
+        li, div {
+          width: 15em;
+        }
       }
     }
   }
