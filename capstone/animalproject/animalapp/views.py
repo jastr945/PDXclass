@@ -195,6 +195,11 @@ def add_animal(request):
 
     # editing a profile and re-submitting an edited form
     elif request.POST.get('edit'):
+
+        # only logged users can edit profiles
+        if not request.user.is_authenticated:
+            return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+
         animal = get_object_or_404(Animal, id=request.POST['edit'])
         edit_form = AnimalForm(request.POST, instance=animal)
         if edit_form.initial['species'] == 'cat':
@@ -236,6 +241,11 @@ def add_animal(request):
 
     # deleting a profile
     elif request.GET.get('deleteButton'):
+
+        # only logged users can delete profiles
+        if not request.user.is_authenticated:
+            return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+
         get_object_or_404(Animal, id=request.GET['animalID']).delete()
         messages.success(request, 'The profile was successfully deleted from the database!')
         return HttpResponseRedirect('/add_animal/')
