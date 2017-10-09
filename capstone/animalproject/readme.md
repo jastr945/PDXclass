@@ -23,7 +23,7 @@ The information about adoptable animals will be contained in animal profiles sto
 ![alt text]( https://github.com/jastr945/PDXclass/blob/master/capstone/animalproject/animalapp/static/animalapp/img/capstone_data_structure.jpg "Data model diagram")
  ### Technical Components
 
-**__The responsive design was created using SASS and CSS Flexbox.__**
+**__The responsive design was created using SASS and CSS Flexbox. Media queries were added for different screen sizes.__**
 
 #### Sign up/ log in pages
 - Django built-in authentication system
