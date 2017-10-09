@@ -1,19 +1,19 @@
 # A Searchable Database For An Animal Shelter
 ### Product Overview
- The goal of this project is to set up a searchable database, which could be potentially used on a website of any animal shelter or animal rescue organization. This search engine will allow potential adopters to find the best match. The shelter team should be able to add and edit animal profiles easily. The new application will be simply looking, easy to use, lightweight and mobile-friendly. It's very important for any animal rescue team to be able to access the database from any device and edit it on the go. 
+ The goal of this project is to set up a searchable database, which could be potentially used on a website of any animal shelter or animal rescue organization. This search engine will allow potential adopters to find the best match. The shelter team should be able to add and edit animal profiles easily. This Django app is simply looking, easy to use, lightweight and mobile-friendly.
 ### Specific Functionality
-The information about adoptable animals will be contained in animal profiles stored in the database. The project will have two main sections for the two groups of users: 
+The information about adoptable animals will be contained in animal profiles stored in the database. The project will have two main sections for the two groups of users:
    - the database management system available **for the shelter staff** from the admin panel;
    - the search engine available **for everyone** on the main website.
 ##### 1. Database Management
 - Ability to search through the profiles and filter results
 - Ability to add new profiles quickly, with as little typing as possible, eg. by selecting tags for personality description
-- Plenty of options to choose from, when creating a new profile (drop-down or autocomplete)
+- Plenty of options to choose from, when creating a new profile (drop-down and select menus)
 - Ability to add many profiles one by one easily
 - Ability to search, view, sort, edit and delete existing profiles
 - Ability to upload multiple pictures to every animal profile
 ##### 2. Search Engine
-- Full text search and autosuggest. Enables users to quickly find and select from a pre-populated list of values as they type. Will correct user's typos.
+- Searching by tags (full text search and autosuggest with ElasticSearch coming soon)
 - Ability to see all profiles at once or apply filters
 - Ability to sort search results
 - Ability to share profiles on social media
@@ -28,12 +28,14 @@ The information about adoptable animals will be contained in animal profiles sto
 #### Sign up/ log in pages
 - Django built-in authentication system
 - Customized templates
+- The ability to edit and delete existing profiles is reserved only for logged users
 
 #### My Activity page
 - Django ModelForm based on 3 models
 - Basic form validation in models, views and HTML
 - Django FileField uploading multiple images
 - Django TypedChoiceFields with customized RadioSelect widgets
+- Django Multiselect package for selecting multiple categories
 - Python function calculating each animal's precise age
 - Python function adding 'kitten', 'puppy' or 'adult' tags depending on animal's age
 - RegEx function splitting several-words fields into one-word tags
@@ -53,10 +55,10 @@ The information about adoptable animals will be contained in animal profiles sto
 
 #### Animal Profiles
 - Image gallery (JQuery PGWSlideShow slider)
-- Social media buttons (HTML)
+- Social media buttons
 - Searchable tags (Django Taggit package)
-- An email button to contact the shelter team (HTML, coming soon)
-- A donation button for sending money (HTML, coming soon)
+- An email button to contact the shelter team
+- A donation button for sending money
 
 ### Sketches
 1. Search engine page prototype
@@ -83,4 +85,4 @@ week 4: connecting all of the elements and working on design
 - Add a messenger to the admin panel and connect it to the 'ask a question' button in the animal profile
 - Allow users to choose ‘list-view’ or ‘grid-view’ for search results.
 - Show search progress (insert a progress indicator)
-- Provide alternatives when there are no matching search results 
+- Provide alternatives when there are no matching search results
