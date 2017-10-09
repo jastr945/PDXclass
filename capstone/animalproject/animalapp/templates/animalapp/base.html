@@ -36,7 +36,11 @@
     {% endblock %}
     <footer>
       <hr>
-      <small>&copy; 2017 Polina Jastrzebska</small>
+      <small>&copy;
+        <script type="text/javascript">
+          document.write(new Date().getFullYear());
+        </script>
+        &nbsp;Polina Jastrzebska</small>
     </footer>
 </div>
 {% block js %}
