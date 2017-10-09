@@ -181,6 +181,7 @@ $color4: rgba(0, 0, 0, 0.5);
   @media screen and (max-width: 1915px) {
     #profilePreview {
       width: 23%;
+      font-size: 0.8em;
     }
   }
 
@@ -195,7 +196,6 @@ $color4: rgba(0, 0, 0, 0.5);
     #profilePreview {
       margin:0 0 0.5em 0.5em;
       width: 23%;
-      font-size: 0.8em;
       img {
         width: 7em;
         height: 7em;
