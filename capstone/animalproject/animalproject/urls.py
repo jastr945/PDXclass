@@ -35,4 +35,4 @@ urlpatterns = [
     url(r'^search_results/', views.search_results, name='search_results'),
     url(r'^delete_img/', views.delete_img, name='delete_img'),
 
-    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

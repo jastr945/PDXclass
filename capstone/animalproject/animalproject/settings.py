@@ -25,7 +25,7 @@ SECRET_KEY = '6x2l%(0$(^6(@x6&(eumeu+z=1k^#5^g@n6yl(fjbegp@%unjx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '192.168.0.109']
+ALLOWED_HOSTS = ['localhost', '192.168.0.109', '192.168.0.106']
 
 
 # Application definition
@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'animalproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': '/var/lib/animalproject/db.sqlite3',
     }
 }
 
@@ -143,3 +143,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'animalapp', 'static')]
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATIC_ROOT = '/staticfiles'
