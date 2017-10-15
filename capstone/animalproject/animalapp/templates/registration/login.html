@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/animalapp/sass/index.css' %}">
+</head>
+<body>
+<div id="mainContainer">
+  <div class="headline"><h1>Please Log In</h1></div>
+  <form class="forms" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+</div>
+</body>
+</html>

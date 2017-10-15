@@ -24,7 +24,7 @@ def signup(request):
             return redirect('add_animal')
     else:
         form = SignUpForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'registration/signup.html', {'form': form})
 
 
 def login_view(request):

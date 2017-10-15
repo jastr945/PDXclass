@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6x2l%(0$(^6(@x6&(eumeu+z=1k^#5^g@n6yl(fjbegp@%unjx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '192.168.0.109', '192.168.0.106']
+ALLOWED_HOSTS = ['localhost', '192.168.0.109', '192.168.0.106', 'pets.mee.how']
 
 
 # Application definition
@@ -60,6 +60,7 @@ LOGOUT_REDIRECT_URL = ''
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
