@@ -143,6 +143,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'animalapp', 'static')]
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/animalmedia'
 
 STATIC_ROOT = '/staticfiles'
