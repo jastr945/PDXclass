@@ -1,0 +1,104 @@
+body {
+	background: #3E4649;
+	color: #f7f7f7;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+
+
+
+.jumbotron {
+	background: #480082;
+	color: white;
+	text-align: center;
+	margin-bottom: 0;
+	padding-top: 18px;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: transparent;
+	border-color: white;
+	margin-bottom: 5px;
+}
+
+.btn-primary:hover {
+	color: #27A967;
+	background-color: white;
+	border-color: white;
+}
+
+.dropdown-menu {
+	font-size: 20px;
+}
+
+.dropdown-toggle {
+	font-size: 20px;
+}
+
+@media screen and (max-width: 550px) {
+	.dropdown-menu li {
+		font-size: 11px;
+		padding: 5px 0px;
+		margin-left: 0px;
+	}
+
+	.dropdown-toggle li {
+		font-size: 12px;
+		padding: 5px 0px;
+		margin-left: 1px;
+		left: 0%;
+	}
+
+	.navbar-brand {
+		font-size: 11px;
+	}
+}
+
+#article {
+  text-align: justify;
+  font-size: 1.2em;
+	margin-top: 36px;
+}
+
+h2 {
+	text-align: center;
+}
+
+#scifiSlider {
+	max-height: 650px;
+  overflow: hidden;
+}
+
+.item > img {
+	width: 100%;
+	height: auto;
+}
+
+.carousel-caption {
+	top: 3%;
+	left: 8%;
+	font-size: 36px;
+	text-align: left;
+	width:100%;
+	padding-top: 0;
+}
+
+footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 95%;
+	margin: 0.5em auto;
+}
+
+hr {
+	align-items: stretch;
+	width: 100%;
+	color: white;
+	margin-bottom: 5px;
+}
