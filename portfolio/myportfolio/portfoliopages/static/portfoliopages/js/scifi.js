@@ -1,6 +1,6 @@
 // Using jquery-csv plugin to parse the csv file and extract the names of Wikipedia articles
 $.ajax({
-    url: "portfoliopages/img/scifi_genres.csv",
+    url: "/static/portfoliopages/data/scifi_genres.csv",
     async: false,
     success: function (csvd) {
         data = $.csv.toArrays(csvd);
