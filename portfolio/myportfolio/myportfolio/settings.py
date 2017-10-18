@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'egswytb3%7wymhudk&2c7jcjan44$lvn80z6!&w4i!ad1uo&@3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['192.168.0.106', 'polina.mee.how', 'localhost', '192.168.0.109']
 
@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'myportfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': '/var/lib/myportfolio/db.sqlite3',
     }
 }
 
@@ -129,6 +129,6 @@ STATIC_ROOT = '/staticfiles'
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/portfoliomedia'
 
 GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-107312786-1'

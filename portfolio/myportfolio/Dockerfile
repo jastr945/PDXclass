@@ -1,7 +1,7 @@
 FROM python:3.6
 
 WORKDIR /usr/src/app
-RUN pip install django Pillow uwsgi django-analytical
+RUN pip install django Pillow uwsgi django-analytical WhiteNoise
 COPY . .
 RUN python3 manage.py collectstatic
 
