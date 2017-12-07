@@ -153,7 +153,7 @@
     "pk": 18,
     "fields": {
       "name": "ElasticSearch App",
-      "description": "A responsive Django web app with a fast, full-text search engine powered by ElasticSearch library. Type the first letter and choose an article from the drop down list. Or just try keyword to see if there are any hits!",
+      "description": "A responsive Django web app with a fast, full-text search engine powered by ElasticSearch library. Type the first letter and choose an article from the drop down list. Or just try a keyword to see if there are any hits! The app was deployed with Docker-compose.",
       "demo_link": "http://search.mee.how/",
       "project_link": "https://github.com/jastr945/xperiments/tree/master/search/search_engine",
       "readme_link": "https://github.com/jastr945/xperiments/tree/master/search/search_engine#elasticsearch-app",
