@@ -18,6 +18,8 @@ services:
     restart: always
     env_file: /etc/myportfolio/env.conf
     volumes:
-      - dbdata:/var/lib/mysql/data
+      - dbdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 volumes:
   dbdata:

@@ -73,12 +73,11 @@
     "model": "portfoliopages.bio",
     "pk": 11,
     "fields": {
-      "name": "Bio",
       "text": "I’m a Software Developer, whose skill set covers both front-end and back-end technologies. I enjoy working on software solutions helping others and participating in meaningful projects that solve real problems. I’m a strong supporter of open source software development movement, as well as an active member of Portland’s tech community.<br><br>This website is a playground for me to experiment with various technologies. Click on the fields below to see the apps that I've created during my learning process."
     }
   },
   {
-    "model": "searchapp.project",
+    "model": "portfoliopages.project",
     "pk": 12,
     "fields": {
       "name": "Angry Dice",
@@ -90,7 +89,7 @@
     }
   },
   {
-    "model": "searchapp.project",
+    "model": "portfoliopages.project",
     "pk": 13,
     "fields": {
       "name": "Weather Forecast",
@@ -102,7 +101,7 @@
     }
   },
   {
-    "model": "searchapp.project",
+    "model": "portfoliopages.project",
     "pk": 14,
     "fields": {
       "name": "Catch a Mole",
@@ -114,7 +113,7 @@
     }
   },
   {
-    "model": "searchapp.project",
+    "model": "portfoliopages.project",
     "pk": 15,
     "fields": {
       "name": "Caesar Cipher",
@@ -126,7 +125,7 @@
     }
   },
   {
-    "model": "searchapp.project",
+    "model": "portfoliopages.project",
     "pk": 16,
     "fields": {
       "name": "Find a Pet",
@@ -138,7 +137,7 @@
     }
   },
   {
-    "model": "searchapp.project",
+    "model": "portfoliopages.project",
     "pk": 17,
     "fields": {
       "name": "SciFi StudyRoom",
@@ -150,7 +149,7 @@
     }
   },
   {
-    "model": "searchapp.project",
+    "model": "portfoliopages.project",
     "pk": 18,
     "fields": {
       "name": "ElasticSearch App",
@@ -162,7 +161,7 @@
     }
   },
   {
-    "model": "searchapp.project",
+    "model": "portfoliopages.project",
     "pk": 19,
     "fields": {
       "name": "Urban Amenities",

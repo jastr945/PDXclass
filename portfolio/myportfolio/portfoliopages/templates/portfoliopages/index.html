@@ -40,7 +40,7 @@
             <div id="personalInfo">
                 <div id="bioText">
                     {% for b in bio %}
-                        <p>{{ b.text|linebreaks }}</p>
+                        <p>{{ b.text|safe }}</p>
                     {% endfor %}
                 </div>
 
