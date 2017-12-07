@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'egswytb3%7wymhudk&2c7jcjan44$lvn80z6!&w4i!ad1uo&@3'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'egswytb3%7wymhudk&2c7jcjan44$lvn80z6!&w4i!ad1uo&@3')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = ['192.168.0.106', 'polina.mee.how', 'localhost', '192.168.0.109']
 
@@ -129,6 +129,6 @@ STATIC_ROOT = '/staticfiles'
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = '/portfoliomedia'
+MEDIA_ROOT = os.environ.get('DJANGO_MEDIA_ROOT', '/media')
 
 GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-107312786-1'
