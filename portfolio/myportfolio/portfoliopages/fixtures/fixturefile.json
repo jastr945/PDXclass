@@ -1,0 +1,176 @@
+[
+  {
+    "model": "portfoliopages.skill",
+    "pk": 1,
+    "fields": {
+      "name": "Python"
+    }
+  },
+  {
+    "model": "portfoliopages.skill",
+    "pk": 2,
+    "fields": {
+      "name": "Django"
+    }
+  },
+  {
+    "model": "portfoliopages.skill",
+    "pk": 3,
+    "fields": {
+      "name": "HTML"
+    }
+  },
+  {
+    "model": "portfoliopages.skill",
+    "pk": 4,
+    "fields": {
+      "name": "CSS"
+    }
+  },
+  {
+    "model": "portfoliopages.skill",
+    "pk": 5,
+    "fields": {
+      "name": "SASS"
+    }
+  },
+  {
+    "model": "portfoliopages.skill",
+    "pk": 6,
+    "fields": {
+      "name": "JavaScript"
+    }
+  },
+  {
+    "model": "portfoliopages.skill",
+    "pk": 7,
+    "fields": {
+      "name": "React.js"
+    }
+  },
+  {
+    "model": "portfoliopages.skill",
+    "pk": 8,
+    "fields": {
+      "name": "Linux"
+    }
+  },
+  {
+    "model": "portfoliopages.skill",
+    "pk": 9,
+    "fields": {
+      "name": "Git"
+    }
+  },
+  {
+    "model": "portfoliopages.skill",
+    "pk": 10,
+    "fields": {
+      "name": "Docker"
+    }
+  },
+  {
+    "model": "portfoliopages.bio",
+    "pk": 11,
+    "fields": {
+      "name": "Bio",
+      "text": "I’m a Software Developer, whose skill set covers both front-end and back-end technologies. I enjoy working on software solutions helping others and participating in meaningful projects that solve real problems. I’m a strong supporter of open source software development movement, as well as an active member of Portland’s tech community.<br><br>This website is a playground for me to experiment with various technologies. Click on the fields below to see the apps that I've created during my learning process."
+    }
+  },
+  {
+    "model": "searchapp.project",
+    "pk": 12,
+    "fields": {
+      "name": "Angry Dice",
+      "description": "One of my very first coding projects: a simple JavaScript-based interactive dice game for one player with some JQuery animations. The rules are based on the famous board game called Angry Dice.",
+      "demo_link": "",
+      "project_link": "https://github.com/jastr945/PDXclass/tree/master/JavaScript/angry_dice",
+      "readme_link": "https://github.com/jastr945/PDXclass/tree/master/JavaScript/angry_dice#angry-dice-game",
+      "slug": "angry-dice"
+    }
+  },
+  {
+    "model": "searchapp.project",
+    "pk": 13,
+    "fields": {
+      "name": "Weather Forecast",
+      "description": "One of my very first coding projects: a responsive JavaScript app using AJAX and querying the OpenWeatherMap API. The app shows weather data for a given location and changes the background depending on the forecast.",
+      "demo_link": "",
+      "project_link": "https://github.com/jastr945/PDXclass/tree/master/JavaScript/weather",
+      "readme_link": "https://github.com/jastr945/PDXclass/tree/master/JavaScript/weather#weather-forecast-app",
+      "slug": "weather-forecast"
+    }
+  },
+  {
+    "model": "searchapp.project",
+    "pk": 14,
+    "fields": {
+      "name": "Catch a Mole",
+      "description": "One of my very first coding projects: a one-player game, which uses JavaScript timing functions, score counters and intervals, wrapped in JQuery animations. The goal is to catch as many moles as you can.",
+      "demo_link": "",
+      "project_link": "https://github.com/jastr945/PDXclass/tree/master/JavaScript/whack_a_mole",
+      "readme_link": "https://github.com/jastr945/PDXclass/tree/master/JavaScript/whack_a_mole",
+      "slug": "catch-a-mole"
+    }
+  },
+  {
+    "model": "searchapp.project",
+    "pk": 15,
+    "fields": {
+      "name": "Caesar Cipher",
+      "description": "A JavaScript app with responsive design, which encrypts and decrypts words according to the user’s key.  Any positive integer can serve as a key to convert each letter. It was one of my very first coding projects.",
+      "demo_link": "",
+      "project_link": "https://github.com/jastr945/PDXclass/tree/master/JavaScript/ceasar",
+      "readme_link": "https://github.com/jastr945/PDXclass/tree/master/JavaScript/ceasar",
+      "slug": "caesar-cipher"
+    }
+  },
+  {
+    "model": "searchapp.project",
+    "pk": 16,
+    "fields": {
+      "name": "Find a Pet",
+      "description": "A Django website for an animal shelter, where the shelter staff can add and edit pet profiles. The app uses django-filters, ModelForms and SQL database queries for creating and searching records.",
+      "demo_link": "http://pets.mee.how/",
+      "project_link": "https://github.com/jastr945/PDXclass/tree/master/capstone/animalproject",
+      "readme_link": "https://github.com/jastr945/PDXclass/tree/master/capstone/animalproject#a-searchable-database-for-an-animal-shelter",
+      "slug": "find-a-pet"
+    }
+  },
+  {
+    "model": "searchapp.project",
+    "pk": 17,
+    "fields": {
+      "name": "SciFi StudyRoom",
+      "description": "A JQuery widget, which uses Wikipedia API to load articles on various science fiction genres. Responsive layout was created using Bootstrap CSS.",
+      "demo_link": "",
+      "project_link": "https://github.com/jastr945/xperiments/tree/master/scifi-finder",
+      "readme_link": "https://github.com/jastr945/xperiments/tree/master/scifi-finder#sci-fi-studyroom",
+      "slug": "scifi-studyroom"
+    }
+  },
+  {
+    "model": "searchapp.project",
+    "pk": 18,
+    "fields": {
+      "name": "ElasticSearch App",
+      "description": "A responsive Django web app with a fast, full-text search engine powered by ElasticSearch library. Type the first letter and choose an article from the drop down list. Or just try keyword to see if there are any hits!",
+      "demo_link": "http://search.mee.how/",
+      "project_link": "https://github.com/jastr945/xperiments/tree/master/search/search_engine",
+      "readme_link": "https://github.com/jastr945/xperiments/tree/master/search/search_engine#elasticsearch-app",
+      "slug": "elasticsearch-app"
+    }
+  },
+  {
+    "model": "searchapp.project",
+    "pk": 19,
+    "fields": {
+      "name": "Urban Amenities",
+      "description": "This app uses crowd-sourced data to assist people in housing transit. I was a member of a team who created this project at the Hackathon organized by Wome Who Code and sponsored by Nike and Puppet. It took us 6h, and we became one of the winners!",
+      "demo_link": "https://devpost.com/software/urban-amenities",
+      "project_link": "https://devpost.com/software/urban-amenities",
+      "readme_link": "https://devpost.com/software/urban-amenities",
+      "slug": "urban-amenities"
+    }
+  }
+]
