@@ -7,6 +7,7 @@
 $('#arrow').click(function () {
     $('#titlePageTable').slideUp(300, 'swing', function () {
         $("#mainContainer").appendTo('#firstContainer');
+        $("#mainContainer").css('display', 'flex');
         $('#firstContainer').css('overflow', 'auto');
     });
 });
