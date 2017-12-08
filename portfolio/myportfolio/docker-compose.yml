@@ -8,12 +8,14 @@ services:
       dockerfile: ./Dockerfile
     env_file: /etc/myportfolio/env.conf
     ports:
-      - "80:80"
+      - "5002:80"
     links:
       - db:db
     depends_on:
       db:
        condition: service_healthy
+    volumes:
+      - media:/portfoliomedia
   db:
     image: postgres
     restart: always
@@ -30,3 +32,4 @@ services:
       retries: 3
 volumes:
   dbdata:
+  media:

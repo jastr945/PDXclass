@@ -81,7 +81,7 @@
                     {% for p in projects %}
                         <div id="project" class="project">
                             <div id="projectName"><b>{{ p.name }}</b></div>
-                            <div id="projectImg"><img src="media/{{ p.img }}" alt="Project file" class="projectRoundPic" height="120px" width="120px"></div>
+                            <div id="projectImg"><img src="media/{{ p.img }}" alt="Project image" class="projectRoundPic" height="120px" width="120px"></div>
                             <div id="projectDescription">{{ p.description }}</div>
                             <div id="projectButtons" class="projectButtons" style="display: none">
                               {% if p.demo_link %}

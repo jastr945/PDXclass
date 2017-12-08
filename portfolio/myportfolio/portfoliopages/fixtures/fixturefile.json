@@ -171,5 +171,17 @@
       "readme_link": "https://devpost.com/software/urban-amenities",
       "slug": "urban-amenities"
     }
+  },
+  {
+    "model": "portfoliopages.project",
+    "pk": 20,
+    "fields": {
+      "name": "Coffee Subscriber",
+      "description": "This is a React.js (front-end only) app, which contains an image slider and several toggling functions - created to display coffee recipes in a beautiful way.",
+      "demo_link": "https://codepen.io/jastr945/pen/QOozdv",
+      "project_link": "https://codepen.io/jastr945/pen/QOozdv",
+      "readme_link": "https://codepen.io/jastr945/pen/QOozdv",
+      "slug": "coffee-subscriber"
+    }
   }
 ]
